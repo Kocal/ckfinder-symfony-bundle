@@ -1,9 +1,9 @@
 <?php
 
 $config = [];
-$config['connectorFactoryClass'] = 'CKSource\Bundle\CKFinderBundle\Factory\ConnectorFactory';
-$config['connectorClass'] = 'CKSource\CKFinder\CKFinder';
-$config['authenticationClass'] = 'CKSource\Bundle\CKFinderBundle\Authentication\Authentication';
+$config['connectorFactoryClass'] = \CKSource\Bundle\CKFinderBundle\Factory\ConnectorFactory::class;
+$config['connectorClass'] = \CKSource\CKFinder\CKFinder::class;
+$config['authenticationClass'] = \CKSource\Bundle\CKFinderBundle\Authentication\Authentication::class;
 $config['licenseName'] = '';
 $config['licenseKey'] = '';
 $config['privateDir'] = [

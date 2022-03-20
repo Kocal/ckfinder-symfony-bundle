@@ -1,4 +1,5 @@
 playground/         export-ignore
 tests/              export-ignore
 ecs.php             export-ignore
+rector.php          export-ignore
 phpunit.xml.dist    export-ignore

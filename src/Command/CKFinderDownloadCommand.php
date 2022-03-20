@@ -21,8 +21,6 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Kernel;
 
 /**
- * Class CKFinderDownloadCommand.
- *
  * Command that downloads the CKFinder package and puts assets to the Resources/public directory of the bundle.
  */
 class CKFinderDownloadCommand extends Command
@@ -35,10 +33,7 @@ class CKFinderDownloadCommand extends Command
         parent::__construct();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('ckfinder:download')
              ->setDescription('Downloads the CKFinder distribution package and extracts it to CKSourceCKFinderBundle.');
@@ -46,20 +41,15 @@ class CKFinderDownloadCommand extends Command
 
     /**
      * Creates URL to CKFinder distribution package.
-     *
-     * @return string
      */
-    protected function buildPackageUrl()
+    protected function buildPackageUrl(): string
     {
         $packageVersion = Kernel::MAJOR_VERSION >= 5 ? self::LATEST_VERSION : self::FALLBACK_VERSION;
 
         return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $targetPublicPath = realpath(__DIR__.'/../Resources/public');
 
@@ -94,7 +84,7 @@ class CKFinderDownloadCommand extends Command
 
         $maxBytes = 0;
         $ctx = stream_context_create([], [
-            'notification' => function ($notificationCode, $severity, $message, $messageCode, $bytesTransferred, $bytesMax) use (&$maxBytes, $output, &$progressBar) {
+            'notification' => function ($notificationCode, $severity, $message, $messageCode, $bytesTransferred, $bytesMax) use (&$maxBytes, $output, &$progressBar): void {
                 switch ($notificationCode) {
                     case STREAM_NOTIFY_FILE_SIZE_IS:
                         $maxBytes = $bytesMax;

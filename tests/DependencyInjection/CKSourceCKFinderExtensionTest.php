@@ -63,7 +63,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
      *
      * @return array connector config array fixture
      */
-    protected function getConfig()
+    protected function getConfig(): array
     {
         return require __DIR__.'/../Fixtures/config/ckfinder_config.php';
     }
@@ -71,28 +71,28 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Tests default values set in the container.
      */
-    public function testDefaultValues()
+    public function testDefaultValues(): void
     {
         $this->container->compile();
-        $this->assertSame('CKSource\CKFinder\CKFinder', $this->container->getParameter('ckfinder.connector.class'));
-        $this->assertSame('CKSource\Bundle\CKFinderBundle\Authentication\Authentication', $this->container->getParameter('ckfinder.connector.auth.class'));
+        $this->assertSame(\CKSource\CKFinder\CKFinder::class, $this->container->getParameter('ckfinder.connector.class'));
+        $this->assertSame(\CKSource\Bundle\CKFinderBundle\Authentication\Authentication::class, $this->container->getParameter('ckfinder.connector.auth.class'));
         $this->assertEquals($this->getConfig(), $this->container->getParameter('ckfinder.connector.config'));
     }
 
     /**
      * Tests default services.
      */
-    public function testDefaultServices()
+    public function testDefaultServices(): void
     {
         $this->container->compile();
-        $this->assertInstanceOf('CKSource\CKFinder\CKFinder', $this->container->get('ckfinder.connector'));
-        $this->assertInstanceOf('CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface', $this->container->get('ckfinder.connector.auth'));
+        $this->assertInstanceOf(\CKSource\CKFinder\CKFinder::class, $this->container->get('ckfinder.connector'));
+        $this->assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $this->container->get('ckfinder.connector.auth'));
     }
 
     /**
      * Tests overwriting backend options in the result config.
      */
-    public function testOverwritingDefaultBackendsConfig()
+    public function testOverwritingDefaultBackendsConfig(): void
     {
         $this->container->loadFromExtension($this->extensionAlias, [
             'connector' => [
@@ -117,7 +117,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Tests appending new backends in the result config.
      */
-    public function testAppendingDefaultBackendsConfig()
+    public function testAppendingDefaultBackendsConfig(): void
     {
         $newBackendConfig = [
             'name' => 'my_ftp',
@@ -149,9 +149,9 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Tests the custom authentication service.
      */
-    public function testCustomAuthentication()
+    public function testCustomAuthentication(): void
     {
-        $authClass = 'CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication';
+        $authClass = \CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication::class;
 
         $this->container->loadFromExtension($this->extensionAlias, [
             'connector' => [
@@ -163,7 +163,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
 
         /** @var \CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication $auth */
         $auth = $this->container->get('ckfinder.connector.auth');
-        $this->assertInstanceOf('CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface', $auth);
+        $this->assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $auth);
         $this->assertInstanceOf($authClass, $auth);
 
         /** @var \CKSource\CKFinder\CKFinder $connector */
@@ -179,7 +179,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Tests if the resourceType option is completely overwritten.
      */
-    public function testIfResourceTypesAreNoDeeplyMerged()
+    public function testIfResourceTypesAreNoDeeplyMerged(): void
     {
         $this->container->loadFromExtension($this->extensionAlias, [
             'connector' => [
@@ -213,7 +213,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Tests if the default resource types are used if the resourceType option is not set.
      */
-    public function testIfDefaultResourceTypesAreSet()
+    public function testIfDefaultResourceTypesAreSet(): void
     {
         $this->container->compile();
 

@@ -10,37 +10,15 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class ConnectorFactory
 {
-    /**
-     * @var array
-     */
-    protected $connectorConfig;
+    protected ?CKFinder $connectorInstance = null;
 
-    /**
-     * @var AuthenticationInterface
-     */
-    protected $authenticationService;
+    public function __construct(
+        protected $connectorConfig,
+        protected $authenticationService
+    )
+    {}
 
-    /**
-     * @var CKFinder
-     */
-    protected $connectorInstance;
-
-    /**
-     * ConnectorFactory constructor.
-     *
-     * @param $connectorConfig
-     * @param $authenticationService
-     */
-    public function __construct($connectorConfig, $authenticationService)
-    {
-        $this->connectorConfig = $connectorConfig;
-        $this->authenticationService = $authenticationService;
-    }
-
-    /**
-     * @return CKFinder
-     */
-    public function getConnector()
+    public function getConnector(): CKFinder
     {
         if ($this->connectorInstance) {
             return $this->connectorInstance;
@@ -61,12 +39,10 @@ class ConnectorFactory
 
     /**
      * Prepares the internal CKFinder's DI container to use the version 4+ of HttpKernel.
-     *
-     * @param \CKSource\CKFinder\CKFinder $ckfinder
      */
-    protected function setupForV4Kernel($ckfinder)
+    protected function setupForV4Kernel($ckfinder): void
     {
-        $ckfinder['resolver'] = function () use ($ckfinder) {
+        $ckfinder['resolver'] = function () use ($ckfinder): CommandResolver {
             $commandResolver = new CommandResolver($ckfinder);
             $commandResolver->setCommandsNamespace(CKFinder::COMMANDS_NAMESPACE);
             $commandResolver->setPluginsNamespace(CKFinder::PLUGINS_NAMESPACE);
@@ -74,13 +50,11 @@ class ConnectorFactory
             return $commandResolver;
         };
 
-        $ckfinder['kernel'] = function () use ($ckfinder) {
-            return new HttpKernel(
-                $ckfinder['dispatcher'],
-                $ckfinder['resolver'],
-                $ckfinder['request_stack'],
-                $ckfinder['resolver']
-            );
-        };
+        $ckfinder['kernel'] = fn(): HttpKernel => new HttpKernel(
+            $ckfinder['dispatcher'],
+            $ckfinder['resolver'],
+            $ckfinder['request_stack'],
+            $ckfinder['resolver']
+        );
     }
 }

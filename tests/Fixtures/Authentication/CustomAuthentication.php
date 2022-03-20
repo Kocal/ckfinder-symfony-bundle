@@ -19,20 +19,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class CustomAuthentication implements AuthenticationInterface
 {
-    protected $authenticated = false;
+    protected bool $authenticated = false;
 
-    /**
-     * @param bool $authenticated
-     */
-    public function setAuthenticated($authenticated)
+    public function setAuthenticated(bool $authenticated): void
     {
-        $this->authenticated = (bool) $authenticated;
+        $this->authenticated = $authenticated;
     }
 
-    /**
-     * @return bool
-     */
-    public function authenticate()
+    public function authenticate(): bool
     {
         return $this->authenticated;
     }
@@ -42,7 +36,7 @@ class CustomAuthentication implements AuthenticationInterface
      *
      * @param ContainerInterface|null $container A ContainerInterface instance or null
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         // stub
     }
