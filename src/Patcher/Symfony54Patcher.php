@@ -2,11 +2,6 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Patcher;
 
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-
 class Symfony54Patcher implements PatcherInterface
 {
     use PatcherTrait;

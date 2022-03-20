@@ -70,6 +70,7 @@ class ConnectorFactory
             $commandResolver = new CommandResolver($ckfinder);
             $commandResolver->setCommandsNamespace(CKFinder::COMMANDS_NAMESPACE);
             $commandResolver->setPluginsNamespace(CKFinder::PLUGINS_NAMESPACE);
+
             return $commandResolver;
         };
 

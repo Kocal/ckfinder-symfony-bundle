@@ -3,7 +3,6 @@
 namespace CKSource\Bundle\CKFinderBundle\Patcher;
 
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpFoundation\File\File;
 
 trait PatcherTrait
 {

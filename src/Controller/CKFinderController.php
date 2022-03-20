@@ -12,7 +12,6 @@
 namespace CKSource\Bundle\CKFinderBundle\Controller;
 
 use CKSource\Bundle\CKFinderBundle\Form\Type\CKFinderFileChooserType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -42,13 +41,11 @@ class CKFinderController implements ContainerAwareInterface
     /**
      * Action that handles all CKFinder requests.
      *
-     * @param Request $request
-     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function requestAction(Request $request)
     {
-        /* @var \CKSource\CKFinder\CKFinder $ckfinder */
+        /** @var \CKSource\CKFinder\CKFinder $ckfinder */
         $ckfinder = $this->container->get('ckfinder.connector');
 
         return $ckfinder->handle($request);
@@ -84,23 +81,23 @@ class CKFinderController implements ContainerAwareInterface
                 $form = $formBuilder
                     ->add('foo', TextType::class)
                     ->add('bar', DateType::class)
-                    ->add('ckf1', CKFinderFileChooserType::class, array(
+                    ->add('ckf1', CKFinderFileChooserType::class, [
                         'label' => 'File Chooser 1',
                         'button_text' => 'Browse files (popup)',
-                        'button_attr' => array(
-                            'class' => 'my-class'
-                        )
-                    ))
-                    ->add('ckf2', CKFinderFileChooserType::class, array(
+                        'button_attr' => [
+                            'class' => 'my-class',
+                        ],
+                    ])
+                    ->add('ckf2', CKFinderFileChooserType::class, [
                         'label' => 'File Chooser 2',
                         'mode' => 'modal',
                         'button_text' => 'Browse files (modal)',
-                    ))
+                    ])
                     ->getForm();
 
-                return $this->render('@CKSourceCKFinder/examples/filechooser.html.twig', array(
-                    'form' => $form->createView()
-                ));
+                return $this->render('@CKSourceCKFinder/examples/filechooser.html.twig', [
+                    'form' => $form->createView(),
+                ]);
         }
 
         return $this->render('@CKSourceCKFinder/examples/index.html.twig');
@@ -109,6 +106,7 @@ class CKFinderController implements ContainerAwareInterface
     /**
      * @param $viewName
      * @param array $parameters
+     *
      * @return Response
      */
     protected function render($viewName, $parameters = [])

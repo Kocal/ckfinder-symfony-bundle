@@ -37,9 +37,9 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->container = new ContainerBuilder();
 
-        $this->container->setParameter('templating.engines', array('php', 'twig'));
-        $this->container->setParameter('templating.helper.form.resources', array());
-        $this->container->setParameter('twig.form.resources', array());
+        $this->container->setParameter('templating.engines', ['php', 'twig']);
+        $this->container->setParameter('templating.helper.form.resources', []);
+        $this->container->setParameter('twig.form.resources', []);
         $this->container->setParameter('kernel.cache_dir', '/app/cache');
         $this->container->setParameter('kernel.logs_dir', '/app/logs');
         $this->container->setParameter('kernel.root_dir', '/app');
@@ -59,7 +59,7 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * Returns config fixture.
      *
-     * @return array Connector config array fixture.
+     * @return array connector config array fixture
      */
     protected function getConfig()
     {
@@ -92,16 +92,16 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testOverwritingDefaultBackendsConfig()
     {
-        $this->container->loadFromExtension($this->extensionAlias, array(
-            'connector' => array(
-                'backends' => array(
-                    'default' => array(
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'backends' => [
+                    'default' => [
                         'root' => '/foo/bar',
-                        'baseUrl' => 'http://example.com/foo/bar'
-                    )
-                )
-            )
-        ));
+                        'baseUrl' => 'http://example.com/foo/bar',
+                    ],
+                ],
+            ],
+        ]);
 
         $this->container->compile();
 
@@ -117,7 +117,7 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testAppendingDefaultBackendsConfig()
     {
-        $newBackendConfig = array(
+        $newBackendConfig = [
             'name' => 'my_ftp',
             'adapter' => 'ftp',
             'root' => '/foo/bar',
@@ -125,15 +125,15 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
             'host' => 'localhost',
             'username' => 'user',
             'password' => 'pass',
-        );
+        ];
 
-        $this->container->loadFromExtension($this->extensionAlias, array(
-            'connector' => array(
-                'backends' => array(
-                    'my_ftp' => $newBackendConfig
-                )
-            )
-        ));
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'backends' => [
+                    'my_ftp' => $newBackendConfig,
+                ],
+            ],
+        ]);
 
         $this->container->compile();
 
@@ -145,26 +145,26 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the custom authentication service
+     * Tests the custom authentication service.
      */
     public function testCustomAuthentication()
     {
         $authClass = 'CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication';
 
-        $this->container->loadFromExtension($this->extensionAlias, array(
-            'connector' => array(
-                'authenticationClass' => $authClass
-            )
-        ));
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'authenticationClass' => $authClass,
+            ],
+        ]);
 
         $this->container->compile();
 
-        /* @var $auth \CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication */
+        /** @var \CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication $auth */
         $auth = $this->container->get('ckfinder.connector.auth');
         $this->assertInstanceOf('CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface', $auth);
         $this->assertInstanceOf($authClass, $auth);
 
-        /* @var $connector \CKSource\CKFinder\CKFinder */
+        /** @var \CKSource\CKFinder\CKFinder $connector */
         $connector = $this->container->get('ckfinder.connector');
         $connectorAuth = $connector->offsetGet('authentication');
         $this->assertSame($auth, $connectorAuth);
@@ -179,16 +179,16 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testIfResourceTypesAreNoDeeplyMerged()
     {
-        $this->container->loadFromExtension($this->extensionAlias, array(
-            'connector' => array(
-                'resourceTypes' => array(
-                    'Custom' => array(
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'resourceTypes' => [
+                    'Custom' => [
                         'name' => 'Custom',
-                        'backend' => 'default'
-                    )
-                )
-            )
-        ));
+                        'backend' => 'default',
+                    ],
+                ],
+            ],
+        ]);
 
         $this->container->compile();
 
@@ -197,8 +197,8 @@ class CKSourceCKFinderExtensionTest extends \PHPUnit_Framework_TestCase
         $expected = [
             'Custom' => [
                 'name' => 'Custom',
-                'backend' => 'default'
-            ]
+                'backend' => 'default',
+            ],
         ];
 
         $this->assertEquals($expected, $connectorConfig['resourceTypes']);

@@ -24,18 +24,16 @@ use Symfony\Component\Config\Definition\VariableNode;
 class VariableArrayNode extends VariableNode
 {
     /**
-     * Keys required in variable array node
+     * Keys required in variable array node.
      *
      * @var array
      */
-    protected $requiredKeys = array();
+    protected $requiredKeys = [];
 
     /**
-     * @param string             $name
-     * @param NodeInterface|null $parent
-     * @param array              $requiredKeys
+     * @param string $name
      */
-    public function __construct($name, NodeInterface $parent = null, array $requiredKeys = array())
+    public function __construct($name, NodeInterface $parent = null, array $requiredKeys = [])
     {
         parent::__construct($name, $parent);
         $this->requiredKeys = $requiredKeys;

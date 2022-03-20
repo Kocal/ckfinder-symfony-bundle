@@ -11,11 +11,11 @@
 
 namespace CKSource\Bundle\CKFinderBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
@@ -26,7 +26,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
 {
     public function prepend(ContainerBuilder $container)
     {
-        $fileLocator =  new FileLocator(__DIR__.'/../Resources/config');
+        $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
 
         $loader = new Loader\PhpFileLoader($container, $fileLocator);
         $loader->load('ckfinder_config.php');

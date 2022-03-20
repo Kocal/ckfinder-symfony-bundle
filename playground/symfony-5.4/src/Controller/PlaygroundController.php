@@ -17,8 +17,8 @@ class PlaygroundController extends AbstractController
                 'label' => 'Photo',
                 'button_text' => 'Browse photos',
                 'button_attr' => [
-                    'class' => 'my-fancy-class'
-                ]
+                    'class' => 'my-fancy-class',
+                ],
             ])
             ->getForm();
 

@@ -24,9 +24,9 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
     {
         $fieldType = new CKFinderFileChooserType();
 
-        return array(new PreloadedExtension(array(
+        return [new PreloadedExtension([
             $fieldType,
-        ), array()));
+        ], [])];
     }
 
     public function testFileChooserInstantiation()
@@ -41,8 +41,8 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
 
         $this->assertSame('popup', $view->vars['mode']);
         $this->assertSame('Browse', $view->vars['button_text']);
-        $this->assertSame(array(), $view->vars['button_attr']);
-        $this->assertSame('ckf_filechooser_' . $view->vars['id'], $view->vars['button_id']);
+        $this->assertSame([], $view->vars['button_attr']);
+        $this->assertSame('ckf_filechooser_'.$view->vars['id'], $view->vars['button_id']);
     }
 
     /**
@@ -50,9 +50,9 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
      */
     public function testModeOptionExpectsModalOrPopup()
     {
-        $this->factory->create(CKFinderFileChooserType::class, null, array(
-            'mode' => 'foo'
-        ));
+        $this->factory->create(CKFinderFileChooserType::class, null, [
+            'mode' => 'foo',
+        ]);
     }
 
     /**
@@ -60,9 +60,9 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
      */
     public function testButtonTextOptionExpectsString()
     {
-        $this->factory->create(CKFinderFileChooserType::class, null, array(
-            'button_text' => array()
-        ));
+        $this->factory->create(CKFinderFileChooserType::class, null, [
+            'button_text' => [],
+        ]);
     }
 
     /**
@@ -70,22 +70,22 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
      */
     public function testButtonAttrOptionExpectsArray()
     {
-        $this->factory->create(CKFinderFileChooserType::class, null, array(
-            'button_attr' => 'foo'
-        ));
+        $this->factory->create(CKFinderFileChooserType::class, null, [
+            'button_attr' => 'foo',
+        ]);
     }
 
     public function testViewValues()
     {
-        $form = $this->factory->create(CKFinderFileChooserType::class, null, array(
+        $form = $this->factory->create(CKFinderFileChooserType::class, null, [
             'mode' => 'modal',
             'button_text' => 'foo',
-            'button_attr' => array('class' => 'bar')
-        ));
+            'button_attr' => ['class' => 'bar'],
+        ]);
         $view = $form->createView();
 
         $this->assertSame('modal', $view->vars['mode']);
         $this->assertSame('foo', $view->vars['button_text']);
-        $this->assertSame(array('class' => 'bar'), $view->vars['button_attr']);
+        $this->assertSame(['class' => 'bar'], $view->vars['button_attr']);
     }
 }
