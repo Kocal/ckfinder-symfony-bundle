@@ -12,18 +12,15 @@
 namespace CKSource\Bundle\CKFinderBundle\Tests\Config\Definition;
 
 use CKSource\Bundle\CKFinderBundle\Config\Definition\VariableArrayNode;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
-/**
- * ExtraValuesArrayNode test.
- */
-class VariableArrayNodeTest extends \PHPUnit_Framework_TestCase
+class VariableArrayNodeTest extends TestCase
 {
-    /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidTypeException
-     */
     public function testNormalizeThrowsExceptionIfValueIsNotArray()
     {
+        $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidTypeException::class);
+
         $node = new VariableArrayNode('root');
         $node->normalize('foo');
     }
@@ -174,12 +171,11 @@ class VariableArrayNodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test node finalization without required keys present.
-     *
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
-     * @expectedExceptionMessage The key "bar" at path "foo" must be configured.
      */
     public function testFinalizeValueWithoutRequiredKeys()
     {
+        $this->expectExceptionMessage("The key \"bar\" at path \"foo\" must be configured.");
+        $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
         $node = new VariableArrayNode('foo', null, ['bar']);
         $node->finalize(['a' => 'b']);
     }
