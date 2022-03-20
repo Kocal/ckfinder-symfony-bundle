@@ -12,9 +12,9 @@
 namespace CKSource\Bundle\CKFinderBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -27,23 +27,23 @@ class CKFinderFileChooserType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'button_text' => 'Browse',
-            'button_attr' => array(),
-            'mode'        => 'popup'
-        ));
+            'button_attr' => [],
+            'mode' => 'popup',
+        ]);
 
-        $allowedTypes = array(
+        $allowedTypes = [
             'button_text' => 'string',
             'button_attr' => 'array',
-            'mode'        => 'string'
-        );
+            'mode' => 'string',
+        ];
 
         foreach ($allowedTypes as $option => $allowedType) {
             $resolver->addAllowedTypes($option, $allowedType);
         }
 
-        $resolver->setAllowedValues('mode', array('popup', 'modal'));
+        $resolver->setAllowedValues('mode', ['popup', 'modal']);
     }
 
     /**
@@ -54,7 +54,7 @@ class CKFinderFileChooserType extends AbstractType
         $view->vars['button_text'] = $options['button_text'];
         $view->vars['button_attr'] = $options['button_attr'];
         $view->vars['mode'] = $options['mode'];
-        $view->vars['button_id'] = 'ckf_filechooser_' . $view->vars['id'];
+        $view->vars['button_id'] = 'ckf_filechooser_'.$view->vars['id'];
     }
 
     /**

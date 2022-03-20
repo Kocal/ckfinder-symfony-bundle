@@ -29,7 +29,7 @@ class VariableArrayNodeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test merging
+     * Test merging.
      */
     public function testMerge()
     {
@@ -51,38 +51,38 @@ class VariableArrayNodeTest extends \PHPUnit_Framework_TestCase
             ->end()
             ->buildTree();
 
-        $a = array(
+        $a = [
             'foo' => 'bar',
-            'extra' => array(
+            'extra' => [
                 'foo' => 'a',
-                'bar' => 'b'
-            )
-        );
+                'bar' => 'b',
+            ],
+        ];
 
-        $b = array(
+        $b = [
             'foo' => 'moo',
             'bar' => 'b',
-            'extra' => array(
+            'extra' => [
                 'foo' => 'c',
-                'baz' => 'd'
-            ),
-        );
+                'baz' => 'd',
+            ],
+        ];
 
-        $expected = array(
+        $expected = [
             'foo' => 'moo',
             'bar' => 'b',
-            'extra' => array(
+            'extra' => [
                 'foo' => 'c',
                 'bar' => 'b',
-                'baz' => 'd'
-            )
-        );
+                'baz' => 'd',
+            ],
+        ];
 
         $this->assertEquals($expected, $tree->merge($a, $b));
     }
 
     /**
-     * Test merging when used as a prototype
+     * Test merging when used as a prototype.
      */
     public function testMergeWhenUsedAsAPrototype()
     {
@@ -108,79 +108,79 @@ class VariableArrayNodeTest extends \PHPUnit_Framework_TestCase
             ->end()
             ->buildTree();
 
-        $a = array(
+        $a = [
             'foo' => 'bar',
-            'backends' => array(
-                'cache' => array(
+            'backends' => [
+                'cache' => [
                     'name' => 'cache',
                     'adapter' => 'local',
-                    'root' => '/foo'
-                ),
-                'default' => array(
+                    'root' => '/foo',
+                ],
+                'default' => [
                     'name' => 'default',
                     'adapter' => 'local',
-                    'root' => '/bar'
-                )
-            )
-        );
+                    'root' => '/bar',
+                ],
+            ],
+        ];
 
-        $b = array(
+        $b = [
             'foo' => 'moo',
-            'backends' => array(
-                'cache' => array(
-                    'adapter' => 's3'
-                ),
-                'default' => array(
-                    'root' => '/bar/baz'
-                ),
-                'another' => array(
+            'backends' => [
+                'cache' => [
+                    'adapter' => 's3',
+                ],
+                'default' => [
+                    'root' => '/bar/baz',
+                ],
+                'another' => [
                     'name' => 'another',
-                    'adapter' => 's3'
-                )
-            ),
-        );
+                    'adapter' => 's3',
+                ],
+            ],
+        ];
 
-        $expected = array(
+        $expected = [
             'foo' => 'moo',
-            'backends' => array(
-                'cache' => array(
+            'backends' => [
+                'cache' => [
                     'name' => 'cache',
                     'adapter' => 's3',
-                    'root' => '/foo'
-                ),
-                'default' => array(
+                    'root' => '/foo',
+                ],
+                'default' => [
                     'name' => 'default',
                     'adapter' => 'local',
-                    'root' => '/bar/baz'
-                ),
-                'another' => array(
+                    'root' => '/bar/baz',
+                ],
+                'another' => [
                     'name' => 'another',
-                    'adapter' => 's3'
-                )
-            )
-        );
+                    'adapter' => 's3',
+                ],
+            ],
+        ];
 
         $this->assertEquals($expected, $tree->merge($a, $b));
     }
 
     /**
-     * Test node finalization
+     * Test node finalization.
      */
     public function testFinalizeValue()
     {
         $node = new VariableArrayNode('foo', null);
-        $this->assertSame(array('a' => 'b'), $node->finalize(array('a' => 'b')));
+        $this->assertSame(['a' => 'b'], $node->finalize(['a' => 'b']));
     }
 
     /**
-     * Test node finalization without required keys present
+     * Test node finalization without required keys present.
      *
      * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The key "bar" at path "foo" must be configured.
      */
     public function testFinalizeValueWithoutRequiredKeys()
     {
-        $node = new VariableArrayNode('foo', null, array('bar'));
-        $node->finalize(array('a' => 'b'));
+        $node = new VariableArrayNode('foo', null, ['bar']);
+        $node->finalize(['a' => 'b']);
     }
 }

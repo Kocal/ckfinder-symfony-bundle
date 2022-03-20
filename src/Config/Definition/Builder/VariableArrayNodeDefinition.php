@@ -21,11 +21,11 @@ use Symfony\Component\Config\Definition\VariableNode;
 class VariableArrayNodeDefinition extends VariableNodeDefinition
 {
     /**
-     * Keys required in variable array node
+     * Keys required in variable array node.
      *
      * @var array
      */
-    protected $requiredKeys = array();
+    protected $requiredKeys = [];
 
     /**
      * {@inheritdoc}
@@ -36,9 +36,7 @@ class VariableArrayNodeDefinition extends VariableNodeDefinition
     }
 
     /**
-     * Sets array keys that must be present
-     *
-     * @param array $requiredKeys
+     * Sets array keys that must be present.
      *
      * @return $this
      */
