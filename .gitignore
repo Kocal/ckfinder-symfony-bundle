@@ -1,5 +1,6 @@
 /composer.lock
 /vendor
 
-/_connector
-/Resources/public
+/src/_connector/*
+!/src/_connector/README.md
+/src/Resources/public
