@@ -11,6 +11,7 @@
 
 namespace CKSource\Bundle\CKFinderBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -21,18 +22,10 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        if (method_exists(TreeBuilder::class, 'getRootNode')) {
-            $treeBuilder = new TreeBuilder('ckfinder');
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            $treeBuilder = new TreeBuilder();
-            $rootNode = $treeBuilder->root('ckfinder');
-        }
+        $treeBuilder = new TreeBuilder('ckfinder');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode->append($this->addConnectorNode());
 
@@ -44,15 +37,10 @@ class Configuration implements ConfigurationInterface
      *
      * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition
      */
-    public function addConnectorNode()
+    public function addConnectorNode(): NodeDefinition
     {
-        if (method_exists(TreeBuilder::class, 'getRootNode')) {
-            $treeBuilder = new TreeBuilder('connector');
-            $connectorNode = $treeBuilder->getRootNode();
-        } else {
-            $treeBuilder = new TreeBuilder();
-            $connectorNode = $treeBuilder->root('connector');
-        }
+        $treeBuilder = new TreeBuilder('connector');
+        $connectorNode = $treeBuilder->getRootNode();
 
         $connectorNode
             ->children()

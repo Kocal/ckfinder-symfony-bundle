@@ -12,17 +12,12 @@
 namespace CKSource\Bundle\CKFinderBundle;
 
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
- * Class CKSourceCKFinderBundle
- */
 class CKSourceCKFinderBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new CKSourceCKFinderExtension();
     }

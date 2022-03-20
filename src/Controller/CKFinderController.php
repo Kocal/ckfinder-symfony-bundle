@@ -58,7 +58,7 @@ class CKFinderController implements ContainerAwareInterface
      * Action for CKFinder usage examples.
      *
      * To browse examples, please uncomment ckfinder_examplesroute in
-     * Resources/config/routing.yml and navigate to the /ckfinder/examples path.
+     * Resources/config/routing.yaml and navigate to the /ckfinder/examples path.
      *
      * @param string|null $example
      *

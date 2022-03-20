@@ -24,9 +24,6 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class CKSourceCKFinderExtension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function prepend(ContainerBuilder $container)
     {
         $fileLocator =  new FileLocator(__DIR__.'/../Resources/config');
@@ -41,16 +38,13 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
 
         $loader = new Loader\YamlFileLoader($container, $fileLocator);
-        $loader->load('services.yml');
-        $loader->load('form.yml');
+        $loader->load('services.yaml');
+        $loader->load('form.yaml');
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -61,10 +55,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $container->setParameter('ckfinder.connector.config', $config['connector']);
     }
 
-    /**
-     * @return string
-     */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'ckfinder';
     }

@@ -13,6 +13,7 @@ namespace CKSource\Bundle\CKFinderBundle\Config\Definition\Builder;
 
 use CKSource\Bundle\CKFinderBundle\Config\Definition\VariableArrayNode;
 use Symfony\Component\Config\Definition\Builder\VariableNodeDefinition;
+use Symfony\Component\Config\Definition\VariableNode;
 
 /**
  * Provides an interface for defining an array node with any values.
@@ -29,7 +30,7 @@ class VariableArrayNodeDefinition extends VariableNodeDefinition
     /**
      * {@inheritdoc}
      */
-    protected function instantiateNode()
+    protected function instantiateNode(): VariableNode
     {
         return new VariableArrayNode($this->name, $this->parent, $this->requiredKeys);
     }

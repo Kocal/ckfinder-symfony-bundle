@@ -64,7 +64,7 @@ class VariableArrayNode extends VariableNode
     /**
      * {@inheritdoc}
      */
-    protected function finalizeValue($value)
+    protected function finalizeValue($value): mixed
     {
         foreach ($this->requiredKeys as $requiredKey) {
             if (!array_key_exists($requiredKey, $value)) {
@@ -82,7 +82,7 @@ class VariableArrayNode extends VariableNode
     /**
      * {@inheritdoc}
      */
-    protected function mergeValues($leftSide, $rightSide)
+    protected function mergeValues($leftSide, $rightSide): mixed
     {
         return array_replace_recursive($leftSide, $rightSide);
     }
