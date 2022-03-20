@@ -14,7 +14,6 @@ namespace CKSource\Bundle\CKFinderBundle\Controller;
 use CKSource\Bundle\CKFinderBundle\Form\Type\CKFinderFileChooserType;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

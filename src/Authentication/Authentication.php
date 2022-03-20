@@ -12,7 +12,6 @@
 namespace CKSource\Bundle\CKFinderBundle\Authentication;
 
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class Authentication implements AuthenticationInterface
 {

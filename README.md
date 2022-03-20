@@ -1,9 +1,11 @@
 CKFinder 3 Bundle for Symfony
 ===============================
 
-This repository contains the CKFinder 3 bundle for Symfony 3+.
-If you're looking for bundle for Symfony 2, please refer [here](https://github.com/ckfinder/ckfinder-symfony2-bundle).
-
+> :information_source: This project is a fork of [the official and _abandoned_ CKFinder Symfony Bundle](https://github.com/ckfinder/ckfinder-symfony-bundle).
+> 
+> This bundle is fully compatible with Symfony 5.4 and more (Symfony 3 and 4 have been removed), compatible with PHP 8+, 
+> and use many tools ensuring the code quality ([PHPUnit](https://github.com/sebastianbergmann/phpunit), [Easy Coding Standard](https://github.com/symplify/easy-coding-standard) and [Rector](https://github.com/rectorphp/rector)).
+ 
 ## Installation
 
 1. Add Composer dependency and install the bundle.
@@ -29,8 +31,6 @@ If you're looking for bundle for Symfony 2, please refer [here](https://github.c
 	```
 
 3. Enable bundle routing.
-
-	**Symfony 4+**
 	
 	Create `config/routes/ckfinder.yaml` with following contents:
 	
@@ -45,8 +45,6 @@ If you're looking for bundle for Symfony 2, please refer [here](https://github.c
 
 4. Create a directory for CKFinder files and allow for write access to it. By default CKFinder expects it to be placed in `<public folder>/userfiles` (this can be altered in configuration).
 
-	**Symfony 4+**
-	
 	```bash
     mkdir -m 777 public/userfiles
     ```

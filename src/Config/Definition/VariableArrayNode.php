@@ -23,7 +23,9 @@ use Symfony\Component\Config\Definition\VariableNode;
  */
 class VariableArrayNode extends VariableNode
 {
-    public function __construct(?string $name, NodeInterface $parent = null,
+    public function __construct(
+        ?string $name,
+        NodeInterface $parent = null,
         /**
          * Keys required in variable array node.
          */
@@ -66,6 +68,7 @@ class VariableArrayNode extends VariableNode
 
     /**
      * {@inheritdoc}
+     *
      * @return mixed[]
      */
     protected function mergeValues($leftSide, $rightSide): array

@@ -174,7 +174,7 @@ class VariableArrayNodeTest extends TestCase
      */
     public function testFinalizeValueWithoutRequiredKeys(): void
     {
-        $this->expectExceptionMessage("The key \"bar\" at path \"foo\" must be configured.");
+        $this->expectExceptionMessage('The key "bar" at path "foo" must be configured.');
         $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
         $node = new VariableArrayNode('foo', null, ['bar']);
         $node->finalize(['a' => 'b']);

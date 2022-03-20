@@ -71,16 +71,7 @@ $config['backends']['symfony_logs'] = [
     'root' => '%kernel.logs_dir%',
 ];
 
-//For Symfony 3
-$root = '%kernel.root_dir%/../web/userfiles';
-if (\Symfony\Component\HttpKernel\Kernel::MAJOR_VERSION >= 4) {
-    //For Symfony 4
-    $root = '%kernel.root_dir%/../public/userfiles';
-}
-if (\Symfony\Component\HttpKernel\Kernel::MAJOR_VERSION >= 5) {
-    //For Symfony 5
-    $root = '%kernel.project_dir%/public/userfiles';
-}
+$root = '%kernel.project_dir%/public/userfiles';
 
 $config['backends']['default'] = [
     'name' => 'default',
