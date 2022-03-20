@@ -32,13 +32,13 @@ If you're looking for bundle for Symfony 2, please refer [here](https://github.c
 
 	**Symfony 4+**
 	
-	Create `config/routes/ckfinder.yml` with following contents:
+	Create `config/routes/ckfinder.yaml` with following contents:
 	
     ```yaml
-    # config/routes/ckfinder.yml
+    # config/routes/ckfinder.yaml
     
     ckfinder_connector:
-        resource: "@CKSourceCKFinderBundle/Resources/config/routing.yml"
+        resource: "@CKSourceCKFinderBundle/Resources/config/routing.yaml"
         prefix:   /
     ```
 	
@@ -94,10 +94,10 @@ When your custom authentication is ready, you need to tell the CKFinder connecto
 
 **Symfony 4+**
 
-Create `config/packages/ckfinder.yml` file:
+Create `config/packages/ckfinder.yaml` file:
 
 ```yaml
-# config/packages/ckfinder.yml
+# config/packages/ckfinder.yaml
 
 ckfinder:
     connector:
@@ -116,7 +116,7 @@ directory, and then importing it in the main configuration file:
 **Symfony 4+**
 
 ```yaml
-# config/packages/ckfinder.yml
+# config/packages/ckfinder.yaml
 
 imports:
     - { resource: ckfinder_config.php }
@@ -131,7 +131,7 @@ Another way to configure CKFinder is to include required options under the `ckfi
 **Symfony 4+**
 
 ```yaml
-# config/packages/ckfinder.yml
+# config/packages/ckfinder.yaml
 
 ckfinder:
     connector:
@@ -157,7 +157,7 @@ The CKFinder bundle provides two extra options:
 ## Usage
 
 The bundle code contains a few usage examples that you may find useful. To enable them uncomment the `ckfinder_examples`
-route in `@CKSourceCKFinder/Resources/config/routing.yml`:
+route in `@CKSourceCKFinder/Resources/config/routing.yaml`:
 
 ```yaml
 ckfinder_examples:
