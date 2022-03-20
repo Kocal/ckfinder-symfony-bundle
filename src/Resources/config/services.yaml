@@ -17,5 +17,16 @@ services:
 
     ckfinder.command.download:
         class: CKSource\Bundle\CKFinderBundle\Command\CKFinderDownloadCommand
+        arguments:
+            $patcher: '@CKSource\Bundle\CKFinderBundle\Patcher\ChainedPatcher'
         tags:
             - { name: console.command }
+
+    # Patchers
+    CKSource\Bundle\CKFinderBundle\Patcher\ChainedPatcher:
+        arguments:
+            $patchers: !tagged_iterator { tag: ckfinder.patcher }
+
+    CKSource\Bundle\CKFinderBundle\Patcher\Symfony54Patcher:
+        tags:
+            - { name: ckfinder.patcher, priority: 100 }

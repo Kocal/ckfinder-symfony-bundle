@@ -11,6 +11,7 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Command;
 
+use CKSource\Bundle\CKFinderBundle\Patcher\PatcherInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
@@ -28,6 +29,11 @@ class CKFinderDownloadCommand extends Command
 {
     const LATEST_VERSION = '3.5.3';
     const FALLBACK_VERSION = '3.5.1';
+
+    public function __construct(private PatcherInterface $patcher)
+    {
+        parent::__construct();
+    }
 
     /**
      * {@inheritdoc}
@@ -162,6 +168,9 @@ class CKFinderDownloadCommand extends Command
             $targetPublicPath . '/ckfinder/README.md',
             $targetConnectorPath . '/README.md'
         ));
+
+        $output->writeln('Running code patchers...');
+        $this->patcher->patch($targetConnectorPath);
 
         $output->writeln('<info>Done. Happy coding!</info>');
         return 0;
