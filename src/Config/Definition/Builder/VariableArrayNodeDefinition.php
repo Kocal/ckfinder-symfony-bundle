@@ -39,8 +39,9 @@ class VariableArrayNodeDefinition extends VariableNodeDefinition
      * Sets array keys that must be present.
      *
      * @return $this
+     * @param mixed[] $requiredKeys
      */
-    public function requiresKeys(array $requiredKeys)
+    public function requiresKeys(array $requiredKeys): static
     {
         $this->requiredKeys = $requiredKeys;
 

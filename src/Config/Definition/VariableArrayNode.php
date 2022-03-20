@@ -23,26 +23,16 @@ use Symfony\Component\Config\Definition\VariableNode;
  */
 class VariableArrayNode extends VariableNode
 {
-    /**
-     * Keys required in variable array node.
-     *
-     * @var array
-     */
-    protected $requiredKeys = [];
-
-    /**
-     * @param string $name
-     */
-    public function __construct($name, NodeInterface $parent = null, array $requiredKeys = [])
-    {
+    public function __construct(?string $name, NodeInterface $parent = null,
+        /**
+         * Keys required in variable array node.
+         */
+        protected array $requiredKeys = []
+    ) {
         parent::__construct($name, $parent);
-        $this->requiredKeys = $requiredKeys;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function validateType($value)
+    protected function validateType($value): void
     {
         if (!is_array($value)) {
             $ex = new InvalidTypeException(sprintf(
@@ -59,10 +49,7 @@ class VariableArrayNode extends VariableNode
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function finalizeValue($value): mixed
+    protected function finalizeValue(mixed $value): mixed
     {
         foreach ($this->requiredKeys as $requiredKey) {
             if (!array_key_exists($requiredKey, $value)) {
@@ -79,8 +66,9 @@ class VariableArrayNode extends VariableNode
 
     /**
      * {@inheritdoc}
+     * @return mixed[]
      */
-    protected function mergeValues($leftSide, $rightSide): mixed
+    protected function mergeValues($leftSide, $rightSide): array
     {
         return array_replace_recursive($leftSide, $rightSide);
     }

@@ -17,7 +17,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class VariableArrayNodeTest extends TestCase
 {
-    public function testNormalizeThrowsExceptionIfValueIsNotArray()
+    public function testNormalizeThrowsExceptionIfValueIsNotArray(): void
     {
         $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidTypeException::class);
 
@@ -28,7 +28,7 @@ class VariableArrayNodeTest extends TestCase
     /**
      * Test merging.
      */
-    public function testMerge()
+    public function testMerge(): void
     {
         if (method_exists(TreeBuilder::class, 'getRootNode')) {
             $builder = new TreeBuilder('root');
@@ -40,7 +40,7 @@ class VariableArrayNodeTest extends TestCase
 
         $tree = $rootNode
                 ->children()
-                    ->setNodeClass('variableArray', 'CKSource\Bundle\CKFinderBundle\Config\Definition\Builder\VariableArrayNodeDefinition')
+                    ->setNodeClass('variableArray', \CKSource\Bundle\CKFinderBundle\Config\Definition\Builder\VariableArrayNodeDefinition::class)
                     ->node('foo', 'scalar')->end()
                     ->node('bar', 'scalar')->end()
                     ->node('extra', 'variableArray')->end()
@@ -81,7 +81,7 @@ class VariableArrayNodeTest extends TestCase
     /**
      * Test merging when used as a prototype.
      */
-    public function testMergeWhenUsedAsAPrototype()
+    public function testMergeWhenUsedAsAPrototype(): void
     {
         if (method_exists(TreeBuilder::class, 'getRootNode')) {
             $builder = new TreeBuilder('root');
@@ -93,7 +93,7 @@ class VariableArrayNodeTest extends TestCase
 
         $tree = $rootNode
                 ->children()
-                    ->setNodeClass('variableArray', 'CKSource\Bundle\CKFinderBundle\Config\Definition\Builder\VariableArrayNodeDefinition')
+                    ->setNodeClass('variableArray', \CKSource\Bundle\CKFinderBundle\Config\Definition\Builder\VariableArrayNodeDefinition::class)
                     ->node('foo', 'scalar')->end()
                     ->node('bar', 'scalar')->end()
                     ->arrayNode('backends')
@@ -163,7 +163,7 @@ class VariableArrayNodeTest extends TestCase
     /**
      * Test node finalization.
      */
-    public function testFinalizeValue()
+    public function testFinalizeValue(): void
     {
         $node = new VariableArrayNode('foo', null);
         $this->assertSame(['a' => 'b'], $node->finalize(['a' => 'b']));
@@ -172,7 +172,7 @@ class VariableArrayNodeTest extends TestCase
     /**
      * Test node finalization without required keys present.
      */
-    public function testFinalizeValueWithoutRequiredKeys()
+    public function testFinalizeValueWithoutRequiredKeys(): void
     {
         $this->expectExceptionMessage("The key \"bar\" at path \"foo\" must be configured.");
         $this->expectException(\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);

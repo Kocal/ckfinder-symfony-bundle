@@ -20,7 +20,10 @@ use Symfony\Component\Form\Test\TypeTestCase;
  */
 class CKFinderFileChooserTypeTest extends TypeTestCase
 {
-    protected function getExtensions()
+    /**
+     * @return \Symfony\Component\Form\PreloadedExtension[]
+     */
+    protected function getExtensions(): array
     {
         $fieldType = new CKFinderFileChooserType();
 
@@ -29,14 +32,14 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         ], [])];
     }
 
-    public function testFileChooserInstantiation()
+    public function testFileChooserInstantiation(): void
     {
         $this->expectNotToPerformAssertions();
 
         $this->factory->create(CKFinderFileChooserType::class);
     }
 
-    public function testDefaultOptions()
+    public function testDefaultOptions(): void
     {
         $form = $this->factory->create(CKFinderFileChooserType::class);
         $view = $form->createView();
@@ -47,7 +50,7 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         $this->assertSame('ckf_filechooser_'.$view->vars['id'], $view->vars['button_id']);
     }
 
-    public function testModeOptionExpectsModalOrPopup()
+    public function testModeOptionExpectsModalOrPopup(): void
     {
         $this->expectException(\Symfony\Component\OptionsResolver\Exception\InvalidOptionsException::class);
 
@@ -56,7 +59,7 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         ]);
     }
 
-    public function testButtonTextOptionExpectsString()
+    public function testButtonTextOptionExpectsString(): void
     {
         $this->expectException(\Symfony\Component\OptionsResolver\Exception\InvalidOptionsException::class);
 
@@ -65,7 +68,7 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         ]);
     }
 
-    public function testButtonAttrOptionExpectsArray()
+    public function testButtonAttrOptionExpectsArray(): void
     {
         $this->expectException(\Symfony\Component\OptionsResolver\Exception\InvalidOptionsException::class);
 
@@ -74,7 +77,7 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         ]);
     }
 
-    public function testViewValues()
+    public function testViewValues(): void
     {
         $form = $this->factory->create(CKFinderFileChooserType::class, null, [
             'mode' => 'modal',

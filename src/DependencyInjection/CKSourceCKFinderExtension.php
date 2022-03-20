@@ -24,7 +24,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class CKSourceCKFinderExtension extends Extension implements PrependExtensionInterface
 {
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
 
@@ -38,7 +38,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         }
     }
 
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
 
