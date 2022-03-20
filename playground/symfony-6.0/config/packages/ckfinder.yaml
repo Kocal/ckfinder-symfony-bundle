@@ -1,0 +1,8 @@
+ckfinder:
+  connector:
+    tempDirectory: '%kernel.project_dir%/var/tmp'
+    authenticationClass: App\CKFinder\Security\CustomCKFinderAuth
+    backends:
+      default:
+        root: uploads
+        baseUrl: '/uploads/'
