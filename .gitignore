@@ -4,4 +4,5 @@
 /src/_connector/*
 !/src/_connector/README.md
 
+.cache/
 .phpunit.result.cache
