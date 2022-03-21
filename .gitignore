@@ -3,6 +3,5 @@
 
 /src/_connector/*
 !/src/_connector/README.md
-/src/Resources/public
 
 .phpunit.result.cache
