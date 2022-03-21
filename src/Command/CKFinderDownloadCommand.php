@@ -77,7 +77,7 @@ class CKFinderDownloadCommand extends Command
             $questionHelper = $this->getHelper('question');
             $questionText =
                 'It looks like the CKFinder distribution package has already been installed. '.
-                "This command will overwrite the existing files.\nDo you want to proceed? [y/n]: ";
+                "This command will overwrite the existing files.\nDo you want to proceed? [y/N]: ";
             $question = new ConfirmationQuestion($questionText, false);
 
             if (!$questionHelper->ask($input, $output, $question)) {
