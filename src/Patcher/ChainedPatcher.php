@@ -4,6 +4,9 @@ namespace CKSource\Bundle\CKFinderBundle\Patcher;
 
 class ChainedPatcher implements PatcherInterface
 {
+    /**
+     * @param iterable<PatcherInterface> $patchers
+     */
     public function __construct(
         private iterable $patchers,
     ) {

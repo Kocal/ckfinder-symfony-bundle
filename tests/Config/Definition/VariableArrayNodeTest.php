@@ -30,13 +30,8 @@ class VariableArrayNodeTest extends TestCase
      */
     public function testMerge(): void
     {
-        if (method_exists(TreeBuilder::class, 'getRootNode')) {
-            $builder = new TreeBuilder('root');
-            $rootNode = $builder->getRootNode();
-        } else {
-            $builder = new TreeBuilder();
-            $rootNode = $builder->root('root');
-        }
+        $builder = new TreeBuilder('root');
+        $rootNode = $builder->getRootNode();
 
         $tree = $rootNode
                 ->children()
@@ -75,7 +70,7 @@ class VariableArrayNodeTest extends TestCase
             ],
         ];
 
-        $this->assertEquals($expected, $tree->merge($a, $b));
+        static::assertEquals($expected, $tree->merge($a, $b));
     }
 
     /**
@@ -83,13 +78,8 @@ class VariableArrayNodeTest extends TestCase
      */
     public function testMergeWhenUsedAsAPrototype(): void
     {
-        if (method_exists(TreeBuilder::class, 'getRootNode')) {
-            $builder = new TreeBuilder('root');
-            $rootNode = $builder->getRootNode();
-        } else {
-            $builder = new TreeBuilder();
-            $rootNode = $builder->root('root');
-        }
+        $builder = new TreeBuilder('root');
+        $rootNode = $builder->getRootNode();
 
         $tree = $rootNode
                 ->children()
@@ -157,7 +147,7 @@ class VariableArrayNodeTest extends TestCase
             ],
         ];
 
-        $this->assertEquals($expected, $tree->merge($a, $b));
+        static::assertEquals($expected, $tree->merge($a, $b));
     }
 
     /**
@@ -166,7 +156,7 @@ class VariableArrayNodeTest extends TestCase
     public function testFinalizeValue(): void
     {
         $node = new VariableArrayNode('foo', null);
-        $this->assertSame(['a' => 'b'], $node->finalize(['a' => 'b']));
+        static::assertSame(['a' => 'b'], $node->finalize(['a' => 'b']));
     }
 
     /**

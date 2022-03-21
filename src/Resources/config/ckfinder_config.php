@@ -178,4 +178,5 @@ $config['csrfProtection'] = true;
 
 /*============================== End of Configuration =================================*/
 
+/** @var \Symfony\Component\DependencyInjection\ContainerBuilder $container */
 $container->prependExtensionConfig('ckfinder', ['connector' => $config]);

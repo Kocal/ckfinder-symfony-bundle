@@ -15,7 +15,11 @@ trait PatcherTrait
             throw new \RuntimeException(sprintf('File "%s" does not exist.', $file));
         }
 
-        if (!str_contains($content = file_get_contents($file), $search)) {
+        if(false === $content = file_get_contents($file)) {
+            throw new \RuntimeException(sprintf('Unable to get contents of file "%s".', $file));
+        }
+
+        if (!str_contains($content, $search)) {
             throw new \RuntimeException(sprintf('File "%s" does not contains content to replace "%s".', $file, $search));
         }
 

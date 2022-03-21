@@ -23,18 +23,18 @@ use Symfony\Component\Config\Definition\VariableNode;
  */
 class VariableArrayNode extends VariableNode
 {
+    /**
+     * @param list<string> $requiredKeys Keys required in variable array node.
+     */
     public function __construct(
         ?string $name,
         NodeInterface $parent = null,
-        /**
-         * Keys required in variable array node.
-         */
         protected array $requiredKeys = []
     ) {
         parent::__construct($name, $parent);
     }
 
-    protected function validateType($value): void
+    protected function validateType(mixed $value): void
     {
         if (!is_array($value)) {
             $ex = new InvalidTypeException(sprintf(
@@ -53,6 +53,9 @@ class VariableArrayNode extends VariableNode
 
     protected function finalizeValue(mixed $value): mixed
     {
+        if(!is_array($value)) {
+            throw new InvalidConfigurationException('Value is not an array.');
+        }
         foreach ($this->requiredKeys as $requiredKey) {
             if (!array_key_exists($requiredKey, $value)) {
                 $msg = sprintf('The key "%s" at path "%s" must be configured.', $requiredKey, $this->getPath());
@@ -71,8 +74,16 @@ class VariableArrayNode extends VariableNode
      *
      * @return mixed[]
      */
-    protected function mergeValues($leftSide, $rightSide): array
+    protected function mergeValues(mixed $leftSide, mixed $rightSide): array
     {
+        if(!is_array($leftSide)) {
+            throw new InvalidConfigurationException('Left side is not an array.');
+        }
+
+        if(!is_array($rightSide)) {
+            throw new InvalidConfigurationException('Right side is not an array.');
+        }
+
         return array_replace_recursive($leftSide, $rightSide);
     }
 }

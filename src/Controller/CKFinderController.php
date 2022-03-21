@@ -62,7 +62,7 @@ class CKFinderController implements ContainerAwareInterface
             case 'ckeditor5':
                 return $this->render('@CKSourceCKFinder/examples/ckeditor5.html.twig');
             case 'filechooser':
-                $formBuilder = $this->container->get('form.factory')->createBuilder(FormType::class);
+                $formBuilder = $this->container->get('form.factory')?->createBuilder(FormType::class);
                 $form = $formBuilder
                     ->add('foo', TextType::class)
                     ->add('bar', DateType::class)
@@ -88,15 +88,14 @@ class CKFinderController implements ContainerAwareInterface
         return $this->render('@CKSourceCKFinder/examples/index.html.twig');
     }
 
+    /**
+     * @param array<string,mixed> $parameters
+     */
     protected function render(string $viewName, array $parameters = []): \Symfony\Component\HttpFoundation\Response
     {
-        if (!$this->container->has('twig')) {
-            throw new \LogicException('Twig Bundle is not available. Try running "composer require symfony/twig-bundle".');
-        }
-
         $twig = $this->container->get('twig');
 
-        $content = $twig->render($viewName, $parameters);
+        $content = $twig?->render($viewName, $parameters);
 
         return new Response($content);
     }
