@@ -45,7 +45,7 @@ class CKFinderDownloadCommand extends Command
      */
     protected function buildPackageUrl(): string
     {
-        $packageVersion = Kernel::MAJOR_VERSION >= 5 ? self::LATEST_VERSION : self::FALLBACK_VERSION;
+        $packageVersion = self::LATEST_VERSION;
 
         return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
     }

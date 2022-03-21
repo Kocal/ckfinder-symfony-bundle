@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Comparison operation \"\\>\\=\" between 6 and 5 is always true\\.$#"
-			count: 1
-			path: src/Command/CKFinderDownloadCommand.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: src/Command/CKFinderDownloadCommand.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:createBuilder\\(\\)\\.$#"
 			count: 1
 			path: src/Controller/CKFinderController.php
