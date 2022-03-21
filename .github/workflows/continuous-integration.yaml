@@ -85,7 +85,7 @@ jobs:
         working-directory: playground/symfony-${{ matrix.config.PLAYGROUND_VERSION }}
 
       - name: Run Rector
-        run: symfony php vendor/bin/rector run --dry-run
+        run: symfony php vendor/bin/rector --dry-run
 
       - name: Run Easy Coding Standard
         run: symfony php vendor/bin/ecs
