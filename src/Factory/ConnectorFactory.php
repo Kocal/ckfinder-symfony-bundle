@@ -20,7 +20,7 @@ class ConnectorFactory
 
     public function getConnector(): CKFinder
     {
-        if ($this->connectorInstance !== null) {
+        if (null !== $this->connectorInstance) {
             return $this->connectorInstance;
         }
 

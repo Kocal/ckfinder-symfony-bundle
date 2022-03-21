@@ -15,7 +15,7 @@ trait PatcherTrait
             throw new \RuntimeException(sprintf('File "%s" does not exist.', $file));
         }
 
-        if(false === $content = file_get_contents($file)) {
+        if (false === $content = file_get_contents($file)) {
             throw new \RuntimeException(sprintf('Unable to get contents of file "%s".', $file));
         }
 

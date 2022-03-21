@@ -80,16 +80,15 @@ jobs:
       - name: Install Composer dependencies
         run: symfony php vendor/bin/simple-phpunit install
 
-
       - name: Install Playground Composer dependencies
         run: symfony composer install --prefer-dist --no-interaction --no-progress
         working-directory: playground/symfony-${{ matrix.config.PLAYGROUND_VERSION }}
 
-      - name: Run Easy Coding Standard
-        run: symfony php vendor/bin/phpstan analyze
-
       - name: Run Rector
         run: symfony php vendor/bin/rector run --dry-run
+
+      - name: Run Easy Coding Standard
+        run: symfony php vendor/bin/ecs
 
       - name: Run PHPStan
         run: symfony php vendor/bin/phpstan analyze

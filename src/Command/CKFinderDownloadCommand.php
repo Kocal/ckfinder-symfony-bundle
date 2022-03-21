@@ -62,7 +62,7 @@ class CKFinderDownloadCommand extends Command
             return 1;
         }
 
-        if(false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
+        if (false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
             throw new \RuntimeException('Unable to get CKFinder connector path.');
         }
 
@@ -119,7 +119,7 @@ class CKFinderDownloadCommand extends Command
 
         $output->writeln("\n".'Extracting CKFinder to the CKSourceCKFinderBundle::Resources/public directory.');
 
-        if(false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
+        if (false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
             throw new \RuntimeException('Unable to create temporary file.');
         }
         file_put_contents($tempZipFile, $zipContents);

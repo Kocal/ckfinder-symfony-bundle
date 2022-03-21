@@ -24,7 +24,7 @@ use Symfony\Component\Config\Definition\VariableNode;
 class VariableArrayNode extends VariableNode
 {
     /**
-     * @param list<string> $requiredKeys Keys required in variable array node.
+     * @param list<string> $requiredKeys keys required in variable array node
      */
     public function __construct(
         ?string $name,
@@ -53,7 +53,7 @@ class VariableArrayNode extends VariableNode
 
     protected function finalizeValue(mixed $value): mixed
     {
-        if(!is_array($value)) {
+        if (!is_array($value)) {
             throw new InvalidConfigurationException('Value is not an array.');
         }
         foreach ($this->requiredKeys as $requiredKey) {
@@ -76,11 +76,11 @@ class VariableArrayNode extends VariableNode
      */
     protected function mergeValues(mixed $leftSide, mixed $rightSide): array
     {
-        if(!is_array($leftSide)) {
+        if (!is_array($leftSide)) {
             throw new InvalidConfigurationException('Left side is not an array.');
         }
 
-        if(!is_array($rightSide)) {
+        if (!is_array($rightSide)) {
             throw new InvalidConfigurationException('Right side is not an array.');
         }
 
