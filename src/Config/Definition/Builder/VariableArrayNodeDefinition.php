@@ -23,7 +23,7 @@ class VariableArrayNodeDefinition extends VariableNodeDefinition
     /**
      * Keys required in variable array node.
      *
-     * @var array
+     * @var list<string>
      */
     protected $requiredKeys = [];
 
@@ -38,9 +38,7 @@ class VariableArrayNodeDefinition extends VariableNodeDefinition
     /**
      * Sets array keys that must be present.
      *
-     * @return $this
-     *
-     * @param mixed[] $requiredKeys
+     * @param list<string> $requiredKeys
      */
     public function requiresKeys(array $requiredKeys): static
     {

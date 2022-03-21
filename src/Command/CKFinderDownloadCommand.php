@@ -14,6 +14,7 @@ namespace CKSource\Bundle\CKFinderBundle\Command;
 use CKSource\Bundle\CKFinderBundle\Patcher\PatcherInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
@@ -51,7 +52,9 @@ class CKFinderDownloadCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $targetPublicPath = realpath(__DIR__.'/../Resources/public');
+        if (false === $targetPublicPath = realpath(__DIR__.'/../Resources/public')) {
+            throw new \RuntimeException('Unable to get public path.');
+        }
 
         if (!is_writable($targetPublicPath)) {
             $output->writeln('<error>The CKSourceCKFinderBundle::Resources/public directory is not writable (used path: '.$targetPublicPath.').</error>');
@@ -59,7 +62,9 @@ class CKFinderDownloadCommand extends Command
             return 1;
         }
 
-        $targetConnectorPath = realpath(__DIR__.'/../_connector');
+        if(false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
+            throw new \RuntimeException('Unable to get CKFinder connector path.');
+        }
 
         if (!is_writable($targetConnectorPath)) {
             $output->writeln('<error>The CKSourceCKFinderBundle::_connector directory is not writable (used path: '.$targetConnectorPath.').</error>');
@@ -68,6 +73,7 @@ class CKFinderDownloadCommand extends Command
         }
 
         if (file_exists($targetPublicPath.'/ckfinder/ckfinder.js')) {
+            /** @var QuestionHelper $questionHelper */
             $questionHelper = $this->getHelper('question');
             $questionText =
                 'It looks like the CKFinder distribution package has already been installed. '.
@@ -79,7 +85,7 @@ class CKFinderDownloadCommand extends Command
             }
         }
 
-        /** @var ProgressBar $progressBar */
+        /** @var ProgressBar|null $progressBar */
         $progressBar = null;
 
         $maxBytes = 0;
@@ -91,7 +97,7 @@ class CKFinderDownloadCommand extends Command
                         $progressBar = new ProgressBar($output, $bytesMax);
                         break;
                     case STREAM_NOTIFY_PROGRESS:
-                        $progressBar->setProgress($bytesTransferred);
+                        $progressBar?->setProgress($bytesTransferred);
                         break;
                 }
             },
@@ -109,13 +115,13 @@ class CKFinderDownloadCommand extends Command
             return 1;
         }
 
-        if ($progressBar) {
-            $progressBar->finish();
-        }
+        $progressBar?->finish();
 
         $output->writeln("\n".'Extracting CKFinder to the CKSourceCKFinderBundle::Resources/public directory.');
 
-        $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp');
+        if(false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
+            throw new \RuntimeException('Unable to create temporary file.');
+        }
         file_put_contents($tempZipFile, $zipContents);
         $zip = new \ZipArchive();
         $zip->open($tempZipFile);
@@ -129,7 +135,9 @@ class CKFinderDownloadCommand extends Command
         ];
 
         for ($i = 0; $i < $zip->numFiles; ++$i) {
-            $entry = $zip->getNameIndex($i);
+            if (false === $entry = $zip->getNameIndex($i)) {
+                throw new \RuntimeException(sprintf('Unable to get Zip entry name from index "%d".', $i));
+            }
 
             if (in_array($entry, $filesToKeep) && file_exists($targetPublicPath.'/'.$entry)) {
                 continue;

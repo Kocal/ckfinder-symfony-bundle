@@ -20,16 +20,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  */
 class CKSourceCKFinderExtensionTest extends TestCase
 {
-    /**
-     * @var ContainerBuilder
-     */
-    protected $container;
+    protected ContainerBuilder $container;
+    protected string  $extensionAlias;
 
-    protected $extensionAlias;
-
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $ckfinderExtension = new CKSourceCKFinderExtension();
@@ -50,9 +43,6 @@ class CKSourceCKFinderExtensionTest extends TestCase
         $this->container->loadFromExtension($ckfinderExtension->getAlias());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function tearDown(): void
     {
         unset($this->container);
@@ -61,7 +51,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
     /**
      * Returns config fixture.
      *
-     * @return array connector config array fixture
+     * @return array<string,mixed> connector config array fixture
      */
     protected function getConfig(): array
     {
@@ -74,9 +64,9 @@ class CKSourceCKFinderExtensionTest extends TestCase
     public function testDefaultValues(): void
     {
         $this->container->compile();
-        $this->assertSame(\CKSource\CKFinder\CKFinder::class, $this->container->getParameter('ckfinder.connector.class'));
-        $this->assertSame(\CKSource\Bundle\CKFinderBundle\Authentication\Authentication::class, $this->container->getParameter('ckfinder.connector.auth.class'));
-        $this->assertEquals($this->getConfig(), $this->container->getParameter('ckfinder.connector.config'));
+        static::assertSame(\CKSource\CKFinder\CKFinder::class, $this->container->getParameter('ckfinder.connector.class'));
+        static::assertSame(\CKSource\Bundle\CKFinderBundle\Authentication\Authentication::class, $this->container->getParameter('ckfinder.connector.auth.class'));
+        static::assertEquals($this->getConfig(), $this->container->getParameter('ckfinder.connector.config'));
     }
 
     /**
@@ -85,8 +75,8 @@ class CKSourceCKFinderExtensionTest extends TestCase
     public function testDefaultServices(): void
     {
         $this->container->compile();
-        $this->assertInstanceOf(\CKSource\CKFinder\CKFinder::class, $this->container->get('ckfinder.connector'));
-        $this->assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $this->container->get('ckfinder.connector.auth'));
+        static::assertInstanceOf(\CKSource\CKFinder\CKFinder::class, $this->container->get('ckfinder.connector'));
+        static::assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $this->container->get('ckfinder.connector.auth'));
     }
 
     /**
@@ -108,10 +98,13 @@ class CKSourceCKFinderExtensionTest extends TestCase
         $this->container->compile();
 
         $config = $this->getConfig();
+        static::assertIsArray($config);
+        static::assertIsArray($config['backends']);
+        static::assertIsArray($config['backends']['default']);
         $config['backends']['default']['root'] = '/foo/bar';
         $config['backends']['default']['baseUrl'] = 'http://example.com/foo/bar';
 
-        $this->assertEquals($config, $this->container->getParameter('ckfinder.connector.config'));
+        static::assertEquals($config, $this->container->getParameter('ckfinder.connector.config'));
     }
 
     /**
@@ -143,7 +136,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
 
         $config['backends']['my_ftp'] = $newBackendConfig;
 
-        $this->assertEquals($config, $this->container->getParameter('ckfinder.connector.config'));
+        static::assertEquals($config, $this->container->getParameter('ckfinder.connector.config'));
     }
 
     /**
@@ -163,17 +156,17 @@ class CKSourceCKFinderExtensionTest extends TestCase
 
         /** @var \CKSource\Bundle\CKFinderBundle\Tests\Fixtures\Authentication\CustomAuthentication $auth */
         $auth = $this->container->get('ckfinder.connector.auth');
-        $this->assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $auth);
-        $this->assertInstanceOf($authClass, $auth);
+        static::assertInstanceOf(\CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface::class, $auth);
+        static::assertInstanceOf($authClass, $auth);
 
         /** @var \CKSource\CKFinder\CKFinder $connector */
         $connector = $this->container->get('ckfinder.connector');
         $connectorAuth = $connector->offsetGet('authentication');
-        $this->assertSame($auth, $connectorAuth);
+        static::assertSame($auth, $connectorAuth);
 
-        $this->assertFalse($connectorAuth->authenticate());
+        static::assertFalse($connectorAuth->authenticate());
         $auth->setAuthenticated(true);
-        $this->assertTrue($connectorAuth->authenticate());
+        static::assertTrue($connectorAuth->authenticate());
     }
 
     /**
@@ -203,11 +196,13 @@ class CKSourceCKFinderExtensionTest extends TestCase
             ],
         ];
 
-        $this->assertEquals($expected, $connectorConfig['resourceTypes']);
+        static::assertIsArray($connectorConfig);
+        static::assertArrayHasKey('resourceTypes', $connectorConfig);
+        static::assertEquals($expected, $connectorConfig['resourceTypes']);
 
         $connector = $this->container->get('ckfinder.connector');
 
-        $this->assertEquals(['Custom'], $connector['config']->getResourceTypes());
+        static::assertEquals(['Custom'], $connector['config']->getResourceTypes());
     }
 
     /**
@@ -219,6 +214,6 @@ class CKSourceCKFinderExtensionTest extends TestCase
 
         $connector = $this->container->get('ckfinder.connector');
 
-        $this->assertEquals(['Files', 'Images'], $connector['config']->getResourceTypes());
+        static::assertEquals(['Files', 'Images'], $connector['config']->getResourceTypes());
     }
 }

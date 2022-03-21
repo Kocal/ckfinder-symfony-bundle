@@ -44,10 +44,10 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         $form = $this->factory->create(CKFinderFileChooserType::class);
         $view = $form->createView();
 
-        $this->assertSame('popup', $view->vars['mode']);
-        $this->assertSame('Browse', $view->vars['button_text']);
-        $this->assertSame([], $view->vars['button_attr']);
-        $this->assertSame('ckf_filechooser_'.$view->vars['id'], $view->vars['button_id']);
+        static::assertSame('popup', $view->vars['mode']);
+        static::assertSame('Browse', $view->vars['button_text']);
+        static::assertSame([], $view->vars['button_attr']);
+        static::assertSame('ckf_filechooser_'.$view->vars['id'], $view->vars['button_id']);
     }
 
     public function testModeOptionExpectsModalOrPopup(): void
@@ -86,8 +86,8 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         ]);
         $view = $form->createView();
 
-        $this->assertSame('modal', $view->vars['mode']);
-        $this->assertSame('foo', $view->vars['button_text']);
-        $this->assertSame(['class' => 'bar'], $view->vars['button_attr']);
+        static::assertSame('modal', $view->vars['mode']);
+        static::assertSame('foo', $view->vars['button_text']);
+        static::assertSame(['class' => 'bar'], $view->vars['button_attr']);
     }
 }

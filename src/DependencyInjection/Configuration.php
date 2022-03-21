@@ -34,8 +34,6 @@ class Configuration implements ConfigurationInterface
 
     /**
      * Creates the part of the configuration related to the CKFinder connector.
-     *
-     * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition
      */
     public function addConnectorNode(): NodeDefinition
     {

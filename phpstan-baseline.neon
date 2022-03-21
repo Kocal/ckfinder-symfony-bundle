@@ -1,0 +1,52 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Comparison operation \"\\>\\=\" between 6 and 5 is always true\\.$#"
+			count: 1
+			path: src/Command/CKFinderDownloadCommand.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/Command/CKFinderDownloadCommand.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:createBuilder\\(\\)\\.$#"
+			count: 1
+			path: src/Controller/CKFinderController.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:render\\(\\)\\.$#"
+			count: 1
+			path: src/Controller/CKFinderController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:append\\(\\)\\.$#"
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:children\\(\\)\\.$#"
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:children\\(\\)\\.$#"
+			count: 2
+			path: tests/Config/Definition/VariableArrayNodeTest.php
+
+		-
+			message: "#^Cannot access offset 'baseUrl' on mixed\\.$#"
+			count: 1
+			path: tests/DependencyInjection/CKSourceCKFinderExtensionTest.php
+
+		-
+			message: "#^Cannot access offset 'config' on object\\|null\\.$#"
+			count: 2
+			path: tests/DependencyInjection/CKSourceCKFinderExtensionTest.php
+
+		-
+			message: "#^Cannot access offset 'my_ftp' on mixed\\.$#"
+			count: 1
+			path: tests/DependencyInjection/CKSourceCKFinderExtensionTest.php
+
