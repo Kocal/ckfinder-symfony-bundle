@@ -20,9 +20,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::SKIP, [
         __DIR__ . '/src/_connector',
     ]);
-    $parameters->set(Option::BOOTSTRAP_FILES, [
-        __DIR__.'/vendor/bin/.phpunit/phpunit/vendor/autoload.php'
-    ]);
 
     // Define what rule sets will be applied
     $containerConfigurator->import(LevelSetList::UP_TO_PHP_80);

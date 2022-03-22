@@ -17,7 +17,7 @@ class Authentication implements AuthenticationInterface
 {
     use ContainerAwareTrait;
 
-    public function authenticate()
+    public function authenticate(): bool
     {
         return false;
     }

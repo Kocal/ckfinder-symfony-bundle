@@ -19,7 +19,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Command that downloads the CKFinder package and puts assets to the Resources/public directory of the bundle.
@@ -45,7 +44,7 @@ class CKFinderDownloadCommand extends Command
      */
     protected function buildPackageUrl(): string
     {
-        $packageVersion = Kernel::MAJOR_VERSION >= 5 ? self::LATEST_VERSION : self::FALLBACK_VERSION;
+        $packageVersion = self::LATEST_VERSION;
 
         return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
     }
@@ -62,7 +61,7 @@ class CKFinderDownloadCommand extends Command
             return 1;
         }
 
-        if(false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
+        if (false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
             throw new \RuntimeException('Unable to get CKFinder connector path.');
         }
 
@@ -77,7 +76,7 @@ class CKFinderDownloadCommand extends Command
             $questionHelper = $this->getHelper('question');
             $questionText =
                 'It looks like the CKFinder distribution package has already been installed. '.
-                "This command will overwrite the existing files.\nDo you want to proceed? [y/n]: ";
+                "This command will overwrite the existing files.\nDo you want to proceed? [y/N]: ";
             $question = new ConfirmationQuestion($questionText, false);
 
             if (!$questionHelper->ask($input, $output, $question)) {
@@ -119,7 +118,7 @@ class CKFinderDownloadCommand extends Command
 
         $output->writeln("\n".'Extracting CKFinder to the CKSourceCKFinderBundle::Resources/public directory.');
 
-        if(false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
+        if (false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
             throw new \RuntimeException('Unable to create temporary file.');
         }
         file_put_contents($tempZipFile, $zipContents);
