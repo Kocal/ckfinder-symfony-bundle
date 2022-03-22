@@ -27,12 +27,12 @@
         "league/flysystem-cached-adapter": "^1.0.7"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.4 || ^6.0",
         "symplify/easy-coding-standard": "^10.1",
         "symfony/yaml": "^5.4 || ^6.0",
         "rector/rector": "^0.12.17",
         "phpstan/phpstan": "^1.4",
-        "phpstan/phpstan-phpunit": "^1.0"
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {

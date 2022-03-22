@@ -12,6 +12,3 @@ parameters:
 
     excludePaths:
         - src/_connector
-
-    bootstrapFiles:
-        - vendor/bin/.phpunit/phpunit/vendor/autoload.php

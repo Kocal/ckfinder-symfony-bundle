@@ -27,9 +27,6 @@ jobs:
       - name: Install Composer dependencies
         run: symfony composer update ${{ matrix.config.COMPOSER_FLAGS }} --prefer-dist --no-interaction --no-progress
 
-      - name: Install PHPUnit
-        run: symfony php vendor/bin/simple-phpunit install
-
       # Will install the CKFinder Connector
       - name: Install Playground Composer dependencies
         run: symfony composer install --prefer-dist --no-interaction --no-progress
@@ -106,9 +103,6 @@ jobs:
       - name: Install Composer dependencies
         run: symfony composer update ${{ matrix.config.COMPOSER_FLAGS }} --prefer-dist --no-interaction --no-progress
 
-      - name: Install PHPUnit
-        run: symfony php vendor/bin/simple-phpunit install
-
       # Will install the CKFinder Connector
       - name: Install Playground Composer dependencies
         run: symfony composer install --prefer-dist --no-interaction --no-progress
@@ -118,4 +112,4 @@ jobs:
         run: symfony php vendor/bin/phpstan analyze
 
       - name: Run PHPUnit
-        run: symfony php vendor/bin/simple-phpunit
+        run: symfony php vendor/bin/phpunit
