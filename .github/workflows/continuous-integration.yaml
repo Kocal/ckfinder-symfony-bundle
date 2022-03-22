@@ -55,9 +55,9 @@ jobs:
 
           # Test the latest stable release
           - PHP_VERSION: 8.0
-            PLAYGROUND_VERSION: 5.4
+            PLAYGROUND_VERSION: 6.0
           - PHP_VERSION: 8.1
-            PLAYGROUND_VERSION: 5.4
+            PLAYGROUND_VERSION: 6.0
 
           # Test specific Symfony versions
           - PHP_VERSION: 8.0
