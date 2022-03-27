@@ -5,6 +5,8 @@ CKFinder 3 Bundle for Symfony
 > 
 > This bundle is fully compatible with Symfony 5.4 and more (Symfony 3 and 4 have been removed), compatible with PHP 8+, 
 > and use many tools ensuring the code quality ([PHPUnit](https://github.com/sebastianbergmann/phpunit), [Easy Coding Standard](https://github.com/symplify/easy-coding-standard) and [Rector](https://github.com/rectorphp/rector)).
+>
+> Flysystem 2+ is also supported!
  
 ## Installation
 
@@ -67,7 +69,7 @@ and point the CKFinder connector to use it.
 
 A basic implementation that returns `true` from the `authenticate` method (which is obviously **not secure**) can look like below:
 
-**Symfony 4+**
+**Symfony 5+**
 
 ```php
 // src/CustomCKFinderAuth/CustomCKFinderAuth.php
@@ -90,7 +92,7 @@ container from the authentication class scope.
 
 When your custom authentication is ready, you need to tell the CKFinder connector to start using it. To do that add the following option to your configuration:
 
-**Symfony 4+**
+**Symfony 5+**
 
 Create `config/packages/ckfinder.yaml` file:
 
@@ -111,7 +113,7 @@ is provided in form of a regular PHP file, but you can use the format you prefer
 The simplest way to overwrite the default configuration is copying the `ckfinder_config.php` file to your application config
 directory, and then importing it in the main configuration file:
 
-**Symfony 4+**
+**Symfony 5+**
 
 ```yaml
 # config/packages/ckfinder.yaml
@@ -126,7 +128,7 @@ From now all connector configuration options will be taken from copied `ckfinder
 
 Another way to configure CKFinder is to include required options under the `ckfinder` node, directly in your config file.
 
-**Symfony 4+**
+**Symfony 5+**
 
 ```yaml
 # config/packages/ckfinder.yaml
