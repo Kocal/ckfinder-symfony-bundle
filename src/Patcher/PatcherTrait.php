@@ -6,7 +6,7 @@ use Symfony\Component\Filesystem\Filesystem;
 
 trait PatcherTrait
 {
-    private function patchFile(string $file, string $search, string $replace): void
+    private function patchFile(string $file, string $search, string $replace, bool $throwIfSearchNotFound = true): void
     {
         static $fs = null;
         $fs ??= new Filesystem();
@@ -19,7 +19,7 @@ trait PatcherTrait
             throw new \RuntimeException(sprintf('Unable to get contents of file "%s".', $file));
         }
 
-        if (!str_contains($content, $search)) {
+        if (!str_contains($content, $search) && $throwIfSearchNotFound) {
             throw new \RuntimeException(sprintf('File "%s" does not contains content to replace "%s".', $file, $search));
         }
 

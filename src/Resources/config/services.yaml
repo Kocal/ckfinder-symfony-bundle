@@ -27,6 +27,10 @@ services:
         arguments:
             $patchers: !tagged_iterator { tag: ckfinder.patcher }
 
+    CKSource\Bundle\CKFinderBundle\Patcher\ScopedDependenciesPatcher:
+        tags:
+            - { name: ckfinder.patcher, priority: 150 }
+
     CKSource\Bundle\CKFinderBundle\Patcher\Symfony54Patcher:
         tags:
             - { name: ckfinder.patcher, priority: 100 }

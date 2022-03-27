@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "785ff48ebc5b0c71ac8531b8fcca1b0b2b391582"
+                "reference": "2716301b582834acf09c6b24f5507f55010e85cc"
             },
             "require": {
                 "ext-zip": "*",
@@ -20,6 +20,7 @@
                 "php": ">=8.0",
                 "pimple/pimple": "^3.0",
                 "symfony/console": "^5.4 || ^6.0",
+                "symfony/finder": "^5.4 || ^6.0",
                 "symfony/form": "^5.4 || ^6.0",
                 "symfony/framework-bundle": "^5.4 || ^6.0",
                 "symfony/mime": "^5.4 || ^6.0"
