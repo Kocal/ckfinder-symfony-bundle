@@ -1,0 +1,6 @@
+---
+suites:
+      cached_adapter_suite:
+        namespace: _CKFinder_Vendor_Prefix\League\Flysystem\Cached
+        psr4_prefix: _CKFinder_Vendor_Prefix\League\Flysystem\Cached
+formatter.name: pretty
