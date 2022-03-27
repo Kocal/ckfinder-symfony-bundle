@@ -5,3 +5,6 @@ rector.php                export-ignore
 phpstan.neon              export-ignore
 phpstan-baseline.neon     export-ignore
 phpunit.xml.dist          export-ignore
+
+scoped-dependencies/build/php-scoper.phar  export-ignore
+scoped-dependencies/build/scoper.inc.php   export-ignore
