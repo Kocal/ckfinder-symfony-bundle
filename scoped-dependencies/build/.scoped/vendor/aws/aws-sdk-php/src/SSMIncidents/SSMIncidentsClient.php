@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SSMIncidents;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SSMIncidents;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Systems Manager Incident Manager** service.
  * @method \Aws\Result createReplicationSet(array $args = [])
@@ -64,6 +64,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTimelineEvent(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTimelineEventAsync(array $args = [])
  */
-class SSMIncidentsClient extends AwsClient
-{
-}
+class SSMIncidentsClient extends AwsClient {}

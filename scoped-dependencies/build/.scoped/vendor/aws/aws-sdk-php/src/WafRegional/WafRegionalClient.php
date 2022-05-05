@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WafRegional;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WafRegional;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS WAF Regional** service.
  * @method \Aws\Result associateWebACL(array $args = [])
@@ -168,6 +168,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateXssMatchSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateXssMatchSetAsync(array $args = [])
  */
-class WafRegionalClient extends AwsClient
-{
-}
+class WafRegionalClient extends AwsClient {}

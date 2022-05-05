@@ -1,11 +1,9 @@
 <?php
+namespace Aws\signer\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\signer\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Signer** service.
  */
-class signerException extends AwsException
-{
-}
+class signerException extends AwsException {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AmplifyBackend\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AmplifyBackend\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AmplifyBackend** service.
  */
-class AmplifyBackendException extends AwsException
-{
-}
+class AmplifyBackendException extends AwsException {}

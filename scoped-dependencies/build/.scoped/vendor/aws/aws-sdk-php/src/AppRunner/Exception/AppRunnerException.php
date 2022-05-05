@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AppRunner\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AppRunner\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS App Runner** service.
  */
-class AppRunnerException extends AwsException
-{
-}
+class AppRunnerException extends AwsException {}

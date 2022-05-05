@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Iam;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Iam;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Identity and Access Management (AWS IAM)** service.
  *
@@ -323,6 +323,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result uploadSigningCertificate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise uploadSigningCertificateAsync(array $args = [])
  */
-class IamClient extends AwsClient
-{
-}
+class IamClient extends AwsClient {}

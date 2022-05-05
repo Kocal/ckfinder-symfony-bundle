@@ -115,7 +115,7 @@
                     "src\/functions.php"
                 ],
                 "psr-4": {
-                    "_CKFinder_Vendor_Prefix\\Aws\\": "src\/"
+                    "Aws\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",

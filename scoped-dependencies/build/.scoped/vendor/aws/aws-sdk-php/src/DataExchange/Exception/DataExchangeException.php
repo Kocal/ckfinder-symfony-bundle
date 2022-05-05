@@ -1,11 +1,9 @@
 <?php
+namespace Aws\DataExchange\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DataExchange\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Data Exchange** service.
  */
-class DataExchangeException extends AwsException
-{
-}
+class DataExchangeException extends AwsException {}

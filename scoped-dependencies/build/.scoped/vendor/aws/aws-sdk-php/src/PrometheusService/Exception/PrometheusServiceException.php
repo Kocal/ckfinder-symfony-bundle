@@ -1,11 +1,9 @@
 <?php
+namespace Aws\PrometheusService\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PrometheusService\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Prometheus Service** service.
  */
-class PrometheusServiceException extends AwsException
-{
-}
+class PrometheusServiceException extends AwsException {}

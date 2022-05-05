@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Kafka;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Kafka;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Managed Streaming for Kafka** service.
  * @method \Aws\Result batchAssociateScramSecret(array $args = [])
@@ -76,6 +76,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSecurity(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSecurityAsync(array $args = [])
  */
-class KafkaClient extends AwsClient
-{
-}
+class KafkaClient extends AwsClient {}

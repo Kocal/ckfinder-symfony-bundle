@@ -1,8 +1,8 @@
 <?php
+namespace Aws\LookoutforVision;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LookoutforVision;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Lookout for Vision** service.
  * @method \Aws\Result createDataset(array $args = [])
@@ -50,6 +50,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDatasetEntries(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDatasetEntriesAsync(array $args = [])
  */
-class LookoutforVisionClient extends AwsClient
-{
-}
+class LookoutforVisionClient extends AwsClient {}

@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\DynamoDb;
+namespace Aws\DynamoDb;
 
 /**
  * The session connection provides the underlying logic for interacting with
@@ -16,6 +15,7 @@ interface SessionConnectionInterface
      * @return array
      */
     public function read($id);
+
     /**
      * Writes session data to DynamoDB
      *
@@ -26,6 +26,7 @@ interface SessionConnectionInterface
      * @return bool
      */
     public function write($id, $data, $isChanged);
+
     /**
      * Deletes session record from DynamoDB
      *
@@ -34,6 +35,7 @@ interface SessionConnectionInterface
      * @return bool
      */
     public function delete($id);
+
     /**
      * Performs garbage collection on the sessions stored in the DynamoDB
      *

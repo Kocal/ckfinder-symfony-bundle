@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Swf\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Swf\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Simple Workflow Service.
  */
-class SwfException extends AwsException
-{
-}
+class SwfException extends AwsException {}

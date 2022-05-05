@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Textract\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Textract\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Textract** service.
  */
-class TextractException extends AwsException
-{
-}
+class TextractException extends AwsException {}

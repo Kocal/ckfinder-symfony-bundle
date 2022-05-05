@@ -1,10 +1,10 @@
 <?php
+namespace Aws\LexModelsV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LexModelsV2;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use Psr\Http\Message\RequestInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
 /**
  * This client is used to interact with the **Amazon Lex Model Building V2** service.
  * @method \Aws\Result buildBotLocale(array $args = [])
@@ -140,6 +140,4 @@ use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
  * @method \Aws\Result updateSlotType(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSlotTypeAsync(array $args = [])
  */
-class LexModelsV2Client extends AwsClient
-{
-}
+class LexModelsV2Client extends AwsClient {}

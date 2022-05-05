@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ApiGatewayManagementApi\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApiGatewayManagementApi\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AmazonApiGatewayManagementApi** service.
  */
-class ApiGatewayManagementApiException extends AwsException
-{
-}
+class ApiGatewayManagementApiException extends AwsException {}

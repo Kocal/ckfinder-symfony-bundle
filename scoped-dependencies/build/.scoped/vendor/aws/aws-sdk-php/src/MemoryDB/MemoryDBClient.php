@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MemoryDB;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MemoryDB;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon MemoryDB** service.
  * @method \Aws\Result batchUpdateCluster(array $args = [])
@@ -76,6 +76,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateUser(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateUserAsync(array $args = [])
  */
-class MemoryDBClient extends AwsClient
-{
-}
+class MemoryDBClient extends AwsClient {}

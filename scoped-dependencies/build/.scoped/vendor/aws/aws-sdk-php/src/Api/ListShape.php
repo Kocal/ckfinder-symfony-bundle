@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Api;
+namespace Aws\Api;
 
 /**
  * Represents a list shape.
@@ -8,11 +7,13 @@ namespace _CKFinder_Vendor_Prefix\Aws\Api;
 class ListShape extends Shape
 {
     private $member;
+
     public function __construct(array $definition, ShapeMap $shapeMap)
     {
         $definition['type'] = 'list';
         parent::__construct($definition, $shapeMap);
     }
+
     /**
      * @return Shape
      * @throws \RuntimeException if no member is specified
@@ -23,8 +24,12 @@ class ListShape extends Shape
             if (!isset($this->definition['member'])) {
                 throw new \RuntimeException('No member attribute specified');
             }
-            $this->member = Shape::create($this->definition['member'], $this->shapeMap);
+            $this->member = Shape::create(
+                $this->definition['member'],
+                $this->shapeMap
+            );
         }
+
         return $this->member;
     }
 }

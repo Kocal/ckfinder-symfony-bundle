@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElasticInference;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticInference;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elastic  Inference** service.
  * @method \Aws\Result describeAcceleratorOfferings(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class ElasticInferenceClient extends AwsClient
-{
-}
+class ElasticInferenceClient extends AwsClient {}

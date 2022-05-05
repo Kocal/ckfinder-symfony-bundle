@@ -1,11 +1,9 @@
 <?php
+namespace Aws\TranscribeService\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\TranscribeService\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Transcribe Service** service.
  */
-class TranscribeServiceException extends AwsException
-{
-}
+class TranscribeServiceException extends AwsException {}

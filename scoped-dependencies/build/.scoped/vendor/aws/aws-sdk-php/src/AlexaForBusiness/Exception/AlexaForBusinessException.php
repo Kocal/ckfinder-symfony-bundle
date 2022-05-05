@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AlexaForBusiness\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AlexaForBusiness\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Alexa For Business** service.
  */
-class AlexaForBusinessException extends AwsException
-{
-}
+class AlexaForBusinessException extends AwsException {}

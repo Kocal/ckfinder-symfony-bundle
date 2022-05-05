@@ -1,11 +1,9 @@
 <?php
+namespace Aws\imagebuilder\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\imagebuilder\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **EC2 Image Builder** service.
  */
-class imagebuilderException extends AwsException
-{
-}
+class imagebuilderException extends AwsException {}

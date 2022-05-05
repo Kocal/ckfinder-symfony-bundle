@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaPackageVod;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaPackageVod;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elemental MediaPackage VOD** service.
  * @method \Aws\Result configureLogs(array $args = [])
@@ -40,6 +40,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePackagingGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePackagingGroupAsync(array $args = [])
  */
-class MediaPackageVodClient extends AwsClient
-{
-}
+class MediaPackageVodClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AppRegistry;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AppRegistry;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Service Catalog App Registry** service.
  * @method \Aws\Result associateAttributeGroup(array $args = [])
@@ -48,6 +48,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateAttributeGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateAttributeGroupAsync(array $args = [])
  */
-class AppRegistryClient extends AwsClient
-{
-}
+class AppRegistryClient extends AwsClient {}

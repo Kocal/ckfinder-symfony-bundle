@@ -1,11 +1,9 @@
 <?php
+namespace Aws\mgn\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\mgn\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Application Migration Service** service.
  */
-class mgnException extends AwsException
-{
-}
+class mgnException extends AwsException {}

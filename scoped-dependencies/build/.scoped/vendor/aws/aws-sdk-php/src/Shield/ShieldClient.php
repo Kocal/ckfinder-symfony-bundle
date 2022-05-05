@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Shield;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Shield;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Shield** service.
  * @method \Aws\Result associateDRTLogBucket(array $args = [])
@@ -78,6 +78,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSubscription(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSubscriptionAsync(array $args = [])
  */
-class ShieldClient extends AwsClient
-{
-}
+class ShieldClient extends AwsClient {}

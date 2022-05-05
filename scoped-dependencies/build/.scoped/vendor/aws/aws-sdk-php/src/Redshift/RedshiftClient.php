@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Redshift;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Redshift;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Redshift** service.
  *
@@ -243,6 +243,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePartnerStatus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePartnerStatusAsync(array $args = [])
  */
-class RedshiftClient extends AwsClient
-{
-}
+class RedshiftClient extends AwsClient {}

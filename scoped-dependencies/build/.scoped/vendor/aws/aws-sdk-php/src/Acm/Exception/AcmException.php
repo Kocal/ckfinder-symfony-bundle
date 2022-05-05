@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Acm\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Acm\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Certificate Manager** service.
  */
-class AcmException extends AwsException
-{
-}
+class AcmException extends AwsException {}

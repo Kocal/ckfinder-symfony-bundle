@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Honeycode;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Honeycode;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Honeycode** service.
  * @method \Aws\Result batchCreateTableRows(array $args = [])
@@ -36,6 +36,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class HoneycodeClient extends AwsClient
-{
-}
+class HoneycodeClient extends AwsClient {}

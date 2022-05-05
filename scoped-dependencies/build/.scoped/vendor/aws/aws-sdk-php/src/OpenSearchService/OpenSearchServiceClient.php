@@ -1,8 +1,8 @@
 <?php
+namespace Aws\OpenSearchService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\OpenSearchService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon OpenSearch Service** service.
  * @method \Aws\Result acceptInboundConnection(array $args = [])
@@ -86,6 +86,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result upgradeDomain(array $args = [])
  * @method \GuzzleHttp\Promise\Promise upgradeDomainAsync(array $args = [])
  */
-class OpenSearchServiceClient extends AwsClient
-{
-}
+class OpenSearchServiceClient extends AwsClient {}

@@ -1,9 +1,9 @@
 <?php
+namespace Aws\Api\Serializer;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Api\Serializer;
+use Aws\Api\Shape;
+use Aws\Api\ListShape;
 
-use _CKFinder_Vendor_Prefix\Aws\Api\Shape;
-use _CKFinder_Vendor_Prefix\Aws\Api\ListShape;
 /**
  * @internal
  */
@@ -11,17 +11,25 @@ class Ec2ParamBuilder extends QueryParamBuilder
 {
     protected function queryName(Shape $shape, $default = null)
     {
-        return ($shape['queryName'] ?: \ucfirst($shape['locationName'])) ?: $default;
+        return ($shape['queryName']
+            ?: ucfirst($shape['locationName']))
+                ?: $default;
     }
+
     protected function isFlat(Shape $shape)
     {
-        return \false;
+        return false;
     }
-    protected function format_list(ListShape $shape, array $value, $prefix, &$query)
-    {
+
+    protected function format_list(
+        ListShape $shape,
+        array $value,
+        $prefix,
+        &$query
+    ) {
         // Handle empty list serialization
         if (!$value) {
-            $query[$prefix] = \false;
+            $query[$prefix] = false;
         } else {
             $items = $shape->getMember();
             foreach ($value as $k => $v) {

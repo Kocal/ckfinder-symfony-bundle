@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Iot\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Iot\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS IoT** service.
  */
-class IotException extends AwsException
-{
-}
+class IotException extends AwsException {}

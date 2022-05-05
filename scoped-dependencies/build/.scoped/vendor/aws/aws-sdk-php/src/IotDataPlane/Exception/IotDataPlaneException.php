@@ -1,11 +1,9 @@
 <?php
+namespace Aws\IotDataPlane\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IotDataPlane\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS IoT Data Plane** service.
  */
-class IotDataPlaneException extends AwsException
-{
-}
+class IotDataPlaneException extends AwsException {}

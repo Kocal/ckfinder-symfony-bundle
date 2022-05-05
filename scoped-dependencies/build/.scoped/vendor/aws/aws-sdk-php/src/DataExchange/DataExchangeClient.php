@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DataExchange;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DataExchange;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Data Exchange** service.
  * @method \Aws\Result cancelJob(array $args = [])
@@ -64,6 +64,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRevision(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRevisionAsync(array $args = [])
  */
-class DataExchangeClient extends AwsClient
-{
-}
+class DataExchangeClient extends AwsClient {}

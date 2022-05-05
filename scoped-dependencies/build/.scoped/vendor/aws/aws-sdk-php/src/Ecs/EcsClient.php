@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Ecs;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ecs;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with **Amazon ECS**.
  *
@@ -111,6 +111,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTaskSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTaskSetAsync(array $args = [])
  */
-class EcsClient extends AwsClient
-{
-}
+class EcsClient extends AwsClient {}

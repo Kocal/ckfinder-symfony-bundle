@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WorkLink;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkLink;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon WorkLink** service.
  * @method \Aws\Result associateDomain(array $args = [])
@@ -72,6 +72,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateIdentityProviderConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateIdentityProviderConfigurationAsync(array $args = [])
  */
-class WorkLinkClient extends AwsClient
-{
-}
+class WorkLinkClient extends AwsClient {}

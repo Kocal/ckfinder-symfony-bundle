@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CostandUsageReportService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CostandUsageReportService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Cost and Usage Report Service** service.
  * @method \Aws\Result deleteReportDefinition(array $args = [])
@@ -14,6 +14,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result putReportDefinition(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putReportDefinitionAsync(array $args = [])
  */
-class CostandUsageReportServiceClient extends AwsClient
-{
-}
+class CostandUsageReportServiceClient extends AwsClient {}

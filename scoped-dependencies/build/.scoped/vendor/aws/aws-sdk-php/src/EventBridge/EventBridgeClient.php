@@ -1,8 +1,8 @@
 <?php
+namespace Aws\EventBridge;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EventBridge;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon EventBridge** service.
  * @method \Aws\Result activateEventSource(array $args = [])
@@ -108,6 +108,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConnectionAsync(array $args = [])
  */
-class EventBridgeClient extends AwsClient
-{
-}
+class EventBridgeClient extends AwsClient {}

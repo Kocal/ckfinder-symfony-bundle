@@ -1,11 +1,9 @@
 <?php
+namespace Aws\KinesisVideoMedia\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisVideoMedia\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Kinesis Video Streams Media** service.
  */
-class KinesisVideoMediaException extends AwsException
-{
-}
+class KinesisVideoMediaException extends AwsException {}

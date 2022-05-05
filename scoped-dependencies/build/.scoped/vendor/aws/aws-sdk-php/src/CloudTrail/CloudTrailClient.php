@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudTrail;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudTrail;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CloudTrail** service.
  *
@@ -65,6 +65,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTrail(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTrailAsync(array $args = [])
  */
-class CloudTrailClient extends AwsClient
-{
-}
+class CloudTrailClient extends AwsClient {}

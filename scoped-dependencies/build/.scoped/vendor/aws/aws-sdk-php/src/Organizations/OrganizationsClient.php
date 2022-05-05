@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Organizations;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Organizations;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Organizations** service.
  * @method \Aws\Result acceptHandshake(array $args = [])
@@ -108,6 +108,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePolicy(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePolicyAsync(array $args = [])
  */
-class OrganizationsClient extends AwsClient
-{
-}
+class OrganizationsClient extends AwsClient {}

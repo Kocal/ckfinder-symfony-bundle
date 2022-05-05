@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\CloudFront;
+namespace Aws\CloudFront;
 
 /**
  * @internal
@@ -9,6 +8,7 @@ class Signer
 {
     private $keyPairId;
     private $pkHandle;
+
     /**
      * A signer for creating the signature values used in CloudFront signed URLs
      * and signed cookies.
@@ -22,31 +22,36 @@ class Signer
      */
     public function __construct($keyPairId, $privateKey, $passphrase = "")
     {
-        if (!\extension_loaded('openssl')) {
+        if (!extension_loaded('openssl')) {
             //@codeCoverageIgnoreStart
-            throw new \RuntimeException('The openssl extension is required to ' . 'sign CloudFront urls.');
+            throw new \RuntimeException('The openssl extension is required to '
+                . 'sign CloudFront urls.');
             //@codeCoverageIgnoreEnd
         }
+
         $this->keyPairId = $keyPairId;
-        if (!($this->pkHandle = \openssl_pkey_get_private($privateKey, $passphrase))) {
-            if (!\file_exists($privateKey)) {
-                throw new \InvalidArgumentException("PK file not found: {$privateKey}");
+
+        if (!$this->pkHandle = openssl_pkey_get_private($privateKey, $passphrase)) {
+            if (!file_exists($privateKey)) {
+                throw new \InvalidArgumentException("PK file not found: $privateKey");
             } else {
-                $this->pkHandle = \openssl_pkey_get_private("file://{$privateKey}", $passphrase);
+                $this->pkHandle = openssl_pkey_get_private("file://$privateKey", $passphrase);
                 if (!$this->pkHandle) {
-                    throw new \InvalidArgumentException(\openssl_error_string());
+                    throw new \InvalidArgumentException(openssl_error_string());
                 }
             }
         }
     }
+
     public function __destruct()
     {
-        if (\PHP_MAJOR_VERSION < 8) {
-            $this->pkHandle && \openssl_pkey_free($this->pkHandle);
+        if (PHP_MAJOR_VERSION < 8) {
+            $this->pkHandle && openssl_pkey_free($this->pkHandle);
         } else {
             $this->pkHandle;
         }
     }
+
     /**
      * Create the values used to construct signed URLs and cookies.
      *
@@ -72,32 +77,47 @@ class Signer
     {
         $signatureHash = [];
         if ($policy) {
-            $policy = \preg_replace('/\\s/s', '', $policy);
+            $policy = preg_replace('/\s/s', '', $policy);
             $signatureHash['Policy'] = $this->encode($policy);
         } elseif ($resource && $expires) {
-            $expires = (int) $expires;
-            // Handle epoch passed as string
+            $expires = (int) $expires; // Handle epoch passed as string
             $policy = $this->createCannedPolicy($resource, $expires);
             $signatureHash['Expires'] = $expires;
         } else {
-            throw new \InvalidArgumentException('Either a policy or a resource' . ' and an expiration time must be provided.');
+            throw new \InvalidArgumentException('Either a policy or a resource'
+                . ' and an expiration time must be provided.');
         }
+
         $signatureHash['Signature'] = $this->encode($this->sign($policy));
         $signatureHash['Key-Pair-Id'] = $this->keyPairId;
+
         return $signatureHash;
     }
+
     private function createCannedPolicy($resource, $expiration)
     {
-        return \json_encode(['Statement' => [['Resource' => $resource, 'Condition' => ['DateLessThan' => ['AWS:EpochTime' => $expiration]]]]], \JSON_UNESCAPED_SLASHES);
+        return json_encode([
+            'Statement' => [
+                [
+                    'Resource' => $resource,
+                    'Condition' => [
+                        'DateLessThan' => ['AWS:EpochTime' => $expiration],
+                    ],
+                ],
+            ],
+        ], JSON_UNESCAPED_SLASHES);
     }
+
     private function sign($policy)
     {
         $signature = '';
-        \openssl_sign($policy, $signature, $this->pkHandle);
+        openssl_sign($policy, $signature, $this->pkHandle);
+
         return $signature;
     }
+
     private function encode($policy)
     {
-        return \strtr(\base64_encode($policy), '+=/', '-_~');
+        return strtr(base64_encode($policy), '+=/', '-_~');
     }
 }

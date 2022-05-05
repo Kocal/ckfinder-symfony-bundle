@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Braket;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Braket;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Braket** service.
  * @method \Aws\Result cancelJob(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class BraketClient extends AwsClient
-{
-}
+class BraketClient extends AwsClient {}

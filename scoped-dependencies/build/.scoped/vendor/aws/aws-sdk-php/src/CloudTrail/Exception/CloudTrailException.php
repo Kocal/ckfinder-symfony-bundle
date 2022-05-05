@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CloudTrail\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudTrail\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the AWS CloudTrail service.
  */
-class CloudTrailException extends AwsException
-{
-}
+class CloudTrailException extends AwsException {}

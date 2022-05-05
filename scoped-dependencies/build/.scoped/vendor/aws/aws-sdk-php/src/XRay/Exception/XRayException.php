@@ -1,11 +1,9 @@
 <?php
+namespace Aws\XRay\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\XRay\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS X-Ray** service.
  */
-class XRayException extends AwsException
-{
-}
+class XRayException extends AwsException {}

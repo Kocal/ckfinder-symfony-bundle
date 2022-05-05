@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DeviceFarm;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DeviceFarm;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon DeviceFarm** service.
  *
@@ -161,6 +161,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVPCEConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVPCEConfigurationAsync(array $args = [])
  */
-class DeviceFarmClient extends AwsClient
-{
-}
+class DeviceFarmClient extends AwsClient {}

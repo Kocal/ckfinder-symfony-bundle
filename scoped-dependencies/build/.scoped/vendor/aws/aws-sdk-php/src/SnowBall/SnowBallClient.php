@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SnowBall;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SnowBall;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Import/Export Snowball** service.
  * @method \Aws\Result cancelCluster(array $args = [])
@@ -56,6 +56,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateLongTermPricing(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateLongTermPricingAsync(array $args = [])
  */
-class SnowBallClient extends AwsClient
-{
-}
+class SnowBallClient extends AwsClient {}

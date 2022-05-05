@@ -1,13 +1,14 @@
 <?php
+namespace Aws\S3\UseArnRegion\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion\Exception;
+use Aws\HasMonitoringEventsTrait;
+use Aws\MonitoringEventsInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\HasMonitoringEventsTrait;
-use _CKFinder_Vendor_Prefix\Aws\MonitoringEventsInterface;
 /**
  * Represents an error interacting with configuration for S3's UseArnRegion
  */
-class ConfigurationException extends \RuntimeException implements MonitoringEventsInterface
+class ConfigurationException extends \RuntimeException implements
+    MonitoringEventsInterface
 {
     use HasMonitoringEventsTrait;
 }

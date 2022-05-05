@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudFront;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudFront;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudFront** service.
  *
@@ -223,12 +223,22 @@ class CloudFrontClient extends AwsClient
     {
         foreach (['url', 'key_pair_id', 'private_key'] as $required) {
             if (!isset($options[$required])) {
-                throw new \InvalidArgumentException("{$required} is required");
+                throw new \InvalidArgumentException("$required is required");
             }
         }
-        $urlSigner = new UrlSigner($options['key_pair_id'], $options['private_key']);
-        return $urlSigner->getSignedUrl($options['url'], isset($options['expires']) ? $options['expires'] : null, isset($options['policy']) ? $options['policy'] : null);
+
+        $urlSigner = new UrlSigner(
+            $options['key_pair_id'],
+            $options['private_key']
+        );
+
+        return $urlSigner->getSignedUrl(
+            $options['url'],
+            isset($options['expires']) ? $options['expires'] : null,
+            isset($options['policy']) ? $options['policy'] : null
+        );
     }
+
     /**
      * Create a signed Amazon CloudFront cookie.
      *
@@ -256,10 +266,19 @@ class CloudFrontClient extends AwsClient
     {
         foreach (['key_pair_id', 'private_key'] as $required) {
             if (!isset($options[$required])) {
-                throw new \InvalidArgumentException("{$required} is required");
+                throw new \InvalidArgumentException("$required is required");
             }
         }
-        $cookieSigner = new CookieSigner($options['key_pair_id'], $options['private_key']);
-        return $cookieSigner->getSignedCookie(isset($options['url']) ? $options['url'] : null, isset($options['expires']) ? $options['expires'] : null, isset($options['policy']) ? $options['policy'] : null);
+
+        $cookieSigner = new CookieSigner(
+            $options['key_pair_id'],
+            $options['private_key']
+        );
+
+        return $cookieSigner->getSignedCookie(
+            isset($options['url']) ? $options['url'] : null,
+            isset($options['expires']) ? $options['expires'] : null,
+            isset($options['policy']) ? $options['policy'] : null
+        );
     }
 }

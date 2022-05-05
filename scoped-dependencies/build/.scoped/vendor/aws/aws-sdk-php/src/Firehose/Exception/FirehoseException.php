@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Firehose\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Firehose\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Kinesis Firehose** service.
  */
-class FirehoseException extends AwsException
-{
-}
+class FirehoseException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WellArchitected;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WellArchitected;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Well-Architected Tool** service.
  * @method \Aws\Result associateLenses(array $args = [])
@@ -84,6 +84,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result upgradeLensReview(array $args = [])
  * @method \GuzzleHttp\Promise\Promise upgradeLensReviewAsync(array $args = [])
  */
-class WellArchitectedClient extends AwsClient
-{
-}
+class WellArchitectedClient extends AwsClient {}

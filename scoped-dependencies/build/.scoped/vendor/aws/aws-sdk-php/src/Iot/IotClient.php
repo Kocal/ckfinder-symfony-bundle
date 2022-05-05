@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Iot;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Iot;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT** service.
  *
@@ -479,6 +479,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validateSecurityProfileBehaviors(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validateSecurityProfileBehaviorsAsync(array $args = [])
  */
-class IotClient extends AwsClient
-{
-}
+class IotClient extends AwsClient {}

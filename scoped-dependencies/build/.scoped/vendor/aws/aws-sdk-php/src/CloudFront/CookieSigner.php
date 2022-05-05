@@ -1,12 +1,16 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\CloudFront;
+namespace Aws\CloudFront;
 
 class CookieSigner
 {
     /** @var Signer */
     private $signer;
-    private static $schemes = ['http' => \true, 'https' => \true];
+
+    private static $schemes = [
+        'http' => true,
+        'https' => true,
+    ];
+
     /**
      * @param $keyPairId  string ID of the key pair
      * @param $privateKey string Path to the private key used for signing
@@ -18,6 +22,7 @@ class CookieSigner
     {
         $this->signer = new Signer($keyPairId, $privateKey);
     }
+
     /**
      * Create a signed Amazon CloudFront Cookie.
      *
@@ -40,17 +45,20 @@ class CookieSigner
         if ($url) {
             $this->validateUrl($url);
         }
+
         $cookieParameters = [];
         $signature = $this->signer->getSignature($url, $expires, $policy);
         foreach ($signature as $key => $value) {
-            $cookieParameters["CloudFront-{$key}"] = $value;
+            $cookieParameters["CloudFront-$key"] = $value;
         }
+
         return $cookieParameters;
     }
+
     private function validateUrl($url)
     {
-        $scheme = \str_replace('*', '', \explode('://', $url)[0]);
-        if (empty(self::$schemes[\strtolower($scheme)])) {
+        $scheme = str_replace('*', '', explode('://', $url)[0]);
+        if (empty(self::$schemes[strtolower($scheme)])) {
             throw new \InvalidArgumentException('Invalid or missing URI scheme');
         }
     }

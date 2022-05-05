@@ -1,8 +1,8 @@
 <?php
+namespace Aws\FMS;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FMS;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Firewall Management Service** service.
  * @method \Aws\Result associateAdminAccount(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class FMSClient extends AwsClient
-{
-}
+class FMSClient extends AwsClient {}

@@ -2,12 +2,6 @@
     "kocal/ckfinder-symfony-bundle": {
         "version": "dev-main"
     },
-    "league/flysystem": {
-        "version": "1.1.9"
-    },
-    "league/mime-type-detection": {
-        "version": "1.9.0"
-    },
     "monolog/monolog": {
         "version": "2.4.0"
     },

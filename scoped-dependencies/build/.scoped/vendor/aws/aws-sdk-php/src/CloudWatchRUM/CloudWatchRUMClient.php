@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudWatchRUM;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchRUM;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **CloudWatch RUM** service.
  * @method \Aws\Result createAppMonitor(array $args = [])
@@ -26,6 +26,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateAppMonitor(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateAppMonitorAsync(array $args = [])
  */
-class CloudWatchRUMClient extends AwsClient
-{
-}
+class CloudWatchRUMClient extends AwsClient {}

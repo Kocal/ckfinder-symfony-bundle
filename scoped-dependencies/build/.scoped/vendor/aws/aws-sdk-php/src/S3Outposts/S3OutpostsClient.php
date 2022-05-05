@@ -1,8 +1,8 @@
 <?php
+namespace Aws\S3Outposts;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3Outposts;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon S3 on Outposts** service.
  * @method \Aws\Result createEndpoint(array $args = [])
@@ -14,6 +14,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result listSharedEndpoints(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listSharedEndpointsAsync(array $args = [])
  */
-class S3OutpostsClient extends AwsClient
-{
-}
+class S3OutpostsClient extends AwsClient {}

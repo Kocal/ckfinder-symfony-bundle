@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MemoryDB\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MemoryDB\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon MemoryDB** service.
  */
-class MemoryDBException extends AwsException
-{
-}
+class MemoryDBException extends AwsException {}

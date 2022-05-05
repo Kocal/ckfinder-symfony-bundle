@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Ecr;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ecr;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon EC2 Container Registry** service.
  *
@@ -89,6 +89,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result uploadLayerPart(array $args = [])
  * @method \GuzzleHttp\Promise\Promise uploadLayerPartAsync(array $args = [])
  */
-class EcrClient extends AwsClient
-{
-}
+class EcrClient extends AwsClient {}

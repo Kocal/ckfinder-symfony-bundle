@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeArtifact;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeArtifact;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **CodeArtifact** service.
  * @method \Aws\Result associateExternalConnection(array $args = [])
@@ -74,6 +74,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRepository(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRepositoryAsync(array $args = [])
  */
-class CodeArtifactClient extends AwsClient
-{
-}
+class CodeArtifactClient extends AwsClient {}

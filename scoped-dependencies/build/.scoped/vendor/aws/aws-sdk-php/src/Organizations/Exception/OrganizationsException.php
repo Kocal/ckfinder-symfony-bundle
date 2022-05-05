@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Organizations\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Organizations\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Organizations** service.
  */
-class OrganizationsException extends AwsException
-{
-}
+class OrganizationsException extends AwsException {}

@@ -1,9 +1,9 @@
 <?php
+namespace Aws\Neptune;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Neptune;
+use Aws\AwsClient;
+use Aws\PresignUrlMiddleware;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\PresignUrlMiddleware;
 /**
  * This client is used to interact with the **Amazon Neptune** service.
  * @method \Aws\Result addRoleToDBCluster(array $args = [])
@@ -133,12 +133,30 @@ use _CKFinder_Vendor_Prefix\Aws\PresignUrlMiddleware;
  * @method \Aws\Result stopDBCluster(array $args = [])
  * @method \GuzzleHttp\Promise\Promise stopDBClusterAsync(array $args = [])
  */
-class NeptuneClient extends AwsClient
-{
+class NeptuneClient extends AwsClient {
     public function __construct(array $args)
     {
         $args['with_resolved'] = function (array $args) {
-            $this->getHandlerList()->appendInit(PresignUrlMiddleware::wrap($this, $args['endpoint_provider'], ['operations' => ['CopyDBClusterSnapshot', 'CreateDBCluster'], 'service' => 'rds', 'presign_param' => 'PreSignedUrl', 'require_different_region' => \true, 'extra_query_params' => ['CopyDBClusterSnapshot' => ['DestinationRegion'], 'CreateDBCluster' => ['DestinationRegion']]]), 'rds.presigner');
+            $this->getHandlerList()->appendInit(
+                PresignUrlMiddleware::wrap(
+                    $this,
+                    $args['endpoint_provider'],
+                    [
+                        'operations' => [
+                            'CopyDBClusterSnapshot',
+                            'CreateDBCluster',
+                        ],
+                        'service' => 'rds',
+                        'presign_param' => 'PreSignedUrl',
+                        'require_different_region' => true,
+                        'extra_query_params' => [
+                            'CopyDBClusterSnapshot' => ['DestinationRegion'],
+                            'CreateDBCluster' => ['DestinationRegion'],
+                        ]
+                    ]
+                ),
+                'rds.presigner'
+            );
         };
         parent::__construct($args);
     }

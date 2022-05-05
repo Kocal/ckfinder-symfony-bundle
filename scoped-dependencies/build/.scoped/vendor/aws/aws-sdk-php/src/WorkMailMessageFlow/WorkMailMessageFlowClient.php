@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WorkMailMessageFlow;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkMailMessageFlow;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon WorkMail Message Flow** service.
  * @method \Aws\Result getRawMessageContent(array $args = [])
@@ -10,6 +10,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result putRawMessageContent(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putRawMessageContentAsync(array $args = [])
  */
-class WorkMailMessageFlowClient extends AwsClient
-{
-}
+class WorkMailMessageFlowClient extends AwsClient {}

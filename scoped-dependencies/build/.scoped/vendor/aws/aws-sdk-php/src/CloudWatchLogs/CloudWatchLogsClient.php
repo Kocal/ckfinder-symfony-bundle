@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudWatchLogs;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchLogs;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudWatch Logs** service.
  *
@@ -91,6 +91,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagLogGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagLogGroupAsync(array $args = [])
  */
-class CloudWatchLogsClient extends AwsClient
-{
-}
+class CloudWatchLogsClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoT1ClickDevicesService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoT1ClickDevicesService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT 1-Click Devices Service** service.
  * @method \Aws\Result claimDevicesByClaimCode(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDeviceState(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDeviceStateAsync(array $args = [])
  */
-class IoT1ClickDevicesServiceClient extends AwsClient
-{
-}
+class IoT1ClickDevicesServiceClient extends AwsClient {}

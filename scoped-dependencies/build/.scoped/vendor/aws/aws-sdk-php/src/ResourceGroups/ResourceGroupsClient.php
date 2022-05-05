@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ResourceGroups;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ResourceGroups;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Resource Groups** service.
  * @method \Aws\Result createGroup(array $args = [])
@@ -38,6 +38,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateGroupQuery(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateGroupQueryAsync(array $args = [])
  */
-class ResourceGroupsClient extends AwsClient
-{
-}
+class ResourceGroupsClient extends AwsClient {}

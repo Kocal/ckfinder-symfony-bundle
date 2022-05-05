@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ConnectParticipant;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ConnectParticipant;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Connect Participant Service** service.
  * @method \Aws\Result completeAttachmentUpload(array $args = [])
@@ -22,6 +22,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result startAttachmentUpload(array $args = [])
  * @method \GuzzleHttp\Promise\Promise startAttachmentUploadAsync(array $args = [])
  */
-class ConnectParticipantClient extends AwsClient
-{
-}
+class ConnectParticipantClient extends AwsClient {}

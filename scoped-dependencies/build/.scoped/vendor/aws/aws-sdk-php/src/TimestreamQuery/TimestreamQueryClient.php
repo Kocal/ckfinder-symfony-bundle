@@ -1,8 +1,8 @@
 <?php
+namespace Aws\TimestreamQuery;
 
-namespace _CKFinder_Vendor_Prefix\Aws\TimestreamQuery;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Timestream Query** service.
  * @method \Aws\Result cancelQuery(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateScheduledQuery(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateScheduledQueryAsync(array $args = [])
  */
-class TimestreamQueryClient extends AwsClient
-{
-}
+class TimestreamQueryClient extends AwsClient {}

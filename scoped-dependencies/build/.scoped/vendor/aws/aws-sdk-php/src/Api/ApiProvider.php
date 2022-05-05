@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Api;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Api;
+use Aws\Exception\UnresolvedApiException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\UnresolvedApiException;
 /**
  * API providers.
  *
@@ -38,11 +38,19 @@ use _CKFinder_Vendor_Prefix\Aws\Exception\UnresolvedApiException;
 class ApiProvider
 {
     /** @var array A map of public API type names to their file suffix. */
-    private static $typeMap = ['api' => 'api-2', 'paginator' => 'paginators-1', 'waiter' => 'waiters-2', 'docs' => 'docs-2'];
+    private static $typeMap = [
+        'api'       => 'api-2',
+        'paginator' => 'paginators-1',
+        'waiter'    => 'waiters-2',
+        'docs'      => 'docs-2',
+    ];
+
     /** @var array API manifest */
     private $manifest;
+
     /** @var string The directory containing service models. */
     private $modelsDir;
+
     /**
      * Resolves an API provider and ensures a non-null return value.
      *
@@ -58,22 +66,25 @@ class ApiProvider
     {
         // Execute the provider and return the result, if there is one.
         $result = $provider($type, $service, $version);
-        if (\is_array($result)) {
+        if (is_array($result)) {
             if (!isset($result['metadata']['serviceIdentifier'])) {
                 $result['metadata']['serviceIdentifier'] = $service;
             }
             return $result;
         }
+
         // Throw an exception with a message depending on the inputs.
         if (!isset(self::$typeMap[$type])) {
-            $msg = "The type must be one of: " . \implode(', ', self::$typeMap);
+            $msg = "The type must be one of: " . implode(', ', self::$typeMap);
         } elseif ($service) {
             $msg = "The {$service} service does not have version: {$version}.";
         } else {
             $msg = "You must specify a service name to retrieve its API data.";
         }
+
         throw new UnresolvedApiException($msg);
     }
+
     /**
      * Default SDK API provider.
      *
@@ -83,8 +94,9 @@ class ApiProvider
      */
     public static function defaultProvider()
     {
-        return new self(__DIR__ . '/../data', \_CKFinder_Vendor_Prefix\Aws\manifest());
+        return new self(__DIR__ . '/../data', \Aws\manifest());
     }
+
     /**
      * Loads API data after resolving the version to the latest, compatible,
      * available version based on the provided manifest data.
@@ -115,6 +127,7 @@ class ApiProvider
     {
         return new self($dir, $manifest);
     }
+
     /**
      * Loads API data from the specified directory.
      *
@@ -130,6 +143,7 @@ class ApiProvider
     {
         return new self($dir);
     }
+
     /**
      * Retrieves a list of valid versions for the specified service.
      *
@@ -142,11 +156,14 @@ class ApiProvider
         if (!isset($this->manifest)) {
             $this->buildVersionsList($service);
         }
+
         if (!isset($this->manifest[$service]['versions'])) {
             return [];
         }
-        return \array_values(\array_unique($this->manifest[$service]['versions']));
+
+        return array_values(array_unique($this->manifest[$service]['versions']));
     }
+
     /**
      * Execute the provider.
      *
@@ -164,21 +181,26 @@ class ApiProvider
         } else {
             return null;
         }
+
         // Resolve the version or return null.
         if (!isset($this->manifest)) {
             $this->buildVersionsList($service);
         }
+
         if (!isset($this->manifest[$service]['versions'][$version])) {
             return null;
         }
+
         $version = $this->manifest[$service]['versions'][$version];
         $path = "{$this->modelsDir}/{$service}/{$version}/{$type}.json";
+
         try {
-            return \_CKFinder_Vendor_Prefix\Aws\load_compiled_json($path);
+            return \Aws\load_compiled_json($path);
         } catch (\InvalidArgumentException $e) {
             return null;
         }
     }
+
     /**
      * @param string $modelsDir Directory containing service models.
      * @param array  $manifest  The API version manifest data.
@@ -186,27 +208,37 @@ class ApiProvider
     private function __construct($modelsDir, array $manifest = null)
     {
         $this->manifest = $manifest;
-        $this->modelsDir = \rtrim($modelsDir, '/');
-        if (!\is_dir($this->modelsDir)) {
-            throw new \InvalidArgumentException("The specified models directory, {$modelsDir}, was not found.");
+        $this->modelsDir = rtrim($modelsDir, '/');
+        if (!is_dir($this->modelsDir)) {
+            throw new \InvalidArgumentException(
+                "The specified models directory, {$modelsDir}, was not found."
+            );
         }
     }
+
     /**
      * Build the versions list for the specified service by globbing the dir.
      */
     private function buildVersionsList($service)
     {
         $dir = "{$this->modelsDir}/{$service}/";
-        if (!\is_dir($dir)) {
+
+        if (!is_dir($dir)) {
             return;
         }
+
         // Get versions, remove . and .., and sort in descending order.
-        $results = \array_diff(\scandir($dir, \SCANDIR_SORT_DESCENDING), ['..', '.']);
+        $results = array_diff(scandir($dir, SCANDIR_SORT_DESCENDING), ['..', '.']);
+
         if (!$results) {
             $this->manifest[$service] = ['versions' => []];
         } else {
-            $this->manifest[$service] = ['versions' => ['latest' => $results[0]]];
-            $this->manifest[$service]['versions'] += \array_combine($results, $results);
+            $this->manifest[$service] = [
+                'versions' => [
+                    'latest' => $results[0]
+                ]
+            ];
+            $this->manifest[$service]['versions'] += array_combine($results, $results);
         }
     }
 }

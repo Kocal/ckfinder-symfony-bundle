@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Support;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Support;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * AWS Support client.
  *
@@ -35,6 +35,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result resolveCase(array $args = [])
  * @method \GuzzleHttp\Promise\Promise resolveCaseAsync(array $args = [])
  */
-class SupportClient extends AwsClient
-{
-}
+class SupportClient extends AwsClient {}

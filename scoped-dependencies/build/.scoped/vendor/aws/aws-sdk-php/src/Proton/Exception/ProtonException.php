@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Proton\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Proton\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Proton** service.
  */
-class ProtonException extends AwsException
-{
-}
+class ProtonException extends AwsException {}

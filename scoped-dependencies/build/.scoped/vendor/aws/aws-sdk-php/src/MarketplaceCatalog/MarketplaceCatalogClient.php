@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MarketplaceCatalog;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MarketplaceCatalog;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Marketplace Catalog Service** service.
  * @method \Aws\Result cancelChangeSet(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result startChangeSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise startChangeSetAsync(array $args = [])
  */
-class MarketplaceCatalogClient extends AwsClient
-{
-}
+class MarketplaceCatalogClient extends AwsClient {}

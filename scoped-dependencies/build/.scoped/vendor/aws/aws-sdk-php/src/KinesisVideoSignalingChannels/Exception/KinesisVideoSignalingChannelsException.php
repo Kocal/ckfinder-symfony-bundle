@@ -1,11 +1,9 @@
 <?php
+namespace Aws\KinesisVideoSignalingChannels\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisVideoSignalingChannels\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Kinesis Video Signaling Channels** service.
  */
-class KinesisVideoSignalingChannelsException extends AwsException
-{
-}
+class KinesisVideoSignalingChannelsException extends AwsException {}

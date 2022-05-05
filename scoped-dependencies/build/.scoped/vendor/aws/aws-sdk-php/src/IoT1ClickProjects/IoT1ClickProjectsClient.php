@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoT1ClickProjects;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoT1ClickProjects;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT 1-Click Projects Service** service.
  * @method \Aws\Result associateDeviceWithPlacement(array $args = [])
@@ -38,6 +38,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateProject(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateProjectAsync(array $args = [])
  */
-class IoT1ClickProjectsClient extends AwsClient
-{
-}
+class IoT1ClickProjectsClient extends AwsClient {}

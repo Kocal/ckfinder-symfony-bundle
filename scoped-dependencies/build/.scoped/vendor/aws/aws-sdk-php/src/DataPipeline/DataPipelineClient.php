@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DataPipeline;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DataPipeline;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Data Pipeline** service.
  *
@@ -45,6 +45,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validatePipelineDefinition(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validatePipelineDefinitionAsync(array $args = [])
  */
-class DataPipelineClient extends AwsClient
-{
-}
+class DataPipelineClient extends AwsClient {}

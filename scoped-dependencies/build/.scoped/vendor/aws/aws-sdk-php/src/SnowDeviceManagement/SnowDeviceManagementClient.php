@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SnowDeviceManagement;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SnowDeviceManagement;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Snow Device Management** service.
  * @method \Aws\Result cancelTask(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class SnowDeviceManagementClient extends AwsClient
-{
-}
+class SnowDeviceManagementClient extends AwsClient {}

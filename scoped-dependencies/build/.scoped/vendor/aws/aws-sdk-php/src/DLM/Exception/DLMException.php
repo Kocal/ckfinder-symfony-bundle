@@ -1,11 +1,9 @@
 <?php
+namespace Aws\DLM\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DLM\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Data Lifecycle Manager** service.
  */
-class DLMException extends AwsException
-{
-}
+class DLMException extends AwsException {}

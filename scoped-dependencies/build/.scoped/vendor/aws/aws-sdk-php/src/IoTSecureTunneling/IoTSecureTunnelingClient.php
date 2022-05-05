@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTSecureTunneling;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTSecureTunneling;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Secure Tunneling** service.
  * @method \Aws\Result closeTunnel(array $args = [])
@@ -20,6 +20,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class IoTSecureTunnelingClient extends AwsClient
-{
-}
+class IoTSecureTunnelingClient extends AwsClient {}

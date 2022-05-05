@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaConvert;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaConvert;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elemental MediaConvert** service.
  * @method \Aws\Result associateCertificate(array $args = [])
@@ -62,6 +62,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateQueue(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateQueueAsync(array $args = [])
  */
-class MediaConvertClient extends AwsClient
-{
-}
+class MediaConvertClient extends AwsClient {}

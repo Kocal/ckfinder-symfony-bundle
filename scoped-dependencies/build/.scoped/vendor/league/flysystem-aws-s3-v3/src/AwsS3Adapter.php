@@ -3,11 +3,11 @@
 namespace _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3;
 
 use _CKFinder_Vendor_Prefix\Aws\Result;
-use _CKFinder_Vendor_Prefix\Aws\S3\Exception\DeleteMultipleObjectsException;
-use _CKFinder_Vendor_Prefix\Aws\S3\Exception\S3Exception;
-use _CKFinder_Vendor_Prefix\Aws\S3\Exception\S3MultipartUploadException;
-use _CKFinder_Vendor_Prefix\Aws\S3\S3Client;
-use _CKFinder_Vendor_Prefix\Aws\S3\S3ClientInterface;
+use Aws\S3\Exception\DeleteMultipleObjectsException;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\Exception\S3MultipartUploadException;
+use Aws\S3\S3Client;
+use Aws\S3\S3ClientInterface;
 use _CKFinder_Vendor_Prefix\League\Flysystem\AdapterInterface;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Adapter\AbstractAdapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Adapter\CanOverwriteFiles;

@@ -16,6 +16,18 @@ $polyfillsBootstraps = array_map(
     ),
 );
 
+$notScopedDependencies = array_map(
+    static fn (SplFileInfo $fileInfo) => $fileInfo->getPathname(),
+    iterator_to_array(
+        Finder::create()
+            ->files()
+            ->in(__DIR__ . '/../vendor/{aws}')
+            #->in(__DIR__ . '/../vendor/{aws,guzzlehttp,mtdowling}')
+            ->name('*.php'),
+        false,
+    ),
+);
+
 // You can do your own things here, e.g. collecting symbols to expose dynamically
 // or files to exclude.
 // However beware that this file is executed by PHP-Scoper, hence if you are using
@@ -64,6 +76,7 @@ return [
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#patchers
     'exclude-files' => [
         ...$polyfillsBootstraps,
+        ...$notScopedDependencies,
     ],
 
     // When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
@@ -98,6 +111,10 @@ return [
         // '~^PHPUnit\\\\Framework$~',    // The whole namespace PHPUnit\Framework (but not sub-namespaces)
         // '~^$~',                        // The root namespace only
         // '',                            // Any namespace
+        '~^Aws\\\\~',
+        #'~^GuzzleHttp\\\\~',
+        #'~^JmesPath\\\\~',
+        #'~^Psr\\\\~'
     ],
     'exclude-classes' => [
         // 'ReflectionClassConstant',

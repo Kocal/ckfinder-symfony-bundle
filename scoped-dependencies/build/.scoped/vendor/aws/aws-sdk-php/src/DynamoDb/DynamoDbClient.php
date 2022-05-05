@@ -1,15 +1,15 @@
 <?php
+namespace Aws\DynamoDb;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DynamoDb;
+use Aws\Api\Parser\Crc32ValidatingParser;
+use Aws\AwsClient;
+use Aws\ClientResolver;
+use Aws\Exception\AwsException;
+use Aws\HandlerList;
+use Aws\Middleware;
+use Aws\RetryMiddleware;
+use Aws\RetryMiddlewareV2;
 
-use _CKFinder_Vendor_Prefix\Aws\Api\Parser\Crc32ValidatingParser;
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\ClientResolver;
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
-use _CKFinder_Vendor_Prefix\Aws\HandlerList;
-use _CKFinder_Vendor_Prefix\Aws\Middleware;
-use _CKFinder_Vendor_Prefix\Aws\RetryMiddleware;
-use _CKFinder_Vendor_Prefix\Aws\RetryMiddlewareV2;
 /**
  * This client is used to interact with the **Amazon DynamoDB** service.
  *
@@ -122,8 +122,10 @@ class DynamoDbClient extends AwsClient
         $args['retries']['default'] = 10;
         $args['retries']['fn'] = [__CLASS__, '_applyRetryConfig'];
         $args['api_provider']['fn'] = [__CLASS__, '_applyApiProvider'];
+
         return $args;
     }
+
     /**
      * Convenience method for instantiating and registering the DynamoDB
      * Session handler with this DynamoDB client object.
@@ -136,22 +138,49 @@ class DynamoDbClient extends AwsClient
     {
         $handler = SessionHandler::fromClient($this, $config);
         $handler->register();
+
         return $handler;
     }
+
     /** @internal */
     public static function _applyRetryConfig($value, array &$args, HandlerList $list)
     {
         if ($value) {
-            $config = \_CKFinder_Vendor_Prefix\Aws\Retry\ConfigurationProvider::unwrap($value);
+            $config = \Aws\Retry\ConfigurationProvider::unwrap($value);
+
             if ($config->getMode() === 'legacy') {
-                $list->appendSign(Middleware::retry(RetryMiddleware::createDefaultDecider($config->getMaxAttempts() - 1, ['error_codes' => ['TransactionInProgressException']]), function ($retries) {
-                    return $retries ? RetryMiddleware::exponentialDelay($retries) / 2 : 0;
-                }, isset($args['stats']['retries']) ? (bool) $args['stats']['retries'] : \false), 'retry');
+                $list->appendSign(
+                    Middleware::retry(
+                        RetryMiddleware::createDefaultDecider(
+                            $config->getMaxAttempts() - 1,
+                            ['error_codes' => ['TransactionInProgressException']]
+                        ),
+                        function ($retries) {
+                            return $retries
+                                ? RetryMiddleware::exponentialDelay($retries) / 2
+                                : 0;
+                        },
+                        isset($args['stats']['retries'])
+                            ? (bool)$args['stats']['retries']
+                            : false
+                    ),
+                    'retry'
+                );
             } else {
-                $list->appendSign(RetryMiddlewareV2::wrap($config, ['collect_stats' => $args['stats']['retries'], 'transient_error_codes' => ['TransactionInProgressException']]), 'retry');
+                $list->appendSign(
+                    RetryMiddlewareV2::wrap(
+                        $config,
+                        [
+                            'collect_stats' => $args['stats']['retries'],
+                            'transient_error_codes' => ['TransactionInProgressException']
+                        ]
+                    ),
+                    'retry'
+                );
             }
         }
     }
+
     /** @internal */
     public static function _applyApiProvider($value, array &$args, HandlerList $list)
     {

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ServiceDiscovery;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ServiceDiscovery;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Route 53 Auto Naming** service.
  * @method \Aws\Result createHttpNamespace(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateService(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServiceAsync(array $args = [])
  */
-class ServiceDiscoveryClient extends AwsClient
-{
-}
+class ServiceDiscoveryClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\KinesisVideoSignalingChannels;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisVideoSignalingChannels;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis Video Signaling Channels** service.
  * @method \Aws\Result getIceServerConfig(array $args = [])
@@ -10,6 +10,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result sendAlexaOfferToMaster(array $args = [])
  * @method \GuzzleHttp\Promise\Promise sendAlexaOfferToMasterAsync(array $args = [])
  */
-class KinesisVideoSignalingChannelsClient extends AwsClient
-{
-}
+class KinesisVideoSignalingChannelsClient extends AwsClient {}

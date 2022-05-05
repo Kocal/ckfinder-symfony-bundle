@@ -1,8 +1,8 @@
 <?php
+namespace Aws\NetworkManager;
 
-namespace _CKFinder_Vendor_Prefix\Aws\NetworkManager;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Network Manager** service.
  * @method \Aws\Result acceptAttachment(array $args = [])
@@ -158,6 +158,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVpcAttachment(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVpcAttachmentAsync(array $args = [])
  */
-class NetworkManagerClient extends AwsClient
-{
-}
+class NetworkManagerClient extends AwsClient {}

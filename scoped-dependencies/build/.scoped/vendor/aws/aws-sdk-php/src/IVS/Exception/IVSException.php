@@ -1,11 +1,9 @@
 <?php
+namespace Aws\IVS\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IVS\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Interactive Video Service** service.
  */
-class IVSException extends AwsException
-{
-}
+class IVSException extends AwsException {}

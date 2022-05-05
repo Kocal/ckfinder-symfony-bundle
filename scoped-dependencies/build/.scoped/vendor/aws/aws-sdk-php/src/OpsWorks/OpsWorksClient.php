@@ -1,8 +1,8 @@
 <?php
+namespace Aws\OpsWorks;
 
-namespace _CKFinder_Vendor_Prefix\Aws\OpsWorks;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS OpsWorks** service.
  *
@@ -155,6 +155,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVolume(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVolumeAsync(array $args = [])
  */
-class OpsWorksClient extends AwsClient
-{
-}
+class OpsWorksClient extends AwsClient {}

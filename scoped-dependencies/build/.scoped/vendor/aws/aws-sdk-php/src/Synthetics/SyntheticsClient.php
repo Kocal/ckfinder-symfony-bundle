@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Synthetics;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Synthetics;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Synthetics** service.
  * @method \Aws\Result createCanary(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateCanary(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateCanaryAsync(array $args = [])
  */
-class SyntheticsClient extends AwsClient
-{
-}
+class SyntheticsClient extends AwsClient {}

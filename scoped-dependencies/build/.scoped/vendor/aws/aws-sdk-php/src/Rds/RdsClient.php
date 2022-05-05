@@ -1,12 +1,12 @@
 <?php
+namespace Aws\Rds;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Rds;
+use Aws\AwsClient;
+use Aws\Api\Service;
+use Aws\Api\DocModel;
+use Aws\Api\ApiProvider;
+use Aws\PresignUrlMiddleware;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\Api\Service;
-use _CKFinder_Vendor_Prefix\Aws\Api\DocModel;
-use _CKFinder_Vendor_Prefix\Aws\Api\ApiProvider;
-use _CKFinder_Vendor_Prefix\Aws\PresignUrlMiddleware;
 /**
  * This client is used to interact with the **Amazon Relational Database Service (Amazon RDS)**.
  *
@@ -298,10 +298,30 @@ class RdsClient extends AwsClient
     public function __construct(array $args)
     {
         $args['with_resolved'] = function (array $args) {
-            $this->getHandlerList()->appendInit(PresignUrlMiddleware::wrap($this, $args['endpoint_provider'], ['operations' => ['CopyDBSnapshot', 'CreateDBInstanceReadReplica', 'CopyDBClusterSnapshot', 'CreateDBCluster', 'StartDBInstanceAutomatedBackupsReplication'], 'service' => 'rds', 'presign_param' => 'PreSignedUrl', 'require_different_region' => \true]), 'rds.presigner');
+            $this->getHandlerList()->appendInit(
+                PresignUrlMiddleware::wrap(
+                    $this,
+                    $args['endpoint_provider'],
+                    [
+                        'operations' => [
+                            'CopyDBSnapshot',
+                            'CreateDBInstanceReadReplica',
+                            'CopyDBClusterSnapshot',
+                            'CreateDBCluster',
+                            'StartDBInstanceAutomatedBackupsReplication'
+                        ],
+                        'service' => 'rds',
+                        'presign_param' => 'PreSignedUrl',
+                        'require_different_region' => true,
+                    ]
+                ),
+                'rds.presigner'
+            );
         };
+
         parent::__construct($args);
     }
+
     /**
      * @internal
      * @codeCoverageIgnore
@@ -309,33 +329,68 @@ class RdsClient extends AwsClient
     public static function applyDocFilters(array $api, array $docs)
     {
         // Add the SourceRegion parameter
-        $docs['shapes']['SourceRegion']['base'] = 'A required parameter that indicates ' . 'the region that the DB snapshot will be copied from.';
+        $docs['shapes']['SourceRegion']['base'] = 'A required parameter that indicates '
+            . 'the region that the DB snapshot will be copied from.';
         $api['shapes']['SourceRegion'] = ['type' => 'string'];
         $api['shapes']['CopyDBSnapshotMessage']['members']['SourceRegion'] = ['shape' => 'SourceRegion'];
         $api['shapes']['CreateDBInstanceReadReplicaMessage']['members']['SourceRegion'] = ['shape' => 'SourceRegion'];
+
         // Add the DestinationRegion parameter
-        $docs['shapes']['DestinationRegion']['base'] = '<div class="alert alert-info">The SDK will populate this ' . 'parameter on your behalf using the configured region value of ' . 'the client.</div>';
+        $docs['shapes']['DestinationRegion']['base']
+            = '<div class="alert alert-info">The SDK will populate this '
+            . 'parameter on your behalf using the configured region value of '
+            . 'the client.</div>';
         $api['shapes']['DestinationRegion'] = ['type' => 'string'];
         $api['shapes']['CopyDBSnapshotMessage']['members']['DestinationRegion'] = ['shape' => 'DestinationRegion'];
         $api['shapes']['CreateDBInstanceReadReplicaMessage']['members']['DestinationRegion'] = ['shape' => 'DestinationRegion'];
+
         // Several parameters in presign APIs are optional.
-        $docs['shapes']['String']['refs']['CopyDBSnapshotMessage$PreSignedUrl'] = '<div class="alert alert-info">The SDK will compute this value ' . 'for you on your behalf.</div>';
-        $docs['shapes']['String']['refs']['CopyDBSnapshotMessage$DestinationRegion'] = '<div class="alert alert-info">The SDK will populate this ' . 'parameter on your behalf using the configured region value of ' . 'the client.</div>';
+        $docs['shapes']['String']['refs']['CopyDBSnapshotMessage$PreSignedUrl']
+            = '<div class="alert alert-info">The SDK will compute this value '
+            . 'for you on your behalf.</div>';
+        $docs['shapes']['String']['refs']['CopyDBSnapshotMessage$DestinationRegion']
+            = '<div class="alert alert-info">The SDK will populate this '
+            . 'parameter on your behalf using the configured region value of '
+            . 'the client.</div>';
+
         // Several parameters in presign APIs are optional.
-        $docs['shapes']['String']['refs']['CreateDBInstanceReadReplicaMessage$PreSignedUrl'] = '<div class="alert alert-info">The SDK will compute this value ' . 'for you on your behalf.</div>';
-        $docs['shapes']['String']['refs']['CreateDBInstanceReadReplicaMessage$DestinationRegion'] = '<div class="alert alert-info">The SDK will populate this ' . 'parameter on your behalf using the configured region value of ' . 'the client.</div>';
+        $docs['shapes']['String']['refs']['CreateDBInstanceReadReplicaMessage$PreSignedUrl']
+            = '<div class="alert alert-info">The SDK will compute this value '
+            . 'for you on your behalf.</div>';
+        $docs['shapes']['String']['refs']['CreateDBInstanceReadReplicaMessage$DestinationRegion']
+            = '<div class="alert alert-info">The SDK will populate this '
+            . 'parameter on your behalf using the configured region value of '
+            . 'the client.</div>';
+
         if ($api['metadata']['apiVersion'] != '2014-09-01') {
             $api['shapes']['CopyDBClusterSnapshotMessage']['members']['SourceRegion'] = ['shape' => 'SourceRegion'];
             $api['shapes']['CreateDBClusterMessage']['members']['SourceRegion'] = ['shape' => 'SourceRegion'];
+
             $api['shapes']['CopyDBClusterSnapshotMessage']['members']['DestinationRegion'] = ['shape' => 'DestinationRegion'];
             $api['shapes']['CreateDBClusterMessage']['members']['DestinationRegion'] = ['shape' => 'DestinationRegion'];
+
             // Several parameters in presign APIs are optional.
-            $docs['shapes']['String']['refs']['CopyDBClusterSnapshotMessage$PreSignedUrl'] = '<div class="alert alert-info">The SDK will compute this value ' . 'for you on your behalf.</div>';
-            $docs['shapes']['String']['refs']['CopyDBClusterSnapshotMessage$DestinationRegion'] = '<div class="alert alert-info">The SDK will populate this ' . 'parameter on your behalf using the configured region value of ' . 'the client.</div>';
+            $docs['shapes']['String']['refs']['CopyDBClusterSnapshotMessage$PreSignedUrl']
+                = '<div class="alert alert-info">The SDK will compute this value '
+                . 'for you on your behalf.</div>';
+            $docs['shapes']['String']['refs']['CopyDBClusterSnapshotMessage$DestinationRegion']
+                = '<div class="alert alert-info">The SDK will populate this '
+                . 'parameter on your behalf using the configured region value of '
+                . 'the client.</div>';
+
             // Several parameters in presign APIs are optional.
-            $docs['shapes']['String']['refs']['CreateDBClusterMessage$PreSignedUrl'] = '<div class="alert alert-info">The SDK will compute this value ' . 'for you on your behalf.</div>';
-            $docs['shapes']['String']['refs']['CreateDBClusterMessage$DestinationRegion'] = '<div class="alert alert-info">The SDK will populate this ' . 'parameter on your behalf using the configured region value of ' . 'the client.</div>';
+            $docs['shapes']['String']['refs']['CreateDBClusterMessage$PreSignedUrl']
+                = '<div class="alert alert-info">The SDK will compute this value '
+                . 'for you on your behalf.</div>';
+            $docs['shapes']['String']['refs']['CreateDBClusterMessage$DestinationRegion']
+                = '<div class="alert alert-info">The SDK will populate this '
+                . 'parameter on your behalf using the configured region value of '
+                . 'the client.</div>';
         }
-        return [new Service($api, ApiProvider::defaultProvider()), new DocModel($docs)];
+
+        return [
+            new Service($api, ApiProvider::defaultProvider()),
+            new DocModel($docs)
+        ];
     }
 }

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AppRegistry\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AppRegistry\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Service Catalog App Registry** service.
  */
-class AppRegistryException extends AwsException
-{
-}
+class AppRegistryException extends AwsException {}

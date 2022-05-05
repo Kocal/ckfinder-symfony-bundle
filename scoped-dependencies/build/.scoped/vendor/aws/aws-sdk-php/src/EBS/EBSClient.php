@@ -1,8 +1,8 @@
 <?php
+namespace Aws\EBS;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EBS;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elastic Block Store** service.
  * @method \Aws\Result completeSnapshot(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result startSnapshot(array $args = [])
  * @method \GuzzleHttp\Promise\Promise startSnapshotAsync(array $args = [])
  */
-class EBSClient extends AwsClient
-{
-}
+class EBSClient extends AwsClient {}

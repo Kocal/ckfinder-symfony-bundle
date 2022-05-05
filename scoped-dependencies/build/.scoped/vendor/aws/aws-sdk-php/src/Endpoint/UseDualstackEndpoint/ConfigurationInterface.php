@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Endpoint\UseDualstackEndpoint;
+namespace Aws\Endpoint\UseDualstackEndpoint;
 
 interface ConfigurationInterface
 {
@@ -10,6 +9,7 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isUseDualstackEndpoint();
+
     /**
      * Returns the configuration as an associative array
      *

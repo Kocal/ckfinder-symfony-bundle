@@ -1,33 +1,44 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\DynamoDb;
+namespace Aws\DynamoDb;
 
 trait SessionConnectionConfigTrait
 {
     /** @var string Name of table to store the sessions */
     protected $tableName = 'sessions';
+
     /** @var string Name of hash key in table. Default: "id" */
     protected $hashKey = 'id';
+
     /** @var string Name of the data attribute in table. Default: "data" */
     protected $dataAttribute = 'data';
+
     /** @var string Type of the data attribute in table. Default: "string" */
     protected $dataAttributeType = 'string';
+
     /** @var integer Lifetime of inactive sessions expiration */
     protected $sessionLifetime;
+
     /** @var string Name of the session life time attribute in table. Default: "expires" */
     protected $sessionLifetimeAttribute = 'expires';
+
     /** @var string Whether or not to use consistent reads */
-    protected $consistentRead = \true;
+    protected $consistentRead = true;
+
     /** @var string Batch options used for garbage collection */
     protected $batchConfig = [];
+
     /** @var boolean Whether or not to use session locking */
-    protected $locking = \false;
+    protected $locking = false;
+
     /** @var integer Max time (s) to wait for lock acquisition */
     protected $maxLockWaitTime = 10;
+
     /** @var integer Min time (µs) to wait between lock attempts */
     protected $minLockRetryMicrotime = 10000;
+
     /** @var integer Max time (µs) to wait between lock attempts */
     protected $maxLockRetryMicrotime = 50000;
+
     /**
      * It initialize the Config class and
      * it sets values in case of valid configurations.
@@ -37,21 +48,27 @@ trait SessionConnectionConfigTrait
      * 
      * @param array $config
      */
-    public function initConfig(array $config = [])
+    public function initConfig( array $config = [] )
     {
-        if (!empty($config)) {
-            foreach ($config as $key => $value) {
-                $method = 'set' . \str_replace('_', '', \ucwords($key, '_'));
-                if (\method_exists($this, $method)) {
-                    \call_user_func_array(array($this, $method), array($value));
+        if (!empty($config))
+        {
+            foreach ($config as $key => $value)
+            {
+                $method = 'set' . str_replace('_', '', ucwords($key, '_'));
+                if(method_exists($this,$method))
+                {
+                    call_user_func_array(array($this, $method), array($value));
                 }
             }
         }
+
         // It applies the default PHP session lifetime, if no session lifetime config is provided
-        if (!isset($config['session_lifetime'])) {
-            $this->setSessionLifetime((int) \ini_get('session.gc_maxlifetime'));
+        if(!isset($config['session_lifetime']))
+        {
+            $this->setSessionLifetime((int) ini_get('session.gc_maxlifetime'));
         }
     }
+
     /**
      * @return string
      */
@@ -59,6 +76,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->tableName;
     }
+
     /**
      * @param string $tableName
      */
@@ -66,6 +84,7 @@ trait SessionConnectionConfigTrait
     {
         $this->tableName = $tableName;
     }
+
     /**
      * @return string
      */
@@ -73,6 +92,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->hashKey;
     }
+
     /**
      * @param string $hashKey
      */
@@ -80,6 +100,7 @@ trait SessionConnectionConfigTrait
     {
         $this->hashKey = $hashKey;
     }
+
     /**
      * @return string
      */
@@ -87,6 +108,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->dataAttribute;
     }
+
     /**
      * @param string $dataAttribute
      */
@@ -94,6 +116,7 @@ trait SessionConnectionConfigTrait
     {
         $this->dataAttribute = $dataAttribute;
     }
+
     /**
      * @return string
      */
@@ -101,6 +124,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->dataAttributeType;
     }
+
     /**
      * @param string $dataAttributeType
      */
@@ -108,6 +132,7 @@ trait SessionConnectionConfigTrait
     {
         $this->dataAttributeType = $dataAttributeType;
     }
+
     /**
      * @return number
      */
@@ -115,6 +140,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->sessionLifetime;
     }
+
     /**
      * @param number $sessionLifetime
      */
@@ -122,6 +148,7 @@ trait SessionConnectionConfigTrait
     {
         $this->sessionLifetime = $sessionLifetime;
     }
+
     /**
      * @return string
      */
@@ -129,6 +156,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->sessionLifetimeAttribute;
     }
+
     /**
      * @param string $sessionLifetimeAttribute
      */
@@ -136,6 +164,7 @@ trait SessionConnectionConfigTrait
     {
         $this->sessionLifetimeAttribute = $sessionLifetimeAttribute;
     }
+
     /**
      * @return boolean
      */
@@ -143,6 +172,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->consistentRead;
     }
+
     /**
      * @param boolean $consistentRead
      */
@@ -150,6 +180,7 @@ trait SessionConnectionConfigTrait
     {
         $this->consistentRead = $consistentRead;
     }
+
     /**
      * @return mixed
      */
@@ -157,6 +188,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->batchConfig;
     }
+
     /**
      * @param mixed $batchConfig
      */
@@ -171,6 +203,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->locking;
     }
+
     /**
      * @param boolean $locking
      */
@@ -178,6 +211,7 @@ trait SessionConnectionConfigTrait
     {
         $this->locking = $locking;
     }
+
     /**
      * @return number
      */
@@ -185,6 +219,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->maxLockWaitTime;
     }
+
     /**
      * @param number $maxLockWaitTime
      */
@@ -192,6 +227,7 @@ trait SessionConnectionConfigTrait
     {
         $this->maxLockWaitTime = $maxLockWaitTime;
     }
+
     /**
      * @return number
      */
@@ -199,6 +235,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->minLockRetryMicrotime;
     }
+
     /**
      * @param number $minLockRetryMicrotime
      */
@@ -206,6 +243,7 @@ trait SessionConnectionConfigTrait
     {
         $this->minLockRetryMicrotime = $minLockRetryMicrotime;
     }
+
     /**
      * @return number
      */
@@ -213,6 +251,7 @@ trait SessionConnectionConfigTrait
     {
         return $this->maxLockRetryMicrotime;
     }
+
     /**
      * @param number $maxLockRetryMicrotime
      */

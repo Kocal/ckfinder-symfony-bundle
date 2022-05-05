@@ -1,8 +1,8 @@
 <?php
+namespace Aws\drs;
 
-namespace _CKFinder_Vendor_Prefix\Aws\drs;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Elastic Disaster Recovery Service** service.
  * @method \Aws\Result createReplicationConfigurationTemplate(array $args = [])
@@ -64,6 +64,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateReplicationConfigurationTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateReplicationConfigurationTemplateAsync(array $args = [])
  */
-class drsClient extends AwsClient
-{
-}
+class drsClient extends AwsClient {}

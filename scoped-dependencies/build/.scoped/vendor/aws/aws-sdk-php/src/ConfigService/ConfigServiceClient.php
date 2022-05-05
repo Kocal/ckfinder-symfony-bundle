@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ConfigService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ConfigService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with AWS Config.
  *
@@ -183,6 +183,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class ConfigServiceClient extends AwsClient
-{
-}
+class ConfigServiceClient extends AwsClient {}

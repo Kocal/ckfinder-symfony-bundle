@@ -1,11 +1,9 @@
 <?php
+namespace Aws\GroundStation\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GroundStation\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Ground Station** service.
  */
-class GroundStationException extends AwsException
-{
-}
+class GroundStationException extends AwsException {}

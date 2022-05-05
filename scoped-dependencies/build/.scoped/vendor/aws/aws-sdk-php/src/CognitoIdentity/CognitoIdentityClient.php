@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CognitoIdentity;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CognitoIdentity;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Cognito Identity** service.
  *
@@ -53,6 +53,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateIdentityPool(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateIdentityPoolAsync(array $args = [])
  */
-class CognitoIdentityClient extends AwsClient
-{
-}
+class CognitoIdentityClient extends AwsClient {}

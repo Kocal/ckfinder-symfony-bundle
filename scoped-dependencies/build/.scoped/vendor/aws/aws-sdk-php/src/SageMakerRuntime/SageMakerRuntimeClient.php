@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SageMakerRuntime;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SageMakerRuntime;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon SageMaker Runtime** service.
  * @method \Aws\Result invokeEndpoint(array $args = [])
@@ -10,6 +10,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result invokeEndpointAsync(array $args = [])
  * @method \GuzzleHttp\Promise\Promise invokeEndpointAsyncAsync(array $args = [])
  */
-class SageMakerRuntimeClient extends AwsClient
-{
-}
+class SageMakerRuntimeClient extends AwsClient {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\EventBridge\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EventBridge\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon EventBridge** service.
  */
-class EventBridgeException extends AwsException
-{
-}
+class EventBridgeException extends AwsException {}

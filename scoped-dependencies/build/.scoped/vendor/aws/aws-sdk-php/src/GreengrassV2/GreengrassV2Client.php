@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GreengrassV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GreengrassV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Greengrass V2** service.
  * @method \Aws\Result associateServiceRoleToAccount(array $args = [])
@@ -62,6 +62,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConnectivityInfo(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConnectivityInfoAsync(array $args = [])
  */
-class GreengrassV2Client extends AwsClient
-{
-}
+class GreengrassV2Client extends AwsClient {}

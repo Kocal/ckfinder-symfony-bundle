@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MachineLearning\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MachineLearning\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Amazon Machine Learning exception.
  */
-class MachineLearningException extends AwsException
-{
-}
+class MachineLearningException extends AwsException {}

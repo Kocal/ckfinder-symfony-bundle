@@ -1,8 +1,8 @@
 <?php
+namespace Aws\PinpointSMSVoice;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PinpointSMSVoice;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Pinpoint SMS and Voice Service** service.
  * @method \Aws\Result createConfigurationSet(array $args = [])
@@ -22,6 +22,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConfigurationSetEventDestination(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConfigurationSetEventDestinationAsync(array $args = [])
  */
-class PinpointSMSVoiceClient extends AwsClient
-{
-}
+class PinpointSMSVoiceClient extends AwsClient {}

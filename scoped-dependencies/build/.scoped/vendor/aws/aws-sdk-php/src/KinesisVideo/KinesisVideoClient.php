@@ -1,8 +1,8 @@
 <?php
+namespace Aws\KinesisVideo;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisVideo;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis Video Streams** service.
  * @method \Aws\Result createSignalingChannel(array $args = [])
@@ -44,6 +44,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStream(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStreamAsync(array $args = [])
  */
-class KinesisVideoClient extends AwsClient
-{
-}
+class KinesisVideoClient extends AwsClient {}

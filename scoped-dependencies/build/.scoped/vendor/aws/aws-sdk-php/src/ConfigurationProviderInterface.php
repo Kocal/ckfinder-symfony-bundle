@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws;
+namespace Aws;
 
 interface ConfigurationProviderInterface
 {

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GroundStation;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GroundStation;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Ground Station** service.
  * @method \Aws\Result cancelContact(array $args = [])
@@ -56,6 +56,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateMissionProfile(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateMissionProfileAsync(array $args = [])
  */
-class GroundStationClient extends AwsClient
-{
-}
+class GroundStationClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ChimeSDKMessaging;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ChimeSDKMessaging;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Chime SDK Messaging** service.
  * @method \Aws\Result associateChannelFlow(array $args = [])
@@ -96,6 +96,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateChannelReadMarker(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateChannelReadMarkerAsync(array $args = [])
  */
-class ChimeSDKMessagingClient extends AwsClient
-{
-}
+class ChimeSDKMessagingClient extends AwsClient {}

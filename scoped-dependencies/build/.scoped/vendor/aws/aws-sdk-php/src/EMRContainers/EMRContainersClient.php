@@ -1,8 +1,8 @@
 <?php
+namespace Aws\EMRContainers;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EMRContainers;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon EMR Containers** service.
  * @method \Aws\Result cancelJobRun(array $args = [])
@@ -36,6 +36,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class EMRContainersClient extends AwsClient
-{
-}
+class EMRContainersClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SavingsPlans;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SavingsPlans;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Savings Plans** service.
  * @method \Aws\Result createSavingsPlan(array $args = [])
@@ -24,6 +24,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class SavingsPlansClient extends AwsClient
-{
-}
+class SavingsPlansClient extends AwsClient {}

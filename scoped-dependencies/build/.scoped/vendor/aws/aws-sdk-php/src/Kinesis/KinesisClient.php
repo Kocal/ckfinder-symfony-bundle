@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Kinesis;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Kinesis;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis** service.
  *
@@ -63,6 +63,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStreamMode(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStreamModeAsync(array $args = [])
  */
-class KinesisClient extends AwsClient
-{
-}
+class KinesisClient extends AwsClient {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Lambda\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Lambda\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with AWS Lambda
  */
-class LambdaException extends AwsException
-{
-}
+class LambdaException extends AwsException {}

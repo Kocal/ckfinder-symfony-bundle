@@ -1,12 +1,12 @@
 <?php
+namespace Aws\CloudSearchDomain;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudSearchDomain;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7\Uri;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7;
 /**
  * This client is used to search and upload documents to an **Amazon CloudSearch** Domain.
  *
@@ -25,17 +25,20 @@ class CloudSearchDomainClient extends AwsClient
         $list = $this->getHandlerList();
         $list->appendBuild($this->searchByPost(), 'cloudsearchdomain.search_by_POST');
     }
+
     public static function getArguments()
     {
         $args = parent::getArguments();
-        $args['endpoint']['required'] = \true;
+        $args['endpoint']['required'] = true;
         $args['region']['default'] = function (array $args) {
             // Determine the region from the provided endpoint.
             // (e.g. http://search-blah.{region}.cloudsearch.amazonaws.com)
-            return \explode('.', new Uri($args['endpoint']))[1];
+            return explode('.', new Uri($args['endpoint']))[1];
         };
+
         return $args;
     }
+
     /**
      * Use POST for search command
      *
@@ -44,7 +47,10 @@ class CloudSearchDomainClient extends AwsClient
     private function searchByPost()
     {
         return static function (callable $handler) {
-            return function (CommandInterface $c, RequestInterface $r = null) use($handler) {
+            return function (
+                CommandInterface $c,
+                RequestInterface $r = null
+            ) use ($handler) {
                 if ($c->getName() !== 'Search') {
                     return $handler($c, $r);
                 }
@@ -52,6 +58,7 @@ class CloudSearchDomainClient extends AwsClient
             };
         };
     }
+
     /**
      * Converts default GET request to a POST request
      *
@@ -65,8 +72,13 @@ class CloudSearchDomainClient extends AwsClient
         if ($r->getMethod() === 'POST') {
             return $r;
         }
+
         $query = $r->getUri()->getQuery();
-        $req = $r->withMethod('POST')->withBody(Psr7\Utils::streamFor($query))->withHeader('Content-Length', \strlen($query))->withHeader('Content-Type', 'application/x-www-form-urlencoded')->withUri($r->getUri()->withQuery(''));
+        $req = $r->withMethod('POST')
+            ->withBody(Psr7\Utils::streamFor($query))
+            ->withHeader('Content-Length', strlen($query))
+            ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+            ->withUri($r->getUri()->withQuery(''));
         return $req;
     }
 }

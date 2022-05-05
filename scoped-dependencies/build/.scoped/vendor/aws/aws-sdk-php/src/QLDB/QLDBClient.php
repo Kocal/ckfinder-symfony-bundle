@@ -1,8 +1,8 @@
 <?php
+namespace Aws\QLDB;
 
-namespace _CKFinder_Vendor_Prefix\Aws\QLDB;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon QLDB** service.
  * @method \Aws\Result cancelJournalKinesisStream(array $args = [])
@@ -46,6 +46,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateLedgerPermissionsMode(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateLedgerPermissionsModeAsync(array $args = [])
  */
-class QLDBClient extends AwsClient
-{
-}
+class QLDBClient extends AwsClient {}

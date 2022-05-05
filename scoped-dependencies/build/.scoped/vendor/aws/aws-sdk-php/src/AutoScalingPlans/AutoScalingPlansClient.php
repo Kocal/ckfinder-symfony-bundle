@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AutoScalingPlans;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AutoScalingPlans;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Auto Scaling Plans** service.
  * @method \Aws\Result createScalingPlan(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateScalingPlan(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateScalingPlanAsync(array $args = [])
  */
-class AutoScalingPlansClient extends AwsClient
-{
-}
+class AutoScalingPlansClient extends AwsClient {}

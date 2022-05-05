@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudWatchEvidently;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchEvidently;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudWatch Evidently** service.
  * @method \Aws\Result batchEvaluateFeature(array $args = [])
@@ -70,6 +70,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateProjectDataDelivery(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateProjectDataDeliveryAsync(array $args = [])
  */
-class CloudWatchEvidentlyClient extends AwsClient
-{
-}
+class CloudWatchEvidentlyClient extends AwsClient {}

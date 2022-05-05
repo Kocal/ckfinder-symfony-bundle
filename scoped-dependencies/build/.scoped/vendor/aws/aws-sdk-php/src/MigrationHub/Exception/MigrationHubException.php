@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MigrationHub\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MigrationHub\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Migration Hub** service.
  */
-class MigrationHubException extends AwsException
-{
-}
+class MigrationHubException extends AwsException {}

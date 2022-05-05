@@ -1,7 +1,4 @@
 <?php
+namespace Aws\S3\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\Exception;
-
-class PermanentRedirectException extends S3Exception
-{
-}
+class PermanentRedirectException extends S3Exception {}

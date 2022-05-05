@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ResourceGroupsTaggingAPI;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ResourceGroupsTaggingAPI;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Resource Groups Tagging API** service.
  * @method \Aws\Result describeReportCreation(array $args = [])
@@ -22,6 +22,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResources(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourcesAsync(array $args = [])
  */
-class ResourceGroupsTaggingAPIClient extends AwsClient
-{
-}
+class ResourceGroupsTaggingAPIClient extends AwsClient {}

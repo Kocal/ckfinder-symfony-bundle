@@ -1,9 +1,9 @@
 <?php
+namespace Aws\Arn\S3;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Arn\S3;
+use Aws\Arn\Arn;
+use Aws\Arn\ResourceTypeAndIdTrait;
 
-use _CKFinder_Vendor_Prefix\Aws\Arn\Arn;
-use _CKFinder_Vendor_Prefix\Aws\Arn\ResourceTypeAndIdTrait;
 /**
  * This class represents an S3 multi-region bucket ARN, which is in the
  * following format:
@@ -13,6 +13,7 @@ use _CKFinder_Vendor_Prefix\Aws\Arn\ResourceTypeAndIdTrait;
 class MultiRegionAccessPointArn extends AccessPointArn
 {
     use ResourceTypeAndIdTrait;
+
     /**
      * Parses a string into an associative array of components that represent
      * a MultiRegionArn
@@ -24,6 +25,7 @@ class MultiRegionAccessPointArn extends AccessPointArn
     {
         return parent::parse($string);
     }
+
     /**
      *
      * @param array $data
@@ -32,4 +34,5 @@ class MultiRegionAccessPointArn extends AccessPointArn
     {
         Arn::validate($data);
     }
+
 }

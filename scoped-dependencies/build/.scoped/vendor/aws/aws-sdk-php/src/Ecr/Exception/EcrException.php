@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Ecr\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ecr\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon EC2 Container Registry** service.
  */
-class EcrException extends AwsException
-{
-}
+class EcrException extends AwsException {}

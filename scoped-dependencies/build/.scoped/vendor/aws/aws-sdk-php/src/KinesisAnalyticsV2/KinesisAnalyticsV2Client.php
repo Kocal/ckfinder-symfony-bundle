@@ -1,8 +1,8 @@
 <?php
+namespace Aws\KinesisAnalyticsV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisAnalyticsV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis Analytics** service.
  * @method \Aws\Result addApplicationCloudWatchLoggingOption(array $args = [])
@@ -68,6 +68,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateApplicationMaintenanceConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateApplicationMaintenanceConfigurationAsync(array $args = [])
  */
-class KinesisAnalyticsV2Client extends AwsClient
-{
-}
+class KinesisAnalyticsV2Client extends AwsClient {}

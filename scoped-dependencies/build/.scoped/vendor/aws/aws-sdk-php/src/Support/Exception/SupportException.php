@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Support\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Support\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * AWS Support service exception.
  */
-class SupportException extends AwsException
-{
-}
+class SupportException extends AwsException {}

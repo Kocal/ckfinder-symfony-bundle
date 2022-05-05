@@ -1,8 +1,8 @@
 <?php
+namespace Aws\RDSDataService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\RDSDataService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS RDS DataService** service.
  * @method \Aws\Result batchExecuteStatement(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result rollbackTransaction(array $args = [])
  * @method \GuzzleHttp\Promise\Promise rollbackTransactionAsync(array $args = [])
  */
-class RDSDataServiceClient extends AwsClient
-{
-}
+class RDSDataServiceClient extends AwsClient {}

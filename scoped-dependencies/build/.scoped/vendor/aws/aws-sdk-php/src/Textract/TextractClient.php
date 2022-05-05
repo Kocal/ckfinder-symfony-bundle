@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Textract;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Textract;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Textract** service.
  * @method \Aws\Result analyzeDocument(array $args = [])
@@ -26,6 +26,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result startExpenseAnalysis(array $args = [])
  * @method \GuzzleHttp\Promise\Promise startExpenseAnalysisAsync(array $args = [])
  */
-class TextractClient extends AwsClient
-{
-}
+class TextractClient extends AwsClient {}

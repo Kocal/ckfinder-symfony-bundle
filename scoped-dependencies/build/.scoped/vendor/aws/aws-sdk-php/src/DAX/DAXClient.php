@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DAX;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DAX;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon DynamoDB Accelerator (DAX)** service.
  * @method \Aws\Result createCluster(array $args = [])
@@ -48,6 +48,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSubnetGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSubnetGroupAsync(array $args = [])
  */
-class DAXClient extends AwsClient
-{
-}
+class DAXClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Glue;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Glue;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Glue** service.
  * @method \Aws\Result batchCreatePartition(array $args = [])
@@ -362,6 +362,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkflow(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkflowAsync(array $args = [])
  */
-class GlueClient extends AwsClient
-{
-}
+class GlueClient extends AwsClient {}

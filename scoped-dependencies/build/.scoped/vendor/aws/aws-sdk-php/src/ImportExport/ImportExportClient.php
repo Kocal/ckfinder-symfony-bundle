@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ImportExport;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ImportExport;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Import/Export** service.
  * @method \Aws\Result cancelJob(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateJob(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateJobAsync(array $args = [])
  */
-class ImportExportClient extends AwsClient
-{
-}
+class ImportExportClient extends AwsClient {}

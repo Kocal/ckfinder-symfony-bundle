@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CloudWatchRUM\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchRUM\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **CloudWatch RUM** service.
  */
-class CloudWatchRUMException extends AwsException
-{
-}
+class CloudWatchRUMException extends AwsException {}

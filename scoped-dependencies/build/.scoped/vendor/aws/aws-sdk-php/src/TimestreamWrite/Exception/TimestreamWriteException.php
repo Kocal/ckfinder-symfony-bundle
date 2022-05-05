@@ -1,11 +1,9 @@
 <?php
+namespace Aws\TimestreamWrite\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\TimestreamWrite\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Timestream Write** service.
  */
-class TimestreamWriteException extends AwsException
-{
-}
+class TimestreamWriteException extends AwsException {}

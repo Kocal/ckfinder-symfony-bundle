@@ -1,8 +1,8 @@
 <?php
+namespace Aws\LookoutEquipment;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LookoutEquipment;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Lookout for Equipment** service.
  * @method \Aws\Result createDataset(array $args = [])
@@ -50,6 +50,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateInferenceScheduler(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateInferenceSchedulerAsync(array $args = [])
  */
-class LookoutEquipmentClient extends AwsClient
-{
-}
+class LookoutEquipmentClient extends AwsClient {}

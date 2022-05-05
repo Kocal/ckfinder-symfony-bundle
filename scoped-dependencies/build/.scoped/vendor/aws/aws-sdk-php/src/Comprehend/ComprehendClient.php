@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Comprehend;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Comprehend;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Comprehend** service.
  * @method \Aws\Result batchDetectDominantLanguage(array $args = [])
@@ -148,6 +148,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateEndpoint(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEndpointAsync(array $args = [])
  */
-class ComprehendClient extends AwsClient
-{
-}
+class ComprehendClient extends AwsClient {}

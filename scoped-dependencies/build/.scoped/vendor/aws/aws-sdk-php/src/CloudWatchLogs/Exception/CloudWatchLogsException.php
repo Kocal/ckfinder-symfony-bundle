@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CloudWatchLogs\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchLogs\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon CloudWatch Logs service.
  */
-class CloudWatchLogsException extends AwsException
-{
-}
+class CloudWatchLogsException extends AwsException {}

@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Arn;
+namespace Aws\Arn;
 
 /**
  * This class represents an S3 Object bucket ARN, which is in the
@@ -22,6 +21,7 @@ class ObjectLambdaAccessPointArn extends AccessPointArn
         $data = parent::parse($string);
         return parent::parseResourceTypeAndId($data);
     }
+
     /**
      *
      * @param array $data

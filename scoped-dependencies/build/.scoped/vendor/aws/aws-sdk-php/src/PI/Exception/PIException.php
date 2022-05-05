@@ -1,11 +1,9 @@
 <?php
+namespace Aws\PI\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PI\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Performance Insights** service.
  */
-class PIException extends AwsException
-{
-}
+class PIException extends AwsException {}

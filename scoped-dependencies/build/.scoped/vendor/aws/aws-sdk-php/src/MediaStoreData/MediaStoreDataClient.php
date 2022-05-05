@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaStoreData;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaStoreData;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elemental MediaStore Data Plane** service.
  * @method \Aws\Result deleteObject(array $args = [])
@@ -16,6 +16,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result putObject(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putObjectAsync(array $args = [])
  */
-class MediaStoreDataClient extends AwsClient
-{
-}
+class MediaStoreDataClient extends AwsClient {}

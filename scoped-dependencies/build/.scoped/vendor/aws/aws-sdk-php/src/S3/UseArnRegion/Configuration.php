@@ -1,19 +1,22 @@
 <?php
+namespace Aws\S3\UseArnRegion;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion;
+use Aws;
+use Aws\S3\UseArnRegion\Exception\ConfigurationException;
 
-use _CKFinder_Vendor_Prefix\Aws;
-use _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion\Exception\ConfigurationException;
 class Configuration implements ConfigurationInterface
 {
     private $useArnRegion;
+
     public function __construct($useArnRegion)
     {
         $this->useArnRegion = Aws\boolean_value($useArnRegion);
-        if (\is_null($this->useArnRegion)) {
-            throw new ConfigurationException("'use_arn_region' config option" . " must be a boolean value.");
+        if (is_null($this->useArnRegion)) {
+            throw new ConfigurationException("'use_arn_region' config option"
+                . " must be a boolean value.");
         }
     }
+
     /**
      * {@inheritdoc}
      */
@@ -21,11 +24,14 @@ class Configuration implements ConfigurationInterface
     {
         return $this->useArnRegion;
     }
+
     /**
      * {@inheritdoc}
      */
     public function toArray()
     {
-        return ['use_arn_region' => $this->isUseArnRegion()];
+        return [
+            'use_arn_region' => $this->isUseArnRegion(),
+        ];
     }
 }

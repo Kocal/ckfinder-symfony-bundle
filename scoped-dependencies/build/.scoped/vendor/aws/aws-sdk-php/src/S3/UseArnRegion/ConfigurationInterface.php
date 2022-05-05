@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion;
+namespace Aws\S3\UseArnRegion;
 
 interface ConfigurationInterface
 {
@@ -10,6 +9,7 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isUseArnRegion();
+
     /**
      * Returns the configuration as an associative array
      *

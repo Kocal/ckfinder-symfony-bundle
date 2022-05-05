@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Lightsail;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Lightsail;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Lightsail** service.
  * @method \Aws\Result allocateStaticIp(array $args = [])
@@ -312,6 +312,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRelationalDatabaseParameters(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRelationalDatabaseParametersAsync(array $args = [])
  */
-class LightsailClient extends AwsClient
-{
-}
+class LightsailClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CognitoSync;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CognitoSync;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Cognito Sync** service.
  *
@@ -41,6 +41,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRecords(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRecordsAsync(array $args = [])
  */
-class CognitoSyncClient extends AwsClient
-{
-}
+class CognitoSyncClient extends AwsClient {}

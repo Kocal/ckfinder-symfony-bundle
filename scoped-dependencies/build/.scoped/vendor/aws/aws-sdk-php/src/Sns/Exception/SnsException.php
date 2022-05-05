@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Sns\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sns\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Simple Notification Service.
  */
-class SnsException extends AwsException
-{
-}
+class SnsException extends AwsException {}

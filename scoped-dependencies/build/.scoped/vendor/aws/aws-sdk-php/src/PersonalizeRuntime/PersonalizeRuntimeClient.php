@@ -1,8 +1,8 @@
 <?php
+namespace Aws\PersonalizeRuntime;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PersonalizeRuntime;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Personalize Runtime** service.
  * @method \Aws\Result getPersonalizedRanking(array $args = [])
@@ -10,6 +10,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result getRecommendations(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getRecommendationsAsync(array $args = [])
  */
-class PersonalizeRuntimeClient extends AwsClient
-{
-}
+class PersonalizeRuntimeClient extends AwsClient {}

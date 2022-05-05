@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WorkSpaces;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkSpaces;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * Amazon WorkSpaces client.
  *
@@ -123,6 +123,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkspaceImagePermission(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkspaceImagePermissionAsync(array $args = [])
  */
-class WorkSpacesClient extends AwsClient
-{
-}
+class WorkSpacesClient extends AwsClient {}

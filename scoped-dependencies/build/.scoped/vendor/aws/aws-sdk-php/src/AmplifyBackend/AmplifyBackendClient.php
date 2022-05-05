@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AmplifyBackend;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AmplifyBackend;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AmplifyBackend** service.
  * @method \Aws\Result cloneBackend(array $args = [])
@@ -68,6 +68,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateBackendStorage(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateBackendStorageAsync(array $args = [])
  */
-class AmplifyBackendClient extends AwsClient
-{
-}
+class AmplifyBackendClient extends AwsClient {}

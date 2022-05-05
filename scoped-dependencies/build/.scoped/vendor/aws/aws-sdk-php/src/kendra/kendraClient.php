@@ -1,8 +1,8 @@
 <?php
+namespace Aws\kendra;
 
-namespace _CKFinder_Vendor_Prefix\Aws\kendra;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWSKendraFrontendService** service.
  * @method \Aws\Result associateEntitiesToExperience(array $args = [])
@@ -116,6 +116,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateThesaurus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateThesaurusAsync(array $args = [])
  */
-class kendraClient extends AwsClient
-{
-}
+class kendraClient extends AwsClient {}

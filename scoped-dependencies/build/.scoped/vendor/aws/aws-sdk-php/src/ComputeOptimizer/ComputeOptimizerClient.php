@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ComputeOptimizer;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ComputeOptimizer;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Compute Optimizer** service.
  * @method \Aws\Result deleteRecommendationPreferences(array $args = [])
@@ -42,6 +42,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateEnrollmentStatus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEnrollmentStatusAsync(array $args = [])
  */
-class ComputeOptimizerClient extends AwsClient
-{
-}
+class ComputeOptimizerClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Route53RecoveryReadiness;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Route53RecoveryReadiness;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Route53 Recovery Readiness** service.
  * @method \Aws\Result createCell(array $args = [])
@@ -70,6 +70,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateResourceSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateResourceSetAsync(array $args = [])
  */
-class Route53RecoveryReadinessClient extends AwsClient
-{
-}
+class Route53RecoveryReadinessClient extends AwsClient {}

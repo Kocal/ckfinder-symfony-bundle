@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AlexaForBusiness;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AlexaForBusiness;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Alexa For Business** service.
  * @method \Aws\Result approveSkill(array $args = [])
@@ -192,6 +192,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSkillGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSkillGroupAsync(array $args = [])
  */
-class AlexaForBusinessClient extends AwsClient
-{
-}
+class AlexaForBusinessClient extends AwsClient {}

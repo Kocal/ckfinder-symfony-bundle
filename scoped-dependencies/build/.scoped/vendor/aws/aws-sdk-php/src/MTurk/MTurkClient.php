@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MTurk;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MTurk;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Mechanical Turk Requester Service** service.
  * @method \Aws\Result acceptQualificationRequest(array $args = [])
@@ -84,6 +84,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateQualificationType(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateQualificationTypeAsync(array $args = [])
  */
-class MTurkClient extends AwsClient
-{
-}
+class MTurkClient extends AwsClient {}

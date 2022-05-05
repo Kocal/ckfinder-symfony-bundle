@@ -1,11 +1,9 @@
 <?php
+namespace Aws\QuickSight\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\QuickSight\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon QuickSight** service.
  */
-class QuickSightException extends AwsException
-{
-}
+class QuickSightException extends AwsException {}

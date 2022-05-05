@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudWatchEvents;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatchEvents;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudWatch Events** service.
  *
@@ -109,6 +109,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConnectionAsync(array $args = [])
  */
-class CloudWatchEventsClient extends AwsClient
-{
-}
+class CloudWatchEventsClient extends AwsClient {}

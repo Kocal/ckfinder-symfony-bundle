@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AutoScaling;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AutoScaling;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * Auto Scaling client.
  *
@@ -129,6 +129,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateAutoScalingGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateAutoScalingGroupAsync(array $args = [])
  */
-class AutoScalingClient extends AwsClient
-{
-}
+class AutoScalingClient extends AwsClient {}

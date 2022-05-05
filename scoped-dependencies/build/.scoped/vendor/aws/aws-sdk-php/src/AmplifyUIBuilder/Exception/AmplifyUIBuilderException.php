@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AmplifyUIBuilder\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AmplifyUIBuilder\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Amplify UI Builder** service.
  */
-class AmplifyUIBuilderException extends AwsException
-{
-}
+class AmplifyUIBuilderException extends AwsException {}

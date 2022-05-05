@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Kms;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Kms;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Key Management Service**.
  *
@@ -103,6 +103,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result verify(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifyAsync(array $args = [])
  */
-class KmsClient extends AwsClient
-{
-}
+class KmsClient extends AwsClient {}

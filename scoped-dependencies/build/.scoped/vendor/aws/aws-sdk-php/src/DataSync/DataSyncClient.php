@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DataSync;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DataSync;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS DataSync** service.
  * @method \Aws\Result cancelTaskExecution(array $args = [])
@@ -86,6 +86,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTaskExecution(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTaskExecutionAsync(array $args = [])
  */
-class DataSyncClient extends AwsClient
-{
-}
+class DataSyncClient extends AwsClient {}

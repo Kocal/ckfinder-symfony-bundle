@@ -1,11 +1,9 @@
 <?php
+namespace Aws\SesV2\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SesV2\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Simple Email Service** service.
  */
-class SesV2Exception extends AwsException
-{
-}
+class SesV2Exception extends AwsException {}

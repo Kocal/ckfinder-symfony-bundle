@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IotDataPlane;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IotDataPlane;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Data Plane** service.
  *
@@ -21,6 +21,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateThingShadow(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateThingShadowAsync(array $args = [])
  */
-class IotDataPlaneClient extends AwsClient
-{
-}
+class IotDataPlaneClient extends AwsClient {}

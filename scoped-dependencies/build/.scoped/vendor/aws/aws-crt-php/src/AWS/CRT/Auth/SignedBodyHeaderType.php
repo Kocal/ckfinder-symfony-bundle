@@ -1,13 +1,11 @@
 <?php
-
 /**
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0.
  */
-namespace _CKFinder_Vendor_Prefix\AWS\CRT\Auth;
+namespace AWS\CRT\Auth;
 
-class SignedBodyHeaderType
-{
+class SignedBodyHeaderType {
     const NONE = 0;
     const X_AMZ_CONTENT_SHA256 = 1;
 }

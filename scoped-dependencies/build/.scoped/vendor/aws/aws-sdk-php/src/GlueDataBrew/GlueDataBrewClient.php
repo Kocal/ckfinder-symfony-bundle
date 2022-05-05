@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GlueDataBrew;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GlueDataBrew;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Glue DataBrew** service.
  * @method \Aws\Result batchDeleteRecipeVersion(array $args = [])
@@ -94,6 +94,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSchedule(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateScheduleAsync(array $args = [])
  */
-class GlueDataBrewClient extends AwsClient
-{
-}
+class GlueDataBrewClient extends AwsClient {}

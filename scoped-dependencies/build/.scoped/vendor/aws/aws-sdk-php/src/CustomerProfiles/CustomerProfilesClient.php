@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CustomerProfiles;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CustomerProfiles;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Connect Customer Profiles** service.
  * @method \Aws\Result addProfileKey(array $args = [])
@@ -82,6 +82,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateProfile(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateProfileAsync(array $args = [])
  */
-class CustomerProfilesClient extends AwsClient
-{
-}
+class CustomerProfilesClient extends AwsClient {}

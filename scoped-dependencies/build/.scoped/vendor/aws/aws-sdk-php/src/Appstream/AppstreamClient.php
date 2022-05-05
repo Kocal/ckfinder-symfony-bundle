@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Appstream;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Appstream;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon AppStream** service.
  * @method \Aws\Result associateApplicationFleet(array $args = [])
@@ -136,6 +136,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStack(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStackAsync(array $args = [])
  */
-class AppstreamClient extends AwsClient
-{
-}
+class AppstreamClient extends AwsClient {}

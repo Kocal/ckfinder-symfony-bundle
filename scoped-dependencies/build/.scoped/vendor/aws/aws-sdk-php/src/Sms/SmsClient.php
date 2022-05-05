@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Sms;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sms;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Server Migration Service** service.
  * @method \Aws\Result createApp(array $args = [])
@@ -76,6 +76,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateReplicationJob(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateReplicationJobAsync(array $args = [])
  */
-class SmsClient extends AwsClient
-{
-}
+class SmsClient extends AwsClient {}

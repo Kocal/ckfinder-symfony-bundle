@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Chime\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Chime\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Chime** service.
  */
-class ChimeException extends AwsException
-{
-}
+class ChimeException extends AwsException {}

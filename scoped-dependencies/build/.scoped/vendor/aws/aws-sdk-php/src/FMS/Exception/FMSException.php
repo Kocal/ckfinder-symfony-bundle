@@ -1,11 +1,9 @@
 <?php
+namespace Aws\FMS\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FMS\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Firewall Management Service** service.
  */
-class FMSException extends AwsException
-{
-}
+class FMSException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ForecastService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ForecastService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Forecast Service** service.
  * @method \Aws\Result createAutoPredictor(array $args = [])
@@ -96,6 +96,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDatasetGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDatasetGroupAsync(array $args = [])
  */
-class ForecastServiceClient extends AwsClient
-{
-}
+class ForecastServiceClient extends AwsClient {}

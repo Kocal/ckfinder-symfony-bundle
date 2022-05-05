@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ComprehendMedical;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ComprehendMedical;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Comprehend Medical** service.
  * @method \Aws\Result describeEntitiesDetectionV2Job(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result stopSNOMEDCTInferenceJob(array $args = [])
  * @method \GuzzleHttp\Promise\Promise stopSNOMEDCTInferenceJobAsync(array $args = [])
  */
-class ComprehendMedicalClient extends AwsClient
-{
-}
+class ComprehendMedicalClient extends AwsClient {}

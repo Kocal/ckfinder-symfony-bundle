@@ -1,8 +1,8 @@
 <?php
+namespace Aws\PrometheusService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PrometheusService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Prometheus Service** service.
  * @method \Aws\Result createAlertManagerDefinition(array $args = [])
@@ -40,6 +40,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkspaceAlias(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkspaceAliasAsync(array $args = [])
  */
-class PrometheusServiceClient extends AwsClient
-{
-}
+class PrometheusServiceClient extends AwsClient {}

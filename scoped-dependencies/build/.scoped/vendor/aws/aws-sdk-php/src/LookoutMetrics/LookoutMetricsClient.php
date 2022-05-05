@@ -1,10 +1,10 @@
 <?php
+namespace Aws\LookoutMetrics;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LookoutMetrics;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use Psr\Http\Message\RequestInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
 /**
  * This client is used to interact with the **Amazon Lookout for Metrics** service.
  * @method \Aws\Result activateAnomalyDetector(array $args = [])
@@ -62,6 +62,4 @@ use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
  * @method \Aws\Result updateMetricSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateMetricSetAsync(array $args = [])
  */
-class LookoutMetricsClient extends AwsClient
-{
-}
+class LookoutMetricsClient extends AwsClient {}

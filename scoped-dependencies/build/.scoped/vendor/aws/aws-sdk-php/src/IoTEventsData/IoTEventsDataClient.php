@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTEventsData;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTEventsData;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Events Data** service.
  * @method \Aws\Result batchAcknowledgeAlarm(array $args = [])
@@ -28,6 +28,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result listDetectors(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listDetectorsAsync(array $args = [])
  */
-class IoTEventsDataClient extends AwsClient
-{
-}
+class IoTEventsDataClient extends AwsClient {}

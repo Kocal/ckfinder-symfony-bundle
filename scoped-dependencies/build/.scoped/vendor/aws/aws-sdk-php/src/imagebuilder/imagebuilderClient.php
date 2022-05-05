@@ -1,8 +1,8 @@
 <?php
+namespace Aws\imagebuilder;
 
-namespace _CKFinder_Vendor_Prefix\Aws\imagebuilder;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **EC2 Image Builder** service.
  * @method \Aws\Result cancelImageCreation(array $args = [])
@@ -106,6 +106,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateInfrastructureConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateInfrastructureConfigurationAsync(array $args = [])
  */
-class imagebuilderClient extends AwsClient
-{
-}
+class imagebuilderClient extends AwsClient {}

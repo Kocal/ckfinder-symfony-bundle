@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Ssm\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ssm\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Amazon EC2 Simple Systems Manager exception.
  */
-class SsmException extends AwsException
-{
-}
+class SsmException extends AwsException {}

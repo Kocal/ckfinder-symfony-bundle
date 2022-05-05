@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTDeviceAdvisor;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTDeviceAdvisor;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Core Device Advisor** service.
  * @method \Aws\Result createSuiteDefinition(array $args = [])
@@ -34,6 +34,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSuiteDefinition(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSuiteDefinitionAsync(array $args = [])
  */
-class IoTDeviceAdvisorClient extends AwsClient
-{
-}
+class IoTDeviceAdvisorClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DatabaseMigrationService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DatabaseMigrationService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Database Migration Service** service.
  * @method \Aws\Result addTagsToResource(array $args = [])
@@ -116,6 +116,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result testConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise testConnectionAsync(array $args = [])
  */
-class DatabaseMigrationServiceClient extends AwsClient
-{
-}
+class DatabaseMigrationServiceClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElasticLoadBalancingV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticLoadBalancingV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Elastic Load Balancing** service.
  * @method \Aws\Result addListenerCertificates(array $args = [])
@@ -74,6 +74,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result setSubnets(array $args = [])
  * @method \GuzzleHttp\Promise\Promise setSubnetsAsync(array $args = [])
  */
-class ElasticLoadBalancingV2Client extends AwsClient
-{
-}
+class ElasticLoadBalancingV2Client extends AwsClient {}

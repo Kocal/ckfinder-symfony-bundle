@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Inspector2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Inspector2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Inspector2** service.
  * @method \Aws\Result associateMember(array $args = [])
@@ -66,6 +66,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateOrganizationConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateOrganizationConfigurationAsync(array $args = [])
  */
-class Inspector2Client extends AwsClient
-{
-}
+class Inspector2Client extends AwsClient {}

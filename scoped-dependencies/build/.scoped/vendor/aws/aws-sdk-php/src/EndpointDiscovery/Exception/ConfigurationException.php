@@ -1,13 +1,14 @@
 <?php
+namespace Aws\EndpointDiscovery\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EndpointDiscovery\Exception;
+use Aws\HasMonitoringEventsTrait;
+use Aws\MonitoringEventsInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\HasMonitoringEventsTrait;
-use _CKFinder_Vendor_Prefix\Aws\MonitoringEventsInterface;
 /**
  * Represents an error interacting with configuration for endpoint discovery
  */
-class ConfigurationException extends \RuntimeException implements MonitoringEventsInterface
+class ConfigurationException extends \RuntimeException implements
+    MonitoringEventsInterface
 {
     use HasMonitoringEventsTrait;
 }

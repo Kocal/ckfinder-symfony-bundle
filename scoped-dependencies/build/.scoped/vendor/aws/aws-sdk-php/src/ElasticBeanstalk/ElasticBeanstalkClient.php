@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElasticBeanstalk;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticBeanstalk;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elastic Beanstalk** service.
  *
@@ -101,6 +101,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validateConfigurationSettings(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validateConfigurationSettingsAsync(array $args = [])
  */
-class ElasticBeanstalkClient extends AwsClient
-{
-}
+class ElasticBeanstalkClient extends AwsClient {}

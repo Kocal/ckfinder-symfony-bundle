@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudWatch;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudWatch;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudWatch** service.
  *
@@ -79,6 +79,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class CloudWatchClient extends AwsClient
-{
-}
+class CloudWatchClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Chime;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Chime;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Chime** service.
  * @method \Aws\Result associatePhoneNumberWithUser(array $args = [])
@@ -386,6 +386,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVoiceConnectorGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVoiceConnectorGroupAsync(array $args = [])
  */
-class ChimeClient extends AwsClient
-{
-}
+class ChimeClient extends AwsClient {}

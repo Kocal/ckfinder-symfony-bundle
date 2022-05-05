@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DevOpsGuru;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DevOpsGuru;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon DevOps Guru** service.
  * @method \Aws\Result addNotificationChannel(array $args = [])
@@ -62,6 +62,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateServiceIntegration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServiceIntegrationAsync(array $args = [])
  */
-class DevOpsGuruClient extends AwsClient
-{
-}
+class DevOpsGuruClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Crypto\Polyfill;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Crypto\Polyfill;
+use Aws\Exception\CryptoPolyfillException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\CryptoPolyfillException;
 /**
  * Trait NeedsTrait
  * @package Aws\Crypto\Polyfill

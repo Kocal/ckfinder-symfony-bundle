@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudHSMV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudHSMV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CloudHSM V2** service.
  * @method \Aws\Result copyBackupToRegion(array $args = [])
@@ -36,6 +36,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class CloudHSMV2Client extends AwsClient
-{
-}
+class CloudHSMV2Client extends AwsClient {}

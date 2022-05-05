@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CloudHsm\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudHsm\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * AWS CloudHSM exception.
  */
-class CloudHsmException extends AwsException
-{
-}
+class CloudHsmException extends AwsException {}

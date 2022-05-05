@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ApplicationDiscoveryService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApplicationDiscoveryService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Application Discovery Service** service.
  * @method \Aws\Result associateConfigurationItemsToApplication(array $args = [])
@@ -56,6 +56,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateApplication(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateApplicationAsync(array $args = [])
  */
-class ApplicationDiscoveryServiceClient extends AwsClient
-{
-}
+class ApplicationDiscoveryServiceClient extends AwsClient {}

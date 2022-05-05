@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Sfn;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sfn;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Step Functions** service.
  * @method \Aws\Result createActivity(array $args = [])
@@ -52,6 +52,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStateMachine(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStateMachineAsync(array $args = [])
  */
-class SfnClient extends AwsClient
-{
-}
+class SfnClient extends AwsClient {}

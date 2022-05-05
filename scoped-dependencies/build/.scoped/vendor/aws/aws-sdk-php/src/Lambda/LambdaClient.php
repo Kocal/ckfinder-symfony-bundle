@@ -1,10 +1,10 @@
 <?php
+namespace Aws\Lambda;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Lambda;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use Aws\Middleware;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Aws\Middleware;
 /**
  * This client is used to interact with AWS Lambda
  *
@@ -134,10 +134,11 @@ class LambdaClient extends AwsClient
     {
         parent::__construct($args);
         $list = $this->getHandlerList();
-        if (\extension_loaded('curl')) {
+        if (extension_loaded('curl')) {
             $list->appendInit($this->getDefaultCurlOptionsMiddleware());
         }
     }
+
     /**
      * Provides a middleware that sets default Curl options for the command
      *
@@ -146,7 +147,9 @@ class LambdaClient extends AwsClient
     public function getDefaultCurlOptionsMiddleware()
     {
         return Middleware::mapCommand(function (CommandInterface $cmd) {
-            $defaultCurlOptions = [\CURLOPT_TCP_KEEPALIVE => 1];
+            $defaultCurlOptions = [
+                CURLOPT_TCP_KEEPALIVE => 1,
+            ];
             if (!isset($cmd['@http']['curl'])) {
                 $cmd['@http']['curl'] = $defaultCurlOptions;
             } else {

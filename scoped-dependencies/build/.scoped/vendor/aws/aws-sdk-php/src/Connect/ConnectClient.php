@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Connect;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Connect;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Connect Service** service.
  * @method \Aws\Result associateApprovedOrigin(array $args = [])
@@ -274,6 +274,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateUserSecurityProfiles(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateUserSecurityProfilesAsync(array $args = [])
  */
-class ConnectClient extends AwsClient
-{
-}
+class ConnectClient extends AwsClient {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MarketplaceCatalog\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MarketplaceCatalog\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Marketplace Catalog Service** service.
  */
-class MarketplaceCatalogException extends AwsException
-{
-}
+class MarketplaceCatalogException extends AwsException {}

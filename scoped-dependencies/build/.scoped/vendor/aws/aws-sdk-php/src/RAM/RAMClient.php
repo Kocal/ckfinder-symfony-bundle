@@ -1,8 +1,8 @@
 <?php
+namespace Aws\RAM;
 
-namespace _CKFinder_Vendor_Prefix\Aws\RAM;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Resource Access Manager** service.
  * @method \Aws\Result acceptResourceShareInvitation(array $args = [])
@@ -56,6 +56,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateResourceShare(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateResourceShareAsync(array $args = [])
  */
-class RAMClient extends AwsClient
-{
-}
+class RAMClient extends AwsClient {}

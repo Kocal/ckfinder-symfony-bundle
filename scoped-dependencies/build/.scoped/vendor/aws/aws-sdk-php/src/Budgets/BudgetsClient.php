@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Budgets;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Budgets;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Budgets** service.
  * @method \Aws\Result createBudget(array $args = [])
@@ -52,6 +52,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSubscriber(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSubscriberAsync(array $args = [])
  */
-class BudgetsClient extends AwsClient
-{
-}
+class BudgetsClient extends AwsClient {}

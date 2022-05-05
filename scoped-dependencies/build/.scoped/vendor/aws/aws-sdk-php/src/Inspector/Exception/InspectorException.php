@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Inspector\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Inspector\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Inspector** service.
  */
-class InspectorException extends AwsException
-{
-}
+class InspectorException extends AwsException {}

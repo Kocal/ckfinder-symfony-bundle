@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeBuild;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeBuild;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CodeBuild** service.
  * @method \Aws\Result batchDeleteBuilds(array $args = [])
@@ -96,6 +96,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWebhook(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWebhookAsync(array $args = [])
  */
-class CodeBuildClient extends AwsClient
-{
-}
+class CodeBuildClient extends AwsClient {}

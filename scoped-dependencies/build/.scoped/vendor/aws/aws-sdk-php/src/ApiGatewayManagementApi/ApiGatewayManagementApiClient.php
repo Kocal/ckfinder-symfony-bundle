@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ApiGatewayManagementApi;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApiGatewayManagementApi;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AmazonApiGatewayManagementApi** service.
  * @method \Aws\Result deleteConnection(array $args = [])
@@ -12,6 +12,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result postToConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise postToConnectionAsync(array $args = [])
  */
-class ApiGatewayManagementApiClient extends AwsClient
-{
-}
+class ApiGatewayManagementApiClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GameLift;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GameLift;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon GameLift** service.
  *
@@ -197,6 +197,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validateMatchmakingRuleSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validateMatchmakingRuleSetAsync(array $args = [])
  */
-class GameLiftClient extends AwsClient
-{
-}
+class GameLiftClient extends AwsClient {}
