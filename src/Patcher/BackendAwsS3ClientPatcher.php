@@ -2,7 +2,6 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Patcher;
 
-
 class BackendAwsS3ClientPatcher implements PatcherInterface
 {
     use PatcherTrait;
@@ -49,6 +48,5 @@ PHP,
             }
 PHP
         );
-
     }
 }
