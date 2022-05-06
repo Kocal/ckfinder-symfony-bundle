@@ -4,6 +4,7 @@ namespace CKSource\Bundle\CKFinderBundle\Tests\Connector\Backend;
 
 use _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3\AwsS3Adapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\CachedAdapter;
+use Aws\S3\S3Client;
 use Aws\S3\S3ClientInterface;
 use CKSource\CKFinder\Backend\Backend;
 use CKSource\CKFinder\Backend\BackendFactory;
@@ -34,6 +35,33 @@ class BackendFactoryTest extends TestCase
         static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
         static::assertInstanceOf(AwsS3Adapter::class, $awsS3Adapter = $cachedAdapter->getAdapter());
         static::assertInstanceOf(S3ClientInterface::class, $awsS3Adapter->getClient());
+        static::assertSame('my-bucket', $awsS3Adapter->getBucket());
+    }
+
+    public function testS3BackendWithOwnClient(): void
+    {
+        $ckfinder = new CKFinder([
+            'backends' => [
+                [
+                    'name' => 'default',
+                    'adapter' => 's3',
+                    'client' => $s3Client = new S3Client([
+                        'region' => 'eu-west-3',
+                        'version' => 'latest',
+                    ]),
+                    'bucket' => 'my-bucket',
+                ],
+            ],
+        ]);
+        $backendFactory = new BackendFactory($ckfinder);
+
+        $backend = $backendFactory->getBackend('default');
+
+        static::assertInstanceOf(Backend::class, $backend);
+        static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
+        static::assertInstanceOf(AwsS3Adapter::class, $awsS3Adapter = $cachedAdapter->getAdapter());
+        static::assertInstanceOf(S3ClientInterface::class, $awsS3Adapter->getClient());
+        static::assertSame($s3Client, $awsS3Adapter->getClient());
         static::assertSame('my-bucket', $awsS3Adapter->getBucket());
     }
 }
