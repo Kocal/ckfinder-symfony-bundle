@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Proton;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Proton;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Proton** service.
  * @method \Aws\Result acceptEnvironmentAccountConnection(array $args = [])
@@ -140,6 +140,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTemplateSyncConfig(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTemplateSyncConfigAsync(array $args = [])
  */
-class ProtonClient extends AwsClient
-{
-}
+class ProtonClient extends AwsClient {}

@@ -1,13 +1,13 @@
 <?php
+namespace Aws\Retry;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Retry;
+use Aws\AbstractConfigurationProvider;
+use Aws\CacheInterface;
+use Aws\ConfigurationProviderInterface;
+use Aws\Retry\Exception\ConfigurationException;
+use GuzzleHttp\Promise;
+use GuzzleHttp\Promise\PromiseInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AbstractConfigurationProvider;
-use _CKFinder_Vendor_Prefix\Aws\CacheInterface;
-use _CKFinder_Vendor_Prefix\Aws\ConfigurationProviderInterface;
-use _CKFinder_Vendor_Prefix\Aws\Retry\Exception\ConfigurationException;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
 /**
  * A configuration provider is a function that returns a promise that is
  * fulfilled with a {@see \Aws\Retry\ConfigurationInterface}
@@ -42,7 +42,8 @@ use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
  * $config = $promise->wait();
  * </code>
  */
-class ConfigurationProvider extends AbstractConfigurationProvider implements ConfigurationProviderInterface
+class ConfigurationProvider extends AbstractConfigurationProvider
+    implements ConfigurationProviderInterface
 {
     const DEFAULT_MAX_ATTEMPTS = 3;
     const DEFAULT_MODE = 'legacy';
@@ -51,9 +52,12 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     const ENV_PROFILE = 'AWS_PROFILE';
     const INI_MAX_ATTEMPTS = 'max_attempts';
     const INI_MODE = 'retry_mode';
+
     public static $cacheKey = 'aws_retries_config';
+
     protected static $interfaceClass = ConfigurationInterface::class;
     protected static $exceptionClass = ConfigurationException::class;
+
     /**
      * Create a default config provider that first checks for environment
      * variables, then checks for a specified profile in the environment-defined
@@ -72,16 +76,27 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     public static function defaultProvider(array $config = [])
     {
         $configProviders = [self::env()];
-        if (!isset($config['use_aws_shared_config_files']) || $config['use_aws_shared_config_files'] != \false) {
+        if (
+            !isset($config['use_aws_shared_config_files'])
+            || $config['use_aws_shared_config_files'] != false
+        ) {
             $configProviders[] = self::ini();
         }
         $configProviders[] = self::fallback();
-        $memo = self::memoize(\call_user_func_array('self::chain', $configProviders));
-        if (isset($config['retries']) && $config['retries'] instanceof CacheInterface) {
+
+        $memo = self::memoize(
+            call_user_func_array('self::chain', $configProviders)
+        );
+
+        if (isset($config['retries'])
+            && $config['retries'] instanceof CacheInterface
+        ) {
             return self::cache($memo, $config['retries'], self::$cacheKey);
         }
+
         return $memo;
     }
+
     /**
      * Provider that creates config from environment variables.
      *
@@ -91,14 +106,21 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     {
         return function () {
             // Use config from environment variables, if available
-            $mode = \getenv(self::ENV_MODE);
-            $maxAttempts = \getenv(self::ENV_MAX_ATTEMPTS) ? \getenv(self::ENV_MAX_ATTEMPTS) : self::DEFAULT_MAX_ATTEMPTS;
+            $mode = getenv(self::ENV_MODE);
+            $maxAttempts = getenv(self::ENV_MAX_ATTEMPTS)
+                ? getenv(self::ENV_MAX_ATTEMPTS)
+                : self::DEFAULT_MAX_ATTEMPTS;
             if (!empty($mode)) {
-                return Promise\Create::promiseFor(new Configuration($mode, $maxAttempts));
+                return Promise\Create::promiseFor(
+                    new Configuration($mode, $maxAttempts)
+                );
             }
-            return self::reject('Could not find environment variable config' . ' in ' . self::ENV_MODE);
+
+            return self::reject('Could not find environment variable config'
+                . ' in ' . self::ENV_MODE);
         };
     }
+
     /**
      * Fallback config options when other sources are not set.
      *
@@ -107,9 +129,12 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     public static function fallback()
     {
         return function () {
-            return Promise\Create::promiseFor(new Configuration(self::DEFAULT_MODE, self::DEFAULT_MAX_ATTEMPTS));
+            return Promise\Create::promiseFor(
+                new Configuration(self::DEFAULT_MODE, self::DEFAULT_MAX_ATTEMPTS)
+            );
         };
     }
+
     /**
      * Config provider that creates config using a config file whose location
      * is specified by an environment variable 'AWS_CONFIG_FILE', defaulting to
@@ -122,28 +147,42 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
      *
      * @return callable
      */
-    public static function ini($profile = null, $filename = null)
-    {
-        $filename = $filename ?: self::getDefaultConfigFilename();
-        $profile = $profile ?: (\getenv(self::ENV_PROFILE) ?: 'default');
-        return function () use($profile, $filename) {
-            if (!@\is_readable($filename)) {
-                return self::reject("Cannot read configuration from {$filename}");
+    public static function ini(
+        $profile = null,
+        $filename = null
+    ) {
+        $filename = $filename ?: (self::getDefaultConfigFilename());
+        $profile = $profile ?: (getenv(self::ENV_PROFILE) ?: 'default');
+
+        return function () use ($profile, $filename) {
+            if (!@is_readable($filename)) {
+                return self::reject("Cannot read configuration from $filename");
             }
-            $data = \_CKFinder_Vendor_Prefix\Aws\parse_ini_file($filename, \true);
-            if ($data === \false) {
-                return self::reject("Invalid config file: {$filename}");
+            $data = \Aws\parse_ini_file($filename, true);
+            if ($data === false) {
+                return self::reject("Invalid config file: $filename");
             }
             if (!isset($data[$profile])) {
-                return self::reject("'{$profile}' not found in config file");
+                return self::reject("'$profile' not found in config file");
             }
             if (!isset($data[$profile][self::INI_MODE])) {
-                return self::reject("Required retry config values\n                    not present in INI profile '{$profile}' ({$filename})");
+                return self::reject("Required retry config values
+                    not present in INI profile '{$profile}' ({$filename})");
             }
-            $maxAttempts = isset($data[$profile][self::INI_MAX_ATTEMPTS]) ? $data[$profile][self::INI_MAX_ATTEMPTS] : self::DEFAULT_MAX_ATTEMPTS;
-            return Promise\Create::promiseFor(new Configuration($data[$profile][self::INI_MODE], $maxAttempts));
+
+            $maxAttempts = isset($data[$profile][self::INI_MAX_ATTEMPTS])
+                ? $data[$profile][self::INI_MAX_ATTEMPTS]
+                : self::DEFAULT_MAX_ATTEMPTS;
+
+            return Promise\Create::promiseFor(
+                new Configuration(
+                    $data[$profile][self::INI_MODE],
+                    $maxAttempts
+                )
+            );
         };
     }
+
     /**
      * Unwraps a configuration object in whatever valid form it is in,
      * always returning a ConfigurationInterface object.
@@ -154,7 +193,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
      */
     public static function unwrap($config)
     {
-        if (\is_callable($config)) {
+        if (is_callable($config)) {
             $config = $config();
         }
         if ($config instanceof PromiseInterface) {
@@ -163,15 +202,21 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
         if ($config instanceof ConfigurationInterface) {
             return $config;
         }
+
         // An integer value for this config indicates the legacy 'retries'
         // config option, which is incremented to translate to max attempts
-        if (\is_int($config)) {
+        if (is_int($config)) {
             return new Configuration('legacy', $config + 1);
         }
-        if (\is_array($config) && isset($config['mode'])) {
-            $maxAttempts = isset($config['max_attempts']) ? $config['max_attempts'] : self::DEFAULT_MAX_ATTEMPTS;
+
+        if (is_array($config) && isset($config['mode'])) {
+            $maxAttempts = isset($config['max_attempts'])
+                ? $config['max_attempts']
+                : self::DEFAULT_MAX_ATTEMPTS;
             return new Configuration($config['mode'], $maxAttempts);
         }
-        throw new \InvalidArgumentException('Not a valid retry configuration' . ' argument.');
+
+        throw new \InvalidArgumentException('Not a valid retry configuration'
+            . ' argument.');
     }
 }

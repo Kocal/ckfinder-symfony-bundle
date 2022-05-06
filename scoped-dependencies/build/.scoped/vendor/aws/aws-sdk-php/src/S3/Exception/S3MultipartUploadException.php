@@ -1,11 +1,11 @@
 <?php
+namespace Aws\S3\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\Exception;
+use Aws\CommandInterface;
+use Aws\Exception\AwsException;
+use Aws\Multipart\UploadState;
 
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
-use _CKFinder_Vendor_Prefix\Aws\Multipart\UploadState;
-class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\MultipartUploadException
+class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
 {
     /** @var string Bucket of the transfer object */
     private $bucket;
@@ -13,6 +13,7 @@ class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\
     private $key;
     /** @var string Source file name of the transfer object */
     private $filename;
+
     /**
      * @param UploadState      $state Upload state at time of the exception.
      * @param \Exception|array $prev  Exception being thrown. Could be an array of
@@ -21,15 +22,15 @@ class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\
      *                                for a specific Multipart error being thrown in
      *                                the MultipartUpload process.
      */
-    public function __construct(UploadState $state, $prev = null)
-    {
-        if (\is_array($prev) && ($error = $prev[\key($prev)])) {
+    public function __construct(UploadState $state, $prev = null) {
+        if (is_array($prev) && $error = $prev[key($prev)]) {
             $this->collectPathInfo($error->getCommand());
         } elseif ($prev instanceof AwsException) {
             $this->collectPathInfo($prev->getCommand());
         }
         parent::__construct($state, $prev);
     }
+
     /**
      * Get the Bucket information of the transfer object
      *
@@ -40,6 +41,7 @@ class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\
     {
         return $this->bucket;
     }
+
     /**
      * Get the Key information of the transfer object
      *
@@ -50,6 +52,7 @@ class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\
     {
         return $this->key;
     }
+
     /**
      * Get the source file name of the transfer object
      *
@@ -60,6 +63,7 @@ class S3MultipartUploadException extends \_CKFinder_Vendor_Prefix\Aws\Exception\
     {
         return $this->filename;
     }
+
     /**
      * Collect file path information when accessible. (Bucket, Key)
      *

@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\EndpointDiscovery;
+namespace Aws\EndpointDiscovery;
 
 /**
  * Provides access to endpoint discovery configuration options:
@@ -14,12 +13,14 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isEnabled();
+
     /**
      * Returns the cache limit, if available.
      *
      * @return string|null
      */
     public function getCacheLimit();
+
     /**
      * Returns the configuration as an associative array
      *

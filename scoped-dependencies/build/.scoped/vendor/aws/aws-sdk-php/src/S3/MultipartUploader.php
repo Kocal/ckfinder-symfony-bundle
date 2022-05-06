@@ -1,23 +1,25 @@
 <?php
+namespace Aws\S3;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3;
+use Aws\HashingStream;
+use Aws\Multipart\AbstractUploader;
+use Aws\PhpHash;
+use Aws\ResultInterface;
+use GuzzleHttp\Psr7;
+use Psr\Http\Message\StreamInterface as Stream;
+use Aws\S3\Exception\S3MultipartUploadException;
 
-use _CKFinder_Vendor_Prefix\Aws\HashingStream;
-use _CKFinder_Vendor_Prefix\Aws\Multipart\AbstractUploader;
-use _CKFinder_Vendor_Prefix\Aws\PhpHash;
-use _CKFinder_Vendor_Prefix\Aws\ResultInterface;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\StreamInterface as Stream;
-use _CKFinder_Vendor_Prefix\Aws\S3\Exception\S3MultipartUploadException;
 /**
  * Encapsulates the execution of a multipart upload to S3 or Glacier.
  */
 class MultipartUploader extends AbstractUploader
 {
     use MultipartUploadingTrait;
+
     const PART_MIN_SIZE = 5242880;
     const PART_MAX_SIZE = 5368709120;
     const PART_MAX_NUM = 10000;
+
     /**
      * Creates a multipart upload for an S3 object.
      *
@@ -58,29 +60,55 @@ class MultipartUploader extends AbstractUploader
      * @param mixed             $source Source of the data to upload.
      * @param array             $config Configuration used to perform the upload.
      */
-    public function __construct(S3ClientInterface $client, $source, array $config = [])
-    {
-        parent::__construct($client, $source, \array_change_key_case($config) + ['bucket' => null, 'key' => null, 'exception_class' => S3MultipartUploadException::class]);
+    public function __construct(
+        S3ClientInterface $client,
+        $source,
+        array $config = []
+    ) {
+        parent::__construct($client, $source, array_change_key_case($config) + [
+            'bucket' => null,
+            'key'    => null,
+            'exception_class' => S3MultipartUploadException::class,
+        ]);
     }
+
     protected function loadUploadWorkflowInfo()
     {
-        return ['command' => ['initiate' => 'CreateMultipartUpload', 'upload' => 'UploadPart', 'complete' => 'CompleteMultipartUpload'], 'id' => ['bucket' => 'Bucket', 'key' => 'Key', 'upload_id' => 'UploadId'], 'part_num' => 'PartNumber'];
+        return [
+            'command' => [
+                'initiate' => 'CreateMultipartUpload',
+                'upload'   => 'UploadPart',
+                'complete' => 'CompleteMultipartUpload',
+            ],
+            'id' => [
+                'bucket'    => 'Bucket',
+                'key'       => 'Key',
+                'upload_id' => 'UploadId',
+            ],
+            'part_num' => 'PartNumber',
+        ];
     }
+
     protected function createPart($seekable, $number)
     {
         // Initialize the array of part data that will be returned.
         $data = [];
+
         // Apply custom params to UploadPart data
         $config = $this->getConfig();
         $params = isset($config['params']) ? $config['params'] : [];
         foreach ($params as $k => $v) {
             $data[$k] = $v;
         }
+
         $data['PartNumber'] = $number;
+
         // Read from the source to create the body stream.
         if ($seekable) {
             // Case 1: Source is seekable, use lazy stream to defer work.
-            $body = $this->limitPartStream(new Psr7\LazyOpenStream($this->source->getMetadata('uri'), 'r'));
+            $body = $this->limitPartStream(
+                new Psr7\LazyOpenStream($this->source->getMetadata('uri'), 'r')
+            );
         } else {
             // Case 2: Stream is not seekable; must store in temp stream.
             $source = $this->limitPartStream($this->source);
@@ -88,30 +116,39 @@ class MultipartUploader extends AbstractUploader
             $body = Psr7\Utils::streamFor();
             Psr7\Utils::copyToStream($source, $body);
         }
+
         $contentLength = $body->getSize();
+
         // Do not create a part if the body size is zero.
         if ($contentLength === 0) {
-            return \false;
+            return false;
         }
+
         $body->seek(0);
         $data['Body'] = $body;
         $data['ContentLength'] = $contentLength;
+
         return $data;
     }
+
     protected function extractETag(ResultInterface $result)
     {
         return $result['ETag'];
     }
+
     protected function getSourceMimeType()
     {
         if ($uri = $this->source->getMetadata('uri')) {
-            return Psr7\MimeType::fromFilename($uri) ?: 'application/octet-stream';
+            return Psr7\MimeType::fromFilename($uri)
+                ?: 'application/octet-stream';
         }
     }
+
     protected function getSourceSize()
     {
         return $this->source->getSize();
     }
+
     /**
      * Decorates a stream with a sha256 linear hashing stream.
      *
@@ -124,8 +161,8 @@ class MultipartUploader extends AbstractUploader
     {
         // Decorate source with a hashing stream
         $hash = new PhpHash('sha256');
-        return new HashingStream($stream, $hash, function ($result) use(&$data) {
-            $data['ContentSHA256'] = \bin2hex($result);
+        return new HashingStream($stream, $hash, function ($result) use (&$data) {
+            $data['ContentSHA256'] = bin2hex($result);
         });
     }
 }

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudFormation;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudFormation;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CloudFormation** service.
  *
@@ -139,6 +139,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validateTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validateTemplateAsync(array $args = [])
  */
-class CloudFormationClient extends AwsClient
-{
-}
+class CloudFormationClient extends AwsClient {}

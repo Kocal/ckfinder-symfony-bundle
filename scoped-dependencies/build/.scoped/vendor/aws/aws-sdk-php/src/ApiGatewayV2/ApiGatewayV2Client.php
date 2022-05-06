@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ApiGatewayV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApiGatewayV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AmazonApiGatewayV2** service.
  * @method \Aws\Result createApi(array $args = [])
@@ -150,6 +150,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVpcLink(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVpcLinkAsync(array $args = [])
  */
-class ApiGatewayV2Client extends AwsClient
-{
-}
+class ApiGatewayV2Client extends AwsClient {}

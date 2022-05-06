@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Rds\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Rds\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Relational Database Service.
  */
-class RdsException extends AwsException
-{
-}
+class RdsException extends AwsException {}

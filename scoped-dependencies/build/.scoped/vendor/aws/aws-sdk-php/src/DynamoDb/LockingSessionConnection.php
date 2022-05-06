@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DynamoDb;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DynamoDb;
+use Aws\DynamoDb\Exception\DynamoDbException;
 
-use _CKFinder_Vendor_Prefix\Aws\DynamoDb\Exception\DynamoDbException;
 /**
  * The locking connection adds locking logic to the read operation.
  */
@@ -12,6 +12,7 @@ class LockingSessionConnection extends StandardSessionConnection
     {
         parent::__construct($client, $config);
     }
+
     /**
      * {@inheritdoc}
      * Retries the request until the lock can be acquired
@@ -20,22 +21,34 @@ class LockingSessionConnection extends StandardSessionConnection
     {
         // Create the params for the UpdateItem operation so that a lock can be
         // set and item returned (via ReturnValues) in a one, atomic operation.
-        $params = ['TableName' => $this->getTableName(), 'Key' => $this->formatKey($id), 'Expected' => ['lock' => ['Exists' => \false]], 'AttributeUpdates' => ['lock' => ['Value' => ['N' => '1']]], 'ReturnValues' => 'ALL_NEW'];
+        $params = [
+            'TableName'        => $this->getTableName(),
+            'Key'              => $this->formatKey($id),
+            'Expected'         => ['lock' => ['Exists' => false]],
+            'AttributeUpdates' => ['lock' => ['Value' => ['N' => '1']]],
+            'ReturnValues'     => 'ALL_NEW',
+        ];
+
         // Acquire the lock and fetch the item data.
-        $timeout = \time() + $this->getMaxLockWaitTime();
-        while (\true) {
+        $timeout  = time() + $this->getMaxLockWaitTime();
+        while (true) {
             try {
                 $item = [];
                 $result = $this->client->updateItem($params);
                 if (isset($result['Attributes'])) {
                     foreach ($result['Attributes'] as $key => $value) {
-                        $item[$key] = \current($value);
+                        $item[$key] = current($value);
                     }
                 }
                 return $item;
             } catch (DynamoDbException $e) {
-                if ($e->getAwsErrorCode() === 'ConditionalCheckFailedException' && \time() < $timeout) {
-                    \usleep(\rand($this->getMinLockRetryMicrotime(), $this->getMaxLockRetryMicrotime()));
+                if ($e->getAwsErrorCode() === 'ConditionalCheckFailedException'
+                    && time() < $timeout
+                ) {
+                    usleep(rand(
+                        $this->getMinLockRetryMicrotime(),
+                        $this->getMaxLockRetryMicrotime()
+                    ));
                 } else {
                     break;
                 }

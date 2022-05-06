@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ManagedGrafana;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ManagedGrafana;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Managed Grafana** service.
  * @method \Aws\Result associateLicense(array $args = [])
@@ -28,6 +28,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkspaceAuthentication(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkspaceAuthenticationAsync(array $args = [])
  */
-class ManagedGrafanaClient extends AwsClient
-{
-}
+class ManagedGrafanaClient extends AwsClient {}

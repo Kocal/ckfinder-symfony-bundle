@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ChimeSDKMeetings;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ChimeSDKMeetings;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Chime SDK Meetings** service.
  * @method \Aws\Result batchCreateAttendee(array $args = [])
@@ -28,6 +28,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result stopMeetingTranscription(array $args = [])
  * @method \GuzzleHttp\Promise\Promise stopMeetingTranscriptionAsync(array $args = [])
  */
-class ChimeSDKMeetingsClient extends AwsClient
-{
-}
+class ChimeSDKMeetingsClient extends AwsClient {}

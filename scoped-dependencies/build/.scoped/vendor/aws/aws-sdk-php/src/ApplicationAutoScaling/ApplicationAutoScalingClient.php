@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ApplicationAutoScaling;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApplicationAutoScaling;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Application Auto Scaling** service.
  * @method \Aws\Result deleteScalingPolicy(array $args = [])
@@ -26,6 +26,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result registerScalableTarget(array $args = [])
  * @method \GuzzleHttp\Promise\Promise registerScalableTargetAsync(array $args = [])
  */
-class ApplicationAutoScalingClient extends AwsClient
-{
-}
+class ApplicationAutoScalingClient extends AwsClient {}

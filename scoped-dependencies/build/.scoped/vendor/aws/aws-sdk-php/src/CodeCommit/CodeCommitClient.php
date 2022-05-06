@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeCommit;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeCommit;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CodeCommit** service.
  *
@@ -161,6 +161,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRepositoryName(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRepositoryNameAsync(array $args = [])
  */
-class CodeCommitClient extends AwsClient
-{
-}
+class CodeCommitClient extends AwsClient {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\IoTEventsData\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTEventsData\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS IoT Events Data** service.
  */
-class IoTEventsDataException extends AwsException
-{
-}
+class IoTEventsDataException extends AwsException {}

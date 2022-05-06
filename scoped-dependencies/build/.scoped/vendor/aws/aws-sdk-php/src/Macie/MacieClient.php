@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Macie;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Macie;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Macie** service.
  * @method \Aws\Result associateMemberAccount(array $args = [])
@@ -20,6 +20,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateS3Resources(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateS3ResourcesAsync(array $args = [])
  */
-class MacieClient extends AwsClient
-{
-}
+class MacieClient extends AwsClient {}

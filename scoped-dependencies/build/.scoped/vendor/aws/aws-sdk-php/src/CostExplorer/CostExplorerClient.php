@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CostExplorer;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CostExplorer;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Cost Explorer Service** service.
  * @method \Aws\Result createAnomalyMonitor(array $args = [])
@@ -72,6 +72,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateCostCategoryDefinition(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateCostCategoryDefinitionAsync(array $args = [])
  */
-class CostExplorerClient extends AwsClient
-{
-}
+class CostExplorerClient extends AwsClient {}

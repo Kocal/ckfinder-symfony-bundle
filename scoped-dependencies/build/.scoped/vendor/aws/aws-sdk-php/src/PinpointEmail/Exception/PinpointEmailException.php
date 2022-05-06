@@ -1,11 +1,9 @@
 <?php
+namespace Aws\PinpointEmail\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PinpointEmail\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Pinpoint Email Service** service.
  */
-class PinpointEmailException extends AwsException
-{
-}
+class PinpointEmailException extends AwsException {}

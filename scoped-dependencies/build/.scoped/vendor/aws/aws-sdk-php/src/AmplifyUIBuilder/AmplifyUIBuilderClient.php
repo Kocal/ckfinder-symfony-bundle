@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AmplifyUIBuilder;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AmplifyUIBuilder;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Amplify UI Builder** service.
  * @method \Aws\Result createComponent(array $args = [])
@@ -34,6 +34,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTheme(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateThemeAsync(array $args = [])
  */
-class AmplifyUIBuilderClient extends AwsClient
-{
-}
+class AmplifyUIBuilderClient extends AwsClient {}

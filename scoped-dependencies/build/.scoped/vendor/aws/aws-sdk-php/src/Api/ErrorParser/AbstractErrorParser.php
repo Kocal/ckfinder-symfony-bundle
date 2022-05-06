@@ -1,21 +1,23 @@
 <?php
+namespace Aws\Api\ErrorParser;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Api\ErrorParser;
+use Aws\Api\Parser\MetadataParserTrait;
+use Aws\Api\Parser\PayloadParserTrait;
+use Aws\Api\Service;
+use Aws\Api\StructureShape;
+use Aws\CommandInterface;
+use Psr\Http\Message\ResponseInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\Api\Parser\MetadataParserTrait;
-use _CKFinder_Vendor_Prefix\Aws\Api\Parser\PayloadParserTrait;
-use _CKFinder_Vendor_Prefix\Aws\Api\Service;
-use _CKFinder_Vendor_Prefix\Aws\Api\StructureShape;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\ResponseInterface;
 abstract class AbstractErrorParser
 {
     use MetadataParserTrait;
     use PayloadParserTrait;
+
     /**
      * @var Service
      */
     protected $api;
+
     /**
      * @param Service $api
      */
@@ -23,9 +25,16 @@ abstract class AbstractErrorParser
     {
         $this->api = $api;
     }
-    protected abstract function payload(ResponseInterface $response, StructureShape $member);
-    protected function extractPayload(StructureShape $member, ResponseInterface $response)
-    {
+
+    abstract protected function payload(
+        ResponseInterface $response,
+        StructureShape $member
+    );
+
+    protected function extractPayload(
+        StructureShape $member,
+        ResponseInterface $response
+    ) {
         if ($member instanceof StructureShape) {
             // Structure members parse top-level data into a specific key.
             return $this->payload($response, $member);
@@ -34,19 +43,33 @@ abstract class AbstractErrorParser
             return $response->getBody();
         }
     }
-    protected function populateShape(array &$data, ResponseInterface $response, CommandInterface $command = null)
-    {
+
+    protected function populateShape(
+        array &$data,
+        ResponseInterface $response,
+        CommandInterface $command = null
+    ) {
         $data['body'] = [];
+
         if (!empty($command) && !empty($this->api)) {
+
             // If modeled error code is indicated, check for known error shape
             if (!empty($data['code'])) {
+
                 $errors = $this->api->getOperation($command->getName())->getErrors();
                 foreach ($errors as $key => $error) {
+
                     // If error code matches a known error shape, populate the body
-                    if ($data['code'] == $error['name'] && $error instanceof StructureShape) {
+                    if ($data['code'] == $error['name']
+                        && $error instanceof StructureShape
+                    ) {
                         $modeledError = $error;
-                        $data['body'] = $this->extractPayload($modeledError, $response);
+                        $data['body'] = $this->extractPayload(
+                            $modeledError,
+                            $response
+                        );
                         $data['error_shape'] = $modeledError;
+
                         foreach ($error->getMembers() as $name => $member) {
                             switch ($member['location']) {
                                 case 'header':
@@ -60,11 +83,13 @@ abstract class AbstractErrorParser
                                     break;
                             }
                         }
+
                         break;
                     }
                 }
             }
         }
+
         return $data;
     }
 }

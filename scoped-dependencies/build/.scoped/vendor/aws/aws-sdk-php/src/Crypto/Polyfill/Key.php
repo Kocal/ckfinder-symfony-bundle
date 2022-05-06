@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Crypto\Polyfill;
+namespace Aws\Crypto\Polyfill;
 
 /**
  * Class Key
@@ -15,6 +14,7 @@ class Key
      * @var string $internalString
      */
     private $internalString;
+
     /**
      * Hide contents of 
      *
@@ -24,6 +24,7 @@ class Key
     {
         return [];
     }
+
     /**
      * Key constructor.
      * @param string $str
@@ -32,6 +33,7 @@ class Key
     {
         $this->internalString = $str;
     }
+
     /**
      * Defense in depth:
      *
@@ -44,7 +46,7 @@ class Key
      */
     public function __destruct()
     {
-        if (\extension_loaded('sodium') && \function_exists('sodium_memzero')) {
+        if (extension_loaded('sodium') && function_exists('sodium_memzero')) {
             try {
                 \sodium_memzero($this->internalString);
             } catch (\SodiumException $ex) {
@@ -53,6 +55,7 @@ class Key
             }
         }
     }
+
     /**
      * @return string
      */
@@ -60,6 +63,7 @@ class Key
     {
         return $this->internalString;
     }
+
     /**
      * @return int
      */

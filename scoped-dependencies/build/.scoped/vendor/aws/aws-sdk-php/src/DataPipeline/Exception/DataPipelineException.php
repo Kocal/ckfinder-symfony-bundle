@@ -1,11 +1,9 @@
 <?php
+namespace Aws\DataPipeline\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DataPipeline\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the AWS Data Pipeline service.
  */
-class DataPipelineException extends AwsException
-{
-}
+class DataPipelineException extends AwsException {}

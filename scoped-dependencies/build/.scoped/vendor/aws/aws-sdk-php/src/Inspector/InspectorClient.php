@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Inspector;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Inspector;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Inspector** service.
  *
@@ -81,6 +81,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateAssessmentTarget(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateAssessmentTargetAsync(array $args = [])
  */
-class InspectorClient extends AwsClient
-{
-}
+class InspectorClient extends AwsClient {}

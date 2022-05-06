@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Greengrass;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Greengrass;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Greengrass** service.
  * @method \Aws\Result associateRoleToGroup(array $args = [])
@@ -190,6 +190,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateThingRuntimeConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateThingRuntimeConfigurationAsync(array $args = [])
  */
-class GreengrassClient extends AwsClient
-{
-}
+class GreengrassClient extends AwsClient {}

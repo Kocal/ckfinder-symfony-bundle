@@ -1,11 +1,9 @@
 <?php
+namespace Aws\DevOpsGuru\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DevOpsGuru\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon DevOps Guru** service.
  */
-class DevOpsGuruException extends AwsException
-{
-}
+class DevOpsGuruException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\FraudDetector;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FraudDetector;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Fraud Detector** service.
  * @method \Aws\Result batchCreateVariable(array $args = [])
@@ -142,6 +142,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVariable(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVariableAsync(array $args = [])
  */
-class FraudDetectorClient extends AwsClient
-{
-}
+class FraudDetectorClient extends AwsClient {}

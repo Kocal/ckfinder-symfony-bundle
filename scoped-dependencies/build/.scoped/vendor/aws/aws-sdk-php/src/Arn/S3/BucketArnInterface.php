@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Arn\S3;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Arn\S3;
+use Aws\Arn\ArnInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\Arn\ArnInterface;
 /**
  * @internal
  */

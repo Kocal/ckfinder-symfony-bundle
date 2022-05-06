@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Detective\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Detective\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Detective** service.
  */
-class DetectiveException extends AwsException
-{
-}
+class DetectiveException extends AwsException {}

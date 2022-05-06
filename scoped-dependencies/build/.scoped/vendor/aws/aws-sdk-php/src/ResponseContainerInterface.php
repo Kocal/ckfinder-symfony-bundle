@@ -1,8 +1,9 @@
 <?php
 
-namespace _CKFinder_Vendor_Prefix\Aws;
+namespace Aws;
 
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
+
 interface ResponseContainerInterface
 {
     /**

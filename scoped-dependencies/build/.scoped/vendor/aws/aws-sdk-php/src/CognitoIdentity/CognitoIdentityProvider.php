@@ -1,9 +1,9 @@
 <?php
+namespace Aws\CognitoIdentity;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CognitoIdentity;
+use Aws\Credentials\Credentials;
+use GuzzleHttp\Promise;
 
-use _CKFinder_Vendor_Prefix\Aws\Credentials\Credentials;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise;
 class CognitoIdentityProvider
 {
     /** @var CognitoIdentityClient */
@@ -14,13 +14,21 @@ class CognitoIdentityProvider
     private $accountId;
     /** @var array */
     private $logins;
-    public function __construct($poolId, array $clientOptions, array $logins = [], $accountId = null)
-    {
+
+    public function __construct(
+        $poolId,
+        array $clientOptions,
+        array $logins = [],
+        $accountId = null
+    ) {
         $this->identityPoolId = $poolId;
         $this->logins = $logins;
         $this->accountId = $accountId;
-        $this->client = new CognitoIdentityClient($clientOptions + ['credentials' => \false]);
+        $this->client = new CognitoIdentityClient($clientOptions + [
+            'credentials' => false,
+        ]);
     }
+
     public function __invoke()
     {
         return Promise\Coroutine::of(function () {
@@ -29,14 +37,25 @@ class CognitoIdentityProvider
             if ($this->accountId) {
                 $getIdParams['AccountId'] = $this->accountId;
             }
+
             $id = (yield $this->client->getId($getIdParams));
-            $result = (yield $this->client->getCredentialsForIdentity(['IdentityId' => $id['IdentityId']] + $params));
-            (yield new Credentials($result['Credentials']['AccessKeyId'], $result['Credentials']['SecretKey'], $result['Credentials']['SessionToken'], (int) $result['Credentials']['Expiration']->format('U')));
+            $result = (yield $this->client->getCredentialsForIdentity([
+                'IdentityId' => $id['IdentityId'],
+            ] + $params));
+
+            yield new Credentials(
+                $result['Credentials']['AccessKeyId'],
+                $result['Credentials']['SecretKey'],
+                $result['Credentials']['SessionToken'],
+                (int) $result['Credentials']['Expiration']->format('U')
+            );
         });
     }
+
     public function updateLogin($key, $value)
     {
         $this->logins[$key] = $value;
+
         return $this;
     }
 }

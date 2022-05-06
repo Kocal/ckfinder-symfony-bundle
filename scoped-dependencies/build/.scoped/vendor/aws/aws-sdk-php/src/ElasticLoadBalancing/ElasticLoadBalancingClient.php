@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElasticLoadBalancing;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticLoadBalancing;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Elastic Load Balancing** service.
  *
@@ -65,6 +65,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result setLoadBalancerPoliciesOfListener(array $args = [])
  * @method \GuzzleHttp\Promise\Promise setLoadBalancerPoliciesOfListenerAsync(array $args = [])
  */
-class ElasticLoadBalancingClient extends AwsClient
-{
-}
+class ElasticLoadBalancingClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\LexModelBuildingService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LexModelBuildingService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Lex Model Building Service** service.
  * @method \Aws\Result createBotVersion(array $args = [])
@@ -90,6 +90,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class LexModelBuildingServiceClient extends AwsClient
-{
-}
+class LexModelBuildingServiceClient extends AwsClient {}

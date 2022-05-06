@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ServiceCatalog;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ServiceCatalog;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Service Catalog** service.
  * @method \Aws\Result acceptPortfolioShare(array $args = [])
@@ -180,6 +180,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTagOption(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTagOptionAsync(array $args = [])
  */
-class ServiceCatalogClient extends AwsClient
-{
-}
+class ServiceCatalogClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\TimestreamWrite;
 
-namespace _CKFinder_Vendor_Prefix\Aws\TimestreamWrite;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Timestream Write** service.
  * @method \Aws\Result createDatabase(array $args = [])
@@ -36,6 +36,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result writeRecords(array $args = [])
  * @method \GuzzleHttp\Promise\Promise writeRecordsAsync(array $args = [])
  */
-class TimestreamWriteClient extends AwsClient
-{
-}
+class TimestreamWriteClient extends AwsClient {}

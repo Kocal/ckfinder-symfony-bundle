@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Translate;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Translate;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Translate** service.
  * @method \Aws\Result createParallelData(array $args = [])
@@ -34,6 +34,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateParallelData(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateParallelDataAsync(array $args = [])
  */
-class TranslateClient extends AwsClient
-{
-}
+class TranslateClient extends AwsClient {}

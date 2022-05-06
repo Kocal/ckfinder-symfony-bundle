@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Batch;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Batch;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Batch** service.
  * @method \Aws\Result cancelJob(array $args = [])
@@ -54,6 +54,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSchedulingPolicy(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSchedulingPolicyAsync(array $args = [])
  */
-class BatchClient extends AwsClient
-{
-}
+class BatchClient extends AwsClient {}

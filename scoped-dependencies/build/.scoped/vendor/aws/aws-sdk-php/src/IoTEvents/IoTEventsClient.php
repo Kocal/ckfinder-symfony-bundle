@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTEvents;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTEvents;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Events** service.
  * @method \Aws\Result createAlarmModel(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateInput(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateInputAsync(array $args = [])
  */
-class IoTEventsClient extends AwsClient
-{
-}
+class IoTEventsClient extends AwsClient {}

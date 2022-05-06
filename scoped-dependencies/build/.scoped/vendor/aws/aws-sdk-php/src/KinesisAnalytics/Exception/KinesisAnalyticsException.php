@@ -1,11 +1,9 @@
 <?php
+namespace Aws\KinesisAnalytics\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisAnalytics\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Kinesis Analytics** service.
  */
-class KinesisAnalyticsException extends AwsException
-{
-}
+class KinesisAnalyticsException extends AwsException {}

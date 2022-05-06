@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MigrationHubStrategyRecommendations;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MigrationHubStrategyRecommendations;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Migration Hub Strategy Recommendations** service.
  * @method \Aws\Result getApplicationComponentDetails(array $args = [])
@@ -46,6 +46,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateServerConfig(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServerConfigAsync(array $args = [])
  */
-class MigrationHubStrategyRecommendationsClient extends AwsClient
-{
-}
+class MigrationHubStrategyRecommendationsClient extends AwsClient {}

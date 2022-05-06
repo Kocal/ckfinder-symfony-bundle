@@ -1,14 +1,14 @@
 <?php
+namespace Aws\S3Control;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3Control;
+use Aws\AwsClient;
+use Aws\CacheInterface;
+use Aws\HandlerList;
+use Aws\S3\UseArnRegion\Configuration;
+use Aws\S3\UseArnRegion\ConfigurationInterface;
+use Aws\S3\UseArnRegion\ConfigurationProvider as UseArnRegionConfigurationProvider;
+use GuzzleHttp\Promise\PromiseInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CacheInterface;
-use _CKFinder_Vendor_Prefix\Aws\HandlerList;
-use _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion\Configuration;
-use _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion\ConfigurationInterface;
-use _CKFinder_Vendor_Prefix\Aws\S3\UseArnRegion\ConfigurationProvider as UseArnRegionConfigurationProvider;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
 /**
  * This client is used to interact with the **AWS S3 Control** service.
  * @method \Aws\Result createAccessPoint(array $args = [])
@@ -126,19 +126,43 @@ use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
  * @method \Aws\Result updateJobStatus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateJobStatusAsync(array $args = [])
  */
-class S3ControlClient extends AwsClient
+class S3ControlClient extends AwsClient 
 {
     public static function getArguments()
     {
         $args = parent::getArguments();
-        return $args + ['use_dual_stack_endpoint' => ['type' => 'config', 'valid' => ['bool'], 'doc' => 'Set to true to send requests to an S3 Control Dual Stack' . ' endpoint by default, which enables IPv6 Protocol.' . ' Can be enabled or disabled on individual operations by setting' . ' \'@use_dual_stack_endpoint\' to true or false.', 'default' => \false], 'use_arn_region' => ['type' => 'config', 'valid' => ['bool', Configuration::class, CacheInterface::class, 'callable'], 'doc' => 'Set to true to allow passed in ARNs to override' . ' client region. Accepts...', 'fn' => [__CLASS__, '_apply_use_arn_region'], 'default' => [UseArnRegionConfigurationProvider::class, 'defaultProvider']]];
+        return $args + [
+            'use_dual_stack_endpoint' => [
+                'type' => 'config',
+                'valid' => ['bool'],
+                'doc' => 'Set to true to send requests to an S3 Control Dual Stack'
+                    . ' endpoint by default, which enables IPv6 Protocol.'
+                    . ' Can be enabled or disabled on individual operations by setting'
+                    . ' \'@use_dual_stack_endpoint\' to true or false.',
+                'default' => false,
+            ],
+            'use_arn_region' => [
+                'type'    => 'config',
+                'valid'   => [
+                    'bool',
+                    Configuration::class,
+                    CacheInterface::class,
+                    'callable'
+                ],
+                'doc'     => 'Set to true to allow passed in ARNs to override'
+                    . ' client region. Accepts...',
+                'fn' => [__CLASS__, '_apply_use_arn_region'],
+                'default' => [UseArnRegionConfigurationProvider::class, 'defaultProvider'],
+            ],
+        ];
     }
+
     public static function _apply_use_arn_region($value, array &$args, HandlerList $list)
     {
         if ($value instanceof CacheInterface) {
             $value = UseArnRegionConfigurationProvider::defaultProvider($args);
         }
-        if (\is_callable($value)) {
+        if (is_callable($value)) {
             $value = $value();
         }
         if ($value instanceof PromiseInterface) {
@@ -151,6 +175,7 @@ class S3ControlClient extends AwsClient
             $args['use_arn_region'] = new Configuration($value);
         }
     }
+
     /**
      * {@inheritdoc}
      *
@@ -170,6 +195,21 @@ class S3ControlClient extends AwsClient
     {
         parent::__construct($args);
         $stack = $this->getHandlerList();
-        $stack->appendBuild(EndpointArnMiddleware::wrap($this->getApi(), $this->getRegion(), ['use_arn_region' => $this->getConfig('use_arn_region'), 'dual_stack' => $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(), 'endpoint' => isset($args['endpoint']) ? $args['endpoint'] : null, 'use_fips_endpoint' => $this->getConfig('use_fips_endpoint')]), 's3control.endpoint_arn_middleware');
+        $stack->appendBuild(
+            EndpointArnMiddleware::wrap(
+                $this->getApi(),
+                $this->getRegion(),
+                [
+                    'use_arn_region' => $this->getConfig('use_arn_region'),
+                    'dual_stack' =>
+                        $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(),
+                    'endpoint' => isset($args['endpoint'])
+                        ? $args['endpoint']
+                        : null,
+                    'use_fips_endpoint' => $this->getConfig('use_fips_endpoint'),
+                ]
+            ),
+            's3control.endpoint_arn_middleware'
+        );
     }
 }

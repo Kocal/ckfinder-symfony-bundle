@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SesV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SesV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Simple Email Service** service.
  * @method \Aws\Result createConfigurationSet(array $args = [])
@@ -168,6 +168,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateEmailTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEmailTemplateAsync(array $args = [])
  */
-class SesV2Client extends AwsClient
-{
-}
+class SesV2Client extends AwsClient {}

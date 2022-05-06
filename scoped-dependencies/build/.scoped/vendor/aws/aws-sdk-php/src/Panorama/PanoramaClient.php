@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Panorama;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Panorama;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Panorama** service.
  * @method \Aws\Result createApplicationInstance(array $args = [])
@@ -72,6 +72,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDeviceMetadata(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDeviceMetadataAsync(array $args = [])
  */
-class PanoramaClient extends AwsClient
-{
-}
+class PanoramaClient extends AwsClient {}

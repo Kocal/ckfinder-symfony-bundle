@@ -1,12 +1,12 @@
 <?php
+namespace Aws\Sts;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sts;
+use Aws\AwsClient;
+use Aws\CacheInterface;
+use Aws\Credentials\Credentials;
+use Aws\Result;
+use Aws\Sts\RegionalEndpoints\ConfigurationProvider;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CacheInterface;
-use _CKFinder_Vendor_Prefix\Aws\Credentials\Credentials;
-use _CKFinder_Vendor_Prefix\Aws\Result;
-use _CKFinder_Vendor_Prefix\Aws\Sts\RegionalEndpoints\ConfigurationProvider;
 /**
  * This client is used to interact with the **AWS Security Token Service (AWS STS)**.
  *
@@ -29,6 +29,7 @@ use _CKFinder_Vendor_Prefix\Aws\Sts\RegionalEndpoints\ConfigurationProvider;
  */
 class StsClient extends AwsClient
 {
+
     /**
      * {@inheritdoc}
      *
@@ -50,11 +51,15 @@ class StsClient extends AwsClient
      */
     public function __construct(array $args)
     {
-        if (!isset($args['sts_regional_endpoints']) || $args['sts_regional_endpoints'] instanceof CacheInterface) {
+        if (
+            !isset($args['sts_regional_endpoints'])
+            || $args['sts_regional_endpoints'] instanceof CacheInterface
+        ) {
             $args['sts_regional_endpoints'] = ConfigurationProvider::defaultProvider($args);
         }
         parent::__construct($args);
     }
+
     /**
      * Creates credentials from the result of an STS operations
      *
@@ -68,7 +73,16 @@ class StsClient extends AwsClient
         if (!$result->hasKey('Credentials')) {
             throw new \InvalidArgumentException('Result contains no credentials');
         }
+
         $c = $result['Credentials'];
-        return new Credentials($c['AccessKeyId'], $c['SecretAccessKey'], isset($c['SessionToken']) ? $c['SessionToken'] : null, isset($c['Expiration']) && $c['Expiration'] instanceof \DateTimeInterface ? (int) $c['Expiration']->format('U') : null);
+
+        return new Credentials(
+            $c['AccessKeyId'],
+            $c['SecretAccessKey'],
+            isset($c['SessionToken']) ? $c['SessionToken'] : null,
+            isset($c['Expiration']) && $c['Expiration'] instanceof \DateTimeInterface
+                ? (int) $c['Expiration']->format('U')
+                : null
+        );
     }
 }

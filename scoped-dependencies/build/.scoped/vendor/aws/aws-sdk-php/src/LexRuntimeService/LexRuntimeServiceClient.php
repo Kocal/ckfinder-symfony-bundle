@@ -1,8 +1,8 @@
 <?php
+namespace Aws\LexRuntimeService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LexRuntimeService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Lex Runtime Service** service.
  * @method \Aws\Result deleteSession(array $args = [])
@@ -16,6 +16,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result putSession(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putSessionAsync(array $args = [])
  */
-class LexRuntimeServiceClient extends AwsClient
-{
-}
+class LexRuntimeServiceClient extends AwsClient {}

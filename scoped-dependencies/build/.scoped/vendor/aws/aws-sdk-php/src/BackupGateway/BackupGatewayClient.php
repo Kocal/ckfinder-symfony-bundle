@@ -1,8 +1,8 @@
 <?php
+namespace Aws\BackupGateway;
 
-namespace _CKFinder_Vendor_Prefix\Aws\BackupGateway;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Backup Gateway** service.
  * @method \Aws\Result associateGatewayToServer(array $args = [])
@@ -38,6 +38,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateHypervisor(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateHypervisorAsync(array $args = [])
  */
-class BackupGatewayClient extends AwsClient
-{
-}
+class BackupGatewayClient extends AwsClient {}

@@ -1,11 +1,11 @@
 <?php
+namespace Aws\Pinpoint;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Pinpoint;
+use Aws\Api\ApiProvider;
+use Aws\Api\DocModel;
+use Aws\Api\Service;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\Api\ApiProvider;
-use _CKFinder_Vendor_Prefix\Aws\Api\DocModel;
-use _CKFinder_Vendor_Prefix\Aws\Api\Service;
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Pinpoint** service.
  * @method \Aws\Result createApp(array $args = [])
@@ -247,6 +247,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result verifyOTPMessage(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifyOTPMessageAsync(array $args = [])
  */
-class PinpointClient extends AwsClient
-{
-}
+class PinpointClient extends AwsClient {}

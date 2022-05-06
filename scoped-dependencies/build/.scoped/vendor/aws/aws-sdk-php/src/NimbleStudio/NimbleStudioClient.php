@@ -1,8 +1,8 @@
 <?php
+namespace Aws\NimbleStudio;
 
-namespace _CKFinder_Vendor_Prefix\Aws\NimbleStudio;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AmazonNimbleStudio** service.
  * @method \Aws\Result acceptEulas(array $args = [])
@@ -100,6 +100,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStudioComponent(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStudioComponentAsync(array $args = [])
  */
-class NimbleStudioClient extends AwsClient
-{
-}
+class NimbleStudioClient extends AwsClient {}

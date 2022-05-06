@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Health;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Health;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Health APIs and Notifications** service.
  * @method \Aws\Result describeAffectedAccountsForOrganization(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result enableHealthServiceAccessForOrganization(array $args = [])
  * @method \GuzzleHttp\Promise\Promise enableHealthServiceAccessForOrganizationAsync(array $args = [])
  */
-class HealthClient extends AwsClient
-{
-}
+class HealthClient extends AwsClient {}

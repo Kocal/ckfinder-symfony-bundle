@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SageMaker;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SageMaker;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon SageMaker Service** service.
  * @method \Aws\Result addAssociation(array $args = [])
@@ -508,6 +508,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkteam(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkteamAsync(array $args = [])
  */
-class SageMakerClient extends AwsClient
-{
-}
+class SageMakerClient extends AwsClient {}

@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws;
+namespace Aws;
 
 /**
  * Builds AWS clients based on configuration settings.
@@ -611,8 +610,10 @@ namespace _CKFinder_Vendor_Prefix\Aws;
 class Sdk
 {
     const VERSION = '3.216.2';
+
     /** @var array Arguments for creating clients */
     private $args;
+
     /**
      * Constructs a new SDK object with an associative array of default
      * client settings.
@@ -625,21 +626,26 @@ class Sdk
     public function __construct(array $args = [])
     {
         $this->args = $args;
+
         if (!isset($args['handler']) && !isset($args['http_handler'])) {
             $this->args['http_handler'] = default_http_handler();
         }
     }
+
     public function __call($name, array $args)
     {
         $args = isset($args[0]) ? $args[0] : [];
-        if (\strpos($name, 'createMultiRegion') === 0) {
-            return $this->createMultiRegionClient(\substr($name, 17), $args);
+        if (strpos($name, 'createMultiRegion') === 0) {
+            return $this->createMultiRegionClient(substr($name, 17), $args);
         }
-        if (\strpos($name, 'create') === 0) {
-            return $this->createClient(\substr($name, 6), $args);
+
+        if (strpos($name, 'create') === 0) {
+            return $this->createClient(substr($name, 6), $args);
         }
+
         throw new \BadMethodCallException("Unknown method: {$name}.");
     }
+
     /**
      * Get a client by name using an array of constructor options.
      *
@@ -656,19 +662,24 @@ class Sdk
         // Get information about the service from the manifest file.
         $service = manifest($name);
         $namespace = $service['namespace'];
+
         // Instantiate the client class.
         $client = "Aws\\{$namespace}\\{$namespace}Client";
         return new $client($this->mergeArgs($namespace, $service, $args));
     }
+
     public function createMultiRegionClient($name, array $args = [])
     {
         // Get information about the service from the manifest file.
         $service = manifest($name);
         $namespace = $service['namespace'];
+
         $klass = "Aws\\{$namespace}\\{$namespace}MultiRegionClient";
-        $klass = \class_exists($klass) ? $klass : 'Aws\\MultiRegionClient';
+        $klass = class_exists($klass) ? $klass : 'Aws\\MultiRegionClient';
+
         return new $klass($this->mergeArgs($namespace, $service, $args));
     }
+
     /**
      * Clone existing SDK instance with ability to pass an associative array
      * of extra client settings.
@@ -681,18 +692,22 @@ class Sdk
     {
         return new self($args + $this->args);
     }
+
     private function mergeArgs($namespace, array $manifest, array $args = [])
     {
         // Merge provided args with stored, service-specific args.
         if (isset($this->args[$namespace])) {
             $args += $this->args[$namespace];
         }
+
         // Provide the endpoint prefix in the args.
         if (!isset($args['service'])) {
             $args['service'] = $manifest['endpoint'];
         }
+
         return $args + $this->args;
     }
+
     /**
      * Determine the endpoint prefix from a client namespace.
      *

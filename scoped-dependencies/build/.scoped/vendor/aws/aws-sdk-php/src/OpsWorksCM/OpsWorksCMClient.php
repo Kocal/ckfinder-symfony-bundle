@@ -1,8 +1,8 @@
 <?php
+namespace Aws\OpsWorksCM;
 
-namespace _CKFinder_Vendor_Prefix\Aws\OpsWorksCM;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS OpsWorks for Chef Automate** service.
  * @method \Aws\Result associateNode(array $args = [])
@@ -44,6 +44,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateServerEngineAttributes(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServerEngineAttributesAsync(array $args = [])
  */
-class OpsWorksCMClient extends AwsClient
-{
-}
+class OpsWorksCMClient extends AwsClient {}

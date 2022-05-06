@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodePipeline;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodePipeline;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CodePipeline** service.
  *
@@ -85,6 +85,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePipeline(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePipelineAsync(array $args = [])
  */
-class CodePipelineClient extends AwsClient
-{
-}
+class CodePipelineClient extends AwsClient {}

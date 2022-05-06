@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MigrationHubConfig;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MigrationHubConfig;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Migration Hub Config** service.
  * @method \Aws\Result createHomeRegionControl(array $args = [])
@@ -12,6 +12,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result getHomeRegion(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getHomeRegionAsync(array $args = [])
  */
-class MigrationHubConfigClient extends AwsClient
-{
-}
+class MigrationHubConfigClient extends AwsClient {}

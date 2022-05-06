@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MediaStore\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaStore\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Elemental MediaStore** service.
  */
-class MediaStoreException extends AwsException
-{
-}
+class MediaStoreException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Firehose;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Firehose;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis Firehose** service.
  *
@@ -31,6 +31,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDestination(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDestinationAsync(array $args = [])
  */
-class FirehoseClient extends AwsClient
-{
-}
+class FirehoseClient extends AwsClient {}

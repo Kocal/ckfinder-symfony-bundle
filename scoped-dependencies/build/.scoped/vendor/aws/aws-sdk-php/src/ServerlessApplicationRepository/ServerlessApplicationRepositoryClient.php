@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ServerlessApplicationRepository;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ServerlessApplicationRepository;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWSServerlessApplicationRepository** service.
  * @method \Aws\Result createApplication(array $args = [])
@@ -34,6 +34,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateApplication(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateApplicationAsync(array $args = [])
  */
-class ServerlessApplicationRepositoryClient extends AwsClient
-{
-}
+class ServerlessApplicationRepositoryClient extends AwsClient {}

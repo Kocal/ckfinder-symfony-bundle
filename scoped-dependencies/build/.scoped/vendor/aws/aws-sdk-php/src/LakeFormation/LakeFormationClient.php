@@ -1,8 +1,8 @@
 <?php
+namespace Aws\LakeFormation;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LakeFormation;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Lake Formation** service.
  * @method \Aws\Result addLFTagsToResource(array $args = [])
@@ -94,6 +94,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTableStorageOptimizer(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTableStorageOptimizerAsync(array $args = [])
  */
-class LakeFormationClient extends AwsClient
-{
-}
+class LakeFormationClient extends AwsClient {}

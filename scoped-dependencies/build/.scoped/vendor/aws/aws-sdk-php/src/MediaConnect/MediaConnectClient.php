@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaConnect;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaConnect;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS MediaConnect** service.
  * @method \Aws\Result addFlowMediaStreams(array $args = [])
@@ -66,6 +66,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateFlowSource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateFlowSourceAsync(array $args = [])
  */
-class MediaConnectClient extends AwsClient
-{
-}
+class MediaConnectClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Appflow;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Appflow;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Appflow** service.
  * @method \Aws\Result createConnectorProfile(array $args = [])
@@ -50,6 +50,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateFlow(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateFlowAsync(array $args = [])
  */
-class AppflowClient extends AwsClient
-{
-}
+class AppflowClient extends AwsClient {}

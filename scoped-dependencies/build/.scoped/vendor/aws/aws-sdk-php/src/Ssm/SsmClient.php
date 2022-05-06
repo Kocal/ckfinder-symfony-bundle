@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Ssm;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ssm;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * Amazon EC2 Simple Systems Manager client.
  *
@@ -277,6 +277,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateServiceSetting(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServiceSettingAsync(array $args = [])
  */
-class SsmClient extends AwsClient
-{
-}
+class SsmClient extends AwsClient {}

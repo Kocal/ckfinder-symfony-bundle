@@ -1,9 +1,9 @@
 <?php
+namespace Aws\S3\Crypto;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\Crypto;
+use \Aws\Crypto\MetadataStrategyInterface;
+use \Aws\Crypto\MetadataEnvelope;
 
-use _CKFinder_Vendor_Prefix\Aws\Crypto\MetadataStrategyInterface;
-use _CKFinder_Vendor_Prefix\Aws\Crypto\MetadataEnvelope;
 class HeadersMetadataStrategy implements MetadataStrategyInterface
 {
     /**
@@ -19,11 +19,13 @@ class HeadersMetadataStrategy implements MetadataStrategyInterface
      */
     public function save(MetadataEnvelope $envelope, array $args)
     {
-        foreach ($envelope as $header => $value) {
+        foreach ($envelope as $header=>$value) {
             $args['Metadata'][$header] = $value;
         }
+
         return $args;
     }
+
     /**
      * Generates a MetadataEnvelope according to the metadata headers from the
      * GetObject result.
@@ -38,11 +40,13 @@ class HeadersMetadataStrategy implements MetadataStrategyInterface
     {
         $envelope = new MetadataEnvelope();
         $constantValues = MetadataEnvelope::getConstantValues();
+
         foreach ($constantValues as $constant) {
             if (!empty($args['Metadata'][$constant])) {
                 $envelope[$constant] = $args['Metadata'][$constant];
             }
         }
+
         return $envelope;
     }
 }

@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws;
+namespace Aws;
 
 /**
  * AWS command object.
@@ -8,10 +7,13 @@ namespace _CKFinder_Vendor_Prefix\Aws;
 class Command implements CommandInterface
 {
     use HasDataTrait;
+
     /** @var string */
     private $name;
+
     /** @var HandlerList */
     private $handlerList;
+
     /**
      * Accepts an associative array of command options, including:
      *
@@ -26,6 +28,7 @@ class Command implements CommandInterface
         $this->name = $name;
         $this->data = $args;
         $this->handlerList = $list ?: new HandlerList();
+
         if (!isset($this->data['@http'])) {
             $this->data['@http'] = [];
         }
@@ -33,22 +36,27 @@ class Command implements CommandInterface
             $this->data['@context'] = [];
         }
     }
+
     public function __clone()
     {
         $this->handlerList = clone $this->handlerList;
     }
+
     public function getName()
     {
         return $this->name;
     }
+
     public function hasParam($name)
     {
-        return \array_key_exists($name, $this->data);
+        return array_key_exists($name, $this->data);
     }
+
     public function getHandlerList()
     {
         return $this->handlerList;
     }
+
     /** @deprecated */
     public function get($name)
     {

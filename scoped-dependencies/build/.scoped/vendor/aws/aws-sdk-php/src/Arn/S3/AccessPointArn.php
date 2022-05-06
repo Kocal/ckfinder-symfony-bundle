@@ -1,11 +1,11 @@
 <?php
+namespace Aws\Arn\S3;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Arn\S3;
+use Aws\Arn\AccessPointArn as BaseAccessPointArn;
+use Aws\Arn\AccessPointArnInterface;
+use Aws\Arn\ArnInterface;
+use Aws\Arn\Exception\InvalidArnException;
 
-use _CKFinder_Vendor_Prefix\Aws\Arn\AccessPointArn as BaseAccessPointArn;
-use _CKFinder_Vendor_Prefix\Aws\Arn\AccessPointArnInterface;
-use _CKFinder_Vendor_Prefix\Aws\Arn\ArnInterface;
-use _CKFinder_Vendor_Prefix\Aws\Arn\Exception\InvalidArnException;
 /**
  * @internal
  */
@@ -20,7 +20,8 @@ class AccessPointArn extends BaseAccessPointArn implements AccessPointArnInterfa
     {
         parent::validate($data);
         if ($data['service'] !== 's3') {
-            throw new InvalidArnException("The 3rd component of an S3 access" . " point ARN represents the region and must be 's3'.");
+            throw new InvalidArnException("The 3rd component of an S3 access"
+                . " point ARN represents the region and must be 's3'.");
         }
     }
 }

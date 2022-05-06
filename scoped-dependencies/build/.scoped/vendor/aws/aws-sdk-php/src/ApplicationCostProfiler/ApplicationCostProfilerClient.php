@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ApplicationCostProfiler;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApplicationCostProfiler;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Application Cost Profiler** service.
  * @method \Aws\Result deleteReportDefinition(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateReportDefinition(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateReportDefinitionAsync(array $args = [])
  */
-class ApplicationCostProfilerClient extends AwsClient
-{
-}
+class ApplicationCostProfilerClient extends AwsClient {}

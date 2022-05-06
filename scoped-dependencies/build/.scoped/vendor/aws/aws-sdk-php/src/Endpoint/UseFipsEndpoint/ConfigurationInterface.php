@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Endpoint\UseFipsEndpoint;
+namespace Aws\Endpoint\UseFipsEndpoint;
 
 interface ConfigurationInterface
 {
@@ -10,6 +9,7 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isUseFipsEndpoint();
+
     /**
      * Returns the configuration as an associative array
      *

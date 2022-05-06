@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Rekognition;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Rekognition;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Rekognition** service.
  * @method \Aws\Result compareFaces(array $args = [])
@@ -122,6 +122,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDatasetEntries(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDatasetEntriesAsync(array $args = [])
  */
-class RekognitionClient extends AwsClient
-{
-}
+class RekognitionClient extends AwsClient {}

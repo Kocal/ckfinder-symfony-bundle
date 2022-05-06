@@ -1,8 +1,8 @@
 <?php
+namespace Aws\FSx;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FSx;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon FSx** service.
  * @method \Aws\Result associateFileSystemAliases(array $args = [])
@@ -80,6 +80,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVolume(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVolumeAsync(array $args = [])
  */
-class FSxClient extends AwsClient
-{
-}
+class FSxClient extends AwsClient {}

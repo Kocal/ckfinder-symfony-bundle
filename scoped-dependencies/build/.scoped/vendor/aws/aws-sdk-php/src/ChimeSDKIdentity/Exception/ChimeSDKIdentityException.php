@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ChimeSDKIdentity\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ChimeSDKIdentity\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Chime SDK Identity** service.
  */
-class ChimeSDKIdentityException extends AwsException
-{
-}
+class ChimeSDKIdentityException extends AwsException {}

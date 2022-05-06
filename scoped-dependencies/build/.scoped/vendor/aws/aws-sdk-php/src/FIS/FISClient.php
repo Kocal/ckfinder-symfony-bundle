@@ -1,8 +1,8 @@
 <?php
+namespace Aws\FIS;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FIS;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Fault Injection Simulator** service.
  * @method \Aws\Result createExperimentTemplate(array $args = [])
@@ -38,6 +38,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateExperimentTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateExperimentTemplateAsync(array $args = [])
  */
-class FISClient extends AwsClient
-{
-}
+class FISClient extends AwsClient {}

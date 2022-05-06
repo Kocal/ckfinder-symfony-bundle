@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElasticsearchService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticsearchService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elasticsearch Service** service.
  *
@@ -89,6 +89,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result upgradeElasticsearchDomain(array $args = [])
  * @method \GuzzleHttp\Promise\Promise upgradeElasticsearchDomainAsync(array $args = [])
  */
-class ElasticsearchServiceClient extends AwsClient
-{
-}
+class ElasticsearchServiceClient extends AwsClient {}

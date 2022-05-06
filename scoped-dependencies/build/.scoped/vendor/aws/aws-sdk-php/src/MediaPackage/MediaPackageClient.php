@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaPackage;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaPackage;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elemental MediaPackage** service.
  * @method \Aws\Result configureLogs(array $args = [])
@@ -44,6 +44,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateOriginEndpoint(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateOriginEndpointAsync(array $args = [])
  */
-class MediaPackageClient extends AwsClient
-{
-}
+class MediaPackageClient extends AwsClient {}

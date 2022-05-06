@@ -1,8 +1,8 @@
 <?php
+namespace Aws\EC2InstanceConnect;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EC2InstanceConnect;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS EC2 Instance Connect** service.
  * @method \Aws\Result sendSSHPublicKey(array $args = [])
@@ -10,6 +10,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result sendSerialConsoleSSHPublicKey(array $args = [])
  * @method \GuzzleHttp\Promise\Promise sendSerialConsoleSSHPublicKeyAsync(array $args = [])
  */
-class EC2InstanceConnectClient extends AwsClient
-{
-}
+class EC2InstanceConnectClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Athena;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Athena;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Athena** service.
  * @method \Aws\Result batchGetNamedQuery(array $args = [])
@@ -76,6 +76,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkGroupAsync(array $args = [])
  */
-class AthenaClient extends AwsClient
-{
-}
+class AthenaClient extends AwsClient {}

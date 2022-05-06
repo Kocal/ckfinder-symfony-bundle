@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SecurityHub;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SecurityHub;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS SecurityHub** service.
  * @method \Aws\Result acceptAdministratorInvitation(array $args = [])
@@ -118,6 +118,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStandardsControl(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStandardsControlAsync(array $args = [])
  */
-class SecurityHubClient extends AwsClient
-{
-}
+class SecurityHubClient extends AwsClient {}

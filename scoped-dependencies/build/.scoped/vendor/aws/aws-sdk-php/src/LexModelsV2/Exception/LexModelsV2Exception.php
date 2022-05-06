@@ -1,11 +1,9 @@
 <?php
+namespace Aws\LexModelsV2\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\LexModelsV2\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Lex Model Building V2** service.
  */
-class LexModelsV2Exception extends AwsException
-{
-}
+class LexModelsV2Exception extends AwsException {}

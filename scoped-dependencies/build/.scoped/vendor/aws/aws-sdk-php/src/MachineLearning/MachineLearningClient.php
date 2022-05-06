@@ -1,11 +1,11 @@
 <?php
+namespace Aws\MachineLearning;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MachineLearning;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\RequestInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7\Uri;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
 /**
  * Amazon Machine Learning client.
  *
@@ -74,6 +74,7 @@ class MachineLearningClient extends AwsClient
         $list = $this->getHandlerList();
         $list->appendBuild($this->predictEndpoint(), 'ml.predict_endpoint');
     }
+
     /**
      * Changes the endpoint of the Predict operation to the provided endpoint.
      *
@@ -82,7 +83,10 @@ class MachineLearningClient extends AwsClient
     private function predictEndpoint()
     {
         return static function (callable $handler) {
-            return function (CommandInterface $command, RequestInterface $request = null) use($handler) {
+            return function (
+                CommandInterface $command,
+                RequestInterface $request = null
+            ) use ($handler) {
                 if ($command->getName() === 'Predict') {
                     $request = $request->withUri(new Uri($command['PredictEndpoint']));
                 }

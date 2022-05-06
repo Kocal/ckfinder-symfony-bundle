@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GameSparks;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GameSparks;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **GameSparks** service.
  * @method \Aws\Result createGame(array $args = [])
@@ -72,6 +72,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStage(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStageAsync(array $args = [])
  */
-class GameSparksClient extends AwsClient
-{
-}
+class GameSparksClient extends AwsClient {}

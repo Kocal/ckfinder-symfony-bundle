@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Greengrass\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Greengrass\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Greengrass** service.
  */
-class GreengrassException extends AwsException
-{
-}
+class GreengrassException extends AwsException {}

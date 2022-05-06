@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Exception;
+namespace Aws\Exception;
 
 /**
  * Class CryptoPolyfillException
@@ -8,4 +7,5 @@ namespace _CKFinder_Vendor_Prefix\Aws\Exception;
  */
 class CryptoPolyfillException extends \RuntimeException
 {
+
 }

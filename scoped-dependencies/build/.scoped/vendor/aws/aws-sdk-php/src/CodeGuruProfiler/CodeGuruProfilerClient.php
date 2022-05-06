@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeGuruProfiler;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeGuruProfiler;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CodeGuru Profiler** service.
  * @method \Aws\Result addNotificationChannels(array $args = [])
@@ -52,6 +52,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateProfilingGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateProfilingGroupAsync(array $args = [])
  */
-class CodeGuruProfilerClient extends AwsClient
-{
-}
+class CodeGuruProfilerClient extends AwsClient {}

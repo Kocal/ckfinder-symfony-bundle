@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SSOOIDC;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SSOOIDC;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS SSO OIDC** service.
  * @method \Aws\Result createToken(array $args = [])
@@ -12,6 +12,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result startDeviceAuthorization(array $args = [])
  * @method \GuzzleHttp\Promise\Promise startDeviceAuthorizationAsync(array $args = [])
  */
-class SSOOIDCClient extends AwsClient
-{
-}
+class SSOOIDCClient extends AwsClient {}

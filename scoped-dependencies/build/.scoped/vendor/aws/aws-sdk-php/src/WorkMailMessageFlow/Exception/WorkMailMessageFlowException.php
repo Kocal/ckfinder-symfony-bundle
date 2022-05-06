@@ -1,11 +1,9 @@
 <?php
+namespace Aws\WorkMailMessageFlow\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkMailMessageFlow\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon WorkMail Message Flow** service.
  */
-class WorkMailMessageFlowException extends AwsException
-{
-}
+class WorkMailMessageFlowException extends AwsException {}

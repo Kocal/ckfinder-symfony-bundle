@@ -1,8 +1,8 @@
 <?php
+namespace Aws\KafkaConnect;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KafkaConnect;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Managed Streaming for Kafka Connect** service.
  * @method \Aws\Result createConnector(array $args = [])
@@ -30,6 +30,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConnector(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConnectorAsync(array $args = [])
  */
-class KafkaConnectClient extends AwsClient
-{
-}
+class KafkaConnectClient extends AwsClient {}

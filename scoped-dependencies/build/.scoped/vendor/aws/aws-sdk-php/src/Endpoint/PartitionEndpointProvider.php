@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Endpoint;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Endpoint;
+use JmesPath\Env;
 
-use _CKFinder_Vendor_Prefix\JmesPath\Env;
 class PartitionEndpointProvider
 {
     /** @var Partition[] */
@@ -11,6 +11,7 @@ class PartitionEndpointProvider
     private $defaultPartition;
     /** @var array  */
     private $options;
+
     /**
      * The 'options' parameter accepts the following arguments:
      *
@@ -25,20 +26,29 @@ class PartitionEndpointProvider
      * @param string $defaultPartition
      * @param array $options
      */
-    public function __construct(array $partitions, $defaultPartition = 'aws', $options = [])
-    {
-        $this->partitions = \array_map(function (array $definition) {
+    public function __construct(
+        array $partitions,
+        $defaultPartition = 'aws',
+        $options = []
+    ) {
+        $this->partitions = array_map(function (array $definition) {
             return new Partition($definition);
-        }, \array_values($partitions));
+        }, array_values($partitions));
         $this->defaultPartition = $defaultPartition;
         $this->options = $options;
     }
+
     public function __invoke(array $args = [])
     {
-        $partition = $this->getPartition(isset($args['region']) ? $args['region'] : '', isset($args['service']) ? $args['service'] : '');
+        $partition = $this->getPartition(
+            isset($args['region']) ? $args['region'] : '',
+            isset($args['service']) ? $args['service'] : ''
+        );
         $args['options'] = $this->options;
+
         return $partition($args);
     }
+
     /**
      * Returns the partition containing the provided region or the default
      * partition if no match is found.
@@ -55,8 +65,10 @@ class PartitionEndpointProvider
                 return $partition;
             }
         }
+
         return $this->getPartitionByName($this->defaultPartition);
     }
+
     /**
      * Returns the partition with the provided name or null if no partition with
      * the provided name can be found.
@@ -73,6 +85,7 @@ class PartitionEndpointProvider
             }
         }
     }
+
     /**
      * Creates and returns the default SDK partition provider.
      *
@@ -81,11 +94,13 @@ class PartitionEndpointProvider
      */
     public static function defaultProvider($options = [])
     {
-        $data = \_CKFinder_Vendor_Prefix\Aws\load_compiled_json(__DIR__ . '/../data/endpoints.json');
-        $prefixData = \_CKFinder_Vendor_Prefix\Aws\load_compiled_json(__DIR__ . '/../data/endpoints_prefix_history.json');
+        $data = \Aws\load_compiled_json(__DIR__ . '/../data/endpoints.json');
+        $prefixData = \Aws\load_compiled_json(__DIR__ . '/../data/endpoints_prefix_history.json');
         $mergedData = self::mergePrefixData($data, $prefixData);
+
         return new self($mergedData['partitions'], 'aws', $options);
     }
+
     /**
      * Copy endpoint data for other prefixes used by a given service
      *
@@ -96,6 +111,7 @@ class PartitionEndpointProvider
     public static function mergePrefixData($data, $prefixData)
     {
         $prefixGroups = $prefixData['prefix-groups'];
+
         foreach ($data["partitions"] as $index => $partition) {
             foreach ($prefixGroups as $current => $old) {
                 $serviceData = Env::search("services.\"{$current}\"", $partition);
@@ -108,6 +124,7 @@ class PartitionEndpointProvider
                 }
             }
         }
+
         return $data;
     }
 }

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Amplify;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Amplify;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Amplify** service.
  * @method \Aws\Result createApp(array $args = [])
@@ -80,6 +80,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWebhook(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWebhookAsync(array $args = [])
  */
-class AmplifyClient extends AwsClient
-{
-}
+class AmplifyClient extends AwsClient {}

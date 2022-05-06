@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaLive;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaLive;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Elemental MediaLive** service.
  * @method \Aws\Result acceptInputDeviceTransfer(array $args = [])
@@ -120,6 +120,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateReservation(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateReservationAsync(array $args = [])
  */
-class MediaLiveClient extends AwsClient
-{
-}
+class MediaLiveClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTThingsGraph;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTThingsGraph;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Things Graph** service.
  * @method \Aws\Result associateEntityToThing(array $args = [])
@@ -76,6 +76,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result uploadEntityDefinitions(array $args = [])
  * @method \GuzzleHttp\Promise\Promise uploadEntityDefinitionsAsync(array $args = [])
  */
-class IoTThingsGraphClient extends AwsClient
-{
-}
+class IoTThingsGraphClient extends AwsClient {}

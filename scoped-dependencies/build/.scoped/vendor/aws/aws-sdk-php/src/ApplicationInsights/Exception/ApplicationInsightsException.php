@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ApplicationInsights\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ApplicationInsights\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon CloudWatch Application Insights** service.
  */
-class ApplicationInsightsException extends AwsException
-{
-}
+class ApplicationInsightsException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeDeploy;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeDeploy;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with AWS CodeDeploy
  *
@@ -101,6 +101,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDeploymentGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDeploymentGroupAsync(array $args = [])
  */
-class CodeDeployClient extends AwsClient
-{
-}
+class CodeDeployClient extends AwsClient {}

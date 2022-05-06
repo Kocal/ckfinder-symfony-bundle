@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeStarconnections;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeStarconnections;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CodeStar connections** service.
  * @method \Aws\Result createConnection(array $args = [])
@@ -30,6 +30,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateHost(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateHostAsync(array $args = [])
  */
-class CodeStarconnectionsClient extends AwsClient
-{
-}
+class CodeStarconnectionsClient extends AwsClient {}

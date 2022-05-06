@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MWAA;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MWAA;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AmazonMWAA** service.
  * @method \Aws\Result createCliToken(array $args = [])
@@ -28,6 +28,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateEnvironment(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEnvironmentAsync(array $args = [])
  */
-class MWAAClient extends AwsClient
-{
-}
+class MWAAClient extends AwsClient {}

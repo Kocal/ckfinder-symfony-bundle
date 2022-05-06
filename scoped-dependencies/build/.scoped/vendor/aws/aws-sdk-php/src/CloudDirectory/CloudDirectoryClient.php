@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudDirectory;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudDirectory;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudDirectory** service.
  * @method \Aws\Result addFacetToObject(array $args = [])
@@ -138,6 +138,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result listManagedSchemaArns(array $args = []) (supported in versions 2017-01-11)
  * @method \GuzzleHttp\Promise\Promise listManagedSchemaArnsAsync(array $args = []) (supported in versions 2017-01-11)
  */
-class CloudDirectoryClient extends AwsClient
-{
-}
+class CloudDirectoryClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ResilienceHub;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ResilienceHub;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Resilience Hub** service.
  * @method \Aws\Result addDraftAppVersionResourceMappings(array $args = [])
@@ -84,6 +84,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateResiliencyPolicy(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateResiliencyPolicyAsync(array $args = [])
  */
-class ResilienceHubClient extends AwsClient
-{
-}
+class ResilienceHubClient extends AwsClient {}

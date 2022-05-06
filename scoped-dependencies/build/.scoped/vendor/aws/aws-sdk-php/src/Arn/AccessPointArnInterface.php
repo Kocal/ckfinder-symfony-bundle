@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Arn;
+namespace Aws\Arn;
 
 /**
  * @internal

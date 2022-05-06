@@ -1,8 +1,8 @@
 <?php
+namespace Aws\RoboMaker;
 
-namespace _CKFinder_Vendor_Prefix\Aws\RoboMaker;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS RoboMaker** service.
  * @method \Aws\Result batchDeleteWorlds(array $args = [])
@@ -120,6 +120,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorldTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorldTemplateAsync(array $args = [])
  */
-class RoboMakerClient extends AwsClient
-{
-}
+class RoboMakerClient extends AwsClient {}

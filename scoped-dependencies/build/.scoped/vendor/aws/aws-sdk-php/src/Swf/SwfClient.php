@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Swf;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Swf;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * Amazon Simple Workflow Service (Amazon SWF) client.
  *
@@ -81,6 +81,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class SwfClient extends AwsClient
-{
-}
+class SwfClient extends AwsClient {}

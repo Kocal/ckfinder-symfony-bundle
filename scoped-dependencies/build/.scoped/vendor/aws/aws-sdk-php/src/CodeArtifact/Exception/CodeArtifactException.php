@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CodeArtifact\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeArtifact\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **CodeArtifact** service.
  */
-class CodeArtifactException extends AwsException
-{
-}
+class CodeArtifactException extends AwsException {}

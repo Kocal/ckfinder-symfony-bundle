@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Detective;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Detective;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Detective** service.
  * @method \Aws\Result acceptInvitation(array $args = [])
@@ -46,6 +46,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateOrganizationConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateOrganizationConfigurationAsync(array $args = [])
  */
-class DetectiveClient extends AwsClient
-{
-}
+class DetectiveClient extends AwsClient {}

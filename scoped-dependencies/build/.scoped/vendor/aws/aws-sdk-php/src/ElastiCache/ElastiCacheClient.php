@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ElastiCache;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElastiCache;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon ElastiCache** service.
  *
@@ -137,6 +137,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result testFailover(array $args = [])
  * @method \GuzzleHttp\Promise\Promise testFailoverAsync(array $args = [])
  */
-class ElastiCacheClient extends AwsClient
-{
-}
+class ElastiCacheClient extends AwsClient {}

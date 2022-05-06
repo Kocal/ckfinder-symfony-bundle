@@ -1,8 +1,8 @@
 <?php
+namespace Aws\PI;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PI;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Performance Insights** service.
  * @method \Aws\Result describeDimensionKeys(array $args = [])
@@ -18,6 +18,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result listAvailableResourceMetrics(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listAvailableResourceMetricsAsync(array $args = [])
  */
-class PIClient extends AwsClient
-{
-}
+class PIClient extends AwsClient {}

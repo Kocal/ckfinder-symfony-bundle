@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Pricing;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Pricing;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Price List Service** service.
  * @method \Aws\Result describeServices(array $args = [])
@@ -12,6 +12,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result getProducts(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getProductsAsync(array $args = [])
  */
-class PricingClient extends AwsClient
-{
-}
+class PricingClient extends AwsClient {}

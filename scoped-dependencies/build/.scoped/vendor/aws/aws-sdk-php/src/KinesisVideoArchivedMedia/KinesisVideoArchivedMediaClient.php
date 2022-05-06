@@ -1,8 +1,8 @@
 <?php
+namespace Aws\KinesisVideoArchivedMedia;
 
-namespace _CKFinder_Vendor_Prefix\Aws\KinesisVideoArchivedMedia;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Kinesis Video Streams Archived Media** service.
  * @method \Aws\Result getClip(array $args = [])
@@ -16,6 +16,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result listFragments(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listFragmentsAsync(array $args = [])
  */
-class KinesisVideoArchivedMediaClient extends AwsClient
-{
-}
+class KinesisVideoArchivedMediaClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTTwinMaker;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTTwinMaker;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT TwinMaker** service.
  * @method \Aws\Result batchPutPropertyValues(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWorkspace(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWorkspaceAsync(array $args = [])
  */
-class IoTTwinMakerClient extends AwsClient
-{
-}
+class IoTTwinMakerClient extends AwsClient {}

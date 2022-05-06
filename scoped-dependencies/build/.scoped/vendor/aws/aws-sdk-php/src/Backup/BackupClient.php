@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Backup;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Backup;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Backup** service.
  * @method \Aws\Result createBackupPlan(array $args = [])
@@ -138,6 +138,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateReportPlan(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateReportPlanAsync(array $args = [])
  */
-class BackupClient extends AwsClient
-{
-}
+class BackupClient extends AwsClient {}

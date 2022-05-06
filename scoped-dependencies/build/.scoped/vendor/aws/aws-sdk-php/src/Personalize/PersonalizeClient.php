@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Personalize;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Personalize;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Personalize** service.
  * @method \Aws\Result createBatchInferenceJob(array $args = [])
@@ -116,6 +116,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateRecommender(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateRecommenderAsync(array $args = [])
  */
-class PersonalizeClient extends AwsClient
-{
-}
+class PersonalizeClient extends AwsClient {}

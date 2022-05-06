@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Sns;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sns;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Simple Notification Service (Amazon SNS)**.
  *
@@ -87,6 +87,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result verifySMSSandboxPhoneNumber(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifySMSSandboxPhoneNumberAsync(array $args = [])
  */
-class SnsClient extends AwsClient
-{
-}
+class SnsClient extends AwsClient {}

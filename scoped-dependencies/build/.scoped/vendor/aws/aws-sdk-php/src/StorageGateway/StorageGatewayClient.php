@@ -1,8 +1,8 @@
 <?php
+namespace Aws\StorageGateway;
 
-namespace _CKFinder_Vendor_Prefix\Aws\StorageGateway;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * AWS Storage Gateway client.
  *
@@ -187,6 +187,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVTLDeviceType(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVTLDeviceTypeAsync(array $args = [])
  */
-class StorageGatewayClient extends AwsClient
-{
-}
+class StorageGatewayClient extends AwsClient {}

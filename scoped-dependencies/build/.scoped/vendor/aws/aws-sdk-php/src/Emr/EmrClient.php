@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Emr;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Emr;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elastic MapReduce (Amazon EMR)** service.
  *
@@ -111,6 +111,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateStudioSessionMapping(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateStudioSessionMappingAsync(array $args = [])
  */
-class EmrClient extends AwsClient
-{
-}
+class EmrClient extends AwsClient {}

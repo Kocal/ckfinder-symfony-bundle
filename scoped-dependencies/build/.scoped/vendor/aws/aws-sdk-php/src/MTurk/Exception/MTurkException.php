@@ -1,11 +1,9 @@
 <?php
+namespace Aws\MTurk\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MTurk\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Mechanical Turk Requester Service** service.
  */
-class MTurkException extends AwsException
-{
-}
+class MTurkException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AppSync;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AppSync;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS AppSync** service.
  * @method \Aws\Result associateApi(array $args = [])
@@ -104,6 +104,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateType(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTypeAsync(array $args = [])
  */
-class AppSyncClient extends AwsClient
-{
-}
+class AppSyncClient extends AwsClient {}

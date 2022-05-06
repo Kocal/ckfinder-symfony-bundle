@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Braket\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Braket\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Braket** service.
  */
-class BraketException extends AwsException
-{
-}
+class BraketException extends AwsException {}

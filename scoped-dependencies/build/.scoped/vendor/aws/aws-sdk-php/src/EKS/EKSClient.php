@@ -1,8 +1,8 @@
 <?php
+namespace Aws\EKS;
 
-namespace _CKFinder_Vendor_Prefix\Aws\EKS;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elastic Container Service for Kubernetes** service.
  * @method \Aws\Result associateEncryptionConfig(array $args = [])
@@ -74,6 +74,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateNodegroupVersion(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateNodegroupVersionAsync(array $args = [])
  */
-class EKSClient extends AwsClient
-{
-}
+class EKSClient extends AwsClient {}

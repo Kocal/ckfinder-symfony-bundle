@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Rekognition\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Rekognition\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Rekognition** service.
  */
-class RekognitionException extends AwsException
-{
-}
+class RekognitionException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WorkSpacesWeb;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkSpacesWeb;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon WorkSpaces Web** service.
  * @method \Aws\Result associateBrowserSettings(array $args = [])
@@ -94,6 +94,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateUserSettings(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateUserSettingsAsync(array $args = [])
  */
-class WorkSpacesWebClient extends AwsClient
-{
-}
+class WorkSpacesWebClient extends AwsClient {}

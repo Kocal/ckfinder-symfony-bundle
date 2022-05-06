@@ -1,10 +1,10 @@
 <?php
+namespace Aws\FinSpaceData;
 
-namespace _CKFinder_Vendor_Prefix\Aws\FinSpaceData;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use Psr\Http\Message\RequestInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
 /**
  * This client is used to interact with the **FinSpace Public API** service.
  * @method \Aws\Result createChangeset(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
  * @method \Aws\Result updateUser(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateUserAsync(array $args = [])
  */
-class FinSpaceDataClient extends AwsClient
-{
-}
+class FinSpaceDataClient extends AwsClient {}

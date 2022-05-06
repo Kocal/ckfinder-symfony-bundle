@@ -1,13 +1,13 @@
 <?php
+namespace Aws\DefaultsMode;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DefaultsMode;
+use Aws\AbstractConfigurationProvider;
+use Aws\CacheInterface;
+use Aws\ConfigurationProviderInterface;
+use Aws\DefaultsMode\Exception\ConfigurationException;
+use GuzzleHttp\Promise;
+use GuzzleHttp\Promise\PromiseInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AbstractConfigurationProvider;
-use _CKFinder_Vendor_Prefix\Aws\CacheInterface;
-use _CKFinder_Vendor_Prefix\Aws\ConfigurationProviderInterface;
-use _CKFinder_Vendor_Prefix\Aws\DefaultsMode\Exception\ConfigurationException;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
 /**
  * A configuration provider is a function that returns a promise that is
  * fulfilled with a {@see \Aws\DefaultsMode\ConfigurationInterface}
@@ -42,15 +42,19 @@ use _CKFinder_Vendor_Prefix\GuzzleHttp\Promise\PromiseInterface;
  * $config = $promise->wait();
  * </code>
  */
-class ConfigurationProvider extends AbstractConfigurationProvider implements ConfigurationProviderInterface
+class ConfigurationProvider extends AbstractConfigurationProvider
+    implements ConfigurationProviderInterface
 {
     const DEFAULT_MODE = 'legacy';
     const ENV_MODE = 'AWS_DEFAULTS_MODE';
     const ENV_PROFILE = 'AWS_PROFILE';
     const INI_MODE = 'defaults_mode';
+
     public static $cacheKey = 'aws_defaults_mode';
+
     protected static $interfaceClass = ConfigurationInterface::class;
     protected static $exceptionClass = ConfigurationException::class;
+
     /**
      * Create a default config provider that first checks for environment
      * variables, then checks for a specified profile in the environment-defined
@@ -69,16 +73,27 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     public static function defaultProvider(array $config = [])
     {
         $configProviders = [self::env()];
-        if (!isset($config['use_aws_shared_config_files']) || $config['use_aws_shared_config_files'] != \false) {
+        if (
+            !isset($config['use_aws_shared_config_files'])
+            || $config['use_aws_shared_config_files'] != false
+        ) {
             $configProviders[] = self::ini();
         }
         $configProviders[] = self::fallback();
-        $memo = self::memoize(\call_user_func_array('self::chain', $configProviders));
-        if (isset($config['defaultsMode']) && $config['defaultsMode'] instanceof CacheInterface) {
+
+        $memo = self::memoize(
+            call_user_func_array('self::chain', $configProviders)
+        );
+
+        if (isset($config['defaultsMode'])
+            && $config['defaultsMode'] instanceof CacheInterface
+        ) {
             return self::cache($memo, $config['defaultsMode'], self::$cacheKey);
         }
+
         return $memo;
     }
+
     /**
      * Provider that creates config from environment variables.
      *
@@ -88,13 +103,18 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     {
         return function () {
             // Use config from environment variables, if available
-            $mode = \getenv(self::ENV_MODE);
+            $mode = getenv(self::ENV_MODE);
             if (!empty($mode)) {
-                return Promise\Create::promiseFor(new Configuration($mode));
+                return Promise\Create::promiseFor(
+                    new Configuration($mode)
+                );
             }
-            return self::reject('Could not find environment variable config' . ' in ' . self::ENV_MODE);
+
+            return self::reject('Could not find environment variable config'
+                . ' in ' . self::ENV_MODE);
         };
     }
+
     /**
      * Fallback config options when other sources are not set.
      *
@@ -103,9 +123,12 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
     public static function fallback()
     {
         return function () {
-            return Promise\Create::promiseFor(new Configuration(self::DEFAULT_MODE));
+            return Promise\Create::promiseFor(
+                new Configuration( self::DEFAULT_MODE)
+            );
         };
     }
+
     /**
      * Config provider that creates config using a config file whose location
      * is specified by an environment variable 'AWS_CONFIG_FILE', defaulting to
@@ -118,27 +141,36 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
      *
      * @return callable
      */
-    public static function ini($profile = null, $filename = null)
-    {
-        $filename = $filename ?: self::getDefaultConfigFilename();
-        $profile = $profile ?: (\getenv(self::ENV_PROFILE) ?: 'default');
-        return function () use($profile, $filename) {
-            if (!\is_readable($filename)) {
-                return self::reject("Cannot read configuration from {$filename}");
+    public static function ini(
+        $profile = null,
+        $filename = null
+    ) {
+        $filename = $filename ?: (self::getDefaultConfigFilename());
+        $profile = $profile ?: (getenv(self::ENV_PROFILE) ?: 'default');
+
+        return function () use ($profile, $filename) {
+            if (!is_readable($filename)) {
+                return self::reject("Cannot read configuration from $filename");
             }
-            $data = \_CKFinder_Vendor_Prefix\Aws\parse_ini_file($filename, \true);
-            if ($data === \false) {
-                return self::reject("Invalid config file: {$filename}");
+            $data = \Aws\parse_ini_file($filename, true);
+            if ($data === false) {
+                return self::reject("Invalid config file: $filename");
             }
             if (!isset($data[$profile])) {
-                return self::reject("'{$profile}' not found in config file");
+                return self::reject("'$profile' not found in config file");
             }
             if (!isset($data[$profile][self::INI_MODE])) {
-                return self::reject("Required defaults mode config values\n                    not present in INI profile '{$profile}' ({$filename})");
+                return self::reject("Required defaults mode config values
+                    not present in INI profile '{$profile}' ({$filename})");
             }
-            return Promise\Create::promiseFor(new Configuration($data[$profile][self::INI_MODE]));
+            return Promise\Create::promiseFor(
+                new Configuration(
+                    $data[$profile][self::INI_MODE]
+                )
+            );
         };
     }
+
     /**
      * Unwraps a configuration object in whatever valid form it is in,
      * always returning a ConfigurationInterface object.
@@ -149,7 +181,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
      */
     public static function unwrap($config)
     {
-        if (\is_callable($config)) {
+        if (is_callable($config)) {
             $config = $config();
         }
         if ($config instanceof PromiseInterface) {
@@ -158,9 +190,12 @@ class ConfigurationProvider extends AbstractConfigurationProvider implements Con
         if ($config instanceof ConfigurationInterface) {
             return $config;
         }
-        if (\is_string($config)) {
+
+        if (is_string($config)) {
             return new Configuration($config);
         }
-        throw new \InvalidArgumentException('Not a valid defaults mode configuration' . ' argument.');
+
+        throw new \InvalidArgumentException('Not a valid defaults mode configuration'
+            . ' argument.');
     }
 }

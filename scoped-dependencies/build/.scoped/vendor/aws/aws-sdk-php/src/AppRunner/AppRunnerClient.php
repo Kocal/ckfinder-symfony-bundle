@@ -1,8 +1,8 @@
 <?php
+namespace Aws\AppRunner;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AppRunner;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS App Runner** service.
  * @method \Aws\Result associateCustomDomain(array $args = [])
@@ -58,6 +58,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateService(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServiceAsync(array $args = [])
  */
-class AppRunnerClient extends AwsClient
-{
-}
+class AppRunnerClient extends AwsClient {}

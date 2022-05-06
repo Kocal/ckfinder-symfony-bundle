@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DirectoryService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DirectoryService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * AWS Directory Service client
  *
@@ -133,6 +133,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result verifyTrust(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifyTrustAsync(array $args = [])
  */
-class DirectoryServiceClient extends AwsClient
-{
-}
+class DirectoryServiceClient extends AwsClient {}

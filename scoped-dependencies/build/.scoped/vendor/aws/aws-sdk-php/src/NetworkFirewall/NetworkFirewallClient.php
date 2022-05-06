@@ -1,8 +1,8 @@
 <?php
+namespace Aws\NetworkFirewall;
 
-namespace _CKFinder_Vendor_Prefix\Aws\NetworkFirewall;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Network Firewall** service.
  * @method \Aws\Result associateFirewallPolicy(array $args = [])
@@ -66,6 +66,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSubnetChangeProtection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSubnetChangeProtectionAsync(array $args = [])
  */
-class NetworkFirewallClient extends AwsClient
-{
-}
+class NetworkFirewallClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ServiceQuotas;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ServiceQuotas;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Service Quotas** service.
  * @method \Aws\Result associateServiceQuotaTemplate(array $args = [])
@@ -44,6 +44,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class ServiceQuotasClient extends AwsClient
-{
-}
+class ServiceQuotasClient extends AwsClient {}

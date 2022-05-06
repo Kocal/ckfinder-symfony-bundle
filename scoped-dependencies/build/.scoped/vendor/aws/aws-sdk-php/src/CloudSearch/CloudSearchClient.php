@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CloudSearch;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CloudSearch;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CloudSearch** service.
  *
@@ -59,6 +59,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateServiceAccessPolicies(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateServiceAccessPoliciesAsync(array $args = [])
  */
-class CloudSearchClient extends AwsClient
-{
-}
+class CloudSearchClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ConnectWisdomService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ConnectWisdomService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Connect Wisdom Service** service.
  * @method \Aws\Result createAssistant(array $args = [])
@@ -68,6 +68,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateKnowledgeBaseTemplateUri(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateKnowledgeBaseTemplateUriAsync(array $args = [])
  */
-class ConnectWisdomServiceClient extends AwsClient
-{
-}
+class ConnectWisdomServiceClient extends AwsClient {}

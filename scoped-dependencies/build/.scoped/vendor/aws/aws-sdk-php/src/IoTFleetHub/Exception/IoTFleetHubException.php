@@ -1,11 +1,9 @@
 <?php
+namespace Aws\IoTFleetHub\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTFleetHub\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS IoT Fleet Hub** service.
  */
-class IoTFleetHubException extends AwsException
-{
-}
+class IoTFleetHubException extends AwsException {}

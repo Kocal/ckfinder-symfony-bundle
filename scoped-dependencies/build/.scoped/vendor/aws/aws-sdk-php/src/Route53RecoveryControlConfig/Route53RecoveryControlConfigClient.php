@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Route53RecoveryControlConfig;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Route53RecoveryControlConfig;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Route53 Recovery Control Config** service.
  * @method \Aws\Result createCluster(array $args = [])
@@ -52,6 +52,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateSafetyRule(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateSafetyRuleAsync(array $args = [])
  */
-class Route53RecoveryControlConfigClient extends AwsClient
-{
-}
+class Route53RecoveryControlConfigClient extends AwsClient {}

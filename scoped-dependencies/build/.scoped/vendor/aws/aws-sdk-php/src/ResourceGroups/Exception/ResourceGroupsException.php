@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ResourceGroups\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ResourceGroups\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Resource Groups** service.
  */
-class ResourceGroupsException extends AwsException
-{
-}
+class ResourceGroupsException extends AwsException {}

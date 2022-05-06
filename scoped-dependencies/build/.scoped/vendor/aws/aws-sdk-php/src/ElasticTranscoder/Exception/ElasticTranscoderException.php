@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ElasticTranscoder\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ElasticTranscoder\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Elastic Transcoder service.
  */
-class ElasticTranscoderException extends AwsException
-{
-}
+class ElasticTranscoderException extends AwsException {}

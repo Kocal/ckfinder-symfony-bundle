@@ -1,8 +1,8 @@
 <?php
+namespace Aws\DirectConnect;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DirectConnect;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Direct Connect** service.
  *
@@ -133,6 +133,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVirtualInterfaceAttributes(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVirtualInterfaceAttributesAsync(array $args = [])
  */
-class DirectConnectClient extends AwsClient
-{
-}
+class DirectConnectClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\TranscribeService;
 
-namespace _CKFinder_Vendor_Prefix\Aws\TranscribeService;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Transcribe Service** service.
  * @method \Aws\Result createCallAnalyticsCategory(array $args = [])
@@ -84,6 +84,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVocabularyFilter(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVocabularyFilterAsync(array $args = [])
  */
-class TranscribeServiceClient extends AwsClient
-{
-}
+class TranscribeServiceClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\VoiceID;
 
-namespace _CKFinder_Vendor_Prefix\Aws\VoiceID;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Voice ID** service.
  * @method \Aws\Result createDomain(array $args = [])
@@ -48,6 +48,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateDomain(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateDomainAsync(array $args = [])
  */
-class VoiceIDClient extends AwsClient
-{
-}
+class VoiceIDClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\IoTAnalytics;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTAnalytics;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS IoT Analytics** service.
  * @method \Aws\Result batchPutMessage(array $args = [])
@@ -74,6 +74,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePipeline(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePipelineAsync(array $args = [])
  */
-class IoTAnalyticsClient extends AwsClient
-{
-}
+class IoTAnalyticsClient extends AwsClient {}

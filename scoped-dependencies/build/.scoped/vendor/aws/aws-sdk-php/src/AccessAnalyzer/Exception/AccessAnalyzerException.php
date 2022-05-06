@@ -1,11 +1,9 @@
 <?php
+namespace Aws\AccessAnalyzer\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\AccessAnalyzer\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Access Analyzer** service.
  */
-class AccessAnalyzerException extends AwsException
-{
-}
+class AccessAnalyzerException extends AwsException {}

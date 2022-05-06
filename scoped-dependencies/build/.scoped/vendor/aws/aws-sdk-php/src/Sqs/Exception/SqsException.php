@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Sqs\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sqs\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Simple Queue Service.
  */
-class SqsException extends AwsException
-{
-}
+class SqsException extends AwsException {}

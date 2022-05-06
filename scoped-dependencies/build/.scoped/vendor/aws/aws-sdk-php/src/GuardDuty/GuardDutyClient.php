@@ -1,8 +1,8 @@
 <?php
+namespace Aws\GuardDuty;
 
-namespace _CKFinder_Vendor_Prefix\Aws\GuardDuty;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon GuardDuty** service.
  * @method \Aws\Result acceptInvitation(array $args = [])
@@ -122,6 +122,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateThreatIntelSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateThreatIntelSetAsync(array $args = [])
  */
-class GuardDutyClient extends AwsClient
-{
-}
+class GuardDutyClient extends AwsClient {}

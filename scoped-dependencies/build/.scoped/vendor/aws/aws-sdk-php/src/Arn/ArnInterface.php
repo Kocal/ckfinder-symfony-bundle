@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Arn;
+namespace Aws\Arn;
 
 /**
  * Amazon Resource Names (ARNs) uniquely identify AWS resources. Classes
@@ -19,12 +18,20 @@ namespace _CKFinder_Vendor_Prefix\Aws\Arn;
 interface ArnInterface
 {
     public static function parse($string);
+
     public function __toString();
+
     public function getPrefix();
+
     public function getPartition();
+
     public function getService();
+
     public function getRegion();
+
     public function getAccountId();
+
     public function getResource();
+
     public function toArray();
 }

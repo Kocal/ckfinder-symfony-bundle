@@ -1,11 +1,9 @@
 <?php
+namespace Aws\DynamoDb\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\DynamoDb\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon DynamoDB service.
  */
-class DynamoDbException extends AwsException
-{
-}
+class DynamoDbException extends AwsException {}

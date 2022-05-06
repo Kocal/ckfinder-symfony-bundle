@@ -1,8 +1,8 @@
 <?php
+namespace Aws\ECRPublic;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ECRPublic;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Elastic Container Registry Public** service.
  * @method \Aws\Result batchCheckLayerAvailability(array $args = [])
@@ -52,6 +52,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result uploadLayerPart(array $args = [])
  * @method \GuzzleHttp\Promise\Promise uploadLayerPartAsync(array $args = [])
  */
-class ECRPublicClient extends AwsClient
-{
-}
+class ECRPublicClient extends AwsClient {}

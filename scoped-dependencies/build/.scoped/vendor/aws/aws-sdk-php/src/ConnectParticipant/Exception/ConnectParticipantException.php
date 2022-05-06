@@ -1,11 +1,9 @@
 <?php
+namespace Aws\ConnectParticipant\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\ConnectParticipant\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Connect Participant Service** service.
  */
-class ConnectParticipantException extends AwsException
-{
-}
+class ConnectParticipantException extends AwsException {}

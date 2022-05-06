@@ -1,11 +1,11 @@
 <?php
+namespace Aws\Ses;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Ses;
+use Aws\Api\ApiProvider;
+use Aws\Api\DocModel;
+use Aws\Api\Service;
+use Aws\Credentials\CredentialsInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\Api\ApiProvider;
-use _CKFinder_Vendor_Prefix\Aws\Api\DocModel;
-use _CKFinder_Vendor_Prefix\Aws\Api\Service;
-use _CKFinder_Vendor_Prefix\Aws\Credentials\CredentialsInterface;
 /**
  * This client is used to interact with the **Amazon Simple Email Service (Amazon SES)**.
  *
@@ -152,7 +152,7 @@ use _CKFinder_Vendor_Prefix\Aws\Credentials\CredentialsInterface;
  * @method \Aws\Result verifyEmailIdentity(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifyEmailIdentityAsync(array $args = [])
  */
-class SesClient extends \_CKFinder_Vendor_Prefix\Aws\AwsClient
+class SesClient extends \Aws\AwsClient
 {
     /**
      * @deprecated This method will no longer work due to the deprecation of
@@ -172,9 +172,11 @@ class SesClient extends \_CKFinder_Vendor_Prefix\Aws\AwsClient
         static $version = "\x02";
         static $algo = 'sha256';
         static $message = 'SendRawEmail';
-        $signature = \hash_hmac($algo, $message, $creds->getSecretKey(), \true);
-        return \base64_encode($version . $signature);
+        $signature = hash_hmac($algo, $message, $creds->getSecretKey(), true);
+
+        return base64_encode($version . $signature);
     }
+
     /**
      * Create an SMTP password for a given IAM user's credentials.
      *
@@ -193,23 +195,27 @@ class SesClient extends \_CKFinder_Vendor_Prefix\Aws\AwsClient
     public static function generateSmtpPasswordV4(CredentialsInterface $creds, $region)
     {
         $key = $creds->getSecretKey();
+
         $date = "11111111";
         $service = "ses";
         $terminal = "aws4_request";
         $message = "SendRawEmail";
-        $version = 0x4;
+        $version = 0x04;
+
         $signature = self::sign($date, "AWS4" . $key);
         $signature = self::sign($region, $signature);
         $signature = self::sign($service, $signature);
         $signature = self::sign($terminal, $signature);
         $signature = self::sign($message, $signature);
-        $signatureAndVersion = \pack('c', $version) . $signature;
-        return \base64_encode($signatureAndVersion);
+        $signatureAndVersion = pack('c', $version) . $signature;
+
+        return  base64_encode($signatureAndVersion);
     }
-    private static function sign($key, $message)
-    {
-        return \hash_hmac('sha256', $key, $message, \true);
+
+    private static function sign($key, $message) {
+        return hash_hmac('sha256', $key, $message, true);
     }
+
     /**
      * @internal
      * @codeCoverageIgnore
@@ -217,7 +223,12 @@ class SesClient extends \_CKFinder_Vendor_Prefix\Aws\AwsClient
     public static function applyDocFilters(array $api, array $docs)
     {
         $b64 = '<div class="alert alert-info">This value will be base64 encoded on your behalf.</div>';
+
         $docs['shapes']['RawMessage']['append'] = $b64;
-        return [new Service($api, ApiProvider::defaultProvider()), new DocModel($docs)];
+
+        return [
+            new Service($api, ApiProvider::defaultProvider()),
+            new DocModel($docs)
+        ];
     }
 }

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\BillingConductor;
 
-namespace _CKFinder_Vendor_Prefix\Aws\BillingConductor;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWSBillingConductor** service.
  * @method \Aws\Result associateAccounts(array $args = [])
@@ -66,6 +66,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updatePricingRule(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updatePricingRuleAsync(array $args = [])
  */
-class BillingConductorClient extends AwsClient
-{
-}
+class BillingConductorClient extends AwsClient {}

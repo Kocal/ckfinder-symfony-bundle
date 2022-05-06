@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WorkMail;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WorkMail;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon WorkMail** service.
  * @method \Aws\Result associateDelegateToResource(array $args = [])
@@ -142,6 +142,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateResourceAsync(array $args = [])
  */
-class WorkMailClient extends AwsClient
-{
-}
+class WorkMailClient extends AwsClient {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeGuruReviewer;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeGuruReviewer;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon CodeGuru Reviewer** service.
  * @method \Aws\Result associateRepository(array $args = [])
@@ -34,6 +34,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class CodeGuruReviewerClient extends AwsClient
-{
-}
+class CodeGuruReviewerClient extends AwsClient {}

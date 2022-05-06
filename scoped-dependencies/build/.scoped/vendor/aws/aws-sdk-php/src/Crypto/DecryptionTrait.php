@@ -1,10 +1,10 @@
 <?php
+namespace Aws\Crypto;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Crypto;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\LimitStream;
+use Psr\Http\Message\StreamInterface;
 
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7;
-use _CKFinder_Vendor_Prefix\GuzzleHttp\Psr7\LimitStream;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\StreamInterface;
 trait DecryptionTrait
 {
     /**
@@ -17,7 +17,8 @@ trait DecryptionTrait
      *
      * @internal
      */
-    protected abstract function getCipherFromAesName($aesName);
+    abstract protected function getCipherFromAesName($aesName);
+
     /**
      * Dependency to generate a CipherMethod from a set of inputs for loading
      * in to an AesDecryptingStream.
@@ -31,7 +32,8 @@ trait DecryptionTrait
      *
      * @internal
      */
-    protected abstract function buildCipherMethod($cipherName, $iv, $keySize);
+    abstract protected function buildCipherMethod($cipherName, $iv, $keySize);
+
     /**
      * Builds an AesStreamInterface using cipher options loaded from the
      * MetadataEnvelope and MaterialsProvider. Can decrypt data from both the
@@ -52,33 +54,75 @@ trait DecryptionTrait
      *
      * @internal
      */
-    public function decrypt($cipherText, MaterialsProviderInterface $provider, MetadataEnvelope $envelope, array $cipherOptions = [])
-    {
-        $cipherOptions['Iv'] = \base64_decode($envelope[MetadataEnvelope::IV_HEADER]);
-        $cipherOptions['TagLength'] = $envelope[MetadataEnvelope::CRYPTO_TAG_LENGTH_HEADER] / 8;
-        $cek = $provider->decryptCek(\base64_decode($envelope[MetadataEnvelope::CONTENT_KEY_V2_HEADER]), \json_decode($envelope[MetadataEnvelope::MATERIALS_DESCRIPTION_HEADER], \true));
-        $cipherOptions['KeySize'] = \strlen($cek) * 8;
-        $cipherOptions['Cipher'] = $this->getCipherFromAesName($envelope[MetadataEnvelope::CONTENT_CRYPTO_SCHEME_HEADER]);
-        $decryptionStream = $this->getDecryptingStream($cipherText, $cek, $cipherOptions);
+    public function decrypt(
+        $cipherText,
+        MaterialsProviderInterface $provider,
+        MetadataEnvelope $envelope,
+        array $cipherOptions = []
+    ) {
+        $cipherOptions['Iv'] = base64_decode(
+            $envelope[MetadataEnvelope::IV_HEADER]
+        );
+
+        $cipherOptions['TagLength'] =
+            $envelope[MetadataEnvelope::CRYPTO_TAG_LENGTH_HEADER] / 8;
+
+        $cek = $provider->decryptCek(
+            base64_decode(
+                $envelope[MetadataEnvelope::CONTENT_KEY_V2_HEADER]
+            ),
+            json_decode(
+                $envelope[MetadataEnvelope::MATERIALS_DESCRIPTION_HEADER],
+                true
+            )
+        );
+        $cipherOptions['KeySize'] = strlen($cek) * 8;
+        $cipherOptions['Cipher'] = $this->getCipherFromAesName(
+            $envelope[MetadataEnvelope::CONTENT_CRYPTO_SCHEME_HEADER]
+        );
+
+        $decryptionStream = $this->getDecryptingStream(
+            $cipherText,
+            $cek,
+            $cipherOptions
+        );
         unset($cek);
+
         return $decryptionStream;
     }
-    private function getTagFromCiphertextStream(StreamInterface $cipherText, $tagLength)
-    {
+
+    private function getTagFromCiphertextStream(
+        StreamInterface $cipherText,
+        $tagLength
+    ) {
         $cipherTextSize = $cipherText->getSize();
         if ($cipherTextSize == null || $cipherTextSize <= 0) {
-            throw new \RuntimeException('Cannot decrypt a stream of unknown' . ' size.');
+            throw new \RuntimeException('Cannot decrypt a stream of unknown'
+                . ' size.');
         }
-        return (string) new LimitStream($cipherText, $tagLength, $cipherTextSize - $tagLength);
+        return (string) new LimitStream(
+            $cipherText,
+            $tagLength,
+            $cipherTextSize - $tagLength
+        );
     }
-    private function getStrippedCiphertextStream(StreamInterface $cipherText, $tagLength)
-    {
+
+    private function getStrippedCiphertextStream(
+        StreamInterface $cipherText,
+        $tagLength
+    ) {
         $cipherTextSize = $cipherText->getSize();
         if ($cipherTextSize == null || $cipherTextSize <= 0) {
-            throw new \RuntimeException('Cannot decrypt a stream of unknown' . ' size.');
+            throw new \RuntimeException('Cannot decrypt a stream of unknown'
+                . ' size.');
         }
-        return new LimitStream($cipherText, $cipherTextSize - $tagLength, 0);
+        return new LimitStream(
+            $cipherText,
+            $cipherTextSize - $tagLength,
+            0
+        );
     }
+
     /**
      * Generates a stream that wraps the cipher text with the proper cipher and
      * uses the content encryption key (CEK) to decrypt the data when read.
@@ -94,16 +138,44 @@ trait DecryptionTrait
      *
      * @internal
      */
-    protected function getDecryptingStream($cipherText, $cek, $cipherOptions)
-    {
+    protected function getDecryptingStream(
+        $cipherText,
+        $cek,
+        $cipherOptions
+    ) {
         $cipherTextStream = Psr7\Utils::streamFor($cipherText);
         switch ($cipherOptions['Cipher']) {
             case 'gcm':
-                $cipherOptions['Tag'] = $this->getTagFromCiphertextStream($cipherTextStream, $cipherOptions['TagLength']);
-                return new AesGcmDecryptingStream($this->getStrippedCiphertextStream($cipherTextStream, $cipherOptions['TagLength']), $cek, $cipherOptions['Iv'], $cipherOptions['Tag'], $cipherOptions['Aad'] = isset($cipherOptions['Aad']) ? $cipherOptions['Aad'] : null, $cipherOptions['TagLength'] ?: null, $cipherOptions['KeySize']);
+                $cipherOptions['Tag'] = $this->getTagFromCiphertextStream(
+                        $cipherTextStream,
+                        $cipherOptions['TagLength']
+                    );
+
+                return new AesGcmDecryptingStream(
+                    $this->getStrippedCiphertextStream(
+                        $cipherTextStream,
+                        $cipherOptions['TagLength']
+                    ),
+                    $cek,
+                    $cipherOptions['Iv'],
+                    $cipherOptions['Tag'],
+                    $cipherOptions['Aad'] = isset($cipherOptions['Aad'])
+                        ? $cipherOptions['Aad']
+                        : null,
+                    $cipherOptions['TagLength'] ?: null,
+                    $cipherOptions['KeySize']
+                );
             default:
-                $cipherMethod = $this->buildCipherMethod($cipherOptions['Cipher'], $cipherOptions['Iv'], $cipherOptions['KeySize']);
-                return new AesDecryptingStream($cipherTextStream, $cek, $cipherMethod);
+                $cipherMethod = $this->buildCipherMethod(
+                    $cipherOptions['Cipher'],
+                    $cipherOptions['Iv'],
+                    $cipherOptions['KeySize']
+                );
+                return new AesDecryptingStream(
+                    $cipherTextStream,
+                    $cek,
+                    $cipherMethod
+                );
         }
     }
 }

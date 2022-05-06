@@ -1,8 +1,8 @@
 <?php
+namespace Aws\PinpointEmail;
 
-namespace _CKFinder_Vendor_Prefix\Aws\PinpointEmail;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Pinpoint Email Service** service.
  * @method \Aws\Result createConfigurationSet(array $args = [])
@@ -90,6 +90,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateConfigurationSetEventDestination(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConfigurationSetEventDestinationAsync(array $args = [])
  */
-class PinpointEmailClient extends AwsClient
-{
-}
+class PinpointEmailClient extends AwsClient {}

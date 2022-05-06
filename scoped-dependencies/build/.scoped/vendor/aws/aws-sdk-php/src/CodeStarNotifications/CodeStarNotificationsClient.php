@@ -1,8 +1,8 @@
 <?php
+namespace Aws\CodeStarNotifications;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CodeStarNotifications;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS CodeStar Notifications** service.
  * @method \Aws\Result createNotificationRule(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateNotificationRule(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateNotificationRuleAsync(array $args = [])
  */
-class CodeStarNotificationsClient extends AwsClient
-{
-}
+class CodeStarNotificationsClient extends AwsClient {}

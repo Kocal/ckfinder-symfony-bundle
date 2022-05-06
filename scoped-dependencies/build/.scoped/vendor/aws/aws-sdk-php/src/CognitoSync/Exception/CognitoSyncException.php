@@ -1,11 +1,9 @@
 <?php
+namespace Aws\CognitoSync\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\CognitoSync\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the Amazon Cognito Sync service.
  */
-class CognitoSyncException extends AwsException
-{
-}
+class CognitoSyncException extends AwsException {}

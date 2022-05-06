@@ -1,10 +1,10 @@
 <?php
+namespace Aws\finspace;
 
-namespace _CKFinder_Vendor_Prefix\Aws\finspace;
+use Aws\AwsClient;
+use Aws\CommandInterface;
+use Psr\Http\Message\RequestInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
-use _CKFinder_Vendor_Prefix\Aws\CommandInterface;
-use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
 /**
  * This client is used to interact with the **FinSpace User Environment Management service** service.
  * @method \Aws\Result createEnvironment(array $args = [])
@@ -24,6 +24,4 @@ use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
  * @method \Aws\Result updateEnvironment(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEnvironmentAsync(array $args = [])
  */
-class finspaceClient extends AwsClient
-{
-}
+class finspaceClient extends AwsClient {}

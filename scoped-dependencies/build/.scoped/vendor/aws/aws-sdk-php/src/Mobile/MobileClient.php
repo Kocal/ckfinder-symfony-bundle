@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Mobile;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Mobile;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Mobile** service.
  * @method \Aws\Result createProject(array $args = [])
@@ -24,6 +24,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateProject(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateProjectAsync(array $args = [])
  */
-class MobileClient extends AwsClient
-{
-}
+class MobileClient extends AwsClient {}

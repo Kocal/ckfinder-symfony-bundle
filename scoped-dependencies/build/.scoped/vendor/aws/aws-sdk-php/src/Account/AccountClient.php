@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Account;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Account;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Account** service.
  * @method \Aws\Result deleteAlternateContact(array $args = [])
@@ -12,6 +12,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result putAlternateContact(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putAlternateContactAsync(array $args = [])
  */
-class AccountClient extends AwsClient
-{
-}
+class AccountClient extends AwsClient {}

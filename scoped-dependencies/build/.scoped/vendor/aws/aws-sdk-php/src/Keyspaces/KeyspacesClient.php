@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Keyspaces;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Keyspaces;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Keyspaces** service.
  * @method \Aws\Result createKeyspace(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateTable(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTableAsync(array $args = [])
  */
-class KeyspacesClient extends AwsClient
-{
-}
+class KeyspacesClient extends AwsClient {}

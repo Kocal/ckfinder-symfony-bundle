@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Macie2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Macie2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Macie 2** service.
  * @method \Aws\Result acceptInvitation(array $args = [])
@@ -120,6 +120,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateOrganizationConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateOrganizationConfigurationAsync(array $args = [])
  */
-class Macie2Client extends AwsClient
-{
-}
+class Macie2Client extends AwsClient {}

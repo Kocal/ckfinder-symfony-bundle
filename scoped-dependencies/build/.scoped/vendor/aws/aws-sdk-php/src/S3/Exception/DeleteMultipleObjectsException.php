@@ -1,28 +1,34 @@
 <?php
+namespace Aws\S3\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\S3\Exception;
+use Aws\HasMonitoringEventsTrait;
+use Aws\MonitoringEventsInterface;
 
-use _CKFinder_Vendor_Prefix\Aws\HasMonitoringEventsTrait;
-use _CKFinder_Vendor_Prefix\Aws\MonitoringEventsInterface;
 /**
  * Exception thrown when errors occur while deleting objects using a
  * {@see S3\BatchDelete} object.
  */
-class DeleteMultipleObjectsException extends \Exception implements MonitoringEventsInterface
+class DeleteMultipleObjectsException extends \Exception implements
+    MonitoringEventsInterface
 {
     use HasMonitoringEventsTrait;
+
     private $deleted = [];
     private $errors = [];
+
     /**
      * @param array       $deleted Array of successfully deleted keys
      * @param array       $errors  Array of errors that were encountered
      */
     public function __construct(array $deleted, array $errors)
     {
-        $this->deleted = \array_values($deleted);
-        $this->errors = \array_values($errors);
-        parent::__construct('Unable to delete certain keys when executing a' . ' DeleteMultipleObjects request: ' . self::createMessageFromErrors($errors));
+        $this->deleted = array_values($deleted);
+        $this->errors = array_values($errors);
+        parent::__construct('Unable to delete certain keys when executing a'
+            . ' DeleteMultipleObjects request: '
+            . self::createMessageFromErrors($errors));
     }
+
     /**
      * Create a single error message from multiple errors.
      *
@@ -32,10 +38,11 @@ class DeleteMultipleObjectsException extends \Exception implements MonitoringEve
      */
     public static function createMessageFromErrors(array $errors)
     {
-        return "\n- " . \implode("\n- ", \array_map(function ($key) {
-            return \json_encode($key);
+        return "\n- " . implode("\n- ", array_map(function ($key) {
+            return json_encode($key);
         }, $errors));
     }
+
     /**
      * Get the errored objects
      *
@@ -46,6 +53,7 @@ class DeleteMultipleObjectsException extends \Exception implements MonitoringEve
     {
         return $this->errors;
     }
+
     /**
      * Get the successfully deleted objects
      *

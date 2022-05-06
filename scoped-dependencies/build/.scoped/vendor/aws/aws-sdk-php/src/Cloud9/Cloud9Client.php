@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Cloud9;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Cloud9;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Cloud9** service.
  * @method \Aws\Result createEnvironmentEC2(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateEnvironmentMembership(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateEnvironmentMembershipAsync(array $args = [])
  */
-class Cloud9Client extends AwsClient
-{
-}
+class Cloud9Client extends AwsClient {}

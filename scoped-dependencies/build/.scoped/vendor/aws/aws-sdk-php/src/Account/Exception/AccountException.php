@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Account\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Account\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Account** service.
  */
-class AccountException extends AwsException
-{
-}
+class AccountException extends AwsException {}

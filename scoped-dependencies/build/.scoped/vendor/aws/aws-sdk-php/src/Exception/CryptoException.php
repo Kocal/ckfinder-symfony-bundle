@@ -1,6 +1,5 @@
 <?php
-
-namespace _CKFinder_Vendor_Prefix\Aws\Exception;
+namespace Aws\Exception;
 
 /**
  * This class represents exceptions related to logic surrounding client-side
@@ -8,4 +7,5 @@ namespace _CKFinder_Vendor_Prefix\Aws\Exception;
  */
 class CryptoException extends \RuntimeException
 {
+
 }

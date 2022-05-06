@@ -1,8 +1,8 @@
 <?php
+namespace Aws\MediaTailor;
 
-namespace _CKFinder_Vendor_Prefix\Aws\MediaTailor;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS MediaTailor** service.
  * @method \Aws\Result configureLogsForPlaybackConfiguration(array $args = [])
@@ -80,6 +80,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateVodSource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVodSourceAsync(array $args = [])
  */
-class MediaTailorClient extends AwsClient
-{
-}
+class MediaTailorClient extends AwsClient {}

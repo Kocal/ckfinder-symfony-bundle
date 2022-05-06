@@ -1,8 +1,8 @@
 <?php
+namespace Aws\SecretsManager;
 
-namespace _CKFinder_Vendor_Prefix\Aws\SecretsManager;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Secrets Manager** service.
  * @method \Aws\Result cancelRotateSecret(array $args = [])
@@ -50,6 +50,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result validateResourcePolicy(array $args = [])
  * @method \GuzzleHttp\Promise\Promise validateResourcePolicyAsync(array $args = [])
  */
-class SecretsManagerClient extends AwsClient
-{
-}
+class SecretsManagerClient extends AwsClient {}

@@ -19,6 +19,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Command that downloads the CKFinder package and puts assets to the Resources/public directory of the bundle.
@@ -149,6 +150,9 @@ class CKFinderDownloadCommand extends Command
         $zip->close();
 
         $fs = new Filesystem();
+
+        $output->writeln('Removing existing CKFinder connector files.');
+        $fs->remove(Finder::create()->files()->in($targetConnectorPath));
 
         $output->writeln('Moving the CKFinder connector to the CKSourceCKFinderBundle::_connector directory.');
         $fs->mirror(

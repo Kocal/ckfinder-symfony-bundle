@@ -1,11 +1,9 @@
 <?php
+namespace Aws\WellArchitected\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WellArchitected\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Well-Architected Tool** service.
  */
-class WellArchitectedException extends AwsException
-{
-}
+class WellArchitectedException extends AwsException {}

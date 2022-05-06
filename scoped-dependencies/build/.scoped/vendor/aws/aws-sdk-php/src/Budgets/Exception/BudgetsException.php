@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Budgets\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Budgets\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS Budgets** service.
  */
-class BudgetsException extends AwsException
-{
-}
+class BudgetsException extends AwsException {}

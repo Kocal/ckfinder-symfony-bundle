@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Athena\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Athena\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Athena** service.
  */
-class AthenaException extends AwsException
-{
-}
+class AthenaException extends AwsException {}

@@ -1,11 +1,9 @@
 <?php
+namespace Aws\IoTSiteWise\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\IoTSiteWise\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **AWS IoT SiteWise** service.
  */
-class IoTSiteWiseException extends AwsException
-{
-}
+class IoTSiteWiseException extends AwsException {}

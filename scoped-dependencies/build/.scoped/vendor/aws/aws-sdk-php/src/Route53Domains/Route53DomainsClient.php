@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Route53Domains;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Route53Domains;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Route 53 Domains** service.
  *
@@ -67,6 +67,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result viewBilling(array $args = [])
  * @method \GuzzleHttp\Promise\Promise viewBillingAsync(array $args = [])
  */
-class Route53DomainsClient extends AwsClient
-{
-}
+class Route53DomainsClient extends AwsClient {}

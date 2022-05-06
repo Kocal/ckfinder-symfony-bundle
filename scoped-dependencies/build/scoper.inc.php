@@ -16,6 +16,18 @@ $polyfillsBootstraps = array_map(
     ),
 );
 
+$notScopedDependencies = array_map(
+    static fn (SplFileInfo $fileInfo) => $fileInfo->getPathname(),
+    iterator_to_array(
+        Finder::create()
+            ->files()
+            ->in(__DIR__ . '/../vendor/{aws}')
+            #->in(__DIR__ . '/../vendor/{aws,guzzlehttp,mtdowling}')
+            ->name('*.php'),
+        false,
+    ),
+);
+
 // You can do your own things here, e.g. collecting symbols to expose dynamically
 // or files to exclude.
 // However beware that this file is executed by PHP-Scoper, hence if you are using
@@ -64,6 +76,7 @@ return [
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#patchers
     'exclude-files' => [
         ...$polyfillsBootstraps,
+        ...$notScopedDependencies,
     ],
 
     // When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
@@ -74,7 +87,7 @@ return [
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#patchers
     'patchers' => [
         static function (string $filePath, string $prefix, string $contents): string {
-            if(!str_ends_with($filePath, 'vendor/composer/autoload_real.php')) {
+            if (!str_ends_with($filePath, 'vendor/composer/autoload_real.php')) {
                 return $contents;
             }
 
@@ -84,6 +97,18 @@ return [
                 $contents
             );
 
+            return $contents;
+        },
+        static function (string $filePath, string $prefix, string $contents): string {
+            if (!str_ends_with($filePath, 'vendor/league/flysystem-aws-s3-v3/src/AwsS3Adapter.php')) {
+                return $contents;
+            }
+
+            $contents = str_replace(
+                '$prefix = \ltrim($prefix, \'/\');',
+                '$prefix = \ltrim((string) $prefix, \'/\');',
+                $contents
+            );
             return $contents;
         },
     ],
@@ -98,6 +123,10 @@ return [
         // '~^PHPUnit\\\\Framework$~',    // The whole namespace PHPUnit\Framework (but not sub-namespaces)
         // '~^$~',                        // The root namespace only
         // '',                            // Any namespace
+        '~^Aws\\\\~',
+        #'~^GuzzleHttp\\\\~',
+        #'~^JmesPath\\\\~',
+        #'~^Psr\\\\~'
     ],
     'exclude-classes' => [
         // 'ReflectionClassConstant',

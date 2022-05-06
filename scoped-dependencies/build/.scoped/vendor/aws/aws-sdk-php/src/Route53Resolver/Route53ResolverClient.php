@@ -1,8 +1,8 @@
 <?php
+namespace Aws\Route53Resolver;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Route53Resolver;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon Route 53 Resolver** service.
  * @method \Aws\Result associateFirewallRuleGroup(array $args = [])
@@ -132,6 +132,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateResolverRule(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateResolverRuleAsync(array $args = [])
  */
-class Route53ResolverClient extends AwsClient
-{
-}
+class Route53ResolverClient extends AwsClient {}

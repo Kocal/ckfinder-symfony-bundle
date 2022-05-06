@@ -1,8 +1,8 @@
 <?php
+namespace Aws\WAFV2;
 
-namespace _CKFinder_Vendor_Prefix\Aws\WAFV2;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS WAFV2** service.
  * @method \Aws\Result associateWebACL(array $args = [])
@@ -102,6 +102,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result updateWebACL(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateWebACLAsync(array $args = [])
  */
-class WAFV2Client extends AwsClient
-{
-}
+class WAFV2Client extends AwsClient {}

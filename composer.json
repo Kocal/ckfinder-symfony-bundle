@@ -15,6 +15,7 @@
     ],
     "scripts": {
         "build-scoped-dependencies": [
+            "rm -fr scoped-dependencies/vendor",
             "@composer install --working-dir scoped-dependencies --prefer-dist --no-dev --ansi",
             "@composer dump-autoload --working-dir scoped-dependencies --classmap-authoritative --no-dev --ansi",
             "@php -dmemory_limit=-1 ./scoped-dependencies/build/php-scoper.phar add-prefix --working-dir ./scoped-dependencies/build --output-dir .scoped --force --ansi"
@@ -37,7 +38,11 @@
         "rector/rector": "^0.12.17",
         "phpstan/phpstan": "^1.4",
         "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "aws/aws-sdk-php": "^3.222"
+    },
+    "conflict": {
+        "guzzlehttp/guzzle": "<6.0"
     },
     "autoload": {
         "psr-4": {

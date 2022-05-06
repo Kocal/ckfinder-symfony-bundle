@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Neptune\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Neptune\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the **Amazon Neptune** service.
  */
-class NeptuneException extends AwsException
-{
-}
+class NeptuneException extends AwsException {}

@@ -1,8 +1,8 @@
 <?php
+namespace Aws\HealthLake;
 
-namespace _CKFinder_Vendor_Prefix\Aws\HealthLake;
+use Aws\AwsClient;
 
-use _CKFinder_Vendor_Prefix\Aws\AwsClient;
 /**
  * This client is used to interact with the **Amazon HealthLake** service.
  * @method \Aws\Result createFHIRDatastore(array $args = [])
@@ -32,6 +32,4 @@ use _CKFinder_Vendor_Prefix\Aws\AwsClient;
  * @method \Aws\Result untagResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
-class HealthLakeClient extends AwsClient
-{
-}
+class HealthLakeClient extends AwsClient {}

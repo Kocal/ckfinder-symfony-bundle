@@ -1,11 +1,9 @@
 <?php
+namespace Aws\Sts\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\Sts\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * AWS Security Token Service exception.
  */
-class StsException extends AwsException
-{
-}
+class StsException extends AwsException {}

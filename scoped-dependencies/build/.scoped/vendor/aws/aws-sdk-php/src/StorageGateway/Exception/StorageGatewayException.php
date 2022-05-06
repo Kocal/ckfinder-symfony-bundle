@@ -1,11 +1,9 @@
 <?php
+namespace Aws\StorageGateway\Exception;
 
-namespace _CKFinder_Vendor_Prefix\Aws\StorageGateway\Exception;
+use Aws\Exception\AwsException;
 
-use _CKFinder_Vendor_Prefix\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the AWS Storage Gateway service.
  */
-class StorageGatewayException extends AwsException
-{
-}
+class StorageGatewayException extends AwsException {}
