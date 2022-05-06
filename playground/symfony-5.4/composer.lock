@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "acec697e0eda568a7f28b7c177da970788bae2c6"
+                "reference": "0b060c875d70e4a16e9eebab866872cda118332e"
             },
             "require": {
                 "ext-zip": "*",
@@ -24,6 +24,9 @@
                 "symfony/form": "^5.4 || ^6.0",
                 "symfony/framework-bundle": "^5.4 || ^6.0",
                 "symfony/mime": "^5.4 || ^6.0"
+            },
+            "conflict": {
+                "guzzlehttp/guzzle": "<6.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^3.222",
