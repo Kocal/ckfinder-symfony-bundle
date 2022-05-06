@@ -87,7 +87,7 @@ return [
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#patchers
     'patchers' => [
         static function (string $filePath, string $prefix, string $contents): string {
-            if(!str_ends_with($filePath, 'vendor/composer/autoload_real.php')) {
+            if (!str_ends_with($filePath, 'vendor/composer/autoload_real.php')) {
                 return $contents;
             }
 
@@ -97,6 +97,18 @@ return [
                 $contents
             );
 
+            return $contents;
+        },
+        static function (string $filePath, string $prefix, string $contents): string {
+            if (!str_ends_with($filePath, 'vendor/league/flysystem-aws-s3-v3/src/AwsS3Adapter.php')) {
+                return $contents;
+            }
+
+            $contents = str_replace(
+                '$prefix = \ltrim($prefix, \'/\');',
+                '$prefix = \ltrim((string) $prefix, \'/\');',
+                $contents
+            );
             return $contents;
         },
     ],
