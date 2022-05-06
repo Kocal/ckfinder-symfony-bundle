@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "b4704f4607565d4c063e47c516ea99628f0e53ca"
+                "reference": "acec697e0eda568a7f28b7c177da970788bae2c6"
             },
             "require": {
                 "ext-zip": "*",
@@ -51,6 +51,7 @@
             },
             "scripts": {
                 "build-scoped-dependencies": [
+                    "rm -fr scoped-dependencies/vendor",
                     "@composer install --working-dir scoped-dependencies --prefer-dist --no-dev --ansi",
                     "@composer dump-autoload --working-dir scoped-dependencies --classmap-authoritative --no-dev --ansi",
                     "@php -dmemory_limit=-1 ./scoped-dependencies/build/php-scoper.phar add-prefix --working-dir ./scoped-dependencies/build --output-dir .scoped --force --ansi"
