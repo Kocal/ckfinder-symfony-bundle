@@ -37,7 +37,8 @@
         "rector/rector": "^0.12.17",
         "phpstan/phpstan": "^1.4",
         "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "aws/aws-sdk-php": "^3.222"
     },
     "autoload": {
         "psr-4": {
