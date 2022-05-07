@@ -1,6 +1,8 @@
 CKFinder 3 Bundle for Symfony
 ===============================
 
+[![Continuous Integration](https://github.com/Kocal/ckfinder-symfony-bundle/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/Kocal/ckfinder-symfony-bundle/actions/workflows/continuous-integration.yaml)
+
 > :information_source: This project is a fork of [the official and _abandoned_ CKFinder Symfony Bundle](https://github.com/ckfinder/ckfinder-symfony-bundle).
 > 
 > This bundle is fully compatible with Symfony 5.4 and more (Symfony 3 and 4 have been removed), compatible with PHP 8+, Flysystem 2+, 
