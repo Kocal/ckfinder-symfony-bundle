@@ -72,12 +72,8 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $servicesMap = [];
 
         foreach ($config['connector']['backends'] as $backend) {
-            if ($backend['adapter'] === 's3') {
-                if (is_string($clientId = $backend['client'] ?? null)) {
-                    if (null === ($servicesMap[$clientId] ?? null)) {
-                        $servicesMap[$clientId] = new Reference($clientId);
-                    }
-                }
+            if ($backend['adapter'] === 's3' && is_string($clientId = $backend['client'] ?? null) && null === ($servicesMap[$clientId] ?? null)) {
+                $servicesMap[$clientId] = new Reference($clientId);
             }
         }
 
