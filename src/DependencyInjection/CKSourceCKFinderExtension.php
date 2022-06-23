@@ -28,7 +28,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
 {
     public function prepend(ContainerBuilder $container): void
     {
-        $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
+        $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
 
         $loader = new Loader\PhpFileLoader($container, $fileLocator);
         $loader->load('ckfinder_config.php');
@@ -45,7 +45,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
+        $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
 
         $loader = new Loader\YamlFileLoader($container, $fileLocator);
         $loader->load('services.yaml');
@@ -72,7 +72,7 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $servicesMap = [];
 
         foreach ($config['connector']['backends'] as $backend) {
-            if($backend['adapter'] === 's3') {
+            if ($backend['adapter'] === 's3') {
                 if (is_string($clientId = $backend['client'] ?? null)) {
                     if (null === ($servicesMap[$clientId] ?? null)) {
                         $servicesMap[$clientId] = new Reference($clientId);

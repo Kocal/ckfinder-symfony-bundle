@@ -9,7 +9,7 @@ class BackendAwsS3ClientPatcher implements PatcherInterface
     public function patch(string $connectorPath): void
     {
         $this->patchFile(
-            $connectorPath.'/Backend/BackendFactory.php',
+            $connectorPath . '/Backend/BackendFactory.php',
             <<<'PHP'
             $clientConfig = [
                 'credentials' => [

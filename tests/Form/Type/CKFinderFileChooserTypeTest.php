@@ -47,7 +47,7 @@ class CKFinderFileChooserTypeTest extends TypeTestCase
         static::assertSame('popup', $view->vars['mode']);
         static::assertSame('Browse', $view->vars['button_text']);
         static::assertSame([], $view->vars['button_attr']);
-        static::assertSame('ckf_filechooser_'.$view->vars['id'], $view->vars['button_id']);
+        static::assertSame('ckf_filechooser_' . $view->vars['id'], $view->vars['button_id']);
     }
 
     public function testModeOptionExpectsModalOrPopup(): void

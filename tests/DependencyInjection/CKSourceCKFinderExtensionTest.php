@@ -14,9 +14,7 @@ namespace CKSource\Bundle\CKFinderBundle\Tests\DependencyInjection;
 use _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3\AwsS3Adapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\CachedAdapter;
 use Aws\S3\S3Client;
-use Aws\S3\S3ClientInterface;
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
-use CKSource\CKFinder\Backend\Adapter\AwsS3;
 use CKSource\CKFinder\Backend\Backend;
 use CKSource\CKFinder\Backend\BackendFactory;
 use CKSource\CKFinder\CKFinder;
@@ -63,7 +61,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
      */
     protected function getConfig(): array
     {
-        return require __DIR__.'/../Fixtures/config/ckfinder_config.php';
+        return require __DIR__ . '/../Fixtures/config/ckfinder_config.php';
     }
 
     /**

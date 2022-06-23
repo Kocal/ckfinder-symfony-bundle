@@ -29,7 +29,7 @@ class ConnectorFactory
         /** @var CKFinder $connector */
         $connector = new $this->connectorConfig['connectorClass']($this->connectorConfig);
         $connector['authentication'] = $this->authenticationService;
-        $connector['services_map'] = function() {
+        $connector['services_map'] = function () {
             return $this->servicesMap;
         };
 

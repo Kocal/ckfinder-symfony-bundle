@@ -52,31 +52,31 @@ class CKFinderDownloadCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        if (false === $targetPublicPath = realpath(__DIR__.'/../Resources/public')) {
+        if (false === $targetPublicPath = realpath(__DIR__ . '/../Resources/public')) {
             throw new \RuntimeException('Unable to get public path.');
         }
 
         if (!is_writable($targetPublicPath)) {
-            $output->writeln('<error>The CKSourceCKFinderBundle::Resources/public directory is not writable (used path: '.$targetPublicPath.').</error>');
+            $output->writeln('<error>The CKSourceCKFinderBundle::Resources/public directory is not writable (used path: ' . $targetPublicPath . ').</error>');
 
             return 1;
         }
 
-        if (false === $targetConnectorPath = realpath(__DIR__.'/../_connector')) {
+        if (false === $targetConnectorPath = realpath(__DIR__ . '/../_connector')) {
             throw new \RuntimeException('Unable to get CKFinder connector path.');
         }
 
         if (!is_writable($targetConnectorPath)) {
-            $output->writeln('<error>The CKSourceCKFinderBundle::_connector directory is not writable (used path: '.$targetConnectorPath.').</error>');
+            $output->writeln('<error>The CKSourceCKFinderBundle::_connector directory is not writable (used path: ' . $targetConnectorPath . ').</error>');
 
             return 1;
         }
 
-        if (file_exists($targetPublicPath.'/ckfinder/ckfinder.js')) {
+        if (file_exists($targetPublicPath . '/ckfinder/ckfinder.js')) {
             /** @var QuestionHelper $questionHelper */
             $questionHelper = $this->getHelper('question');
             $questionText =
-                'It looks like the CKFinder distribution package has already been installed. '.
+                'It looks like the CKFinder distribution package has already been installed. ' .
                 "This command will overwrite the existing files.\nDo you want to proceed? [y/N]: ";
             $question = new ConfirmationQuestion($questionText, false);
 
@@ -117,7 +117,7 @@ class CKFinderDownloadCommand extends Command
 
         $progressBar?->finish();
 
-        $output->writeln("\n".'Extracting CKFinder to the CKSourceCKFinderBundle::Resources/public directory.');
+        $output->writeln("\n" . 'Extracting CKFinder to the CKSourceCKFinderBundle::Resources/public directory.');
 
         if (false === $tempZipFile = tempnam(sys_get_temp_dir(), 'tmp')) {
             throw new \RuntimeException('Unable to create temporary file.');
@@ -139,7 +139,7 @@ class CKFinderDownloadCommand extends Command
                 throw new \RuntimeException(sprintf('Unable to get Zip entry name from index "%d".', $i));
             }
 
-            if (in_array($entry, $filesToKeep) && file_exists($targetPublicPath.'/'.$entry)) {
+            if (in_array($entry, $filesToKeep) && file_exists($targetPublicPath . '/' . $entry)) {
                 continue;
             }
 
@@ -156,18 +156,18 @@ class CKFinderDownloadCommand extends Command
 
         $output->writeln('Moving the CKFinder connector to the CKSourceCKFinderBundle::_connector directory.');
         $fs->mirror(
-            $targetPublicPath.'/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder',
+            $targetPublicPath . '/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder',
             $targetConnectorPath
         );
 
         $output->writeln('Cleaning up.');
         $fs->remove([
             $tempZipFile,
-            $targetPublicPath.'/ckfinder/core',
-            $targetPublicPath.'/ckfinder/userfiles',
-            $targetPublicPath.'/ckfinder/config.php',
-            $targetPublicPath.'/ckfinder/README.md',
-            $targetConnectorPath.'/README.md',
+            $targetPublicPath . '/ckfinder/core',
+            $targetPublicPath . '/ckfinder/userfiles',
+            $targetPublicPath . '/ckfinder/config.php',
+            $targetPublicPath . '/ckfinder/README.md',
+            $targetConnectorPath . '/README.md',
         ]);
 
         $output->writeln('Running code patchers...');
