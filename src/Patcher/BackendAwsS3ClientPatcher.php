@@ -27,8 +27,12 @@ class BackendAwsS3ClientPatcher implements PatcherInterface
             $client = new S3Client($clientConfig);
 PHP,
             <<<'PHP'
-            if (($backendConfig['client'] ?? null) instanceof S3Client) {
+            $client = ($backendConfig['client'] ?? null);
+            if ($client instanceof S3Client) {
                 $client = $backendConfig['client'];
+                unset($backendConfig['client']);
+            } elseif (is_string($client)) {
+                $client = $this->app['services_map']->get($client);
                 unset($backendConfig['client']);
             } else {
                 $clientConfig = [

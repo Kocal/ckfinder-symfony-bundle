@@ -4,6 +4,7 @@ namespace CKSource\Bundle\CKFinderBundle\Factory;
 
 use CKSource\Bundle\CKFinderBundle\Authentication\AuthenticationInterface;
 use CKSource\CKFinder\CKFinder;
+use Psr\Container\ContainerInterface;
 
 class ConnectorFactory
 {
@@ -14,7 +15,8 @@ class ConnectorFactory
      */
     public function __construct(
         protected array $connectorConfig,
-        protected AuthenticationInterface $authenticationService
+        protected AuthenticationInterface $authenticationService,
+        protected ContainerInterface $servicesMap,
     ) {
     }
 
@@ -27,6 +29,9 @@ class ConnectorFactory
         /** @var CKFinder $connector */
         $connector = new $this->connectorConfig['connectorClass']($this->connectorConfig);
         $connector['authentication'] = $this->authenticationService;
+        $connector['services_map'] = function() {
+            return $this->servicesMap;
+        };
 
         return $this->connectorInstance = $connector;
     }

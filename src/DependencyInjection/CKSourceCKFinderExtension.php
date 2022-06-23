@@ -12,9 +12,11 @@
 namespace CKSource\Bundle\CKFinderBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -56,10 +58,31 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $container->setParameter('ckfinder.connector.class', $config['connector']['connectorClass']);
         $container->setParameter('ckfinder.connector.auth.class', $config['connector']['authenticationClass']);
         $container->setParameter('ckfinder.connector.config', $config['connector']);
+
+        $this->registerServicesMap($config, $container);
     }
 
     public function getAlias(): string
     {
         return 'ckfinder';
+    }
+
+    private function registerServicesMap(array $config, ContainerBuilder $container): void
+    {
+        $servicesMap = [];
+
+        foreach ($config['connector']['backends'] as $backend) {
+            if($backend['adapter'] === 's3') {
+                if (is_string($clientId = $backend['client'] ?? null)) {
+                    if (null === ($servicesMap[$clientId] ?? null)) {
+                        $servicesMap[$clientId] = new Reference($clientId);
+                    }
+                }
+            }
+        }
+
+        $servicesMapReference = ServiceLocatorTagPass::register($container, $servicesMap);
+
+        $container->getDefinition('ckfinder.connector.factory')->replaceArgument(2, $servicesMapReference);
     }
 }

@@ -8,7 +8,7 @@ services:
     ckfinder.connector.factory:
         class: '%ckfinder.connector.factory.class%'
         public: true
-        arguments: ['%ckfinder.connector.config%', '@ckfinder.connector.auth']
+        arguments: ['%ckfinder.connector.config%', '@ckfinder.connector.auth', null]
 
     ckfinder.connector:
         class: '%ckfinder.connector.class%'
