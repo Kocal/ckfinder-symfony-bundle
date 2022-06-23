@@ -18,6 +18,8 @@ use Aws\S3\S3ClientInterface;
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
 use CKSource\CKFinder\Backend\Adapter\AwsS3;
 use CKSource\CKFinder\Backend\Backend;
+use CKSource\CKFinder\Backend\BackendFactory;
+use CKSource\CKFinder\CKFinder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -249,8 +251,12 @@ class CKSourceCKFinderExtensionTest extends TestCase
         $this->container->compile();
 
         $connector = $this->container->get('ckfinder.connector');
-        $backend = $connector->getBackendFactory()->getBackend('default');
+        static::assertInstanceOf(CKFinder::class, $connector);
 
+        $backendFactory = $connector->getBackendFactory();
+        static::assertInstanceOf(BackendFactory::class, $backendFactory);
+
+        $backend = $backendFactory->getBackend('default');
         static::assertInstanceOf(Backend::class, $backend);
         static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
         static::assertInstanceOf(AwsS3Adapter::class, $awsS3Adapter = $cachedAdapter->getAdapter());
