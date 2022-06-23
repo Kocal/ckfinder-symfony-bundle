@@ -11,7 +11,13 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Tests\DependencyInjection;
 
+use _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3\AwsS3Adapter;
+use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\CachedAdapter;
+use Aws\S3\S3Client;
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
+use CKSource\CKFinder\Backend\Backend;
+use CKSource\CKFinder\Backend\BackendFactory;
+use CKSource\CKFinder\CKFinder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -55,7 +61,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
      */
     protected function getConfig(): array
     {
-        return require __DIR__.'/../Fixtures/config/ckfinder_config.php';
+        return require __DIR__ . '/../Fixtures/config/ckfinder_config.php';
     }
 
     /**
@@ -215,5 +221,43 @@ class CKSourceCKFinderExtensionTest extends TestCase
         $connector = $this->container->get('ckfinder.connector');
 
         static::assertEquals(['Files', 'Images'], $connector['config']->getResourceTypes());
+    }
+
+    /**
+     * Tests if a S3 Client reference can be defined in `client` option
+     */
+    public function testBackendS3Client(): void
+    {
+        $this->container->set('my_aws_s3_client', $s3Client = new S3Client([
+            'region' => 'eu-west-3',
+            'version' => 'latest',
+        ]));
+
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'backends' => [
+                    [
+                        'name' => 'default',
+                        'adapter' => 's3',
+                        'client' => 'my_aws_s3_client',
+                        'bucket' => 'my-bucket',
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->container->compile();
+
+        $connector = $this->container->get('ckfinder.connector');
+        static::assertInstanceOf(CKFinder::class, $connector);
+
+        $backendFactory = $connector->getBackendFactory();
+        static::assertInstanceOf(BackendFactory::class, $backendFactory);
+
+        $backend = $backendFactory->getBackend('default');
+        static::assertInstanceOf(Backend::class, $backend);
+        static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
+        static::assertInstanceOf(AwsS3Adapter::class, $awsS3Adapter = $cachedAdapter->getAdapter());
+        static::assertSame($s3Client, $awsS3Adapter->getClient());
     }
 }

@@ -19,8 +19,8 @@ class ScopedDependenciesPatcher implements PatcherInterface
             ->contains(['use League\\', ' \\League']);
 
         foreach ($files as $file) {
-            $this->patchFile($file, 'use League\\', 'use \\'.self::PREFIX.'\\League\\', false);
-            $this->patchFile($file, ' \\League\\', ' \\'.self::PREFIX.'\\League\\', false);
+            $this->patchFile($file, 'use League\\', 'use \\' . self::PREFIX . '\\League\\', false);
+            $this->patchFile($file, ' \\League\\', ' \\' . self::PREFIX . '\\League\\', false);
         }
     }
 }

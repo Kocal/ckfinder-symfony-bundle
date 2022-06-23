@@ -45,7 +45,7 @@ class CKFinderFileChooserType extends AbstractType
         $view->vars['button_text'] = $options['button_text'];
         $view->vars['button_attr'] = $options['button_attr'];
         $view->vars['mode'] = $options['mode'];
-        $view->vars['button_id'] = 'ckf_filechooser_'.$view->vars['id'];
+        $view->vars['button_id'] = 'ckf_filechooser_' . $view->vars['id'];
     }
 
     public function getParent(): string

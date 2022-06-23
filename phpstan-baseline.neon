@@ -11,6 +11,11 @@ parameters:
 			path: src/Controller/CKFinderController.php
 
 		-
+			message: "#^Method CKSource\\\\Bundle\\\\CKFinderBundle\\\\DependencyInjection\\\\CKSourceCKFinderExtension\\:\\:registerServicesMap\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/DependencyInjection/CKSourceCKFinderExtension.php
+
+		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeDefinition\\:\\:append\\(\\)\\.$#"
 			count: 1
 			path: src/DependencyInjection/Configuration.php
