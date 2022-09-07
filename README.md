@@ -154,6 +154,35 @@ The CKFinder bundle provides two extra options:
 - `authenticationClass` &ndash; the name of the CKFinder authentication service class (defaults to `CKSource\Bundle\CKFinderBundle\Authentication\Authentication`)
 - `connectorClass` &ndash; the name of the CKFinder connector service class (defaults to `CKSource\CKFinder\CKFinder`)
 
+### Using the PSR-6 Cache
+
+In order to improve performances, especially if you use an external backend (like AWS S3), you can use the PSR-6 cache.
+
+1. You must configure a caching pool in Symfony:
+```yaml
+# config/packages/cache.yaml
+
+framework:
+    cache:
+        pools:
+           cache.ckfinder:
+                adapter: cache.adapter.filesystem # or "cache.adapter.redis", if your app lives on multiple servers
+```
+2. Then you must configure the CKFinder bundle to use it:
+```yaml
+# config/packages/ckfinder.yaml
+ckfinder:
+    connector:
+        backends:
+            my_backend:
+                # ...
+                cache:
+                    type: 'psr6'
+                    args:
+                        pool: 'cache.ckfinder' # the name of the pool you configured in step 1
+                        key: 'ckfinder' # optional
+```
+
 ## Usage
 
 The bundle code contains a few usage examples that you may find useful. To enable them uncomment the `ckfinder_examples`
