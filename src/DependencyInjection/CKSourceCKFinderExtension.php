@@ -72,8 +72,23 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $servicesMap = [];
 
         foreach ($config['connector']['backends'] as $backend) {
-            if ($backend['adapter'] === 's3' && is_string($clientId = $backend['client'] ?? null) && null === ($servicesMap[$clientId] ?? null)) {
-                $servicesMap[$clientId] = new Reference($clientId);
+            if ($backend['adapter'] === 's3' && is_string($clientId = $backend['client'] ?? null)) {
+                $servicesMap[$clientId] ??= new Reference($clientId);
+            }
+
+            if (is_array($cache = ($backend['cache'] ?? null))) {
+                if (null === ($cacheType = $cache['type'] ?? null)) {
+                    throw new \InvalidArgumentException(sprintf('The "type" option must be set for the "%s" backend cache.', $backend['name']));
+                }
+                switch ($cacheType) {
+                    case 'psr6':
+                        if (is_string($poolId = $cache['args']['pool'] ?? null)) {
+                            $servicesMap[$poolId] ??= new Reference($poolId);
+                        }
+                        break;
+                    default:
+                        throw new \InvalidArgumentException(sprintf('Unsupported cache type "%s" for backend "%s".', $cacheType, $backend['name']));
+                }
             }
         }
 
