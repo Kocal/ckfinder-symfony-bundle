@@ -835,7 +835,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "_CKFinder_Vendor_Prefix\\Psr\\Cache\\": "src\/"
+                    "Psr\\Cache\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
