@@ -52,6 +52,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->write($path, $contents, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
+            $result['timestamp'] = time();
             $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
         }
         return $result;
@@ -64,6 +65,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->writeStream($path, $resource, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
+            $result['timestamp'] = time();
             $contents = \false;
             $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
         }
@@ -77,6 +79,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->update($path, $contents, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
+            $result['timestamp'] = time();
             $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
         }
         return $result;
@@ -89,6 +92,7 @@ class CachedAdapter implements AdapterInterface
         $result = $this->adapter->updateStream($path, $resource, $config);
         if ($result !== \false) {
             $result['type'] = 'file';
+            $result['timestamp'] = time();
             $contents = \false;
             $this->cache->updateObject($path, $result + \compact('path', 'contents'), \true);
         }
