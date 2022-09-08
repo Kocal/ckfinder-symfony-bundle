@@ -24,6 +24,7 @@
     "require": {
         "php": ">=8.0",
         "ext-zip": "*",
+        "psr/cache": "^2.0 || ^3.0",
         "symfony/framework-bundle": "^5.4 || ^6.0",
         "symfony/form": "^5.4 || ^6.0",
         "symfony/finder": "^5.4 || ^6.0",

@@ -2,7 +2,7 @@
 
 namespace _CKFinder_Vendor_Prefix\League\Flysystem\Cached\Storage;
 
-use Psr\Cache\CacheItemPoolInterface;
+use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemPoolInterface;
 class Psr6Cache extends AbstractCache
 {
     /**

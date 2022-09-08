@@ -15,6 +15,7 @@ use _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3\AwsS3Adapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\CachedAdapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\Storage\Psr6Cache;
 use Aws\S3\S3Client;
+use CKSource\Bundle\CKFinderBundle\Cache\Psr6\CacheItemPoolCompatibilityBridge;
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
 use CKSource\Bundle\CKFinderBundle\Tests\Stub\DummyCacheItemPool;
 use CKSource\CKFinder\Backend\Adapter\Cache\Storage\Memory;
@@ -315,7 +316,8 @@ class CKSourceCKFinderExtensionTest extends TestCase
                'expire' => $this->expire,
            ];
         }, $cache, Psr6Cache::class)();
-        static::assertSame($cacheItemPool, $state['pool']);
+        static::assertInstanceOf(CacheItemPoolCompatibilityBridge::class, $state['pool']);
+        static::assertSame($cacheItemPool, $state['pool']->getCacheItemPool());
         static::assertSame('ckfinder', $state['key']);
         static::assertSame(60 * 60 * 24 * 30, $state['expire']);
     }

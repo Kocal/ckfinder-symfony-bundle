@@ -22,7 +22,6 @@ $notScopedDependencies = array_map(
         Finder::create()
             ->files()
             ->in(__DIR__ . '/../vendor/{aws}')
-            ->in(__DIR__ . '/../vendor/psr/{cache}')
             #->in(__DIR__ . '/../vendor/{aws,guzzlehttp,mtdowling}')
             ->name('*.php'),
         false,
@@ -140,7 +139,6 @@ return [
         '~^Aws\\\\~',
         #'~^GuzzleHttp\\\\~',
         #'~^JmesPath\\\\~',
-        'Psr\Cache'
     ],
     'exclude-classes' => [
         // 'ReflectionClassConstant',

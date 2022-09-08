@@ -34,19 +34,19 @@ class DummyCacheItem implements CacheItemInterface
         return $this->isHit;
     }
 
-    public function set(mixed $value)
+    public function set(mixed $value): static
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function expiresAt($expiration)
+    public function expiresAt($expiration): static
     {
         return $this;
     }
 
-    public function expiresAfter($time)
+    public function expiresAfter($time): static
     {
         return $this;
     }

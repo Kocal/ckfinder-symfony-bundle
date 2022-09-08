@@ -10,7 +10,7 @@ class DummyCacheItemPool implements CacheItemPoolInterface
     /** @var array<string,DummyCacheItem>  */
     private array $cache = [];
 
-    public function getItem($key)
+    public function getItem(string $key): CacheItemInterface
     {
         if (!isset($this->cache[$key])) {
             $this->cache[$key] = new DummyCacheItem($key);
@@ -23,42 +23,42 @@ class DummyCacheItemPool implements CacheItemPoolInterface
      * @param list<string> $keys
      * @return array<CacheItemInterface>|\Traversable<CacheItemInterface>
      */
-    public function getItems(array $keys = [])
+    public function getItems(array $keys = []): array
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function hasItem($key)
+    public function hasItem(string $key): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function clear()
+    public function clear(): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function deleteItem($key)
+    public function deleteItem(string $key): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function deleteItems(array $keys)
+    public function deleteItems(array $keys): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function save(CacheItemInterface $item)
+    public function save(CacheItemInterface $item): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function saveDeferred(CacheItemInterface $item)
+    public function saveDeferred(CacheItemInterface $item): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
 
-    public function commit()
+    public function commit(): bool
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }

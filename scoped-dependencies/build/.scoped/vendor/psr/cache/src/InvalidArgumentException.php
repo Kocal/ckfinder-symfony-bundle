@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Cache;
+namespace _CKFinder_Vendor_Prefix\Psr\Cache;
 
 /**
  * Exception interface for invalid cache arguments.

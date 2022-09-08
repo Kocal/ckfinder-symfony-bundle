@@ -24,7 +24,7 @@ PHP,
             switch ($cacheConfig['type'] ?? null) {
                 case 'psr6':
                     $cache = new \League\Flysystem\Cached\Storage\Psr6Cache(
-                        $this->app['services_map']->get($cacheConfig['args']['pool']),
+                        new \CKSource\Bundle\CKFinderBundle\Cache\Psr6\CacheItemPoolCompatibilityBridge($this->app['services_map']->get($cacheConfig['args']['pool'])),
                         $cacheConfig['args']['key'] ?? 'flysystem',
                         $cacheConfig['args']['expire'] ?? null
                     );
