@@ -8,11 +8,11 @@ class CacheItemCompatibilityBridge implements CacheItemInterface
 {
     public function __construct(
         private \Psr\Cache\CacheItemInterface $cacheItem,
-    )
-    {
+    ) {
     }
 
-    public function getCacheItem(): \Psr\Cache\CacheItemInterface {
+    public function getCacheItem(): \Psr\Cache\CacheItemInterface
+    {
         return $this->cacheItem;
     }
 

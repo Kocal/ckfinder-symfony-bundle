@@ -2,7 +2,6 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Cache\Psr6;
 
-
 use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemInterface;
 use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemPoolInterface;
 
@@ -33,9 +32,9 @@ class CacheItemPoolCompatibilityBridge implements CacheItemPoolInterface
      */
     public function getItems(array $keys = []): iterable
     {
-         foreach ($this->cacheItemPool->getItems($keys) as $item) {
-             yield new CacheItemCompatibilityBridge($item);
-         }
+        foreach ($this->cacheItemPool->getItems($keys) as $item) {
+            yield new CacheItemCompatibilityBridge($item);
+        }
     }
 
     public function hasItem($key): bool

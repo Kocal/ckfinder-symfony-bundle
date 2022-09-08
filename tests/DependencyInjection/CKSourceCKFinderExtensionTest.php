@@ -309,7 +309,7 @@ class CKSourceCKFinderExtensionTest extends TestCase
         static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
 
         static::assertInstanceOf(Psr6Cache::class, $cache = $cachedAdapter->getCache());
-        $state = \Closure::bind(fn(): array => [
+        $state = \Closure::bind(fn (): array => [
            'pool' => $this->pool,
            'key' => $this->key,
            'expire' => $this->expire,

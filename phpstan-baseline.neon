@@ -41,6 +41,11 @@ parameters:
 			path: tests/Config/Definition/VariableArrayNodeTest.php
 
 		-
+			message: "#^Cannot access offset 'baseUrl' on mixed\\.$#"
+			count: 1
+			path: tests/DependencyInjection/CKSourceCKFinderExtensionTest.php
+
+		-
 			message: "#^Cannot access offset 'config' on object\\|null\\.$#"
 			count: 2
 			path: tests/DependencyInjection/CKSourceCKFinderExtensionTest.php
