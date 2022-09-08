@@ -12,11 +12,11 @@ class CacheItemCompatibilityBridge implements CacheItemInterface
     {
     }
 
-    public function getCacheItem() {
+    public function getCacheItem(): \Psr\Cache\CacheItemInterface {
         return $this->cacheItem;
     }
 
-    public function getKey()
+    public function getKey(): string
     {
         return $this->cacheItem->getKey();
     }
@@ -26,22 +26,22 @@ class CacheItemCompatibilityBridge implements CacheItemInterface
         return $this->cacheItem->get();
     }
 
-    public function isHit()
+    public function isHit(): bool
     {
         return $this->cacheItem->isHit();
     }
 
-    public function set($value)
+    public function set($value): \Psr\Cache\CacheItemInterface
     {
         return $this->cacheItem->set($value);
     }
 
-    public function expiresAt($expiration)
+    public function expiresAt($expiration): \Psr\Cache\CacheItemInterface
     {
         return $this->cacheItem->expiresAt($expiration);
     }
 
-    public function expiresAfter($time)
+    public function expiresAfter($time): \Psr\Cache\CacheItemInterface
     {
         return $this->cacheItem->expiresAfter($time);
     }

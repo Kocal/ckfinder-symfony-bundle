@@ -6,13 +6,11 @@ use Psr\Cache\CacheItemInterface;
 
 class DummyCacheItem implements CacheItemInterface
 {
-    private string $key;
     private mixed $value = null;
     private bool $isHit = false;
 
-    public function __construct(string $key)
+    public function __construct(private string $key)
     {
-        $this->key = $key;
     }
 
     public function getKey(): string

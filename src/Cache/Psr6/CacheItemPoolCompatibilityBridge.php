@@ -27,9 +27,15 @@ class CacheItemPoolCompatibilityBridge implements CacheItemPoolInterface
         return new CacheItemCompatibilityBridge($this->cacheItemPool->getItem($key));
     }
 
+    /**
+     * @return iterable<CacheItemCompatibilityBridge>
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function getItems(array $keys = []): iterable
     {
-        return $this->cacheItemPool->getItems($keys);
+         foreach ($this->cacheItemPool->getItems($keys) as $item) {
+             yield new CacheItemCompatibilityBridge($item);
+         }
     }
 
     public function hasItem($key): bool
@@ -54,12 +60,20 @@ class CacheItemPoolCompatibilityBridge implements CacheItemPoolInterface
 
     public function save(CacheItemInterface $item): bool
     {
-        return $this->cacheItemPool->save($item->getCacheItem());
+        if ($item instanceof CacheItemCompatibilityBridge) {
+            $item = $item->getCacheItem();
+        }
+
+        return $this->cacheItemPool->save($item);
     }
 
     public function saveDeferred(CacheItemInterface $item): bool
     {
-        return $this->cacheItemPool->saveDeferred($item->getCacheItem());
+        if ($item instanceof CacheItemCompatibilityBridge) {
+            $item = $item->getCacheItem();
+        }
+
+        return $this->cacheItemPool->saveDeferred($item);
     }
 
     public function commit(): bool

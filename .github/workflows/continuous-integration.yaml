@@ -111,7 +111,7 @@ jobs:
         working-directory: playground/symfony-${{ matrix.config.PLAYGROUND_VERSION }}
 
       - name: Run PHPStan
-        run: symfony php vendor/bin/phpstan analyze --configuration
+        run: symfony php vendor/bin/phpstan analyze
 
       - name: Run PHPUnit
         run: symfony php vendor/bin/phpunit

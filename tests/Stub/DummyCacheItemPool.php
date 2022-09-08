@@ -2,6 +2,7 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Tests\Stub;
 
+use CKSource\Bundle\CKFinderBundle\Cache\Psr6\CacheItemCompatibilityBridge;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
@@ -21,9 +22,9 @@ class DummyCacheItemPool implements CacheItemPoolInterface
 
     /**
      * @param list<string> $keys
-     * @return array<CacheItemInterface>|\Traversable<CacheItemInterface>
+     * @return iterable<CacheItemCompatibilityBridge>
      */
-    public function getItems(array $keys = []): array
+    public function getItems(array $keys = []): iterable
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
     }
