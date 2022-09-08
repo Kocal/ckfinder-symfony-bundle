@@ -13,8 +13,12 @@ namespace CKSource\Bundle\CKFinderBundle\Tests\DependencyInjection;
 
 use _CKFinder_Vendor_Prefix\League\Flysystem\AwsS3v3\AwsS3Adapter;
 use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\CachedAdapter;
+use _CKFinder_Vendor_Prefix\League\Flysystem\Cached\Storage\Psr6Cache;
 use Aws\S3\S3Client;
+use CKSource\Bundle\CKFinderBundle\Cache\Psr6\CacheItemPoolCompatibilityBridge;
 use CKSource\Bundle\CKFinderBundle\DependencyInjection\CKSourceCKFinderExtension;
+use CKSource\Bundle\CKFinderBundle\Tests\Stub\DummyCacheItemPool;
+use CKSource\CKFinder\Backend\Adapter\Cache\Storage\Memory;
 use CKSource\CKFinder\Backend\Backend;
 use CKSource\CKFinder\Backend\BackendFactory;
 use CKSource\CKFinder\CKFinder;
@@ -257,7 +261,62 @@ class CKSourceCKFinderExtensionTest extends TestCase
         $backend = $backendFactory->getBackend('default');
         static::assertInstanceOf(Backend::class, $backend);
         static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
+        static::assertInstanceOf(Memory::class, $cachedAdapter->getCache());
         static::assertInstanceOf(AwsS3Adapter::class, $awsS3Adapter = $cachedAdapter->getAdapter());
         static::assertSame($s3Client, $awsS3Adapter->getClient());
+    }
+
+    public function testBackendWithPsr6Cache(): void
+    {
+        $this->container->set('my_aws_s3_client', new S3Client([
+            'region' => 'eu-west-3',
+            'version' => 'latest',
+        ]));
+
+        $this->container->set('my_cache_pool', $cacheItemPool = new DummyCacheItemPool());
+
+        $this->container->loadFromExtension($this->extensionAlias, [
+            'connector' => [
+                'backends' => [
+                    [
+                        'name' => 'default',
+                        'adapter' => 's3',
+                        'client' => 'my_aws_s3_client',
+                        'bucket' => 'my-bucket',
+                        'cache' => [
+                            'type' => 'psr6',
+                            'args' => [
+                                'pool' => 'my_cache_pool',
+                                'key' => 'ckfinder',
+                                'expire' => 60 * 60 * 24 * 30,
+                            ],
+                        ]
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->container->compile();
+
+        $connector = $this->container->get('ckfinder.connector');
+        static::assertInstanceOf(CKFinder::class, $connector);
+
+        $backendFactory = $connector->getBackendFactory();
+        static::assertInstanceOf(BackendFactory::class, $backendFactory);
+
+        $backend = $backendFactory->getBackend('default');
+        static::assertInstanceOf(Backend::class, $backend);
+        static::assertInstanceOf(CachedAdapter::class, $cachedAdapter = $backend->getAdapter());
+
+        static::assertInstanceOf(Psr6Cache::class, $cache = $cachedAdapter->getCache());
+        $state = \Closure::bind(fn (): array => [
+           'pool' => $this->pool,
+           'key' => $this->key,
+           'expire' => $this->expire,
+       ], $cache, Psr6Cache::class)();
+        static::assertInstanceOf(CacheItemPoolCompatibilityBridge::class, $state['pool']);
+        static::assertSame($cacheItemPool, $state['pool']->getCacheItemPool());
+        static::assertSame('ckfinder', $state['key']);
+        static::assertSame(60 * 60 * 24 * 30, $state['expire']);
     }
 }

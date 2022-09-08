@@ -24,6 +24,8 @@
     "require": {
         "php": ">=8.0",
         "ext-zip": "*",
+        "psr/cache": "^2.0 || ^3.0",
+        "psr/log": "^1.0 || ^2.0 || ^3.0",
         "symfony/framework-bundle": "^5.4 || ^6.0",
         "symfony/form": "^5.4 || ^6.0",
         "symfony/finder": "^5.4 || ^6.0",
@@ -36,7 +38,7 @@
         "symplify/easy-coding-standard": "^10.1",
         "symfony/yaml": "^5.4 || ^6.0",
         "rector/rector": "^0.12.17",
-        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan": "^1.8",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5",
         "aws/aws-sdk-php": "^3.222"

@@ -111,6 +111,19 @@ return [
             );
             return $contents;
         },
+        static function (string $filePath, string $prefix, string $contents): string {
+            if (!str_ends_with($filePath, 'vendor/league/flysystem-cached-adapter/src/CachedAdapter.php')) {
+                return $contents;
+            }
+
+            // Fix an issue with the CachedAdapter and PSR6 cache.
+            $contents = str_replace(
+                '$result[\'type\'] = \'file\';',
+                '$result[\'type\'] = \'file\';'."\n".'            $result[\'timestamp\'] = time();',
+                $contents
+            );
+            return $contents;
+        },
     ],
 
     // List of symbols to consider internal i.e. to leave untouched.
@@ -126,7 +139,6 @@ return [
         '~^Aws\\\\~',
         #'~^GuzzleHttp\\\\~',
         #'~^JmesPath\\\\~',
-        #'~^Psr\\\\~'
     ],
     'exclude-classes' => [
         // 'ReflectionClassConstant',

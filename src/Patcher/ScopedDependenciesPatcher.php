@@ -16,7 +16,9 @@ class ScopedDependenciesPatcher implements PatcherInterface
             ->files()
             ->name('*.php')
             ->in($connectorPath)
-            ->contains(['use League\\', ' \\League']);
+            ->contains([
+                'use League\\', ' \\League',
+            ]);
 
         foreach ($files as $file) {
             $this->patchFile($file, 'use League\\', 'use \\' . self::PREFIX . '\\League\\', false);
