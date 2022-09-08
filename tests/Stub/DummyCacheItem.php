@@ -7,7 +7,7 @@ use Psr\Cache\CacheItemInterface;
 class DummyCacheItem implements CacheItemInterface
 {
     private string $key;
-    private $value = null;
+    private mixed $value = null;
     private bool $isHit = false;
 
     public function __construct(string $key)
@@ -25,6 +25,8 @@ class DummyCacheItem implements CacheItemInterface
         if (!$this->isHit()) {
             return null;
         }
+
+        return $this->value;
     }
 
     public function isHit(): bool

@@ -7,6 +7,7 @@ use Psr\Cache\CacheItemPoolInterface;
 
 class DummyCacheItemPool implements CacheItemPoolInterface
 {
+    /** @var array<string,DummyCacheItem>  */
     private array $cache = [];
 
     public function getItem($key)
@@ -18,6 +19,10 @@ class DummyCacheItemPool implements CacheItemPoolInterface
         return $this->cache[$key];
     }
 
+    /**
+     * @param list<string> $keys
+     * @return array<CacheItemInterface>|\Traversable<CacheItemInterface>
+     */
     public function getItems(array $keys = [])
     {
         throw new \BadMethodCallException(sprintf('Method "%s" is not implemented.', __METHOD__));
