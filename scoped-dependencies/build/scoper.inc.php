@@ -97,6 +97,18 @@ return [
                 $contents
             );
 
+            // Prevent "Cannot declare class ComposerAutoloaderInit[...], because the name is already in use in [...]/scoped-dependencies/build/.scoped/vendor/composer/autoload_real.php on line 39"
+            $contents = str_replace(
+                '\class_alias(\'_CKFinder_Vendor_Prefix\\\\ComposerAutoloaderInit',
+                '// \class_alias(\'_CKFinder_Vendor_Prefix\\\\ComposerAutoloaderInit',
+                $contents
+            );
+            $contents = str_replace(
+                '\spl_autoload_unregister(array(\'ComposerAutoloaderInit',
+                '// \spl_autoload_unregister(array(\'ComposerAutoloaderInit',
+                $contents
+            );
+
             return $contents;
         },
         static function (string $filePath, string $prefix, string $contents): string {

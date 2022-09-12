@@ -19,7 +19,7 @@
             "@composer install --working-dir scoped-dependencies --prefer-dist --no-dev --ansi",
             "@composer dump-autoload --working-dir scoped-dependencies --classmap-authoritative --no-dev --ansi",
             "@php -dmemory_limit=-1 ./scoped-dependencies/build/php-scoper.phar add-prefix --working-dir ./scoped-dependencies/build --output-dir .scoped --force --ansi",
-            "@php -dmemory_limit=-1 ./vendor/bin/rector --config scoped-dependencies/build/rector.php --no-progress-bar --no-ansi"
+            "@php -dmemory_limit=-1 ./vendor/bin/rector --config scoped-dependencies/build/rector.php --clear-cache --no-progress-bar --no-ansi"
         ]
     },
     "require": {
