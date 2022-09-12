@@ -84,7 +84,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array false on failure file meta data on success
      */
-    #[\ReturnTypeWillChange]
     public function write($path, $contents, Config $config)
     {
         return $this->upload($path, $contents, $config);
@@ -98,7 +97,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array false on failure file meta data on success
      */
-    #[\ReturnTypeWillChange]
     public function update($path, $contents, Config $config)
     {
         return $this->upload($path, $contents, $config);
@@ -111,7 +109,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         if (!$this->copy($path, $newpath)) {
@@ -126,7 +123,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -141,7 +137,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         try {
@@ -160,7 +155,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool|array
      */
-    #[\ReturnTypeWillChange]
     public function createDir($dirname, Config $config)
     {
         return $this->upload($dirname . '/', '', $config);
@@ -172,7 +166,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function has($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -188,7 +181,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array
      */
-    #[\ReturnTypeWillChange]
     public function read($path)
     {
         $response = $this->readObject($path);
@@ -205,7 +197,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array
      */
-    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         $prefix = $this->applyPathPrefix(\rtrim($directory, '/') . '/');
@@ -239,7 +230,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array
      */
-    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         $command = $this->s3Client->getCommand('headObject', ['Bucket' => $this->bucket, 'Key' => $this->applyPathPrefix($path)] + $this->options);
@@ -272,7 +262,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array
      */
-    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         return $this->getMetadata($path);
@@ -284,7 +273,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array
      */
-    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         return $this->getMetadata($path);
@@ -296,7 +284,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return false|array
      */
-    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         return $this->getMetadata($path);
@@ -310,7 +297,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array|false false on failure file meta data on success
      */
-    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, Config $config)
     {
         return $this->upload($path, $resource, $config);
@@ -324,7 +310,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array|false false on failure file meta data on success
      */
-    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, Config $config)
     {
         return $this->upload($path, $resource, $config);
@@ -337,7 +322,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function copy($path, $newpath)
     {
         try {
@@ -354,7 +338,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array|false
      */
-    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         $response = $this->readObject($path);
@@ -394,7 +377,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array|false file meta data
      */
-    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         $command = $this->s3Client->getCommand('putObjectAcl', ['Bucket' => $this->bucket, 'Key' => $this->applyPathPrefix($path), 'ACL' => $visibility === AdapterInterface::VISIBILITY_PUBLIC ? 'public-read' : 'private']);
@@ -412,7 +394,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
      *
      * @return array|false
      */
-    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         return ['visibility' => $this->getRawVisibility($path)];
@@ -420,7 +401,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function applyPathPrefix($path)
     {
         return \ltrim(parent::applyPathPrefix($path), '/');
@@ -428,7 +408,6 @@ class AwsS3Adapter extends AbstractAdapter implements CanOverwriteFiles
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function setPathPrefix($prefix)
     {
         $prefix = \ltrim((string) $prefix, '/');

@@ -18,7 +18,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function isComplete($dirname, $recursive)
     {
         return \false;
@@ -89,7 +88,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function has($path)
     {
         return;
@@ -97,7 +95,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function read($path)
     {
         return \false;
@@ -105,7 +102,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         return \false;
@@ -113,7 +109,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         return [];
@@ -121,7 +116,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         return \false;
@@ -129,7 +123,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         return \false;
@@ -137,7 +130,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         return \false;
@@ -145,7 +137,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         return \false;
@@ -153,7 +144,6 @@ class Noop extends AbstractCache
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         return \false;

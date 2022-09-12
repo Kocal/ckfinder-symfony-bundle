@@ -93,7 +93,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function has($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -102,7 +101,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function write($path, $contents, Config $config)
     {
         $location = $this->applyPathPrefix($path);
@@ -121,7 +119,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, Config $config)
     {
         $location = $this->applyPathPrefix($path);
@@ -141,7 +138,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -151,7 +147,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, Config $config)
     {
         return $this->writeStream($path, $resource, $config);
@@ -159,7 +154,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function update($path, $contents, Config $config)
     {
         $location = $this->applyPathPrefix($path);
@@ -178,7 +172,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function read($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -191,7 +184,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         $location = $this->applyPathPrefix($path);
@@ -203,7 +195,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function copy($path, $newpath)
     {
         $location = $this->applyPathPrefix($path);
@@ -214,7 +205,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -223,7 +213,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         $result = [];
@@ -245,7 +234,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -256,7 +244,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         return $this->getMetadata($path);
@@ -264,7 +251,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -278,7 +264,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         return $this->getMetadata($path);
@@ -286,7 +271,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         $location = $this->applyPathPrefix($path);
@@ -304,7 +288,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         $location = $this->applyPathPrefix($path);
@@ -318,7 +301,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function createDir($dirname, Config $config)
     {
         $location = $this->applyPathPrefix($dirname);
@@ -336,7 +318,6 @@ class Local extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         $location = $this->applyPathPrefix($dirname);

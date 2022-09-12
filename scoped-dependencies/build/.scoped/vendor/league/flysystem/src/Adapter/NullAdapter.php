@@ -16,7 +16,6 @@ class NullAdapter extends AbstractAdapter
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
     public function has($path)
     {
         return \false;
@@ -24,7 +23,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function write($path, $contents, Config $config)
     {
         $type = 'file';
@@ -37,7 +35,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function update($path, $contents, Config $config)
     {
         return \false;
@@ -45,7 +42,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function read($path)
     {
         return \false;
@@ -53,7 +49,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         return \false;
@@ -61,7 +56,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         return \false;
@@ -69,7 +63,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         return [];
@@ -77,7 +70,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         return \false;
@@ -85,7 +77,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         return \false;
@@ -93,7 +84,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         return \false;
@@ -101,7 +91,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         return \false;
@@ -109,7 +98,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         return \false;
@@ -117,7 +105,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         return \compact('visibility');
@@ -125,7 +112,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function createDir($dirname, Config $config)
     {
         return ['path' => $dirname, 'type' => 'dir'];
@@ -133,7 +119,6 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         return \false;
