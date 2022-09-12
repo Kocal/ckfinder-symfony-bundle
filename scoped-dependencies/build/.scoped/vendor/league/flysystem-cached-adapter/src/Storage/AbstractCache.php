@@ -105,6 +105,7 @@ abstract class AbstractCache implements CacheInterface
      *
      * @return array contents listing
      */
+    #[\ReturnTypeWillChange]
     public function listContents($dirname = '', $recursive = \false)
     {
         $result = [];
@@ -123,6 +124,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function has($path)
     {
         if ($path !== \false && \array_key_exists($path, $this->cache)) {
@@ -135,6 +137,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function read($path)
     {
         if (isset($this->cache[$path]['contents']) && $this->cache[$path]['contents'] !== \false) {
@@ -145,6 +148,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         return \false;
@@ -197,6 +201,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         if (isset($this->cache[$path]['mimetype'])) {
@@ -212,6 +217,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         if (isset($this->cache[$path]['size'])) {
@@ -222,6 +228,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         if (isset($this->cache[$path]['timestamp'])) {
@@ -232,6 +239,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         if (isset($this->cache[$path]['visibility'])) {
@@ -242,6 +250,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         if (isset($this->cache[$path]['type'])) {
@@ -252,6 +261,7 @@ abstract class AbstractCache implements CacheInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function isComplete($dirname, $recursive)
     {
         if (!\array_key_exists($dirname, $this->complete)) {

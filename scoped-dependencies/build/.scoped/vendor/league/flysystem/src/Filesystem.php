@@ -46,6 +46,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function has($path)
     {
         $path = Util::normalizePath($path);
@@ -54,6 +55,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function write($path, $contents, array $config = [])
     {
         $path = Util::normalizePath($path);
@@ -64,6 +66,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, array $config = [])
     {
         if (!\is_resource($resource) || \get_resource_type($resource) !== 'stream') {
@@ -78,6 +81,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function put($path, $contents, array $config = [])
     {
         $path = Util::normalizePath($path);
@@ -90,6 +94,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function putStream($path, $resource, array $config = [])
     {
         if (!\is_resource($resource) || \get_resource_type($resource) !== 'stream') {
@@ -106,6 +111,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function readAndDelete($path)
     {
         $path = Util::normalizePath($path);
@@ -120,6 +126,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function update($path, $contents, array $config = [])
     {
         $path = Util::normalizePath($path);
@@ -130,6 +137,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, array $config = [])
     {
         if (!\is_resource($resource) || \get_resource_type($resource) !== 'stream') {
@@ -144,6 +152,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function read($path)
     {
         $path = Util::normalizePath($path);
@@ -168,6 +177,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         $path = Util::normalizePath($path);
@@ -179,6 +189,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function copy($path, $newpath)
     {
         $path = Util::normalizePath($path);
@@ -190,6 +201,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         $path = Util::normalizePath($path);
@@ -199,6 +211,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         $dirname = Util::normalizePath($dirname);
@@ -210,6 +223,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function createDir($dirname, array $config = [])
     {
         $dirname = Util::normalizePath($dirname);
@@ -219,6 +233,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         $directory = Util::normalizePath($directory);
@@ -228,6 +243,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         $path = Util::normalizePath($path);
@@ -240,6 +256,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         $path = Util::normalizePath($path);
@@ -252,6 +269,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         $path = Util::normalizePath($path);
@@ -264,6 +282,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         $path = Util::normalizePath($path);
@@ -276,6 +295,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         $path = Util::normalizePath($path);
@@ -285,6 +305,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         $path = Util::normalizePath($path);
@@ -294,6 +315,7 @@ class Filesystem implements FilesystemInterface
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function get($path, Handler $handler = null)
     {
         $path = Util::normalizePath($path);

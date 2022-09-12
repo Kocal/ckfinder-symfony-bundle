@@ -188,6 +188,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function write($path, $contents, Config $config)
     {
         $stream = \fopen('php://temp', 'w+b');
@@ -205,6 +206,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, Config $config)
     {
         $this->ensureDirectory(Util::dirname($path));
@@ -220,6 +222,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function update($path, $contents, Config $config)
     {
         return $this->write($path, $contents, $config);
@@ -227,6 +230,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, Config $config)
     {
         return $this->writeStream($path, $resource, $config);
@@ -234,6 +238,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         return \ftp_rename($this->getConnection(), $path, $newpath);
@@ -241,6 +246,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         return \ftp_delete($this->getConnection(), $path);
@@ -248,6 +254,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         $connection = $this->getConnection();
@@ -266,6 +273,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function createDir($dirname, Config $config)
     {
         $connection = $this->getConnection();
@@ -305,6 +313,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         if ($path === '') {
@@ -329,6 +338,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         if (!($metadata = $this->getMetadata($path))) {
@@ -340,6 +350,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         $timestamp = \ftp_mdtm($this->getConnection(), $path);
@@ -348,6 +359,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function read($path)
     {
         if (!($object = $this->readStream($path))) {
@@ -361,6 +373,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         $stream = \fopen('php://temp', 'w+b');
@@ -375,6 +388,7 @@ class Ftp extends AbstractFtpAdapter
     /**
      * @inheritdoc
      */
+    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         $mode = $visibility === AdapterInterface::VISIBILITY_PUBLIC ? $this->getPermPublic() : $this->getPermPrivate();

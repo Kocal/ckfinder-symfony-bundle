@@ -119,6 +119,7 @@ class MountManager implements FilesystemInterface
      *
      * @return array
      */
+    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         list($prefix, $directory) = $this->getPrefixAndPath($directory);
@@ -156,6 +157,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function copy($from, $to, array $config = [])
     {
         list($prefixFrom, $from) = $this->getPrefixAndPath($from);
@@ -261,6 +263,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function has($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -275,6 +278,7 @@ class MountManager implements FilesystemInterface
      *
      * @return string|false The file contents or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function read($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -303,6 +307,7 @@ class MountManager implements FilesystemInterface
      *
      * @return array|false The file metadata or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -317,6 +322,7 @@ class MountManager implements FilesystemInterface
      *
      * @return int|false The file size or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -331,6 +337,7 @@ class MountManager implements FilesystemInterface
      *
      * @return string|false The file mime-type or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -345,6 +352,7 @@ class MountManager implements FilesystemInterface
      *
      * @return string|false The timestamp or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -359,6 +367,7 @@ class MountManager implements FilesystemInterface
      *
      * @return string|false The visibility (public|private) or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -375,6 +384,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function write($path, $contents, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -392,6 +402,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -408,6 +419,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function update($path, $contents, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -425,6 +437,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -441,6 +454,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function rename($path, $newpath)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -455,6 +469,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -469,6 +484,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         list($prefix, $dirname) = $this->getPrefixAndPath($dirname);
@@ -482,6 +498,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function createDir($dirname, array $config = [])
     {
         list($prefix, $dirname) = $this->getPrefixAndPath($dirname);
@@ -497,6 +514,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -511,6 +529,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function put($path, $contents, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -527,6 +546,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool True on success, false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function putStream($path, $resource, array $config = [])
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -541,6 +561,7 @@ class MountManager implements FilesystemInterface
      *
      * @return string|false The file contents, or false on failure.
      */
+    #[\ReturnTypeWillChange]
     public function readAndDelete($path)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
@@ -556,6 +577,7 @@ class MountManager implements FilesystemInterface
      *
      * @return Handler Either a file or directory handler.
      */
+    #[\ReturnTypeWillChange]
     public function get($path, Handler $handler = null)
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);

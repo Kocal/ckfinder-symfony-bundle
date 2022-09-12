@@ -47,6 +47,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function write($path, $contents, Config $config)
     {
         $result = $this->adapter->write($path, $contents, $config);
@@ -60,6 +61,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function writeStream($path, $resource, Config $config)
     {
         $result = $this->adapter->writeStream($path, $resource, $config);
@@ -74,6 +76,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function update($path, $contents, Config $config)
     {
         $result = $this->adapter->update($path, $contents, $config);
@@ -87,6 +90,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function updateStream($path, $resource, Config $config)
     {
         $result = $this->adapter->updateStream($path, $resource, $config);
@@ -101,6 +105,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function rename($path, $newPath)
     {
         $result = $this->adapter->rename($path, $newPath);
@@ -112,6 +117,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function copy($path, $newpath)
     {
         $result = $this->adapter->copy($path, $newpath);
@@ -123,6 +129,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function delete($path)
     {
         $result = $this->adapter->delete($path);
@@ -134,6 +141,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function deleteDir($dirname)
     {
         $result = $this->adapter->deleteDir($dirname);
@@ -145,6 +153,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function createDir($dirname, Config $config)
     {
         $result = $this->adapter->createDir($dirname, $config);
@@ -158,6 +167,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function setVisibility($path, $visibility)
     {
         $result = $this->adapter->setVisibility($path, $visibility);
@@ -169,6 +179,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function has($path)
     {
         $cacheHas = $this->cache->has($path);
@@ -187,6 +198,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function read($path)
     {
         return $this->callWithFallback('contents', $path, 'read');
@@ -194,6 +206,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function readStream($path)
     {
         return $this->adapter->readStream($path);
@@ -221,6 +234,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function listContents($directory = '', $recursive = \false)
     {
         if ($this->cache->isComplete($directory, $recursive)) {
@@ -235,6 +249,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getMetadata($path)
     {
         return $this->callWithFallback(null, $path, 'getMetadata');
@@ -242,6 +257,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getSize($path)
     {
         return $this->callWithFallback('size', $path, 'getSize');
@@ -249,6 +265,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getMimetype($path)
     {
         return $this->callWithFallback('mimetype', $path, 'getMimetype');
@@ -256,6 +273,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getTimestamp($path)
     {
         return $this->callWithFallback('timestamp', $path, 'getTimestamp');
@@ -263,6 +281,7 @@ class CachedAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function getVisibility($path)
     {
         return $this->callWithFallback('visibility', $path, 'getVisibility');
