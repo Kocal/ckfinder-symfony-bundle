@@ -6,8 +6,8 @@ $loader = require_once __DIR__.'/autoload.php';
 
 // Exposed classes. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#exposing-classes
-if (!class_exists('ComposerAutoloaderInit64a95ceb6068dc507cbdf34013b4601c', false) && !interface_exists('ComposerAutoloaderInit64a95ceb6068dc507cbdf34013b4601c', false) && !trait_exists('ComposerAutoloaderInit64a95ceb6068dc507cbdf34013b4601c', false)) {
-    spl_autoload_call('_CKFinder_Vendor_Prefix\ComposerAutoloaderInit64a95ceb6068dc507cbdf34013b4601c');
+if (!class_exists('ComposerAutoloaderInit99b21171673e74a121cdb825319fcabd', false) && !interface_exists('ComposerAutoloaderInit99b21171673e74a121cdb825319fcabd', false) && !trait_exists('ComposerAutoloaderInit99b21171673e74a121cdb825319fcabd', false)) {
+    spl_autoload_call('_CKFinder_Vendor_Prefix\ComposerAutoloaderInit99b21171673e74a121cdb825319fcabd');
 }
 if (!class_exists('Context', false) && !interface_exists('Context', false) && !trait_exists('Context', false)) {
     spl_autoload_call('_CKFinder_Vendor_Prefix\Context');
@@ -61,9 +61,9 @@ if (!function_exists('runCase')) {
         return \_CKFinder_Vendor_Prefix\runCase(...func_get_args());
     }
 }
-if (!function_exists('composerRequire64a95ceb6068dc507cbdf34013b4601c')) {
-    function composerRequire64a95ceb6068dc507cbdf34013b4601c() {
-        return \_CKFinder_Vendor_Prefix\composerRequire64a95ceb6068dc507cbdf34013b4601c(...func_get_args());
+if (!function_exists('composerRequire99b21171673e74a121cdb825319fcabd')) {
+    function composerRequire99b21171673e74a121cdb825319fcabd() {
+        return \_CKFinder_Vendor_Prefix\composerRequire99b21171673e74a121cdb825319fcabd(...func_get_args());
     }
 }
 if (!function_exists('processDirectory')) {

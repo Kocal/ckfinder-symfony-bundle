@@ -1,8 +1,8 @@
 .github/                  export-ignore
 playground/               export-ignore
+rector/                   export-ignore
 tests/                    export-ignore
 ecs.php                   export-ignore
-rector.php                export-ignore
 phpstan.neon              export-ignore
 phpstan.dev.neon          export-ignore
 phpstan-baseline.neon     export-ignore
