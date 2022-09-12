@@ -12,7 +12,6 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->autoloadPaths([
-        __DIR__ . '/.scoped/vendor/autoload.php',
         __DIR__ . '/.scoped/vendor/scoper-autoload.php',
     ]);
 

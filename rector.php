@@ -19,11 +19,13 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     // Define what rule sets will be applied
-    $rectorConfig->import(LevelSetList::UP_TO_PHP_80);
-    $rectorConfig->import(SetList::TYPE_DECLARATION);
-    $rectorConfig->import(SetList::TYPE_DECLARATION_STRICT);
-    $rectorConfig->import(SetList::CODE_QUALITY);
-    $rectorConfig->import(SetList::DEAD_CODE);
+    $rectorConfig->sets([
+        LevelSetList::UP_TO_PHP_80,
+        SetList::TYPE_DECLARATION,
+        SetList::TYPE_DECLARATION_STRICT,
+        SetList::CODE_QUALITY,
+        SetList::DEAD_CODE,
+    ]);
 
     // get services (needed for register a single rule)
     // $services = $containerConfigurator->services();
