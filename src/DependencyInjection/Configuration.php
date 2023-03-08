@@ -166,6 +166,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('tempDirectory')->end()
             ->booleanNode('sessionWriteClose')->defaultTrue()->end()
             ->booleanNode('csrfProtection')->defaultTrue()->end()
+            ->booleanNode('forceThrowExceptions')->defaultFalse()->end()
         ->end();
 
         return $connectorNode;
