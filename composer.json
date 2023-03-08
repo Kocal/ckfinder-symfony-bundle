@@ -41,7 +41,7 @@
         "phpstan/phpstan": "^1.8",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "aws/aws-sdk-php": "^3.222"
+        "aws/aws-sdk-php": "^3.261"
     },
     "conflict": {
         "guzzlehttp/guzzle": "<6.0"
