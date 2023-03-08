@@ -18,6 +18,7 @@ use _CKFinder_Vendor_Prefix\Psr\Http\Message\RequestInterface;
  *
  * @final
  */
+#[\AllowDynamicProperties]
 class CurlMultiHandler
 {
     /**
