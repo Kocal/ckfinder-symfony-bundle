@@ -167,6 +167,17 @@ class Configuration implements ConfigurationInterface
             ->booleanNode('sessionWriteClose')->defaultTrue()->end()
             ->booleanNode('csrfProtection')->defaultTrue()->end()
             ->booleanNode('forceThrowExceptions')->defaultFalse()->end()
+            ->arrayNode('commands')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->arrayNode('GetFiles')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->integerNode('returnMaxLastFiles')->defaultNull()->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
         ->end();
 
         return $connectorNode;
