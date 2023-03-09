@@ -24,7 +24,7 @@ class GetFilesCommandPatcher implements PatcherInterface
         
         if (is_int($commandConfig['returnMaxLastFiles'] ?? null)) {
             usort($files, function ($a, $b) {
-                return $a['timestamp'] <=> $b['timestamp'];
+                return $b['timestamp'] <=> $a['timestamp'];
             });
             
             $files = array_slice($files, 0, $commandConfig['returnMaxLastFiles']);
