@@ -46,3 +46,7 @@ services:
     CKSource\Bundle\CKFinderBundle\Patcher\ForceThrowExceptions:
         tags:
             - { name: ckfinder.patcher, priority: 100 }
+
+    CKSource\Bundle\CKFinderBundle\Patcher\GetFilesCommandPatcher:
+        tags:
+            - { name: ckfinder.patcher, priority: 10 }
