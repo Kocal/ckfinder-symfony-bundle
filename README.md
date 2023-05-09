@@ -5,8 +5,8 @@ CKFinder 3 Bundle for Symfony
 
 > :information_source: This project is a fork of [the official and _abandoned_ CKFinder Symfony Bundle](https://github.com/ckfinder/ckfinder-symfony-bundle).
 > 
-> This bundle is fully compatible with Symfony 5.4 and more (Symfony 3 and 4 have been removed), compatible with PHP 8+, Flysystem 2+, 
-> and use many tools to ensure the code quality ([PHPUnit](https://github.com/sebastianbergmann/phpunit), [Easy Coding Standard](https://github.com/symplify/easy-coding-standard) and [Rector](https://github.com/rectorphp/rector)) with a functionnal CI.
+> This bundle is fully compatible with Symfony 6.0 and more (Symfony 3 and 4 have been removed, see [branch `1.x` for Symfony 5.4 support](https://github.com/Kocal/ckfinder-symfony-bundle/tree/1.x)), compatible with PHP 8.1+, Flysystem 3+, 
+> and use many tools to ensure the code quality ([PHPUnit](https://github.com/sebastianbergmann/phpunit), [Easy Coding Standard](https://github.com/symplify/easy-coding-standard) and [Rector](https://github.com/rectorphp/rector)) with a functional CI.
  
 ## Installation
 
@@ -153,35 +153,6 @@ To find out more about possible connector configuration options please refer to 
 The CKFinder bundle provides two extra options:
 - `authenticationClass` &ndash; the name of the CKFinder authentication service class (defaults to `CKSource\Bundle\CKFinderBundle\Authentication\Authentication`)
 - `connectorClass` &ndash; the name of the CKFinder connector service class (defaults to `CKSource\CKFinder\CKFinder`)
-
-### Using the PSR-6 Cache
-
-In order to improve performances, especially if you use an external backend (like AWS S3), you can use the PSR-6 cache.
-
-1. You must configure a caching pool in Symfony:
-```yaml
-# config/packages/cache.yaml
-
-framework:
-    cache:
-        pools:
-           cache.ckfinder:
-                adapter: cache.adapter.filesystem # or "cache.adapter.redis", if your app lives on multiple servers
-```
-2. Then you must configure the CKFinder bundle to use it:
-```yaml
-# config/packages/ckfinder.yaml
-ckfinder:
-    connector:
-        backends:
-            my_backend:
-                # ...
-                cache:
-                    type: 'psr6'
-                    args:
-                        pool: 'cache.ckfinder' # the name of the pool you configured in step 1
-                        key: 'ckfinder' # optional
-```
 
 ## Usage
 

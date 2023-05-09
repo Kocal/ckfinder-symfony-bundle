@@ -9,8 +9,9 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->paths([
         __DIR__ . '/src',
         __DIR__ . '/tests',
-        __DIR__ . '/playground/symfony-5.4/src',
         __DIR__ . '/playground/symfony-6.0/src',
+        __DIR__ . '/playground/symfony-6.1/src',
+        __DIR__ . '/playground/symfony-6.2/src',
     ]);
 
     $ecsConfig->skip([
