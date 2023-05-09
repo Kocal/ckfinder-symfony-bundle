@@ -2,7 +2,7 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Cache\Psr6;
 
-use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemInterface;
+use Psr\Cache\CacheItemInterface;
 
 class CacheItemCompatibilityBridge implements CacheItemInterface
 {
@@ -21,7 +21,7 @@ class CacheItemCompatibilityBridge implements CacheItemInterface
         return $this->cacheItem->getKey();
     }
 
-    public function get()
+    public function get(): mixed
     {
         return $this->cacheItem->get();
     }

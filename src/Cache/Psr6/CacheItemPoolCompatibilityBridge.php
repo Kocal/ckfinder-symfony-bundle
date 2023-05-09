@@ -2,8 +2,8 @@
 
 namespace CKSource\Bundle\CKFinderBundle\Cache\Psr6;
 
-use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemInterface;
-use _CKFinder_Vendor_Prefix\Psr\Cache\CacheItemPoolInterface;
+use Psr\Cache\CacheItemInterface;
+use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * Makes a bridge between user-land psr/cache implementation and psr/cache from our scoped dependencies,
