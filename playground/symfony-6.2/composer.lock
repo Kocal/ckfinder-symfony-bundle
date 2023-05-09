@@ -489,7 +489,7 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "4b495b3d5c9f087e055d4c1a5fe886ddfc370cdc"
+                "reference": "5ffe249663f4e030c8d939b956d5960b45a0c875"
             },
             "require": {
                 "ext-zip": "*",
@@ -498,7 +498,6 @@
                 "monolog/monolog": "^2.0",
                 "php": ">=8.1",
                 "pimple/pimple": "^3.0",
-                "psr/cache": "^2.0 || ^3.0",
                 "symfony/console": "^6.0",
                 "symfony/finder": "^6.0",
                 "symfony/form": "^6.0",
