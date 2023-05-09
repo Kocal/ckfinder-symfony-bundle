@@ -489,12 +489,12 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "5ffe249663f4e030c8d939b956d5960b45a0c875"
+                "reference": "512a7bf1ded3ef982a2e626acc16e3f31de01052"
             },
             "require": {
                 "ext-zip": "*",
                 "league/flysystem": "^3.0",
-                "league/flysystem-aws-s3-v3": "^3.0",
+                "league/flysystem-aws-s3-v3": "^3.0.1",
                 "monolog/monolog": "^2.0",
                 "php": ">=8.1",
                 "pimple/pimple": "^3.0",
