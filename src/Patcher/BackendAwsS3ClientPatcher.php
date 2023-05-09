@@ -16,8 +16,8 @@ class BackendAwsS3ClientPatcher implements PatcherInterface
                     'key' => $backendConfig['key'],
                     'secret' => $backendConfig['secret'],
                 ],
-                'signature_version' => isset($backendConfig['signature']) ? $backendConfig['signature'] : 'v4',
-                'version' => isset($backendConfig['version']) ? $backendConfig['version'] : 'latest',
+                'signature_version' => $backendConfig['signature'] ?? 'v4',
+                'version' => $backendConfig['version'] ?? 'latest',
             ];
 
             if (isset($backendConfig['region'])) {
@@ -40,8 +40,8 @@ PHP,
                         'key' => $backendConfig['key'],
                         'secret' => $backendConfig['secret'],
                     ],
-                    'signature_version' => isset($backendConfig['signature']) ? $backendConfig['signature'] : 'v4',
-                    'version' => isset($backendConfig['version']) ? $backendConfig['version'] : 'latest',
+                    'signature_version' => $backendConfig['signature'] ?? 'v4',
+                    'version' => $backendConfig['version'] ?? 'latest',
                 ];
     
                 if (isset($backendConfig['region'])) {

@@ -31,8 +31,8 @@ class ForceThrowExceptions implements PatcherInterface
         );
         $this->patchFile(
             $connectorPath . '/ExceptionHandler.php',
-            "if (filter_var(ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN)) {",
-            "if (\$this->forceThrowExceptions || filter_var(ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN)) {",
+            "if (filter_var(\ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN)) {",
+            "if (\$this->forceThrowExceptions || filter_var(\ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN)) {",
         );
     }
 }

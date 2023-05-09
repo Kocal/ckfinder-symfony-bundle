@@ -31,10 +31,6 @@ services:
         tags:
             - { name: ckfinder.patcher, priority: 100 }
 
-    CKSource\Bundle\CKFinderBundle\Patcher\BackendFactoryCachePatcher:
-        tags:
-            - { name: ckfinder.patcher, priority: 100 }
-
     CKSource\Bundle\CKFinderBundle\Patcher\ForceThrowExceptions:
         tags:
             - { name: ckfinder.patcher, priority: 100 }

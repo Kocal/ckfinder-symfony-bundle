@@ -489,7 +489,7 @@
             "dist": {
                 "type": "path",
                 "url": "../..",
-                "reference": "69f209720214c7758d42aef62fbeb8d8f8583341"
+                "reference": "11f0dbef923d72341dbe9ad6239e22127272f74e"
             },
             "require": {
                 "ext-zip": "*",
