@@ -26,8 +26,7 @@ use Symfony\Component\Finder\Finder;
  */
 class CKFinderDownloadCommand extends Command
 {
-    public const LATEST_VERSION = '3.5.3';
-    public const FALLBACK_VERSION = '3.5.1';
+    const LATEST_VERSION = '3.6.0';
 
     public function __construct(private PatcherInterface $patcher)
     {

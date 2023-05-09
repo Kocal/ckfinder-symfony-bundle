@@ -27,10 +27,6 @@ services:
         arguments:
             $patchers: !tagged_iterator { tag: ckfinder.patcher }
 
-    CKSource\Bundle\CKFinderBundle\Patcher\Symfony54Patcher:
-        tags:
-            - { name: ckfinder.patcher, priority: 100 }
-
     CKSource\Bundle\CKFinderBundle\Patcher\BackendAwsS3ClientPatcher:
         tags:
             - { name: ckfinder.patcher, priority: 100 }
