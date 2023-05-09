@@ -9,7 +9,7 @@
     }
     ],
     "require": {
-        "php": ">=8.0.2",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "kocal/ckfinder-symfony-bundle": "dev-main",

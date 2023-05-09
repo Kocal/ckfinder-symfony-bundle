@@ -5,7 +5,7 @@ CKFinder 3 Bundle for Symfony
 
 > :information_source: This project is a fork of [the official and _abandoned_ CKFinder Symfony Bundle](https://github.com/ckfinder/ckfinder-symfony-bundle).
 > 
-> This bundle is fully compatible with Symfony 6.0 and more (Symfony 3 and 4 have been removed, see [branch `1.x` for Symfony 5.4 support](https://github.com/Kocal/ckfinder-symfony-bundle/tree/1.x)), compatible with PHP 8+, Flysystem 3+, 
+> This bundle is fully compatible with Symfony 6.0 and more (Symfony 3 and 4 have been removed, see [branch `1.x` for Symfony 5.4 support](https://github.com/Kocal/ckfinder-symfony-bundle/tree/1.x)), compatible with PHP 8.1+, Flysystem 3+, 
 > and use many tools to ensure the code quality ([PHPUnit](https://github.com/sebastianbergmann/phpunit), [Easy Coding Standard](https://github.com/symplify/easy-coding-standard) and [Rector](https://github.com/rectorphp/rector)) with a functional CI.
  
 ## Installation

@@ -21,7 +21,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
+          php-version: 8.1
           tools: symfony-cli
 
       - name: Install Composer dependencies
@@ -30,7 +30,7 @@ jobs:
       # Will install the CKFinder Connector
       - name: Install Playground Composer dependencies
         run: symfony composer install --prefer-dist --no-interaction --no-progress
-        working-directory: playground/symfony-6.0
+        working-directory: playground/symfony-6.2
 
       - name: Run Rector
         run: symfony php vendor/bin/rector --dry-run
@@ -46,35 +46,35 @@ jobs:
       matrix:
         config:
           # Minimum supported dependencies with the latest and oldest PHP version
-          - PHP_VERSION: '8.0'
+          - PHP_VERSION: '8.1'
             COMPOSER_FLAGS: --prefer-stable --prefer-lowest
             PLAYGROUND_VERSION: '6.0'
 
           # Test the latest stable release
-          - PHP_VERSION: '8.0'
-            PLAYGROUND_VERSION: '6.0'
           - PHP_VERSION: '8.1'
             PLAYGROUND_VERSION: '6.0'
+          - PHP_VERSION: '8.2'
+            PLAYGROUND_VERSION: '6.0'
 
-          - PHP_VERSION: '8.0'
-            PLAYGROUND_VERSION: '6.1'
           - PHP_VERSION: '8.1'
             PLAYGROUND_VERSION: '6.1'
+          - PHP_VERSION: '8.2'
+            PLAYGROUND_VERSION: '6.1'
 
-          - PHP_VERSION: '8.0'
+          - PHP_VERSION: '8.1'
             PLAYGROUND_VERSION: '6.2'
-          - PHP_VERSION: '8.1'
+          - PHP_VERSION: '8.2'
             PLAYGROUND_VERSION: '6.2'
 
           # Test specific Symfony versions
 
-          - PHP_VERSION: '8.0'
-            SYMFONY_VERSION: '6.*' # Last 6.x version
-            PLAYGROUND_VERSION: '6.0'
-            STABILITY: dev
           - PHP_VERSION: '8.1'
             SYMFONY_VERSION: '6.*' # Last 6.x version
             PLAYGROUND_VERSION: '6.0'
+            STABILITY: dev
+          - PHP_VERSION: '8.2'
+            SYMFONY_VERSION: '6.*' # Last 6.x version
+            PLAYGROUND_VERSION: '6.2'
             STABILITY: dev
 
     steps:
