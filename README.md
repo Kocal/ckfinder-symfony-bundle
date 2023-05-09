@@ -2,6 +2,7 @@ CKFinder 3 Bundle for Symfony
 ===============================
 
 [![Continuous Integration](https://github.com/Kocal/ckfinder-symfony-bundle/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/Kocal/ckfinder-symfony-bundle/actions/workflows/continuous-integration.yaml)
+[![kocal/ckfinder-symfony-bundle](https://img.shields.io/packagist/v/kocal/ckfinder-symfony-bundle)](https://packagist.org/packages/kocal/ckfinder-symfony-bundle)
 
 > :information_source: This project is a fork of [the official and _abandoned_ CKFinder Symfony Bundle](https://github.com/ckfinder/ckfinder-symfony-bundle).
 > 
