@@ -19,6 +19,7 @@ services:
         class: CKSource\Bundle\CKFinderBundle\Command\CKFinderDownloadCommand
         arguments:
             $patcher: '@CKSource\Bundle\CKFinderBundle\Patcher\ChainedPatcher'
+            $httpClient: '@Symfony\Contracts\HttpClient\HttpClientInterface'
         tags:
             - { name: console.command }
 
