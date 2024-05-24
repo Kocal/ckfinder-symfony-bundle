@@ -20,6 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * Command that downloads the CKFinder package and puts assets to the Resources/public directory of the bundle.
@@ -28,8 +29,10 @@ class CKFinderDownloadCommand extends Command
 {
     public const LATEST_VERSION = '3.6.0';
 
-    public function __construct(private PatcherInterface $patcher)
-    {
+    public function __construct(
+        private PatcherInterface $patcher,
+        private HttpClientInterface $httpClient,
+    ) {
         parent::__construct();
     }
 
@@ -46,7 +49,7 @@ class CKFinderDownloadCommand extends Command
     {
         $packageVersion = self::LATEST_VERSION;
 
-        return "http://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
+        return "https://download.cksource.com/CKFinder/CKFinder%20for%20PHP/$packageVersion/ckfinder_php_$packageVersion.zip";
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -86,27 +89,21 @@ class CKFinderDownloadCommand extends Command
 
         /** @var ProgressBar|null $progressBar */
         $progressBar = null;
-
-        $maxBytes = 0;
-        $ctx = stream_context_create([], [
-            'notification' => function ($notificationCode, $severity, $message, $messageCode, $bytesTransferred, $bytesMax) use (&$maxBytes, $output, &$progressBar): void {
-                switch ($notificationCode) {
-                    case STREAM_NOTIFY_FILE_SIZE_IS:
-                        $maxBytes = $bytesMax;
-                        $progressBar = new ProgressBar($output, $bytesMax);
-                        break;
-                    case STREAM_NOTIFY_PROGRESS:
-                        $progressBar?->setProgress($bytesTransferred);
-                        break;
+        
+        $response = $this->httpClient->request('GET', $this->buildPackageUrl(), [
+            'on_progress' => function (int $downloadedBytes, int $totalBytes) use ($output, &$progressBar) {
+                if (null === $progressBar) {
+                    $progressBar = new ProgressBar($output);
+                    $progressBar->start();
                 }
+
+                $progressBar->setProgress($downloadedBytes);
             },
         ]);
+        
+        $zipContents = $response->getContent();
 
-        $output->writeln('<info>Downloading the CKFinder 3 distribution package.</info>');
-
-        $zipContents = @file_get_contents($this->buildPackageUrl(), false, $ctx);
-
-        if (false === $zipContents) {
+        if ('' === $zipContents) {
             $output->writeln(
                 '<error>Could not download the distribution package of CKFinder.</error>'
             );
