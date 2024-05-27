@@ -60,7 +60,6 @@ class CKSourceCKFinderExtension extends Extension implements PrependExtensionInt
         $container->setParameter('ckfinder.connector.config', $config['connector']);
 
         $this->registerServicesMap($config, $container);
-        dump(\Symfony\Contracts\HttpClient\HttpClientInterface::OPTIONS_DEFAULTS);
     }
 
     public function getAlias(): string
